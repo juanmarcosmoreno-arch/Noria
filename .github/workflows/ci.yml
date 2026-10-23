@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macos:
+    name: macOS — build app & test core
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: NoriaCore tests
+        run: swift test --package-path NoriaCore
+
+      - name: String catalog is up to date
+        run: |
+          python3 Tools/build_strings.py
+          git diff --exit-code App/Resources/Localizable.xcstrings
+
+      - name: Xcode project matches project.yml
+        run: |
+          brew install xcodegen
+          xcodegen generate
+          git diff --exit-code Noria.xcodeproj
+
+      - name: Build Noria.app
+        run: |
+          set -o pipefail
+          xcodebuild -project Noria.xcodeproj -scheme Noria -configuration Debug \
+            -destination 'platform=macOS' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tee build.log | grep -E "error:|warning:|BUILD" || true
+          grep -q "BUILD SUCCEEDED" build.log
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcodebuild-log
+          path: build.log
+          if-no-files-found: ignore
+
+  linux-core:
+    name: Linux — NoriaCore tests
+    runs-on: ubuntu-latest
+    container: swift:6.1
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift test --package-path NoriaCore

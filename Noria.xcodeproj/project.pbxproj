@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0327D4C009630A4F5E10B693 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F519F7D8178FE04BD4FB2A /* RootView.swift */; };
+		054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */; };
+		108E41262B50AA1CA67183CD /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFC08B6A4C093C24151C3C /* Theme.swift */; };
+		1BBF3F54B857811710723B3E /* SmartCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310CF756010621257CCEE40 /* SmartCleanView.swift */; };
+		1D53A35B0993119145320000 /* LargeFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */; };
+		4E4C5095ADA90A8E648FBE7B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C8D26D6F333062950F83D /* DashboardView.swift */; };
+		5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
+		6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
+		7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
+		9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
+		A837388EADE53453867AAF24 /* TurbineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817A6F7E1139E230696953E /* TurbineView.swift */; };
+		C4E1268C40C3AC45D159E1C6 /* NoriaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 70808D822A30A07C1E4E10E9 /* NoriaCore */; };
+		C5EA8AE0EB37C8AE01E36E93 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
+		CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
+		D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
+		DF733962A51289E1C2076C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
+		E182FC9D399C7D57C9D96713 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
+		F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC446685B6E8E16F0C58FEDC /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesModel.swift; sourceTree = "<group>"; };
+		0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartScanModel.swift; sourceTree = "<group>"; };
+		212DBF1884492581CBB42A88 /* NoriaCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NoriaCore; path = NoriaCore; sourceTree = SOURCE_ROOT; };
+		3D5050913571E6B5FDD0752F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupSheets.swift; sourceTree = "<group>"; };
+		4FF3B92EFF0676CF311074CC /* Noria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noria.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5310CF756010621257CCEE40 /* SmartCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCleanView.swift; sourceTree = "<group>"; };
+		5575B1B32F889F5D2886F95C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		63A2E91F87F728D1FB813BA8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		7817A6F7E1139E230696953E /* TurbineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurbineView.swift; sourceTree = "<group>"; };
+		7F1C8D26D6F333062950F83D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		923281466CB24D7B1507A1CD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
+		A2F519F7D8178FE04BD4FB2A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A6BFC08B6A4C093C24151C3C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A8C74679380FC9A9678686F5 /* Noria.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noria.entitlements; sourceTree = "<group>"; };
+		B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesView.swift; sourceTree = "<group>"; };
+		CC446685B6E8E16F0C58FEDC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E08789015A598917BB2AD517 /* NoriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoriaApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B438F0E177757909E034F2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4E1268C40C3AC45D159E1C6 /* NoriaCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01B729F7A7804E8A98F74F3D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				29C0A622156271B020E74CFF /* Dashboard */,
+				C9FD98BD3BC1F2F6C717F032 /* History */,
+				643B402AA0BB7E89EFCCA02E /* LargeFiles */,
+				E675DFC7624E55095438B7CB /* Settings */,
+				1C0F3D184FDD325DBCDA718A /* SmartClean */,
+				A2F519F7D8178FE04BD4FB2A /* RootView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		02E60503627C73B21FF0544C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				212DBF1884492581CBB42A88 /* NoriaCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		0B162CEE32E910CB750025E9 = {
+			isa = PBXGroup;
+			children = (
+				90618B1392F07CA73B09C0AE /* App */,
+				02E60503627C73B21FF0544C /* Packages */,
+				1D29FA9964F34AC82605F1B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10D2D6F2964D88283B57796F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */,
+				923281466CB24D7B1507A1CD /* Localizable.xcstrings */,
+				A8C74679380FC9A9678686F5 /* Noria.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1C0F3D184FDD325DBCDA718A /* SmartClean */ = {
+			isa = PBXGroup;
+			children = (
+				410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */,
+				5310CF756010621257CCEE40 /* SmartCleanView.swift */,
+			);
+			path = SmartClean;
+			sourceTree = "<group>";
+		};
+		1D29FA9964F34AC82605F1B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FF3B92EFF0676CF311074CC /* Noria.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29C0A622156271B020E74CFF /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				7F1C8D26D6F333062950F83D /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		643B402AA0BB7E89EFCCA02E /* LargeFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */,
+			);
+			path = LargeFiles;
+			sourceTree = "<group>";
+		};
+		90618B1392F07CA73B09C0AE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A78355D6479EC2A8BF2C3ACB /* App */,
+				A2C4A0A3E0375FA0A78FD1C0 /* DesignSystem */,
+				01B729F7A7804E8A98F74F3D /* Features */,
+				10D2D6F2964D88283B57796F /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A2C4A0A3E0375FA0A78FD1C0 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				63A2E91F87F728D1FB813BA8 /* Components.swift */,
+				9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */,
+				A6BFC08B6A4C093C24151C3C /* Theme.swift */,
+				7817A6F7E1139E230696953E /* TurbineView.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		A78355D6479EC2A8BF2C3ACB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3D5050913571E6B5FDD0752F /* AppModel.swift */,
+				01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */,
+				E08789015A598917BB2AD517 /* NoriaApp.swift */,
+				0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C9FD98BD3BC1F2F6C717F032 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				5575B1B32F889F5D2886F95C /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		E675DFC7624E55095438B7CB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CC446685B6E8E16F0C58FEDC /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED178DB5A42D6915BC5BBDD5 /* Noria */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9A9F89DD82C85C9AA7893D8 /* Build configuration list for PBXNativeTarget "Noria" */;
+			buildPhases = (
+				4C18D31A29AD6D5E1439B12F /* Sources */,
+				1FBA55AB1539E78A32D10169 /* Resources */,
+				8B438F0E177757909E034F2E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Noria;
+			packageProductDependencies = (
+				70808D822A30A07C1E4E10E9 /* NoriaCore */,
+			);
+			productName = Noria;
+			productReference = 4FF3B92EFF0676CF311074CC /* Noria.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		530113AD54B006A6FDE6249F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					ED178DB5A42D6915BC5BBDD5 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D2F75ADCEB34636C6C1B36E6 /* Build configuration list for PBXProject "Noria" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				es,
+			);
+			mainGroup = 0B162CEE32E910CB750025E9;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E29A990632452781722600C2 /* XCLocalSwiftPackageReference "NoriaCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED178DB5A42D6915BC5BBDD5 /* Noria */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FBA55AB1539E78A32D10169 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF733962A51289E1C2076C02 /* Assets.xcassets in Resources */,
+				E182FC9D399C7D57C9D96713 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C18D31A29AD6D5E1439B12F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5EA8AE0EB37C8AE01E36E93 /* AppModel.swift in Sources */,
+				CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */,
+				6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */,
+				4E4C5095ADA90A8E648FBE7B /* DashboardView.swift in Sources */,
+				9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */,
+				7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */,
+				1D53A35B0993119145320000 /* LargeFilesView.swift in Sources */,
+				D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */,
+				054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */,
+				0327D4C009630A4F5E10B693 /* RootView.swift in Sources */,
+				F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */,
+				1BBF3F54B857811710723B3E /* SmartCleanView.swift in Sources */,
+				5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */,
+				108E41262B50AA1CA67183CD /* Theme.swift in Sources */,
+				A837388EADE53453867AAF24 /* TurbineView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0EE6A9C43559C65E23E17D8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5832E31CB8670183FE689F1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		94173A632261C8EE3AB26899 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Noria;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Noria";
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.noria.Noria;
+				PRODUCT_NAME = Noria;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BAEEDE590D423F111863998B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Noria;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Noria";
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.noria.Noria;
+				PRODUCT_NAME = Noria;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9A9F89DD82C85C9AA7893D8 /* Build configuration list for PBXNativeTarget "Noria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAEEDE590D423F111863998B /* Debug */,
+				94173A632261C8EE3AB26899 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D2F75ADCEB34636C6C1B36E6 /* Build configuration list for PBXProject "Noria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5832E31CB8670183FE689F1D /* Debug */,
+				0EE6A9C43559C65E23E17D8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E29A990632452781722600C2 /* XCLocalSwiftPackageReference "NoriaCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = NoriaCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		70808D822A30A07C1E4E10E9 /* NoriaCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NoriaCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 530113AD54B006A6FDE6249F /* Project object */;
+}
