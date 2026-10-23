@@ -50,9 +50,8 @@ APIs, all introduced or stabilized in macOS 14.
 open Noria.xcodeproj        # select the "Noria" scheme, then Run (⌘R)
 ```
 
-Signing uses team `62395T6WLG` (automatic signing). The bundle identifier
-`app.noria.Noria` is provisional — confirm it in `project.yml` before the first
-upload, then run `xcodegen generate`.
+Bundle identifier `com.juanmarcos.noria`, team `62395T6WLG` (automatic signing).
+Both live in `project.yml`; run `xcodegen generate` after changing them.
 
 Command line:
 

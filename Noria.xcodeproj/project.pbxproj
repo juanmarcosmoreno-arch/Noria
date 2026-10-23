@@ -440,7 +440,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.noria.Noria;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria;
 				PRODUCT_NAME = Noria;
 				SDKROOT = macosx;
 			};
@@ -470,7 +470,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.noria.Noria;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria;
 				PRODUCT_NAME = Noria;
 				SDKROOT = macosx;
 			};

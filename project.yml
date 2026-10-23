@@ -3,7 +3,7 @@
 # Noria.xcodeproj is committed so the project opens without XcodeGen installed.
 name: Noria
 options:
-  bundleIdPrefix: app.noria
+  bundleIdPrefix: com.juanmarcos
   deploymentTarget:
     macOS: "14.0"
   developmentLanguage: en
@@ -31,8 +31,7 @@ targets:
       - package: NoriaCore
     settings:
       base:
-        # Provisional bundle identifier: confirm the final one before the first upload.
-        PRODUCT_BUNDLE_IDENTIFIER: app.noria.Noria
+        PRODUCT_BUNDLE_IDENTIFIER: com.juanmarcos.noria
         PRODUCT_NAME: Noria
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: Noria

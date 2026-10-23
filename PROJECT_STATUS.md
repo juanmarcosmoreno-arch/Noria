@@ -102,7 +102,6 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - Language change requires relaunching Noria (macOS reads `AppleLanguages` at launch).
 - Associated-app names are resolved only for reverse-DNS cache folder names.
 - Spanish copy uses neutral Spanish (tú). Can be switched to rioplatense if preferred.
-- The bundle identifier `app.noria.Noria` is provisional (team `62395T6WLG` is set).
 - The in-app saw is a vector re-drawing of the brand artwork, not the raster
   artwork itself; small differences in shading are expected.
 
@@ -124,6 +123,5 @@ development container is Linux, so the SwiftUI target is compiled in CI
 ## Next steps
 
 1. Run Noria on a Mac, check the UI and a real Smart Scan (no cleanup needed) and report feedback.
-3. Confirm the final bundle identifier.
-4. Start Phase 2 with the quarantine (it changes the cleaning flow), then Space Map,
+2. Start Phase 2 with the quarantine (it changes the cleaning flow), then Space Map,
    Duplicates and App Remover.
