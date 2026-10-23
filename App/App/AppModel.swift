@@ -27,14 +27,18 @@ final class AppModel {
     let operationLog = OperationLog(fileURL: OperationLog.defaultFileURL())
     private let settingsStore: any SettingsStore
 
-    @ObservationIgnored private(set) var smartScan: SmartScanModel!
-    @ObservationIgnored private(set) var largeFiles: LargeFilesModel!
+    // Feature models need a reference back to the app model, so they are created
+    // at the end of init; the accessors expose them as non-optional.
+    @ObservationIgnored private var smartScanStorage: SmartScanModel?
+    @ObservationIgnored private var largeFilesStorage: LargeFilesModel?
+    var smartScan: SmartScanModel { smartScanStorage! }
+    var largeFiles: LargeFilesModel { largeFilesStorage! }
 
     init(settingsStore: any SettingsStore = UserDefaultsSettingsStore()) {
         self.settingsStore = settingsStore
         self.settings = settingsStore.load()
-        smartScan = SmartScanModel(app: self)
-        largeFiles = LargeFilesModel(app: self)
+        smartScanStorage = SmartScanModel(app: self)
+        largeFilesStorage = LargeFilesModel(app: self)
         refreshVolume()
         Task { await loadHistory() }
     }

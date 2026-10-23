@@ -223,7 +223,6 @@
 				};
 			};
 			buildConfigurationList = D2F75ADCEB34636C6C1B36E6 /* Build configuration list for PBXProject "Noria" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -237,6 +236,7 @@
 				E29A990632452781722600C2 /* XCLocalSwiftPackageReference "NoriaCore" */,
 			);
 			preferredProjectObjectVersion = 77;
+			productRefGroup = 1D29FA9964F34AC82605F1B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
