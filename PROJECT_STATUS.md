@@ -7,11 +7,11 @@ _Last updated: 2026-10-23 · Current phase: **1 (MVP)**_
 | Check | Where | Result |
 |---|---|---|
 | NoriaCore build + 48 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
-| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | see CI (49 incl. live-metrics test) |
-| `Noria.app` build (`xcodebuild`, Debug, unsigned, arm64) | GitHub Actions `macos-15` | see CI |
+| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | ✅ 49/49 (incl. live CPU/memory test) |
+| `Noria.app` build (`xcodebuild`, Debug, unsigned, arm64) | GitHub Actions `macos-15` | ✅ BUILD SUCCEEDED, no Swift warnings |
 | String catalog complete (en + es) and in sync | `Tools/build_strings.py` + CI | ✅ |
 | Xcode project in sync with `project.yml` (XcodeGen 2.46.0) | CI | ✅ |
-| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | see CI |
+| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | ✅ 48/48 |
 
 **Not yet verified by a human on a real Mac:** interactive behaviour of the UI
 (layout, animation smoothness, TCC prompts, Trash/Put Back round-trip). The
