@@ -17,18 +17,21 @@
 		6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
 		7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
 		9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
-		A837388EADE53453867AAF24 /* TurbineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817A6F7E1139E230696953E /* TurbineView.swift */; };
+		A150C570AA35A2DFCD781C78 /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
 		C4E1268C40C3AC45D159E1C6 /* NoriaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 70808D822A30A07C1E4E10E9 /* NoriaCore */; };
 		C5EA8AE0EB37C8AE01E36E93 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
 		CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
 		D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
 		DF733962A51289E1C2076C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
 		E182FC9D399C7D57C9D96713 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
+		EEBB61801683E3604248222E /* MetricsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E34557952D0BD132007242 /* MetricsMonitor.swift */; };
 		F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC446685B6E8E16F0C58FEDC /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesModel.swift; sourceTree = "<group>"; };
+		05E34557952D0BD132007242 /* MetricsMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsMonitor.swift; sourceTree = "<group>"; };
+		08D788A86C604C3ABF09EEFE /* SawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawView.swift; sourceTree = "<group>"; };
 		0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartScanModel.swift; sourceTree = "<group>"; };
 		212DBF1884492581CBB42A88 /* NoriaCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NoriaCore; path = NoriaCore; sourceTree = SOURCE_ROOT; };
 		3D5050913571E6B5FDD0752F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -37,7 +40,6 @@
 		5310CF756010621257CCEE40 /* SmartCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCleanView.swift; sourceTree = "<group>"; };
 		5575B1B32F889F5D2886F95C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		63A2E91F87F728D1FB813BA8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
-		7817A6F7E1139E230696953E /* TurbineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurbineView.swift; sourceTree = "<group>"; };
 		7F1C8D26D6F333062950F83D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		923281466CB24D7B1507A1CD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
@@ -151,8 +153,8 @@
 			children = (
 				63A2E91F87F728D1FB813BA8 /* Components.swift */,
 				9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */,
+				08D788A86C604C3ABF09EEFE /* SawView.swift */,
 				A6BFC08B6A4C093C24151C3C /* Theme.swift */,
-				7817A6F7E1139E230696953E /* TurbineView.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 			children = (
 				3D5050913571E6B5FDD0752F /* AppModel.swift */,
 				01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */,
+				05E34557952D0BD132007242 /* MetricsMonitor.swift */,
 				E08789015A598917BB2AD517 /* NoriaApp.swift */,
 				0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */,
 			);
@@ -217,7 +220,7 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					ED178DB5A42D6915BC5BBDD5 = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = 62395T6WLG;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -269,14 +272,15 @@
 				9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */,
 				7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */,
 				1D53A35B0993119145320000 /* LargeFilesView.swift in Sources */,
+				EEBB61801683E3604248222E /* MetricsMonitor.swift in Sources */,
 				D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */,
 				054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */,
 				0327D4C009630A4F5E10B693 /* RootView.swift in Sources */,
+				A150C570AA35A2DFCD781C78 /* SawView.swift in Sources */,
 				F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */,
 				1BBF3F54B857811710723B3E /* SmartCleanView.swift in Sources */,
 				5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */,
 				108E41262B50AA1CA67183CD /* Theme.swift in Sources */,
-				A837388EADE53453867AAF24 /* TurbineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,10 +422,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 62395T6WLG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -449,10 +452,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 62395T6WLG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;

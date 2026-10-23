@@ -7,27 +7,31 @@ struct DashboardView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: NoriaSpacing.l) {
-                ScanHeroCard()
-                HStack(alignment: .top, spacing: NoriaSpacing.l) {
-                    StorageCard()
-                    DeviceCard()
+                HeroCard()
+                if model.smartScan.phase != .idle {
+                    AnalysisCard()
                 }
                 if !model.smartScan.recommendations.isEmpty {
                     RecommendationsCard()
                 }
+                DeviceCard()
             }
             .padding(NoriaSpacing.xl)
             .frame(maxWidth: 1100)
             .frame(maxWidth: .infinity)
         }
         .navigationTitle(Text("Dashboard"))
-        .onAppear { model.refreshVolume() }
+        .onAppear {
+            model.refreshVolume()
+            model.metrics.start()
+        }
+        .onDisappear { model.metrics.stop() }
     }
 }
 
-// MARK: - Smart Scan hero
+// MARK: - Hero
 
-private struct ScanHeroCard: View {
+private struct HeroCard: View {
     @Environment(AppModel.self) private var model
 
     private var scan: SmartScanModel { model.smartScan }
@@ -35,120 +39,231 @@ private struct ScanHeroCard: View {
     var body: some View {
         Card(padding: NoriaSpacing.xl) {
             HStack(alignment: .center, spacing: NoriaSpacing.xl) {
-                TurbineProgressView(isActive: scan.isScanning, progress: scan.categoryProgress, lineWidth: 7)
-                    .frame(width: 190, height: 190)
+                SawProgressView(isActive: scan.isScanning, progress: scan.categoryProgress,
+                                lineWidth: 7, showsRing: scan.isScanning)
+                    .frame(width: 280, height: 280)
 
-                VStack(alignment: .leading, spacing: NoriaSpacing.s) {
-                    status
+                VStack(alignment: .leading, spacing: NoriaSpacing.m) {
+                    header
+                    StorageSummary()
+                    HStack(spacing: NoriaSpacing.s) {
+                        RecoverableTile()
+                        CPUTile()
+                        MemoryTile()
+                    }
+                    actions
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-
-                CategoryChecklist()
-                    .frame(width: 300)
             }
         }
     }
 
     @ViewBuilder
-    private var status: some View {
+    private var header: some View {
+        VStack(alignment: .leading, spacing: NoriaSpacing.xxs) {
+            switch scan.phase {
+            case .idle:
+                Text("Make space. Run better.").font(NoriaFont.title)
+                Text("Analyze, clean and free up space safely.").foregroundStyle(.secondary)
+            case .scanning:
+                Text("Analyzing your Mac…").font(NoriaFont.title)
+                if let category = scan.currentCategory {
+                    Label(category.title, systemImage: category.systemImage)
+                        .foregroundStyle(NoriaColor.accent)
+                }
+            case .finished:
+                Text("Analysis complete").font(NoriaFont.title)
+                if let report = scan.report {
+                    let duration = Format.duration(report.finishedAt.timeIntervalSince(report.startedAt))
+                    Text("Found \(Format.count(report.allItems.count)) items in \(duration).")
+                        .foregroundStyle(.secondary)
+                }
+            case .cancelled:
+                Text("Scan cancelled").font(NoriaFont.title)
+                Text("No files were changed. Results are partial and have been discarded.")
+                    .foregroundStyle(.secondary)
+            case .failed(let message):
+                Text("The scan could not finish").font(NoriaFont.title)
+                Text(message).foregroundStyle(.secondary).textSelection(.enabled)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var actions: some View {
         switch scan.phase {
-        case .idle:
-            Text("Make space. Run better.").font(NoriaFont.title)
-            Text("Noria analyzes caches, logs, temporary files, developer data and old downloads. Nothing is removed without your review and confirmation.")
-                .foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-            analyzeButton.padding(.top, NoriaSpacing.xs)
-
         case .scanning:
-            Text("Analyzing your Mac…").font(NoriaFont.title)
-            if let category = scan.currentCategory {
-                Label(category.title, systemImage: category.systemImage)
-                    .foregroundStyle(NoriaColor.primaryBlue)
+            HStack(spacing: NoriaSpacing.l) {
+                MetricView(title: "Files examined", value: Format.count(scan.filesVisited))
+                MetricView(title: "Found", value: Format.bytes(scan.bytesFound))
+                if let start = scan.startedAt {
+                    TimelineView(.periodic(from: start, by: 1)) { context in
+                        MetricView(title: "Elapsed", value: Format.duration(context.date.timeIntervalSince(start)))
+                    }
+                }
+                Spacer()
+                Button("Cancel") { scan.cancel() }
+                    .buttonStyle(SecondaryButtonStyle())
+                    .keyboardShortcut(.cancelAction)
             }
-            scanCounters
-            Button("Cancel") { scan.cancel() }
-                .buttonStyle(SecondaryButtonStyle())
-                .keyboardShortcut(.cancelAction)
-                .padding(.top, NoriaSpacing.xs)
-
         case .finished:
-            if let report = scan.report {
-                Text(Format.bytes(report.recoverableSize))
-                    .font(NoriaFont.heroValue)
-                    .foregroundStyle(NoriaColor.primaryBlue)
-                Text("potentially recoverable · \(Format.bytes(report.safeSize)) marked safe")
-                    .foregroundStyle(.secondary)
-                let duration = Format.duration(report.finishedAt.timeIntervalSince(report.startedAt))
-                Text("Found \(Format.count(report.allItems.count)) items in \(duration).")
-                    .font(NoriaFont.caption)
-                    .foregroundStyle(.secondary)
-                HStack(spacing: NoriaSpacing.s) {
-                    Button("Review and Clean") { model.selection = .smartClean }
-                        .buttonStyle(PrimaryButtonStyle())
-                    Button("Analyze Again") { scan.start() }
-                        .buttonStyle(SecondaryButtonStyle())
+            HStack(spacing: NoriaSpacing.s) {
+                Button {
+                    model.selection = .smartClean
+                } label: {
+                    Label("Review and Clean", systemImage: "checklist")
                 }
-                .padding(.top, NoriaSpacing.xs)
+                .buttonStyle(PrimaryButtonStyle(prominent: true))
+                Button("Analyze Again") { scan.start() }
+                    .buttonStyle(SecondaryButtonStyle())
             }
-
-        case .cancelled:
-            Text("Scan cancelled").font(NoriaFont.title)
-            Text("No files were changed. Results are partial and have been discarded.")
-                .foregroundStyle(.secondary)
-            analyzeButton
-
-        case .failed(let message):
-            Text("The scan could not finish").font(NoriaFont.title)
-            Text(message).foregroundStyle(.secondary).textSelection(.enabled)
-            analyzeButton
-        }
-    }
-
-    private var analyzeButton: some View {
-        Button {
-            scan.start()
-        } label: {
-            Label("Analyze My Mac", systemImage: "sparkle.magnifyingglass")
-        }
-        .buttonStyle(PrimaryButtonStyle())
-        .keyboardShortcut(.defaultAction)
-    }
-
-    private var scanCounters: some View {
-        HStack(spacing: NoriaSpacing.l) {
-            MetricView(title: "Files examined", value: Format.count(scan.filesVisited))
-            MetricView(title: "Found", value: Format.bytes(scan.bytesFound))
-            if let start = scan.startedAt {
-                TimelineView(.periodic(from: start, by: 1)) { context in
-                    MetricView(title: "Elapsed", value: Format.duration(context.date.timeIntervalSince(start)))
-                }
+        case .idle, .cancelled, .failed:
+            Button {
+                scan.start()
+            } label: {
+                Label("Analyze My Mac", systemImage: "play.fill")
             }
+            .buttonStyle(PrimaryButtonStyle(prominent: true))
+            .keyboardShortcut(.defaultAction)
         }
     }
 }
 
-/// Per-category status list, as in the reference design.
-private struct CategoryChecklist: View {
+/// Startup volume: name, used of total, percentage and capacity bar.
+private struct StorageSummary: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        HStack(alignment: .center, spacing: NoriaSpacing.m) {
+            Image(systemName: "internaldrive.fill")
+                .font(.system(size: 30))
+                .foregroundStyle(NoriaColor.steelMid)
+            if let volume = model.volume {
+                VStack(alignment: .leading, spacing: NoriaSpacing.xs) {
+                    HStack(alignment: .firstTextBaseline) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(volume.name.isEmpty ? String(localized: "Startup Disk") : volume.name)
+                                .font(NoriaFont.body.weight(.semibold))
+                            Text("\(Format.bytes(volume.usedCapacity)) of \(Format.bytes(volume.totalCapacity))")
+                                .font(NoriaFont.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        VStack(alignment: .trailing, spacing: 0) {
+                            Text(Format.percent(volume.usedFraction)).font(NoriaFont.metric)
+                            Text("used").font(NoriaFont.caption).foregroundStyle(.secondary)
+                        }
+                    }
+                    CapacityBar(fraction: volume.usedFraction)
+                    Text(volume.purgeableCapacity > 0
+                         ? String(localized: "\(Format.bytes(volume.availableForImportantUsage)) available, including \(Format.bytes(volume.purgeableCapacity)) purgeable")
+                         : String(localized: "\(Format.bytes(volume.availableForImportantUsage)) available"))
+                        .font(NoriaFont.caption)
+                        .foregroundStyle(.secondary)
+                }
+            } else if let error = model.volumeError {
+                Text(error).foregroundStyle(.secondary)
+            } else {
+                ProgressView().controlSize(.small)
+            }
+        }
+        .padding(NoriaSpacing.m)
+        .background(NoriaColor.subtleFill.opacity(0.6), in: RoundedRectangle(cornerRadius: NoriaRadius.card - 4, style: .continuous))
+    }
+}
+
+/// Small metric tile used in the hero (recoverable space, CPU, memory).
+private struct MetricTile: View {
+    var title: LocalizedStringKey
+    var systemImage: String
+    var value: String
+    var caption: String?
+
+    var body: some View {
+        HStack(alignment: .top, spacing: NoriaSpacing.s) {
+            Image(systemName: systemImage)
+                .font(.system(size: 20))
+                .foregroundStyle(NoriaColor.accent)
+                .frame(width: 24)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title).font(NoriaFont.caption).foregroundStyle(.secondary).lineLimit(1)
+                Text(value).font(NoriaFont.metric).lineLimit(1).minimumScaleFactor(0.7)
+                Text(caption ?? " ").font(NoriaFont.caption).foregroundStyle(.secondary).lineLimit(1)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(NoriaSpacing.s)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(NoriaColor.subtleFill.opacity(0.6), in: RoundedRectangle(cornerRadius: NoriaRadius.small + 2, style: .continuous))
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct RecoverableTile: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        let report = model.smartScan.report
+        MetricTile(title: "Recoverable space", systemImage: "wand.and.stars",
+                   value: report.map { Format.bytes($0.recoverableSize) } ?? "—",
+                   caption: report.map { String(localized: "\(Format.bytes($0.safeSize)) marked safe") }
+                       ?? String(localized: "Run an analysis to calculate"))
+    }
+}
+
+private struct CPUTile: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        MetricTile(title: "CPU", systemImage: "cpu",
+                   value: model.metrics.cpuUsage.map { Format.percent($0) } ?? "—",
+                   caption: String(localized: "\(Format.count(model.device.processorCount)) cores"))
+    }
+}
+
+private struct MemoryTile: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        let memory = model.metrics.memory
+        MetricTile(title: "Memory", systemImage: "memorychip",
+                   value: memory.map { Format.memory($0.used) } ?? "—",
+                   caption: String(localized: "of \(Format.memory(model.device.physicalMemory))"))
+    }
+}
+
+// MARK: - Analysis
+
+/// Per-category status of the current or last Smart Scan.
+private struct AnalysisCard: View {
     @Environment(AppModel.self) private var model
 
     var body: some View {
         let scan = model.smartScan
-        let categories = scan.plannedCategories.isEmpty
-            ? CleanCategory.smartScanCategories.filter { model.settings.enabledCategories.contains($0) }
-            : scan.plannedCategories
-        VStack(spacing: 2) {
-            ForEach(categories) { category in
-                HStack(spacing: NoriaSpacing.s) {
-                    CategoryIcon(category: category, size: 26)
-                    Text(category.title).font(NoriaFont.body)
-                    Spacer()
-                    trailing(for: category, scan: scan)
+        Card {
+            VStack(alignment: .leading, spacing: NoriaSpacing.s) {
+                CardHeader(title: "Smart Clean", systemImage: "sparkles") {
+                    if scan.phase == .finished, let report = scan.report {
+                        Text("\(Format.bytes(report.recoverableSize)) recoverable")
+                            .font(NoriaFont.body.weight(.semibold))
+                            .foregroundStyle(NoriaColor.accent)
+                    }
                 }
-                .padding(.vertical, 5)
-                .padding(.horizontal, NoriaSpacing.xs)
-                .background(scan.currentCategory == category ? NoriaColor.subtleFill : .clear,
-                            in: RoundedRectangle(cornerRadius: NoriaRadius.small))
-                .accessibilityElement(children: .combine)
+                LazyVGrid(columns: [GridItem(.flexible(), spacing: NoriaSpacing.l), GridItem(.flexible())], spacing: 2) {
+                    ForEach(scan.plannedCategories) { category in
+                        HStack(spacing: NoriaSpacing.s) {
+                            CategoryIcon(category: category, size: 26)
+                            Text(category.title).font(NoriaFont.body)
+                            Spacer()
+                            trailing(for: category, scan: scan)
+                        }
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, NoriaSpacing.xs)
+                        .background(scan.currentCategory == category ? NoriaColor.subtleFill : .clear,
+                                    in: RoundedRectangle(cornerRadius: NoriaRadius.small))
+                        .accessibilityElement(children: .combine)
+                    }
+                }
             }
         }
     }
@@ -176,60 +291,6 @@ private struct CategoryChecklist: View {
     }
 }
 
-// MARK: - Storage
-
-private struct StorageCard: View {
-    @Environment(AppModel.self) private var model
-
-    var body: some View {
-        Card {
-            VStack(alignment: .leading, spacing: NoriaSpacing.m) {
-                CardHeader(title: "Storage", systemImage: "internaldrive") {
-                    Button {
-                        model.refreshVolume()
-                    } label: {
-                        Image(systemName: "arrow.clockwise")
-                    }
-                    .buttonStyle(.borderless)
-                    .help(Text("Refresh"))
-                }
-                if let volume = model.volume {
-                    VStack(alignment: .leading, spacing: NoriaSpacing.xs) {
-                        HStack(alignment: .firstTextBaseline) {
-                            Text(volume.name.isEmpty ? String(localized: "Startup Disk") : volume.name)
-                                .font(NoriaFont.body.weight(.medium))
-                            Spacer()
-                            Text("\(Format.percent(volume.usedFraction)) used")
-                                .font(NoriaFont.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        CapacityBar(fraction: volume.usedFraction)
-                    }
-                    Grid(alignment: .leading, horizontalSpacing: NoriaSpacing.l, verticalSpacing: NoriaSpacing.s) {
-                        GridRow {
-                            MetricView(title: "Capacity", value: Format.bytes(volume.totalCapacity))
-                            MetricView(title: "Used", value: Format.bytes(volume.usedCapacity))
-                        }
-                        GridRow {
-                            MetricView(title: "Available", value: Format.bytes(volume.availableForImportantUsage),
-                                       caption: volume.purgeableCapacity > 0
-                                           ? String(localized: "includes \(Format.bytes(volume.purgeableCapacity)) purgeable")
-                                           : nil)
-                            MetricView(title: "Recoverable",
-                                       value: model.smartScan.report.map { Format.bytes($0.recoverableSize) } ?? "—",
-                                       caption: model.smartScan.report == nil ? String(localized: "Run an analysis to calculate") : nil)
-                        }
-                    }
-                } else if let error = model.volumeError {
-                    Text(error).foregroundStyle(.secondary)
-                } else {
-                    ProgressView().controlSize(.small)
-                }
-            }
-        }
-    }
-}
-
 // MARK: - Device
 
 private struct DeviceCard: View {
@@ -237,17 +298,25 @@ private struct DeviceCard: View {
 
     var body: some View {
         let device = model.device
+        let memory = model.metrics.memory
         Card {
             VStack(alignment: .leading, spacing: NoriaSpacing.m) {
                 CardHeader(title: "This Mac", systemImage: "desktopcomputer")
-                Grid(alignment: .leading, horizontalSpacing: NoriaSpacing.m, verticalSpacing: NoriaSpacing.xs) {
-                    row("Model", device.modelIdentifier ?? "—")
-                    row("Processor", device.processor ?? device.architecture)
-                    row("Cores", Format.count(device.processorCount))
-                    row("Memory", Format.memory(device.physicalMemory))
-                    row("macOS", device.osVersion)
+                Grid(alignment: .leading, horizontalSpacing: NoriaSpacing.xl, verticalSpacing: NoriaSpacing.xs) {
+                    GridRow {
+                        row("Model", device.modelIdentifier ?? "—")
+                        row("Memory", Format.memory(device.physicalMemory))
+                    }
+                    GridRow {
+                        row("Processor", device.processor ?? device.architecture)
+                        row("Memory pressure", memory?.pressure?.title ?? "—")
+                    }
+                    GridRow {
+                        row("macOS", device.osVersion)
+                        row("Swap used", memory?.swapUsed.map { Format.memory($0) } ?? "—")
+                    }
                 }
-                Text("Live CPU, memory pressure, swap and battery health arrive with Performance and Mac Health (phase 3).")
+                Text("Battery health and per-process activity arrive with Mac Health and Performance (phase 3).")
                     .font(NoriaFont.caption)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -256,9 +325,10 @@ private struct DeviceCard: View {
     }
 
     private func row(_ title: LocalizedStringKey, _ value: String) -> some View {
-        GridRow {
+        HStack(spacing: NoriaSpacing.s) {
             Text(title).font(NoriaFont.body).foregroundStyle(.secondary)
-            Text(value).font(NoriaFont.body).textSelection(.enabled)
+            Spacer(minLength: NoriaSpacing.s)
+            Text(value).font(NoriaFont.body).textSelection(.enabled).lineLimit(1)
         }
     }
 }
@@ -269,10 +339,11 @@ private struct RecommendationsCard: View {
     @Environment(AppModel.self) private var model
 
     var body: some View {
+        let recommendations = Array(model.smartScan.recommendations.prefix(6))
         Card {
             VStack(alignment: .leading, spacing: NoriaSpacing.m) {
                 CardHeader(title: "Recommendations", systemImage: "lightbulb")
-                ForEach(model.smartScan.recommendations.prefix(6)) { recommendation in
+                ForEach(recommendations) { recommendation in
                     HStack(alignment: .top, spacing: NoriaSpacing.m) {
                         Image(systemName: recommendation.risk == .safe ? "checkmark.shield" : "eye")
                             .foregroundStyle(recommendation.risk.color)
@@ -289,7 +360,7 @@ private struct RecommendationsCard: View {
                         Text(Format.bytes(recommendation.bytes)).font(NoriaFont.body.monospacedDigit())
                         actionButton(for: recommendation)
                     }
-                    if recommendation.id != model.smartScan.recommendations.prefix(6).last?.id {
+                    if recommendation.id != recommendations.last?.id {
                         Divider()
                     }
                 }
@@ -306,6 +377,16 @@ private struct RecommendationsCard: View {
         case .emptyTrashInFinder:
             Button("Open Trash") { SystemActions.openTrash() }
                 .buttonStyle(SecondaryButtonStyle())
+        }
+    }
+}
+
+extension MemoryPressure {
+    var title: String {
+        switch self {
+        case .normal: return String(localized: "Normal")
+        case .warning: return String(localized: "Elevated")
+        case .critical: return String(localized: "Critical")
         }
     }
 }

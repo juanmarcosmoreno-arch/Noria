@@ -13,7 +13,7 @@ from translations_es import ES
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 INT_INTERPOLATIONS = re.compile(r'(Days|\.phase)$')
 NOT_UI = re.compile(r'^[a-z0-9.\-]+$')  # SF Symbols, identifiers
-IGNORED = {'', ' · ', '—', 'MB', 'r', 'macOS'}
+IGNORED = {'', ' ', ' · ', '—', 'MB', 'r', 'macOS'}
 
 def keys():
     found = set()
@@ -27,7 +27,8 @@ def keys():
                 if re.search(r'(systemName:|systemImage:|verbatim:|forKey:|forInfoDictionaryKey:|string:)\s*$', before):
                     continue
                 text = match.group(1)
-                if text in IGNORED or (NOT_UI.match(text) and ('.' in text or text.islower())):
+                # Lowercase identifiers are SF Symbol names unless they have a translation.
+                if text in IGNORED or (NOT_UI.match(text) and text not in ES):
                     continue
                 if text.startswith('x-apple'):
                     continue

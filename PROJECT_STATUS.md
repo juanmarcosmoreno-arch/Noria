@@ -6,12 +6,12 @@ _Last updated: 2026-10-23 · Current phase: **1 (MVP)**_
 
 | Check | Where | Result |
 |---|---|---|
-| NoriaCore build + 46 tests (Swift 6.2.1, Linux) | dev container | ✅ passing (5 consecutive runs) |
-| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | ✅ 46/46 |
-| `Noria.app` build (`xcodebuild`, Debug, unsigned, arm64) | GitHub Actions `macos-15` | ✅ BUILD SUCCEEDED, no Swift warnings |
+| NoriaCore build + 48 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
+| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | see CI (49 incl. live-metrics test) |
+| `Noria.app` build (`xcodebuild`, Debug, unsigned, arm64) | GitHub Actions `macos-15` | see CI |
 | String catalog complete (en + es) and in sync | `Tools/build_strings.py` + CI | ✅ |
 | Xcode project in sync with `project.yml` (XcodeGen 2.46.0) | CI | ✅ |
-| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | ✅ 46/46 |
+| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | see CI |
 
 **Not yet verified by a human on a real Mac:** interactive behaviour of the UI
 (layout, animation smoothness, TCC prompts, Trash/Put Back round-trip). The
@@ -23,13 +23,17 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [x] Xcode project (XcodeGen spec + committed project), macOS 14 deployment target
 - [x] Modular architecture: `NoriaCore` package (engine) + SwiftUI app target
 - [x] Design system: color tokens (light/dark), spacing, radii, typography, components
-- [x] Turbine mark drawn in code; animation with ease-in/out, Reduce Motion support,
-      timeline paused when idle; determinate ring (category progress) / indeterminate arc
+- [x] Carpentry identity: wood/beige/steel palette; app icon from the brand artwork
+      (`Tools/make_app_icon.py`); saw mark drawn in code — blade spins up during
+      analysis and winds down after, Reduce Motion support, timeline paused when idle;
+      determinate ring (category progress) / indeterminate arc
 - [x] Main window: `NavigationSplitView`, 13 sidebar sections in the specified order;
       unbuilt modules show an honest "planned for phase N" screen
-- [x] Dashboard: real volume capacity/used/available/purgeable, recoverable space
-      only after a scan, device info (model id, CPU, cores, memory, macOS), Smart Scan
-      with live counters, elapsed time, category checklist, recommendations
+- [x] Dashboard (layout from the brand board): real volume capacity/used/available/
+      purgeable, recoverable space only after a scan, live CPU % and memory used
+      (Mach `host_statistics`, sampled every 2 s only while the Dashboard is visible),
+      memory pressure and swap (`sysctl`), device info, Smart Scan with live counters,
+      elapsed time, category checklist, recommendations
 - [x] Smart Scan engine: User Cache, Logs, Temporary Files, Developer Cache,
       Downloads, Trash (informational) — read-only, cancellable, hard-link aware,
       no double counting across categories
@@ -45,7 +49,7 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [x] Operation log (JSON Lines) + History screen; clear history
 - [x] Settings persisted in `UserDefaults`: language, removal method, age thresholds,
       categories, exclusions, Large Files container skipping
-- [x] Localization: String Catalog, English + Spanish (250 strings)
+- [x] Localization: String Catalog, English + Spanish (256 strings)
 - [x] Rule-based recommendations ranked by safety-weighted size
 - [x] Tests: file system, walker, safety policy, every rule, engines, cleaning,
       cancellation, persistence, recommendations
@@ -61,7 +65,8 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [ ] Application Leftovers category (needs the app inventory from App Remover)
 
 ### Phase 3
-- [ ] Performance monitor (CPU, memory pressure, swap, disk activity, top processes)
+- [ ] Performance monitor (history graphs, disk activity, top processes; CPU/memory/
+      pressure/swap readings already exist in NoriaCore `SystemMetrics`)
 - [ ] Startup Manager (`SMAppService` status for own items, Login Items settings link)
 - [ ] Mac Health (battery via IOKit `AppleSmartBattery`, storage info where exposed)
 - [ ] Noria Watch menu bar extra + configurable notifications
@@ -97,8 +102,9 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - Language change requires relaunching Noria (macOS reads `AppleLanguages` at launch).
 - Associated-app names are resolved only for reverse-DNS cache folder names.
 - Spanish copy uses neutral Spanish (tú). Can be switched to rioplatense if preferred.
-- The app icon is **provisional** (generated). Replace the PNGs in
-  `AppIcon.appiconset` keeping file names.
+- The bundle identifier `app.noria.Noria` is provisional (team `62395T6WLG` is set).
+- The in-app saw is a vector re-drawing of the brand artwork, not the raster
+  artwork itself; small differences in shading are expected.
 
 ## Technical decisions
 
@@ -118,7 +124,6 @@ development container is Linux, so the SwiftUI target is compiled in CI
 ## Next steps
 
 1. Run Noria on a Mac, check the UI and a real Smart Scan (no cleanup needed) and report feedback.
-2. Provide the final logo artwork to replace the provisional icon.
-3. Choose the bundle identifier and team; enable signing.
+3. Confirm the final bundle identifier.
 4. Start Phase 2 with the quarantine (it changes the cleaning flow), then Space Map,
    Duplicates and App Remover.

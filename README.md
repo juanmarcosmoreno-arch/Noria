@@ -12,7 +12,8 @@ removes anything without your review and confirmation. Everything runs locally.
 ## What works today (Phase 1)
 
 - **Dashboard** — real storage metrics for the startup volume (capacity, used,
-  available incl. purgeable), basic device info, and the *Analyze My Mac* Smart Scan
+  available incl. purgeable), live CPU and memory usage, memory pressure and swap,
+  device info, and the *Analyze My Mac* Smart Scan
   with live counters (current category, files examined, size found, elapsed time)
   and category-level progress. No invented percentages.
 - **Smart Clean** — analyzes User Cache, Logs, Temporary Files, Developer Cache
@@ -49,8 +50,9 @@ APIs, all introduced or stabilized in macOS 14.
 open Noria.xcodeproj        # select the "Noria" scheme, then Run (⌘R)
 ```
 
-Before distributing, set your own `PRODUCT_BUNDLE_IDENTIFIER` and
-`DEVELOPMENT_TEAM` in `project.yml` and regenerate the project.
+Signing uses team `62395T6WLG` (automatic signing). The bundle identifier
+`app.noria.Noria` is provisional — confirm it in `project.yml` before the first
+upload, then run `xcodegen generate`.
 
 Command line:
 
@@ -82,7 +84,8 @@ NoriaCore/              Swift package with all non-UI logic (Foundation only)
     Monitoring/         device info
     Intelligence/       rule-based recommendations
   Tests/NoriaCoreTests/ Swift Testing suites (run on throwaway directories)
-Tools/                  icon generator, string-catalog builder + Spanish translations
+Design/                 brand artwork (icon source, brand board)
+Tools/                  app-icon builder, string-catalog builder + Spanish translations
 Distribution/           prepared App Store entitlements (not used yet)
 docs/                   architecture and distribution notes
 ```
@@ -97,12 +100,20 @@ translation). After changing UI text, add the Spanish entry to
 `Tools/translations_es.py` and run `python3 Tools/build_strings.py` — it fails if
 any user-facing string lacks a translation. CI checks the catalog is up to date.
 
-## Logo and icon
+## Brand: logo, icon and colors
 
-The turbine is drawn in code (`App/DesignSystem/TurbineView.swift`). The app icon
-in `AppIcon.appiconset` is a **provisional** render produced by
-`Tools/generate_icon.py` from the same geometry. To use the final artwork,
-replace the PNGs keeping the same file names — no code changes are required.
+Noria's identity is carpentry: a circular saw blade cutting a wood shaving.
+
+- **App icon** — built from the brand artwork in `Design/noria-icon-source.webp`
+  by `Tools/make_app_icon.py` (crops the tile, applies the macOS icon grid and a
+  transparent background, writes every size). To update it, replace the source
+  image and run the script.
+- **In-app mark** — the saw is drawn in code (`App/DesignSystem/SawView.swift`) so
+  the blade can spin during analysis while the shaving stays still; it winds
+  down when the scan ends and is static with Reduce Motion.
+- **Palette** (`App/DesignSystem/Theme.swift`) — wood `#D67B2D`, light orange
+  `#F5A462`, beige `#F7F4EE`, graphite `#1F2328`, steel `#C0C4C9`/`#6B6F76`,
+  dark background `#1A1A1A`. The brand board is in `Design/noria-brand-board.webp`.
 
 ## Privacy
 

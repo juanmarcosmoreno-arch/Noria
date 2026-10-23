@@ -20,6 +20,7 @@ final class AppModel {
     private(set) var volume: VolumeInfo?
     private(set) var volumeError: String?
     let device = DeviceInfo.current()
+    let metrics = MetricsMonitor()
     private(set) var history: [OperationRecord] = []
     private(set) var historyError: String?
 

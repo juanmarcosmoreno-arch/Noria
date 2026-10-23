@@ -17,7 +17,7 @@ struct CleanupConfirmationView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: NoriaSpacing.m) {
             HStack(spacing: NoriaSpacing.m) {
-                TurbineMark().frame(width: 40, height: 40)
+                SawMark().frame(width: 40, height: 40)
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Confirm cleanup").font(NoriaFont.title)
                     Text("\(Format.count(items.count)) items · \(Format.bytes(totalSize))")
@@ -108,7 +108,7 @@ struct CleanupProgressView: View {
 
     @ViewBuilder
     private var running: some View {
-        TurbineView(isSpinning: true).frame(width: 90, height: 90)
+        SawView(isSpinning: true).frame(width: 90, height: 90)
         Text("Cleaning…").font(NoriaFont.title)
         if case .running(let done, let total) = controller.state {
             ProgressView(value: Double(done), total: Double(max(total, 1)))

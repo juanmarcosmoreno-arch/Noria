@@ -25,7 +25,7 @@ struct CardHeader<Accessory: View>: View {
     var body: some View {
         HStack(spacing: NoriaSpacing.xs) {
             Image(systemName: systemImage)
-                .foregroundStyle(NoriaColor.primaryBlue)
+                .foregroundStyle(NoriaColor.accent)
             Text(title).font(NoriaFont.sectionTitle)
             Spacer()
             accessory
@@ -41,20 +41,23 @@ extension CardHeader where Accessory == EmptyView {
 
 /// Prominent gradient button ("Analyze My Mac", "Clean").
 struct PrimaryButtonStyle: ButtonStyle {
+    /// Large, full-width call to action ("Analyze My Mac").
+    var prominent = false
     @Environment(\.isEnabled) private var isEnabled
 
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(.system(size: 14, weight: .semibold))
+        let shape = RoundedRectangle(cornerRadius: prominent ? 12 : 8, style: .continuous)
+        return configuration.label
+            .font(.system(size: prominent ? 19 : 14, weight: .semibold))
             .foregroundStyle(.white)
             .padding(.horizontal, NoriaSpacing.l)
-            .padding(.vertical, NoriaSpacing.s)
-            .background(
-                Capsule().fill(LinearGradient(colors: [NoriaColor.brightBlue, NoriaColor.primaryBlue], startPoint: .top, endPoint: .bottom))
-            )
+            .padding(.vertical, prominent ? NoriaSpacing.m : NoriaSpacing.s - 2)
+            .frame(maxWidth: prominent ? .infinity : nil)
+            .background(shape.fill(NoriaColor.woodGradient))
+            .shadow(color: NoriaColor.wood.opacity(prominent ? 0.3 : 0), radius: 8, y: 3)
             .opacity(isEnabled ? (configuration.isPressed ? 0.85 : 1) : 0.45)
-            .scaleEffect(configuration.isPressed ? 0.98 : 1)
-            .contentShape(Capsule())
+            .scaleEffect(configuration.isPressed ? 0.99 : 1)
+            .contentShape(shape)
     }
 }
 
@@ -116,7 +119,7 @@ struct CapacityBar: View {
             ZStack(alignment: .leading) {
                 Capsule().fill(NoriaColor.subtleFill)
                 Capsule()
-                    .fill(LinearGradient(colors: [NoriaColor.brightBlue, NoriaColor.deepBlue], startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(colors: [NoriaColor.woodLight, NoriaColor.wood], startPoint: .leading, endPoint: .trailing))
                     .frame(width: max(height, proxy.size.width * min(1, max(0, fraction))))
             }
         }

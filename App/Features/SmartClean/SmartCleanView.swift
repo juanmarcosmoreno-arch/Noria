@@ -60,7 +60,7 @@ struct SmartCleanView: View {
     @ViewBuilder
     private var emptyState: some View {
         VStack(spacing: NoriaSpacing.l) {
-            TurbineProgressView(isActive: scan.isScanning, progress: scan.categoryProgress, lineWidth: 6)
+            SawProgressView(isActive: scan.isScanning, progress: scan.categoryProgress, lineWidth: 6)
                 .frame(width: 150, height: 150)
             if scan.isScanning {
                 Text("Analyzing your Mac…").font(NoriaFont.title)

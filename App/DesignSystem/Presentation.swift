@@ -88,17 +88,8 @@ extension CleanCategory {
         }
     }
 
-    var tint: Color {
-        switch self {
-        case .userCache: return Color(hex: 0x7A5AF8)
-        case .logs: return Color(hex: 0x00A9E8)
-        case .temporaryFiles: return Color(hex: 0xE5484D)
-        case .developerCache: return Color(hex: 0xF08C00)
-        case .downloads: return Color(hex: 0x087BC1)
-        case .trash: return Color(hex: 0x6B7785)
-        case .largeFiles: return Color(hex: 0x1E9E6A)
-        }
-    }
+    /// Category icons share the brand's wood accent, as in the brand board.
+    var tint: Color { NoriaColor.accent }
 }
 
 extension RiskLevel {

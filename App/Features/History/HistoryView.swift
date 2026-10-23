@@ -84,7 +84,7 @@ private struct HistoryRow: View {
             .padding(.leading, NoriaSpacing.xl)
         } label: {
             HStack(spacing: NoriaSpacing.m) {
-                Image(systemName: icon).foregroundStyle(NoriaColor.primaryBlue).frame(width: 22)
+                Image(systemName: icon).foregroundStyle(NoriaColor.accent).frame(width: 22)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title).font(NoriaFont.body.weight(.medium))
                     Text(Format.dateTime(record.date)).font(NoriaFont.caption).foregroundStyle(.secondary)

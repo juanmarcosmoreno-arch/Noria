@@ -97,7 +97,7 @@ struct LargeFilesView: View {
         return Table(model.visibleFiles, selection: $model.selection, sortOrder: $model.sortOrder) {
             TableColumn("Name", value: \.name) { file in
                 HStack(spacing: NoriaSpacing.xs) {
-                    Image(systemName: file.kind.systemImage).foregroundStyle(NoriaColor.primaryBlue).frame(width: 18)
+                    Image(systemName: file.kind.systemImage).foregroundStyle(NoriaColor.accent).frame(width: 18)
                     Text(file.name).lineLimit(1)
                     if file.risk == .protected {
                         Image(systemName: "lock.fill").font(.caption).foregroundStyle(.secondary)
@@ -147,7 +147,7 @@ struct LargeFilesView: View {
         switch largeFiles.phase {
         case .scanning:
             VStack(spacing: NoriaSpacing.m) {
-                TurbineView(isSpinning: true).frame(width: 110, height: 110)
+                SawView(isSpinning: true).frame(width: 110, height: 110)
                 Text("Looking for large files…").font(NoriaFont.sectionTitle)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

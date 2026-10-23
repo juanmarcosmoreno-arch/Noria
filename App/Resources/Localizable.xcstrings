@@ -12,6 +12,39 @@
         }
       }
     },
+    "%@ available": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ disponibles"
+          }
+        }
+      }
+    },
+    "%@ available, including %@ purgeable": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ disponibles, incluidos %2$@ purgables"
+          }
+        }
+      }
+    },
+    "%@ cores": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ núcleos"
+          }
+        }
+      }
+    },
     "%@ files examined": {
       "extractionState": "manual",
       "localizations": {
@@ -78,6 +111,17 @@
         }
       }
     },
+    "%@ marked safe": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ marcado como seguro"
+          }
+        }
+      }
+    },
     "%@ of %@": {
       "extractionState": "manual",
       "localizations": {
@@ -85,6 +129,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ de %2$@"
+          }
+        }
+      }
+    },
+    "%@ recoverable": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ recuperables"
           }
         }
       }
@@ -129,17 +184,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ omitidos"
-          }
-        }
-      }
-    },
-    "%@ used": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ usado"
           }
         }
       }
@@ -232,6 +276,17 @@
         }
       }
     },
+    "Analysis complete": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Análisis completado"
+          }
+        }
+      }
+    },
     "Analyze Again": {
       "extractionState": "manual",
       "localizations": {
@@ -250,6 +305,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Analizar mi Mac"
+          }
+        }
+      }
+    },
+    "Analyze, clean and free up space safely.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analiza, limpia y libera espacio de forma segura."
           }
         }
       }
@@ -320,17 +386,6 @@
         }
       }
     },
-    "Available": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Disponible"
-          }
-        }
-      }
-    },
     "Backup": {
       "extractionState": "manual",
       "localizations": {
@@ -338,6 +393,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copia de seguridad"
+          }
+        }
+      }
+    },
+    "Battery health and per-process activity arrive with Mac Health and Performance (phase 3).": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La salud de la batería y la actividad por proceso llegarán con Salud del Mac y Rendimiento (fase 3)."
           }
         }
       }
@@ -371,6 +437,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Paquete medido en conjunto; su contenido no se lista por separado."
+          }
+        }
+      }
+    },
+    "CPU": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU"
           }
         }
       }
@@ -415,17 +492,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancelar"
-          }
-        }
-      }
-    },
-    "Capacity": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Capacidad"
           }
         }
       }
@@ -606,13 +672,13 @@
         }
       }
     },
-    "Cores": {
+    "Critical": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Núcleos"
+            "value": "Crítica"
           }
         }
       }
@@ -634,7 +700,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Panel"
+            "value": "Inicio"
           }
         }
       }
@@ -755,7 +821,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limpieza de desarrollo"
+            "value": "Desarrolladores"
           }
         }
       }
@@ -866,6 +932,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tiempo"
+          }
+        }
+      }
+    },
+    "Elevated": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elevada"
           }
         }
       }
@@ -1299,17 +1376,6 @@
         }
       }
     },
-    "Live CPU, memory pressure, swap and battery health arrive with Performance and Mac Health (phase 3).": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "CPU en tiempo real, presión de memoria, swap y salud de la batería llegarán con Rendimiento y Salud del Mac (fase 3)."
-          }
-        }
-      }
-    },
     "Location": {
       "extractionState": "manual",
       "localizations": {
@@ -1438,6 +1504,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Memoria"
+          }
+        }
+      }
+    },
+    "Memory pressure": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión de memoria"
           }
         }
       }
@@ -1596,17 +1673,6 @@
         }
       }
     },
-    "Noria analyzes caches, logs, temporary files, developer data and old downloads. Nothing is removed without your review and confirmation.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria analiza cachés, registros, archivos temporales, datos de desarrollo y descargas antiguas. Nada se elimina sin tu revisión y confirmación."
-          }
-        }
-      }
-    },
     "Noria does not have permission to read this location.": {
       "extractionState": "manual",
       "localizations": {
@@ -1636,6 +1702,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Noria funciona por completo en este Mac. No envía nombres de archivo, rutas, contenido ni datos de uso a ningún sitio."
+          }
+        }
+      }
+    },
+    "Normal": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Normal"
           }
         }
       }
@@ -1712,7 +1789,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Smart Clean"
+            "value": "Abrir Limpieza inteligente"
           }
         }
       }
@@ -1937,24 +2014,13 @@
         }
       }
     },
-    "Recoverable": {
+    "Recoverable space": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recuperable"
-          }
-        }
-      }
-    },
-    "Refresh": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Actualizar"
+            "value": "Espacio recuperable"
           }
         }
       }
@@ -2240,7 +2306,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ajustes"
+            "value": "Configuración"
           }
         }
       }
@@ -2306,7 +2372,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Smart Clean"
+            "value": "Limpieza inteligente"
           }
         }
       }
@@ -2339,7 +2405,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mapa de espacio"
+            "value": "Mapa de almacenamiento"
           }
         }
       }
@@ -2421,13 +2487,13 @@
         }
       }
     },
-    "Storage": {
+    "Swap used": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Almacenamiento"
+            "value": "Swap utilizado"
           }
         }
       }
@@ -2564,17 +2630,6 @@
         }
       }
     },
-    "Used": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usado"
-          }
-        }
-      }
-    },
     "User Cache": {
       "extractionState": "manual",
       "localizations": {
@@ -2696,13 +2751,13 @@
         }
       }
     },
-    "includes %@ purgeable": {
+    "deleted": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "incluye %@ purgable"
+            "value": "eliminado"
           }
         }
       }
@@ -2729,13 +2784,24 @@
         }
       }
     },
-    "potentially recoverable · %@ marked safe": {
+    "of %@": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "potencialmente recuperable · %@ marcado como seguro"
+            "value": "de %@"
+          }
+        }
+      }
+    },
+    "used": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "utilizado"
           }
         }
       }

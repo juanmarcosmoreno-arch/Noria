@@ -31,7 +31,7 @@ targets:
       - package: NoriaCore
     settings:
       base:
-        # Replace with your own identifier and team before distribution.
+        # Provisional bundle identifier: confirm the final one before the first upload.
         PRODUCT_BUNDLE_IDENTIFIER: app.noria.Noria
         PRODUCT_NAME: Noria
         GENERATE_INFOPLIST_FILE: YES
@@ -48,8 +48,7 @@ targets:
         CODE_SIGN_ENTITLEMENTS: App/Resources/Noria.entitlements
         ENABLE_HARDENED_RUNTIME: YES
         CODE_SIGN_STYLE: Automatic
-        CODE_SIGN_IDENTITY: "-"
-        DEVELOPMENT_TEAM: ""
+        DEVELOPMENT_TEAM: 62395T6WLG
         ENABLE_USER_SCRIPT_SANDBOXING: YES
 schemes:
   Noria:

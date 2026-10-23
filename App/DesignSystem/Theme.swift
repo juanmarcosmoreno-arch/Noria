@@ -3,29 +3,34 @@ import SwiftUI
 
 /// Noria's design tokens. Change brand colors here; every view reads them from this file.
 enum NoriaColor {
-    static let deepBlue = Color(hex: 0x075B9A)
-    static let primaryBlue = Color(hex: 0x087BC1)
-    static let brightBlue = Color(hex: 0x00A9E8)
-    static let sky = Color(hex: 0x73DDF3)
-    static let ink = Color(hex: 0x17232D)
+    // Brand palette (carpentry): wood, light orange, beige, graphite and steel.
+    static let wood = Color(hex: 0xD67B2D)
+    static let woodLight = Color(hex: 0xF5A462)
+    static let woodDark = Color(hex: 0xA9561B)
+    static let beige = Color(hex: 0xF7F4EE)
+    static let graphite = Color(hex: 0x1F2328)
+    static let steelDark = Color(hex: 0x3A3D42)
+    static let steelMid = Color(hex: 0x6B6F76)
+    static let steel = Color(hex: 0xC0C4C9)
+    static let steelLight = Color(hex: 0xE6E7E9)
 
-    /// Brand gradient used by the turbine, progress ring and primary buttons.
-    static let brandGradient = LinearGradient(
-        colors: [sky, brightBlue, primaryBlue, deepBlue],
-        startPoint: .topLeading, endPoint: .bottomTrailing
-    )
+    /// Accent used for selection, icons, primary actions and progress.
+    static let accent = wood
 
-    /// Card surface: white in light mode, a blue-tinted graphite in dark mode.
-    static let cardBackground = Color(light: 0xFFFFFF, dark: 0x1B2630)
+    /// Warm gradient for primary buttons, progress and capacity bars.
+    static let woodGradient = LinearGradient(colors: [woodLight, wood], startPoint: .top, endPoint: .bottom)
+
+    /// Card surface: white in light mode, warm graphite in dark mode.
+    static let cardBackground = Color(light: 0xFFFFFF, dark: 0x24262A)
     /// Window/content background behind cards.
-    static let canvasBackground = Color(light: 0xF4F7FA, dark: 0x111A21)
-    static let subtleFill = Color(light: 0xEEF4F9, dark: 0x22303B)
-    static let separator = Color(light: 0xE2E9F0, dark: 0x2B3A46)
+    static let canvasBackground = Color(light: 0xF7F4EE, dark: 0x1A1A1A)
+    static let subtleFill = Color(light: 0xF1ECE4, dark: 0x2D3034)
+    static let separator = Color(light: 0xE7E0D5, dark: 0x36393E)
 
-    static let safe = Color(light: 0x1E9E6A, dark: 0x3CC48C)
-    static let review = Color(light: 0xC77A00, dark: 0xF2A93B)
-    static let protected = Color(light: 0x6B7785, dark: 0x9AA6B2)
-    static let danger = Color(light: 0xD0342C, dark: 0xFF6B61)
+    static let safe = Color(light: 0x2F8F5B, dark: 0x4CC28A)
+    static let review = Color(light: 0xB7791F, dark: 0xE7B04B)
+    static let protected = Color(light: 0x6B6F76, dark: 0x9EA3AA)
+    static let danger = Color(light: 0xC2382F, dark: 0xFF6B61)
 }
 
 enum NoriaSpacing {

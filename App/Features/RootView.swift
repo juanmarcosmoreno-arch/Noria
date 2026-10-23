@@ -105,7 +105,7 @@ struct PlannedFeatureView: View {
         VStack(spacing: NoriaSpacing.l) {
             Image(systemName: item.systemImage)
                 .font(.system(size: 44, weight: .light))
-                .foregroundStyle(NoriaColor.primaryBlue)
+                .foregroundStyle(NoriaColor.accent)
             Text(item.title).font(NoriaFont.title)
             Text("Planned for phase \(item.phase). This module is not available yet.")
                 .foregroundStyle(.secondary)
