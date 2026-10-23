@@ -7,15 +7,16 @@ _Last updated: 2026-10-23 · Current phase: **1 (MVP)**_
 | Check | Where | Result |
 |---|---|---|
 | NoriaCore build + 46 tests (Swift 6.2.1, Linux) | dev container | ✅ passing (5 consecutive runs) |
-| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | see CI |
-| `Noria.app` build (`xcodebuild`, Debug, unsigned) | GitHub Actions `macos-15` | see CI |
+| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | ✅ 46/46 |
+| `Noria.app` build (`xcodebuild`, Debug, unsigned, arm64) | GitHub Actions `macos-15` | ✅ BUILD SUCCEEDED, no Swift warnings |
 | String catalog complete (en + es) and in sync | `Tools/build_strings.py` + CI | ✅ |
-| Xcode project in sync with `project.yml` | CI | see CI |
+| Xcode project in sync with `project.yml` (XcodeGen 2.46.0) | CI | ✅ |
+| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | ✅ 46/46 |
 
 **Not yet verified by a human on a real Mac:** interactive behaviour of the UI
 (layout, animation smoothness, TCC prompts, Trash/Put Back round-trip). The
-development container is Linux, so the SwiftUI target is compiled only in CI
-and has never been launched. Please run it once and report anything off.
+development container is Linux, so the SwiftUI target is compiled in CI
+(macOS runner) but has never been launched. No cleanup was run on real user files. Please run it once and report anything off.
 
 ## Implemented (Phase 1)
 
