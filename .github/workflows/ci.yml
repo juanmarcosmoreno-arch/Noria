@@ -30,12 +30,6 @@ jobs:
           python3 Tools/build_strings.py
           git diff --exit-code App/Resources/Localizable.xcstrings
 
-      - name: Xcode project matches project.yml
-        run: |
-          brew install xcodegen
-          xcodegen generate
-          git diff --exit-code Noria.xcodeproj
-
       - name: Build Noria.app
         run: |
           set -o pipefail
@@ -43,6 +37,13 @@ jobs:
             -destination 'platform=macOS' -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO build | tee build.log | grep -E "error:|warning:|BUILD" || true
           grep -q "BUILD SUCCEEDED" build.log
+
+      - name: Xcode project matches project.yml
+        if: always()
+        run: |
+          brew install xcodegen
+          xcodegen generate
+          git diff --exit-code Noria.xcodeproj
 
       - name: Upload build log
         if: always()
