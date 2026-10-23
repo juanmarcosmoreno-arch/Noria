@@ -32,6 +32,9 @@ def keys():
                     continue
                 if text.startswith('x-apple'):
                     continue
+                # Identifiers (defaults keys, environment variables) contain no spaces but dots/underscores.
+                if ' ' not in text and re.search(r'[._]', text) and text not in ES:
+                    continue
                 def spec(m):
                     return '%lld' if INT_INTERPOLATIONS.search(m.group(1)) else '%@'
                 key = re.sub(r'\\\(((?:[^()]|\([^()]*\))*)\)', spec, text).replace('\\"', '"')

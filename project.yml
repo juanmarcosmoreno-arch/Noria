@@ -1,6 +1,10 @@
 # XcodeGen specification for Noria. Regenerate the project with:
 #   xcodegen generate
 # Noria.xcodeproj is committed so the project opens without XcodeGen installed.
+#
+# Two editions share all sources:
+#   Noria            — direct distribution (Developer ID): not sandboxed.
+#   Noria App Store  — Mac App Store / TestFlight: App Sandbox + home-folder grant.
 name: Noria
 options:
   bundleIdPrefix: com.juanmarcos
@@ -12,6 +16,7 @@ options:
 settings:
   base:
     MARKETING_VERSION: "0.1.0"
+    # Increase before every App Store Connect upload (each build number can be used once).
     CURRENT_PROJECT_VERSION: "1"
     SWIFT_VERSION: "5.0"
     MACOSX_DEPLOYMENT_TARGET: "14.0"
@@ -21,8 +26,8 @@ settings:
 packages:
   NoriaCore:
     path: NoriaCore
-targets:
-  Noria:
+targetTemplates:
+  NoriaApp:
     type: application
     platform: macOS
     sources:
@@ -31,12 +36,12 @@ targets:
       - package: NoriaCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.juanmarcos.noria
         PRODUCT_NAME: Noria
         GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: App/Resources/Info.plist
         INFOPLIST_KEY_CFBundleDisplayName: Noria
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
-        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 Noria"
+        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 Juan Marcos Moreno"
         INFOPLIST_KEY_NSDownloadsFolderUsageDescription: "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation."
         INFOPLIST_KEY_NSDocumentsFolderUsageDescription: "Noria measures large files in Documents when you scan your home folder."
         INFOPLIST_KEY_NSDesktopFolderUsageDescription: "Noria measures large files on the Desktop when you scan your home folder."
@@ -44,11 +49,25 @@ targets:
         INFOPLIST_KEY_NSNetworkVolumesUsageDescription: "Noria measures large files on the volume you choose."
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
-        CODE_SIGN_ENTITLEMENTS: App/Resources/Noria.entitlements
         ENABLE_HARDENED_RUNTIME: YES
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 62395T6WLG
         ENABLE_USER_SCRIPT_SANDBOXING: YES
+targets:
+  Noria:
+    templates: [NoriaApp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.juanmarcos.noria.direct
+        CODE_SIGN_ENTITLEMENTS: App/Resources/Noria.entitlements
+  Noria App Store:
+    templates: [NoriaApp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.juanmarcos.noria
+        CODE_SIGN_ENTITLEMENTS: App/Resources/Noria-AppStore.entitlements
+        ENABLE_APP_SANDBOX: YES
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: $(inherited) NORIA_APP_STORE
 schemes:
   Noria:
     build:
@@ -60,5 +79,13 @@ schemes:
       config: Debug
       targets:
         - package: NoriaCore/NoriaCoreTests
+    archive:
+      config: Release
+  Noria App Store:
+    build:
+      targets:
+        Noria App Store: all
+    run:
+      config: Debug
     archive:
       config: Release

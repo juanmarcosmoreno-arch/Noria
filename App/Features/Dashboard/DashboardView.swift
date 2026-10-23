@@ -118,13 +118,35 @@ private struct HeroCard: View {
                     .buttonStyle(SecondaryButtonStyle())
             }
         case .idle, .cancelled, .failed:
-            Button {
-                scan.start()
-            } label: {
-                Label("Analyze My Mac", systemImage: "play.fill")
+            VStack(alignment: .leading, spacing: NoriaSpacing.xs) {
+                Button {
+                    scan.start()
+                } label: {
+                    Label("Analyze My Mac", systemImage: "play.fill")
+                }
+                .buttonStyle(PrimaryButtonStyle(prominent: true))
+                .keyboardShortcut(.defaultAction)
+                FolderAccessNote()
             }
-            .buttonStyle(PrimaryButtonStyle(prominent: true))
-            .keyboardShortcut(.defaultAction)
+        }
+    }
+}
+
+/// App Store edition: explains the one-time home-folder permission and shows grant errors.
+struct FolderAccessNote: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        let access = model.folderAccess
+        if let error = access.errorMessage {
+            Label(error, systemImage: "exclamationmark.triangle")
+                .font(NoriaFont.caption)
+                .foregroundStyle(NoriaColor.review)
+        } else if access.needsGrant {
+            Label("The first time, macOS asks you to allow access to your Home folder. Noria only reads it until you confirm a cleanup.",
+                  systemImage: "lock.shield")
+                .font(NoriaFont.caption)
+                .foregroundStyle(.secondary)
         }
     }
 }

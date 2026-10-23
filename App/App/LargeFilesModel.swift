@@ -56,6 +56,8 @@ final class LargeFilesModel {
     let cleanup = CleanupController()
 
     private var scanTask: Task<Void, Never>?
+    /// Folders the user picked in the open panel this session (readable in the sandbox).
+    private var sessionGrantedRoots: Set<String> = []
 
     init(app: AppModel) {
         self.app = app
@@ -81,8 +83,20 @@ final class LargeFilesModel {
     /// Selected files Noria is allowed to move to the Trash.
     var removableSelection: [LargeFile] { selectedFiles.filter { $0.risk != .protected } }
 
+    /// In the sandbox a folder is readable if it is inside the granted home
+    /// folder or was picked in the open panel during this session.
+    var rootIsAccessible: Bool {
+        guard AppEdition.isSandboxed else { return true }
+        if let granted = app.folderAccess.grantedPath, rootPath.isSameOrDescendant(of: granted) { return true }
+        return sessionGrantedRoots.contains { rootPath.isSameOrDescendant(of: $0) }
+    }
+
     func start() {
         guard !isScanning else { return }
+        if !rootIsAccessible {
+            app.folderAccess.requestHomeAccess()
+            guard rootIsAccessible else { return }
+        }
         let scanner = LargeFileScanner(locations: app.locations)
         let threshold = thresholdBytes
         let root = rootPath
@@ -132,6 +146,7 @@ final class LargeFilesModel {
     func chooseRoot() {
         if let path = SystemActions.chooseFolder(prompt: String(localized: "Scan"), startingAt: rootPath) {
             rootPath = FileSystem.bestEffortCanonicalPath(path)
+            sessionGrantedRoots.insert(rootPath)
         }
     }
 

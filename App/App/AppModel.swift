@@ -21,6 +21,7 @@ final class AppModel {
     private(set) var volumeError: String?
     let device = DeviceInfo.current()
     let metrics = MetricsMonitor()
+    let folderAccess: FolderAccess
     private(set) var history: [OperationRecord] = []
     private(set) var historyError: String?
 
@@ -38,6 +39,7 @@ final class AppModel {
     init(settingsStore: any SettingsStore = UserDefaultsSettingsStore()) {
         self.settingsStore = settingsStore
         self.settings = settingsStore.load()
+        self.folderAccess = FolderAccess(homePath: SystemLocations.current.home)
         smartScanStorage = SmartScanModel(app: self)
         largeFilesStorage = LargeFilesModel(app: self)
         refreshVolume()

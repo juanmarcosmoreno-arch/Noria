@@ -30,13 +30,21 @@ jobs:
           python3 Tools/build_strings.py
           git diff --exit-code App/Resources/Localizable.xcstrings
 
-      - name: Build Noria.app
+      - name: Build Noria.app (direct edition)
         run: |
-          set -o pipefail
           xcodebuild -project Noria.xcodeproj -scheme Noria -configuration Debug \
             -destination 'platform=macOS' -derivedDataPath build \
-            CODE_SIGNING_ALLOWED=NO build | tee build.log | grep -E "error:|warning:|BUILD" || true
+            CODE_SIGNING_ALLOWED=NO build > build.log 2>&1 || true
+          grep -E "error:|warning:|BUILD" build.log || true
           grep -q "BUILD SUCCEEDED" build.log
+
+      - name: Build Noria.app (App Store edition, sandboxed)
+        run: |
+          xcodebuild -project Noria.xcodeproj -scheme "Noria App Store" -configuration Release \
+            -destination 'generic/platform=macOS' -derivedDataPath build-appstore \
+            CODE_SIGNING_ALLOWED=NO build > build-appstore.log 2>&1 || true
+          grep -E "error:|warning:|BUILD" build-appstore.log || true
+          grep -q "BUILD SUCCEEDED" build-appstore.log
 
       - name: Xcode project matches project.yml
         if: always()
@@ -49,8 +57,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: xcodebuild-log
-          path: build.log
+          name: xcodebuild-logs
+          path: build*.log
           if-no-files-found: ignore
 
   linux-core:

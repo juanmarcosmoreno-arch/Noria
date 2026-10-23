@@ -59,8 +59,14 @@ final class SmartScanModel {
 
     func start() {
         guard !isScanning else { return }
+        // App Store edition: the first scan asks for access to the home folder.
+        if app.folderAccess.needsGrant {
+            app.folderAccess.requestHomeAccess()
+            guard !app.folderAccess.needsGrant else { return }
+        }
         scanTask?.cancel()
-        let settings = app.settings
+        var settings = app.settings
+        settings.enabledCategories.subtract(AppEdition.unavailableCategories)
         let engine = SmartScanEngine(locations: app.locations)
         plannedCategories = CleanCategory.smartScanCategories.filter { settings.enabledCategories.contains($0) }
         phase = .scanning

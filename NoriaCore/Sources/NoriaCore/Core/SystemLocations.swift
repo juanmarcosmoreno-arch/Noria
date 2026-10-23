@@ -1,4 +1,9 @@
 import Foundation
+#if canImport(Darwin)
+import Darwin
+#elseif canImport(Glibc)
+import Glibc
+#endif
 
 /// Well-known locations Noria inspects, derived from a home directory.
 ///
@@ -14,11 +19,20 @@ public struct SystemLocations: Sendable, Equatable {
         self.temporary = FileSystem.bestEffortCanonicalPath(temporary)
     }
 
-    /// Locations for the current user. In a non-sandboxed build `NSHomeDirectory()`
-    /// is the real home folder; in a sandboxed build it is the app container, which
-    /// is why the App Store edition needs user-granted folder access (see docs).
+    /// Locations for the current user, always based on the real home folder.
+    /// In the sandboxed App Store edition the paths are only readable after the
+    /// user grants access to the home folder (see `FolderAccess` in the app).
     public static var current: SystemLocations {
-        SystemLocations(home: NSHomeDirectory(), temporary: NSTemporaryDirectory())
+        SystemLocations(home: realHomeDirectory, temporary: NSTemporaryDirectory())
+    }
+
+    /// The user's real home folder. Unlike `NSHomeDirectory()`, this is not
+    /// redirected to the app container when running inside the App Sandbox.
+    public static var realHomeDirectory: String {
+        if let entry = getpwuid(getuid()), let directory = entry.pointee.pw_dir {
+            return String(cString: directory)
+        }
+        return NSHomeDirectory()
     }
 
     private func inHome(_ components: String...) -> String {

@@ -6,12 +6,12 @@ _Last updated: 2026-10-23 · Current phase: **1 (MVP)**_
 
 | Check | Where | Result |
 |---|---|---|
-| NoriaCore build + 48 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
-| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | ✅ 49/49 (incl. live CPU/memory test) |
-| `Noria.app` build (`xcodebuild`, Debug, unsigned, arm64) | GitHub Actions `macos-15` | ✅ BUILD SUCCEEDED, no Swift warnings |
+| NoriaCore build + 49 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
+| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | see CI (50 incl. live CPU/memory test) |
+| `Noria.app` direct (Debug) + App Store edition (Release, sandboxed), unsigned | GitHub Actions `macos-15` | see CI |
 | String catalog complete (en + es) and in sync | `Tools/build_strings.py` + CI | ✅ |
 | Xcode project in sync with `project.yml` (XcodeGen 2.46.0) | CI | ✅ |
-| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | ✅ 48/48 |
+| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | see CI |
 
 **Not yet verified by a human on a real Mac:** interactive behaviour of the UI
 (layout, animation smoothness, TCC prompts, Trash/Put Back round-trip). The
@@ -49,11 +49,15 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [x] Operation log (JSON Lines) + History screen; clear history
 - [x] Settings persisted in `UserDefaults`: language, removal method, age thresholds,
       categories, exclusions, Large Files container skipping
-- [x] Localization: String Catalog, English + Spanish (256 strings)
+- [x] Localization: String Catalog, English + Spanish (268 strings)
 - [x] Rule-based recommendations ranked by safety-weighted size
 - [x] Tests: file system, walker, safety policy, every rule, engines, cleaning,
       cancellation, persistence, recommendations
-- [x] CI: macOS app build + core tests on macOS and Linux
+- [x] Two editions from the same code: **Noria** (direct, `com.juanmarcos.noria.direct`)
+      and **Noria App Store** (App Sandbox, `com.juanmarcos.noria`) with one-time home
+      folder grant + security-scoped bookmark, Settings → Folder Access, export
+      compliance key; TestFlight guide in `docs/TESTFLIGHT.md`
+- [x] CI: both editions build on macOS; core tests on macOS and Linux
 
 ## Pending
 
@@ -81,13 +85,15 @@ development container is Linux, so the SwiftUI target is compiled in CI
 ### Phase 5
 - [ ] Performance profiling on large homes (≥1M files), memory benchmarks
 - [ ] Security review, signing, notarization, DMG, update mechanism
-- [ ] App Store target (sandbox + security-scoped bookmarks)
+- [ ] App Store listing (screenshots, description, privacy labels) and review
 
 ## Known issues / limitations
 
 - **Moving to Trash does not free space** until the Trash is emptied; the UI says
   so. Emptying the Trash is left to Finder (Phase 1).
 - **Trash size needs Full Disk Access**; without it the category shows a lock.
+- App Store edition: Temporary Files is unavailable (sandbox); scanning requires the
+  one-time home folder grant. Not yet uploaded to App Store Connect.
 - **Inode reuse:** if a scanned *folder* is deleted and a new folder is created at
   the same path reusing the same inode before cleanup, the identity check cannot
   tell them apart (files are additionally checked by size and date). The item

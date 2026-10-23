@@ -47,11 +47,18 @@ APIs, all introduced or stabilized in macOS 14.
 ## Build and run
 
 ```sh
-open Noria.xcodeproj        # select the "Noria" scheme, then Run (⌘R)
+open Noria.xcodeproj        # select a scheme, then Run (⌘R)
 ```
 
-Bundle identifier `com.juanmarcos.noria`, team `62395T6WLG` (automatic signing).
-Both live in `project.yml`; run `xcodegen generate` after changing them.
+| Scheme | Edition | Bundle ID |
+|---|---|---|
+| **Noria** | Direct distribution (Developer ID), not sandboxed | `com.juanmarcos.noria.direct` |
+| **Noria App Store** | Mac App Store / TestFlight, App Sandbox | `com.juanmarcos.noria` |
+
+Uploading to TestFlight: see [docs/TESTFLIGHT.md](docs/TESTFLIGHT.md).
+
+Team `62395T6WLG` (automatic signing). Identifiers, versions and both targets
+live in `project.yml`; run `xcodegen generate` after changing them.
 
 Command line:
 
@@ -85,7 +92,6 @@ NoriaCore/              Swift package with all non-UI logic (Foundation only)
   Tests/NoriaCoreTests/ Swift Testing suites (run on throwaway directories)
 Design/                 brand artwork (icon source, brand board)
 Tools/                  app-icon builder, string-catalog builder + Spanish translations
-Distribution/           prepared App Store entitlements (not used yet)
 docs/                   architecture and distribution notes
 ```
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Keys merged into the generated Info.plist (GENERATE_INFOPLIST_FILE = YES). -->
+<plist version="1.0">
+<dict>
+	<!-- Noria uses no encryption beyond what macOS provides: skips the export-compliance question in App Store Connect. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+</dict>
+</plist>

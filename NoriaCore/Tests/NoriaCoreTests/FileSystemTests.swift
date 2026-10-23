@@ -72,6 +72,12 @@ import Testing
         await #expect(throws: NoriaError.cancelled) { try await task.value }
     }
 
+    @Test func realHomeDirectoryExists() {
+        let home = SystemLocations.realHomeDirectory
+        #expect(home.hasPrefix("/"))
+        #expect(FileSystem.stat(home)?.type == .directory)
+    }
+
     @Test func pathAncestry() {
         #expect("/a/b".isSameOrDescendant(of: "/a"))
         #expect("/a".isSameOrDescendant(of: "/a"))

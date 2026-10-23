@@ -1,7 +1,9 @@
 # Distribution: Developer ID (direct) vs Mac App Store
 
-Noria is built so both editions share NoriaCore and almost all of the SwiftUI
-code. Phase 1 ships only the **direct (Developer ID)** configuration.
+Noria is built so both editions share NoriaCore and all of the SwiftUI code.
+Both targets exist in `project.yml`: **Noria** (direct, `com.juanmarcos.noria.direct`)
+and **Noria App Store** (sandboxed, `com.juanmarcos.noria`, compiled with
+`NORIA_APP_STORE`). TestFlight steps: [TESTFLIGHT.md](TESTFLIGHT.md).
 
 ## Direct distribution (signed + notarized DMG) — primary edition
 
@@ -21,14 +23,17 @@ code. Phase 1 ships only the **direct (Developer ID)** configuration.
 
 ## Mac App Store
 
-* App Sandbox is mandatory. `NSHomeDirectory()` becomes the app container, so
-  `SystemLocations.current` would point inside it and a scan would find nothing
-  meaningful.
-* Required design (prepared, not implemented): the user grants folders through
-  `NSOpenPanel` (`com.apple.security.files.user-selected.read-write`) and Noria
-  stores security-scoped bookmarks (`com.apple.security.files.bookmarks.app-scope`)
-  — see `Distribution/Noria-AppStore.entitlements`. `SystemLocations` would be
-  built from the granted URLs.
+* App Sandbox is mandatory (`App/Resources/Noria-AppStore.entitlements`).
+* `SystemLocations.current` uses the real home folder (`getpwuid`), not the
+  container returned by `NSHomeDirectory()`.
+* Implemented: the first scan opens the system open panel on the home folder;
+  the user clicks *Allow Access* (`files.user-selected.read-write`) and Noria
+  stores a security-scoped bookmark (`files.bookmarks.app-scope`) so the grant
+  survives relaunches (`App/App/FolderAccess.swift`). Settings → Folder Access
+  shows, re-grants or revokes it. Large Files can also scan any folder picked in
+  the panel during the session.
+* Temporary Files is disabled in this edition (the sandbox redirects the
+  temporary folder to the container).
 
 ### Feature matrix
 
@@ -49,7 +54,6 @@ Neither edition requests administrator privileges, disables SIP, or bypasses TCC
 
 ## Sharing code
 
-* Everything in NoriaCore is shared. The difference is concentrated in how
-  `SystemLocations` is built (real home vs granted bookmarks) and in which
-  sidebar modules are enabled — a build flag (`NORIA_APP_STORE`) and a second
-  target in `project.yml` will express it in phase 5.
+* Everything is shared. Edition differences live in `AppEdition` and
+  `FolderAccess` (`App/App/FolderAccess.swift`), selected by the
+  `NORIA_APP_STORE` compilation condition and the runtime sandbox check.

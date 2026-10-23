@@ -44,8 +44,36 @@ struct SettingsView: View {
                 Text("Moving to the Trash lets you restore items with Finder’s Put Back. Space is freed when the Trash is emptied.")
             }
 
+            if AppEdition.isSandboxed {
+                Section {
+                    LabeledContent("Home folder") {
+                        if let granted = model.folderAccess.grantedPath {
+                            Label((granted as NSString).abbreviatingWithTildeInPath, systemImage: "checkmark.circle.fill")
+                                .foregroundStyle(NoriaColor.safe)
+                        } else {
+                            Text("Not granted").foregroundStyle(.secondary)
+                        }
+                    }
+                    HStack {
+                        Button(model.folderAccess.grantedPath == nil ? LocalizedStringKey("Allow Access…") : LocalizedStringKey("Grant Again…")) {
+                            model.folderAccess.requestHomeAccess()
+                        }
+                        if model.folderAccess.grantedPath != nil {
+                            Button("Revoke Access", role: .destructive) { model.folderAccess.revoke() }
+                        }
+                    }
+                    if let error = model.folderAccess.errorMessage {
+                        Text(error).font(NoriaFont.caption).foregroundStyle(NoriaColor.review)
+                    }
+                } header: {
+                    Text("Folder Access")
+                } footer: {
+                    Text("The App Store edition runs in the macOS App Sandbox and can only read folders you allow. Temporary Files are not available in this edition.")
+                }
+            }
+
             Section("Smart Scan categories") {
-                ForEach(CleanCategory.smartScanCategories) { category in
+                ForEach(CleanCategory.smartScanCategories.filter { !AppEdition.unavailableCategories.contains($0) }) { category in
                     Toggle(isOn: Binding(
                         get: { model.settings.enabledCategories.contains(category) },
                         set: { enabled in

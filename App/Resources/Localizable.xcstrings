@@ -232,6 +232,17 @@
         }
       }
     },
+    "Access was granted for this session but could not be saved: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El acceso se concedió para esta sesión, pero no se pudo guardar: %@"
+          }
+        }
+      }
+    },
     "Add Exclusion…": {
       "extractionState": "manual",
       "localizations": {
@@ -261,6 +272,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todos los tipos"
+          }
+        }
+      }
+    },
+    "Allow Access": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir acceso"
+          }
+        }
+      }
+    },
+    "Allow Access…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir acceso…"
           }
         }
       }
@@ -1068,6 +1101,17 @@
         }
       }
     },
+    "Folder Access": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acceso a carpetas"
+          }
+        }
+      }
+    },
     "Found": {
       "extractionState": "manual",
       "localizations": {
@@ -1134,6 +1178,17 @@
         }
       }
     },
+    "Grant Again…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volver a conceder…"
+          }
+        }
+      }
+    },
     "High confidence": {
       "extractionState": "manual",
       "localizations": {
@@ -1152,6 +1207,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Historial"
+          }
+        }
+      }
+    },
+    "Home folder": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carpeta de inicio"
           }
         }
       }
@@ -1684,6 +1750,17 @@
         }
       }
     },
+    "Noria needs access to your Home folder to analyze caches, logs, developer data, downloads and large files. Click Allow Access without selecting anything else. Nothing is changed without your confirmation.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria necesita acceso a tu carpeta de inicio para analizar cachés, registros, datos de desarrollo, descargas y archivos grandes. Pulsa Permitir acceso sin seleccionar nada más. No se modifica nada sin tu confirmación."
+          }
+        }
+      }
+    },
     "Noria never removes this. It is shown for transparency only.": {
       "extractionState": "manual",
       "localizations": {
@@ -1713,6 +1790,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Normal"
+          }
+        }
+      }
+    },
+    "Not granted": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin acceso"
           }
         }
       }
@@ -2120,6 +2208,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Revísalos y conserva lo que aún necesites."
+          }
+        }
+      }
+    },
+    "Revoke Access": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revocar acceso"
           }
         }
       }
@@ -2542,6 +2641,17 @@
         }
       }
     },
+    "The App Store edition runs in the macOS App Sandbox and can only read folders you allow. Temporary Files are not available in this edition.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La edición de la App Store funciona dentro del sandbox de macOS y solo puede leer las carpetas que permitas. Los archivos temporales no están disponibles en esta edición."
+          }
+        }
+      }
+    },
     "The Trash holds %@.": {
       "extractionState": "manual",
       "localizations": {
@@ -2560,6 +2670,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "La carpeta de caché «%1$@» ocupa %2$@."
+          }
+        }
+      }
+    },
+    "The first time, macOS asks you to allow access to your Home folder. Noria only reads it until you confirm a cleanup.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La primera vez, macOS te pedirá permitir el acceso a tu carpeta de inicio. Noria solo la lee hasta que confirmes una limpieza."
           }
         }
       }
@@ -2736,6 +2857,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Xcode los regenera; la próxima compilación de cada proyecto será más lenta."
+          }
+        }
+      }
+    },
+    "You selected “%@”. Please select your Home folder (%@).": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleccionaste «%1$@». Selecciona tu carpeta de inicio (%2$@)."
           }
         }
       }

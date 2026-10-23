@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  PREPARED for the future Mac App Store target (phase 5); not used by any target yet.
-  In the sandbox, Noria can only reach folders the user grants via NSOpenPanel,
-  persisted with security-scoped bookmarks. See docs/DISTRIBUTION.md.
+  Mac App Store / TestFlight edition: App Sandbox.
+  - user-selected.read-write: folders the user picks in the open panel (the home folder grant).
+  - bookmarks.app-scope: remember that grant across launches with a security-scoped bookmark.
 -->
 <plist version="1.0">
 <dict>
