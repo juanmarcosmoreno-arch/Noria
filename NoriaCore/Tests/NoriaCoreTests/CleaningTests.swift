@@ -108,7 +108,7 @@ import Testing
     @Test func permanentRemoverDeletesInsideSandboxOnly() throws {
         let box = try Sandbox()
         let file = try box.file("Library/Caches/com.x.y/z", bytes: 10)
-        try PermanentRemover().remove(path: file)
+        try PermanentRemover().remove(ScanItem(path: file, category: .userCache, risk: .safe, reason: .thirdPartyCache, allocatedSize: 10, fileCount: 1, modificationDate: nil, fingerprint: nil))
         #expect(!box.exists(file))
     }
 }
@@ -135,8 +135,17 @@ import Testing
         let data = Data(#"{"logsMinimumAgeDays": 14}"#.utf8)
         let settings = try JSONDecoder().decode(NoriaSettings.self, from: data)
         #expect(settings.logsMinimumAgeDays == 14)
-        #expect(settings.removalMethod == .moveToTrash)
+        #expect(settings.removalMethod == .quarantine)
         #expect(settings.enabledCategories == Set(CleanCategory.smartScanCategories))
+    }
+
+    @Test func newCategoriesStartEnabledForExistingUsers() throws {
+        // Saved by an older version: no knownCategories key, logs disabled by the user.
+        let data = Data(#"{"enabledCategories": ["userCache", "temporaryFiles", "developerCache", "downloads", "trash"]}"#.utf8)
+        let settings = try JSONDecoder().decode(NoriaSettings.self, from: data)
+        #expect(!settings.enabledCategories.contains(.logs), "the user's choice is kept")
+        #expect(settings.enabledCategories.contains(.appLeftovers))
+        #expect(settings.enabledCategories.contains(.mail))
     }
 
     @Test func settingsStoreRoundTrip() throws {

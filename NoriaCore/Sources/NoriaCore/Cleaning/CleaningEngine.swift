@@ -3,7 +3,7 @@ import Foundation
 /// Removes a single node. Implementations must not follow symbolic links.
 public protocol FileRemoving: Sendable {
     var method: RemovalMethod { get }
-    func remove(path: String) throws
+    func remove(_ item: ScanItem) throws
 }
 
 #if os(macOS)
@@ -13,8 +13,8 @@ public struct TrashRemover: FileRemoving {
     public let method = RemovalMethod.moveToTrash
     public init() {}
 
-    public func remove(path: String) throws {
-        try FileManager.default.trashItem(at: URL(fileURLWithPath: path), resultingItemURL: nil)
+    public func remove(_ item: ScanItem) throws {
+        try FileManager.default.trashItem(at: URL(fileURLWithPath: item.path), resultingItemURL: nil)
     }
 }
 #endif
@@ -24,12 +24,12 @@ public struct PermanentRemover: FileRemoving {
     public let method = RemovalMethod.deletePermanently
     public init() {}
 
-    public func remove(path: String) throws {
-        try FileManager.default.removeItem(atPath: path)
+    public func remove(_ item: ScanItem) throws {
+        try FileManager.default.removeItem(atPath: item.path)
     }
 }
 
-/// Moves items into a directory. Used by tests (and the basis of Phase 2 quarantine).
+/// Moves items into a plain directory. Used by tests.
 public struct MoveToDirectoryRemover: FileRemoving {
     public let method = RemovalMethod.moveToTrash
     public var destination: String
@@ -38,16 +38,18 @@ public struct MoveToDirectoryRemover: FileRemoving {
         self.destination = destination
     }
 
-    public func remove(path: String) throws {
-        let name = UUID().uuidString + "-" + (path as NSString).lastPathComponent
-        try FileManager.default.moveItem(atPath: path, toPath: (destination as NSString).appendingPathComponent(name))
+    public func remove(_ item: ScanItem) throws {
+        let name = UUID().uuidString + "-" + (item.path as NSString).lastPathComponent
+        try FileManager.default.moveItem(atPath: item.path, toPath: (destination as NSString).appendingPathComponent(name))
     }
 }
 
 public enum Removers {
     /// The remover for a method on this platform.
-    public static func remover(for method: RemovalMethod) throws -> any FileRemoving {
+    public static func remover(for method: RemovalMethod, quarantine: QuarantineStore) throws -> any FileRemoving {
         switch method {
+        case .quarantine:
+            return QuarantineRemover(store: quarantine)
         case .deletePermanently:
             return PermanentRemover()
         case .moveToTrash:
@@ -94,6 +96,9 @@ public struct CleanupReport: Sendable, Codable {
 
     /// Bytes now sitting in the Trash: not freed until the Trash is emptied.
     public var movedToTrashSize: Int64 { method == .moveToTrash ? removedSize : 0 }
+
+    /// Bytes now in Noria's quarantine: not freed until the quarantine entries are deleted.
+    public var quarantinedSize: Int64 { method == .quarantine ? removedSize : 0 }
 
     /// Measured change in free space. May differ from `removedSize` because other
     /// processes write to disk and APFS may share blocks between clones/snapshots.
@@ -193,7 +198,7 @@ public struct CleaningEngine: Sendable {
             return ItemOutcome(itemID: item.id, path: item.path, allocatedSize: item.allocatedSize, status: status, message: error.description)
         case .success:
             do {
-                try remover.remove(path: item.path)
+                try remover.remove(item)
                 return ItemOutcome(itemID: item.id, path: item.path, allocatedSize: item.allocatedSize, status: .removed, message: nil)
             } catch {
                 return ItemOutcome(itemID: item.id, path: item.path, allocatedSize: item.allocatedSize, status: .failed,

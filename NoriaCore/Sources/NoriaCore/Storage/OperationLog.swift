@@ -6,6 +6,10 @@ public struct OperationRecord: Codable, Sendable, Identifiable, Equatable {
         case smartScan
         case largeFileScan
         case cleanup
+        /// Items moved back from the quarantine.
+        case restore
+        /// Quarantined items deleted for good (manually or after the retention period).
+        case quarantineDeletion
     }
 
     public struct Failure: Codable, Sendable, Equatable {
@@ -53,6 +57,16 @@ public struct OperationRecord: Codable, Sendable, Identifiable, Equatable {
     public static func largeFileScan(_ report: LargeFileReport) -> OperationRecord {
         OperationRecord(date: Date(), kind: .largeFileScan, duration: report.duration,
                         recoverableBytes: report.files.reduce(0) { $0 + $1.allocatedSize }, itemsFound: report.files.count)
+    }
+
+    public static func restore(_ entries: [QuarantineEntry], failures: [Failure] = []) -> OperationRecord {
+        OperationRecord(date: Date(), kind: .restore, duration: 0, removedPaths: entries.map(\.originalPath),
+                        removedBytes: entries.reduce(0) { $0 + $1.allocatedSize }, failures: failures)
+    }
+
+    public static func quarantineDeletion(_ entries: [QuarantineEntry]) -> OperationRecord {
+        OperationRecord(date: Date(), kind: .quarantineDeletion, duration: 0, removedPaths: entries.map(\.originalPath),
+                        removedBytes: entries.reduce(0) { $0 + $1.allocatedSize })
     }
 
     public static func cleanup(_ report: CleanupReport) -> OperationRecord {

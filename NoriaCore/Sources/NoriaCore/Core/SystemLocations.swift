@@ -54,6 +54,26 @@ public struct SystemLocations: Sendable, Equatable {
     public var cocoaPodsCache: String { inHome("Library", "Caches", "CocoaPods") }
     public var goBuildCache: String { inHome("Library", "Caches", "go-build") }
 
+    // Per-app data in ~/Library (App Remover and app leftovers).
+    public var applicationSupport: String { inHome("Library", "Application Support") }
+    public var preferences: String { inHome("Library", "Preferences") }
+    public var byHostPreferences: String { inHome("Library", "Preferences", "ByHost") }
+    public var containers: String { inHome("Library", "Containers") }
+    public var groupContainers: String { inHome("Library", "Group Containers") }
+    public var savedApplicationState: String { inHome("Library", "Saved Application State") }
+    public var httpStorages: String { inHome("Library", "HTTPStorages") }
+    public var webKit: String { inHome("Library", "WebKit") }
+    public var applicationScripts: String { inHome("Library", "Application Scripts") }
+    public var launchAgents: String { inHome("Library", "LaunchAgents") }
+
+    /// Folders that hold installed applications. `/Applications` is shared by all users.
+    public var applicationFolders: [String] { ["/Applications", inHome("Applications")] }
+
+    // Mail.
+    public var mail: String { inHome("Library", "Mail") }
+    public var mailDownloads: String { inHome("Library", "Containers", "com.apple.mail", "Data", "Library", "Mail Downloads") }
+    public var accountsDatabase: String { inHome("Library", "Accounts", "Accounts4.sqlite") }
+
     /// Locations inside the home folder that Noria never modifies: app data managed
     /// by macOS or by other apps, iCloud Drive, keychains, preferences, libraries.
     public var protectedHomeLocations: [String] {

@@ -12,6 +12,12 @@ public enum SafetyViolation: String, Codable, Sendable, Equatable {
     case userExclusion
     case symlinkedParent
     case notCanonical
+    /// Belongs to macOS or an Apple app.
+    case appleItem
+    /// Inside Mail, only attachment folders may be removed.
+    case notMailAttachment
+    /// In an Applications folder, only `.app` bundles may be removed.
+    case notApplicationBundle
 }
 
 /// Central, deliberately conservative rules about what Noria may touch.
@@ -58,6 +64,30 @@ public struct SafetyPolicy: Sendable {
                 locations.yarnCache, locations.cocoaPodsCache, locations.goBuildCache,
             ]
         case .largeFiles: return [locations.home]
+        case .appLeftovers: return appDataRoots
+        case .appRemoval: return appDataRoots + [locations.groupContainers, locations.caches] + locations.applicationFolders
+        case .mail: return [locations.mail, locations.mailDownloads]
+        }
+    }
+
+    /// `~/Library` folders where apps keep per-app data, one entry per app.
+    var appDataRoots: [String] {
+        [
+            locations.applicationSupport, locations.preferences, locations.containers,
+            locations.savedApplicationState, locations.logs, locations.httpStorages,
+            locations.webKit, locations.applicationScripts, locations.launchAgents,
+        ]
+    }
+
+    /// Protected home locations a category is allowed to reach into. Per-app data
+    /// in Containers/Preferences is only removable for the app it belongs to, and
+    /// Mail only for attachment copies — both enforced again in `validateForRemoval`.
+    func relaxedLocations(for category: CleanCategory?) -> [String] {
+        switch category {
+        case .appLeftovers: return [locations.containers, locations.preferences]
+        case .appRemoval: return [locations.containers, locations.groupContainers, locations.preferences]
+        case .mail: return [locations.mail, locations.containers]
+        default: return []
         }
     }
 
@@ -65,19 +95,23 @@ public struct SafetyPolicy: Sendable {
         exclusions.contains { path.isSameOrDescendant(of: $0) }
     }
 
-    /// `true` when `path` is in a location Noria never modifies, for any category.
-    public func protectionReason(for path: String) -> SafetyViolation? {
+    /// Returns why `path` must not be modified, or `nil`. Without a category, the
+    /// strictest rules apply; some categories may reach specific protected locations.
+    public func protectionReason(for path: String, category: CleanCategory? = nil) -> SafetyViolation? {
         let home = locations.home
         // The temporary directory lives under /private/var on macOS; it is the only
         // system-root location allowed, and only for the temporaryFiles category.
         let inTemporary = path.isStrictDescendant(of: locations.temporary)
-        if !path.isStrictDescendant(of: home) && !inTemporary {
+        let isUninstallableApp = category == .appRemoval && isApplicationBundleLocation(path)
+        if !path.isStrictDescendant(of: home) && !inTemporary && !isUninstallableApp {
             for root in Self.systemRoots where path.isSameOrDescendant(of: root) {
                 return .systemLocation
             }
         }
         if path.isStrictDescendant(of: home) {
-            if locations.protectedHomeLocations.contains(where: { path.isSameOrDescendant(of: $0) }) {
+            let relaxed = relaxedLocations(for: category)
+            let protected = locations.protectedHomeLocations.filter { !relaxed.contains($0) }
+            if protected.contains(where: { path.isSameOrDescendant(of: $0) }) {
                 return .protectedHomeLocation
             }
             // ~/Library itself and ~/Library/<anything> are only removable through
@@ -90,6 +124,49 @@ public struct SafetyPolicy: Sendable {
         return nil
     }
 
+    /// `true` for `/Applications/X.app`, `/Applications/Folder/X.app` and the same under `~/Applications`.
+    func isApplicationBundleLocation(_ path: String) -> Bool {
+        guard (path as NSString).pathExtension == "app" else { return false }
+        let parent = (path as NSString).deletingLastPathComponent
+        let grandparent = (parent as NSString).deletingLastPathComponent
+        return locations.applicationFolders.contains { $0 == parent || $0 == grandparent }
+    }
+
+    /// Extra rules for categories that reach into sensitive places.
+    func categorySpecificViolation(for path: String, category: CleanCategory) -> SafetyViolation? {
+        let name = (path as NSString).lastPathComponent
+        switch category {
+        case .appLeftovers, .appRemoval:
+            if name.lowercased().hasPrefix("com.apple.") || name.hasPrefix(".GlobalPreferences") {
+                return .appleItem
+            }
+            if locations.applicationFolders.contains(where: { path.isStrictDescendant(of: $0) }) {
+                guard isApplicationBundleLocation(path) else { return .notApplicationBundle }
+                if let identifier = Self.bundleIdentifier(ofAppAt: path), identifier.lowercased().hasPrefix("com.apple.") {
+                    return .appleItem
+                }
+            }
+            return nil
+        case .mail:
+            if path.isStrictDescendant(of: locations.mailDownloads) { return nil }
+            // Inside ~/Library/Mail only attachment folders (or files in them) may go.
+            let components = path.dropFirst(locations.mail.count).split(separator: "/")
+            return components.contains("Attachments") ? nil : .notMailAttachment
+        default:
+            return nil
+        }
+    }
+
+    /// Reads `CFBundleIdentifier` from an app bundle's Info.plist.
+    public static func bundleIdentifier(ofAppAt path: String) -> String? {
+        let plist = (path as NSString).appendingPathComponent("Contents/Info.plist")
+        guard let data = FileManager.default.contents(atPath: plist),
+              let info = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String: Any] else {
+            return nil
+        }
+        return info["CFBundleIdentifier"] as? String
+    }
+
     /// Validates that `item` may be removed right now. Re-reads the file system.
     public func validateForRemoval(_ item: ScanItem) -> Result<Void, NoriaError> {
         let path = item.path
@@ -99,7 +176,7 @@ public struct SafetyPolicy: Sendable {
             return .failure(.blocked(path: path, reason: .notCanonical))
         }
         if isExcluded(path) { return .failure(.blocked(path: path, reason: .userExclusion)) }
-        if let reason = protectionReason(for: path) { return .failure(.blocked(path: path, reason: reason)) }
+        if let reason = protectionReason(for: path, category: item.category) { return .failure(.blocked(path: path, reason: reason)) }
 
         let roots = allowedRoots(for: item.category)
         if roots.contains(path) { return .failure(.blocked(path: path, reason: .isAllowedRoot)) }
@@ -109,6 +186,9 @@ public struct SafetyPolicy: Sendable {
         // Large files: never inside ~/Library (app data) in Phase 1.
         if item.category == .largeFiles, path.isSameOrDescendant(of: locations.library) {
             return .failure(.blocked(path: path, reason: .protectedHomeLocation))
+        }
+        if let violation = categorySpecificViolation(for: path, category: item.category) {
+            return .failure(.blocked(path: path, reason: violation))
         }
 
         // The parent directory must still resolve to the same place: a symlink swapped

@@ -7,6 +7,10 @@ public struct ScanContext: Sendable {
     public var policy: SafetyPolicy
     public var tracker: InodeTracker
     public var now: Date
+    /// Installed apps, used to tell leftovers from data of apps still in use.
+    public var appRegistry: InstalledAppRegistry
+    /// Mail account types, used to decide which attachments can be removed.
+    public var mailAccounts: any MailAccountResolving
     /// Reports files visited since the last call (throttled by the sizer).
     public var reportProgress: @Sendable (_ filesVisited: Int, _ bytesFound: Int64) -> Void
 
@@ -15,6 +19,8 @@ public struct ScanContext: Sendable {
         settings: NoriaSettings,
         tracker: InodeTracker = InodeTracker(),
         now: Date = Date(),
+        appRegistry: InstalledAppRegistry = .empty,
+        mailAccounts: any MailAccountResolving = StaticMailAccountResolver(),
         reportProgress: @escaping @Sendable (Int, Int64) -> Void = { _, _ in }
     ) {
         self.locations = locations
@@ -22,6 +28,8 @@ public struct ScanContext: Sendable {
         self.policy = SafetyPolicy(locations: locations, exclusions: settings.exclusions)
         self.tracker = tracker
         self.now = now
+        self.appRegistry = appRegistry
+        self.mailAccounts = mailAccounts
         self.reportProgress = reportProgress
     }
 
@@ -63,7 +71,7 @@ public struct ScanContext: Sendable {
         guard size > 0 else { return nil }
         var finalRisk = risk
         var finalReason = reason
-        if policy.protectionReason(for: path) != nil {
+        if policy.protectionReason(for: path, category: category) != nil {
             finalRisk = .protected
             finalReason = .protectedLocation
         }

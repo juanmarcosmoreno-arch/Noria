@@ -7,23 +7,41 @@ import Foundation
 public struct SmartScanEngine: Sendable {
     public var locations: SystemLocations
     public var rules: [any CleaningRule]
+    /// Installed apps; `nil` builds the registry from the Applications folders at scan time.
+    public var appRegistry: InstalledAppRegistry?
+    /// Mail account types; `nil` reads the macOS accounts database at scan time.
+    public var mailAccounts: (any MailAccountResolving)?
+    /// Extra "is this app installed?" lookup used when the registry is built at scan time.
+    public var appLookup: (@Sendable (String) -> Bool)?
 
     public static let defaultRules: [any CleaningRule] = [
-        UserCacheRule(), LogsRule(), TemporaryFilesRule(), DeveloperCacheRule(), DownloadsRule(), TrashRule(),
+        UserCacheRule(), LogsRule(), TemporaryFilesRule(), AppLeftoversRule(), MailRule(),
+        DeveloperCacheRule(), DownloadsRule(), TrashRule(),
     ]
 
-    public init(locations: SystemLocations = .current, rules: [any CleaningRule] = SmartScanEngine.defaultRules) {
+    public init(locations: SystemLocations = .current, rules: [any CleaningRule] = SmartScanEngine.defaultRules,
+                appRegistry: InstalledAppRegistry? = nil, mailAccounts: (any MailAccountResolving)? = nil,
+                appLookup: (@Sendable (String) -> Bool)? = nil) {
         self.locations = locations
         self.rules = rules
+        self.appRegistry = appRegistry
+        self.mailAccounts = mailAccounts
+        self.appLookup = appLookup
     }
 
     public func scan(settings: NoriaSettings) -> AsyncThrowingStream<ScanEvent, Error> {
         let rules = self.rules.filter { settings.enabledCategories.contains($0.category) }
         let locations = self.locations
+        let suppliedRegistry = appRegistry
+        let suppliedMailAccounts = mailAccounts
+        let appLookup = self.appLookup
         return AsyncThrowingStream(bufferingPolicy: .unbounded) { continuation in
             let task = Task.detached(priority: .utility) {
                 let startedAt = Date()
                 let tracker = InodeTracker()
+                let registry = suppliedRegistry
+                    ?? InstalledAppRegistry(apps: AppInventory.scan(roots: AppInventory.registryRoots(locations)), externalLookup: appLookup)
+                let mailAccounts = suppliedMailAccounts ?? AccountsDatabaseResolver(databasePath: locations.accountsDatabase)
                 var results: [CategoryResult] = []
                 var claimed: [String] = []
                 do {
@@ -32,7 +50,8 @@ public struct SmartScanEngine: Sendable {
                         let category = rule.category
                         continuation.yield(.categoryStarted(category, index: index, total: rules.count))
                         let counters = ProgressCounters()
-                        let context = ScanContext(locations: locations, settings: settings, tracker: tracker) { files, bytes in
+                        let context = ScanContext(locations: locations, settings: settings, tracker: tracker,
+                                                  appRegistry: registry, mailAccounts: mailAccounts) { files, bytes in
                             let snapshot = counters.add(files: files, bytes: bytes)
                             continuation.yield(.progress(category, filesVisited: snapshot.files, bytesFound: snapshot.bytes))
                         }

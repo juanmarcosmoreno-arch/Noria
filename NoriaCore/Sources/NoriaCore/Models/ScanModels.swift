@@ -8,14 +8,20 @@ public enum CleanCategory: String, Codable, Sendable, CaseIterable, Identifiable
     case developerCache
     case downloads
     case trash
+    /// Data left behind by apps that are no longer installed.
+    case appLeftovers
+    /// Local copies of Mail attachments and Mail Downloads.
+    case mail
     /// Not part of Smart Scan; used for items removed from the Large Files module.
     case largeFiles
+    /// Not part of Smart Scan; an installed app and its files, removed from App Remover.
+    case appRemoval
 
     public var id: String { rawValue }
 
     /// Categories included in Smart Scan.
     public static var smartScanCategories: [CleanCategory] {
-        [.userCache, .logs, .temporaryFiles, .developerCache, .downloads, .trash]
+        [.userCache, .logs, .temporaryFiles, .appLeftovers, .mail, .developerCache, .downloads, .trash]
     }
 }
 
@@ -71,6 +77,34 @@ public enum ItemReason: Codable, Sendable, Hashable {
     case largeFile
     /// Inside a location Noria never modifies (app containers, iCloud, libraries…).
     case protectedLocation
+    /// Data of an app that is not installed any more (matched by bundle identifier).
+    case appLeftover(kind: AppDataKind, bundleIdentifier: String)
+    /// A file or folder that belongs to an installed app (App Remover).
+    case appData(kind: AppDataKind, match: AppFileMatch)
+    /// The application bundle itself.
+    case applicationBundle
+    /// Attachments Mail downloaded from a server account; Mail downloads them again when needed.
+    case mailServerAttachments(account: String)
+    /// Attachments stored only on this Mac (POP or local mailboxes, or unknown account type).
+    case mailLocalAttachments(account: String)
+    /// Copies Mail made when you opened attachments.
+    case mailDownloads
+}
+
+/// Kind of per-app data in `~/Library`.
+public enum AppDataKind: String, Codable, Sendable, CaseIterable {
+    case applicationSupport, cache, preferences, container, groupContainer
+    case savedState, logs, webData, scripts, launchAgent
+}
+
+/// How a file was associated with an app.
+public enum AppFileMatch: String, Codable, Sendable {
+    /// The name is the app's bundle identifier (or starts with it): reliable.
+    case bundleIdentifier
+    /// The folder has the same name as the app: probable, not certain.
+    case appName
+    /// A group container shared by several apps of the same developer.
+    case sharedGroup
 }
 
 /// What Noria can do with an item.
@@ -102,6 +136,10 @@ public struct ScanItem: Identifiable, Sendable, Hashable, Codable {
     public var ownerName: String?
     /// Identity captured at scan time; the cleaning engine refuses to act if it changed.
     public var fingerprint: FileStat?
+    /// The app (bundle identifier) that must not be running while this item is removed.
+    public var requiresQuitting: String?
+    /// Optional grouping label (e.g. the Mail account) used by the UI.
+    public var group: String?
 
     public init(
         id: UUID = UUID(),
@@ -116,7 +154,9 @@ public struct ScanItem: Identifiable, Sendable, Hashable, Codable {
         modificationDate: Date?,
         bundleIdentifier: String? = nil,
         ownerName: String? = nil,
-        fingerprint: FileStat?
+        fingerprint: FileStat?,
+        requiresQuitting: String? = nil,
+        group: String? = nil
     ) {
         self.id = id
         self.path = path
@@ -131,6 +171,8 @@ public struct ScanItem: Identifiable, Sendable, Hashable, Codable {
         self.bundleIdentifier = bundleIdentifier
         self.ownerName = ownerName
         self.fingerprint = fingerprint
+        self.requiresQuitting = requiresQuitting
+        self.group = group
     }
 
     /// Whether the user may select this item for removal.
