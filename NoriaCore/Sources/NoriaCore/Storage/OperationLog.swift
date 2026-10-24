@@ -15,6 +15,11 @@ public struct OperationRecord: Codable, Sendable, Identifiable, Equatable {
     public struct Failure: Codable, Sendable, Equatable {
         public var path: String
         public var message: String
+
+        public init(path: String, message: String) {
+            self.path = path
+            self.message = message
+        }
     }
 
     public var id: UUID
