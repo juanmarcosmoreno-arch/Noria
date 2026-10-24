@@ -17,7 +17,7 @@ settings:
   base:
     MARKETING_VERSION: "0.3.0"
     # Increase before every App Store Connect upload (each build number can be used once).
-    CURRENT_PROJECT_VERSION: "4"
+    CURRENT_PROJECT_VERSION: "5"
     SWIFT_VERSION: "5.0"
     MACOSX_DEPLOYMENT_TARGET: "14.0"
     LOCALIZATION_PREFERS_STRING_CATALOGS: YES
