@@ -17,9 +17,20 @@ Both targets exist in `project.yml`: **Noria** (default scheme; sandboxed,
   System Settings; Noria only links there and otherwise reports those locations
   as unreadable. Apps' containers trigger "access data from other apps" prompts,
   so Large Files skips `~/Library/Containers` by default.
-* Steps for phase 5: Developer ID Application certificate → `xcodebuild archive`
-  → `notarytool submit --wait` → `stapler staple` → DMG (e.g. `hdiutil` or
-  `create-dmg`) → notarize the DMG too. Sparkle (or similar) for updates.
+* Release: `Tools/release_direct.sh` archives the **Noria Direct** scheme,
+  exports it with Developer ID (`Tools/ExportOptions-DeveloperID.plist`),
+  checks the signature and hardened runtime, notarizes and staples the app,
+  builds `build/release/Noria-<version>.dmg` (app + Applications link), signs,
+  notarizes and staples the DMG, runs Gatekeeper (`spctl`) and writes its SHA-256.
+
+  One-time setup on the Mac that publishes:
+  1. Xcode › Settings › Accounts › Manage Certificates › **+** ›
+     *Developer ID Application* (team 62395T6WLG).
+  2. Create an app-specific password at appleid.apple.com, then:
+     `xcrun notarytool store-credentials noria-notary --apple-id <Apple ID> --team-id 62395T6WLG --password <app-specific password>`
+  3. Run `Tools/release_direct.sh` from the repository root.
+* Updates: not implemented yet. Noria sends nothing over the network today; an
+  update check (e.g. Sparkle with an EdDSA-signed appcast) will be opt-in.
 
 ## Mac App Store
 

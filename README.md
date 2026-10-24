@@ -6,7 +6,7 @@ Noria is a native macOS cleaner and optimizer written in Swift and SwiftUI. It
 finds space you can recover, explains why each item is listed, and never
 removes anything without your review and confirmation. Everything runs locally.
 
-> Status: **Phase 1 (MVP)** — see [PROJECT_STATUS.md](PROJECT_STATUS.md) for
+> Status: **Phases 1–4 implemented, Phase 5 (release) in progress** — see [PROJECT_STATUS.md](PROJECT_STATUS.md) for
 > exactly what is implemented, what is pending and known limitations.
 
 ## What works today
@@ -22,6 +22,7 @@ removes anything without your review and confirmation. Everything runs locally.
 | **Mail** | Where Mail's space goes; safe cleaning of downloadable attachment copies |
 | **Startup Manager** | Background items, orphaned launchers of removed apps |
 | **Performance** | CPU, memory pressure, swap, disk activity, top processes |
+| **Privacy** | Browser history, cookies, tabs and website data per profile; passwords and bookmarks never touched |
 | **Developer Clean** | Xcode, simulators, package managers, inactive projects' dependencies |
 | **Mac Health** | Battery capacity, cycles and condition; storage device |
 | **History** | Quarantine (restore / delete) and activity with charts |

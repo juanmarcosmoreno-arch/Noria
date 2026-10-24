@@ -96,17 +96,24 @@ development container is Linux, so the SwiftUI target is compiled in CI
       attachments) and live insights on the Dashboard (disk almost full, quarantine,
       memory pressure)
 - [x] History charts (cleaned per month, free space at each analysis)
-- [x] Plural-aware English/Spanish strings (553 strings)
+- [x] Plural-aware English/Spanish strings (575 strings)
+- [x] Privacy: history, cookies, open/closed tabs, form history (Firefox) and website
+      data of Chrome, Brave, Edge, Vivaldi, Arc, Opera, Chromium and Firefox, per
+      profile. Only known file names directly inside a browser profile can be removed
+      (checked again by the safety policy); passwords, bookmarks, extensions, settings
+      and payment data are never listed. Everything REVIEW, nothing preselected, the
+      browser must be closed. Safari (protected by macOS) and Firefox history (shared
+      with bookmarks) are explained with the browser's own menu instead
 
 ## Pending
 
-### Privacy module
-- [ ] Scope to be defined. Browser data lives in protected app containers; anything
-      here must use the browsers' own mechanisms. Shown as "planned".
-
 ### Phase 5
+- [x] Release script for the direct edition: Developer ID export, notarization,
+      stapling, signed + notarized DMG, Gatekeeper check (`Tools/release_direct.sh`;
+      not yet run on a Mac)
 - [ ] Performance profiling on large homes (≥1M files), memory benchmarks
-- [ ] Security review, signing, notarization, DMG, update mechanism (direct edition)
+- [ ] Security review of the removal path
+- [ ] Update mechanism for the direct edition (opt-in)
 - [ ] App Store listing (screenshots, description, privacy labels) and review
 - [ ] Tighten the app target to Swift 6 language mode
 
@@ -147,8 +154,9 @@ development container is Linux, so the SwiftUI target is compiled in CI
   allocated. The measured free-space change is shown for permanent deletion.
 - **Category progress** is per category (6 steps); within a category progress is
   indeterminate by design (total work is unknown).
-- Count strings use a formatted number (`"1 items"` in English); plural variants
-  are planned for Phase 4.
+- **Browser data** is matched by the file names each browser uses today; a browser
+  update that renames a file only makes Noria list less, never more. Chromium's
+  autofill lives with payment data and is therefore not offered.
 - Language change requires relaunching Noria (macOS reads `AppleLanguages` at launch).
 - Associated-app names are resolved only for reverse-DNS cache folder names.
 - Spanish copy uses neutral Spanish (tú). Can be switched to rioplatense if preferred.
