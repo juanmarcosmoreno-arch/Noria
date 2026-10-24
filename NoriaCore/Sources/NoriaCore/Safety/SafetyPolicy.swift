@@ -18,6 +18,8 @@ public enum SafetyViolation: String, Codable, Sendable, Equatable {
     case notMailAttachment
     /// In an Applications folder, only `.app` bundles may be removed.
     case notApplicationBundle
+    /// Privacy may only remove the browsing-data files it knows (never passwords or bookmarks).
+    case notBrowsingData
 }
 
 /// Central, deliberately conservative rules about what Noria may touch.
@@ -75,6 +77,7 @@ public struct SafetyPolicy: Sendable {
         case .appLeftovers: return appDataRoots
         case .appRemoval: return appDataRoots + [locations.groupContainers, locations.caches] + locations.applicationFolders
         case .mail: return [locations.mail, locations.mailDownloads]
+        case .privacy: return PrivacyScanner(locations: locations).supportFolders()
         }
     }
 
@@ -160,6 +163,14 @@ public struct SafetyPolicy: Sendable {
             // Inside ~/Library/Mail only attachment folders (or files in them) may go.
             let components = path.dropFirst(locations.mail.count).split(separator: "/")
             return components.contains("Attachments") ? nil : .notMailAttachment
+        case .privacy:
+            // Only known browsing-data names, directly in a profile folder (or its Network folder).
+            guard PrivacyScanner.removableNames.contains(name) else { return .notBrowsingData }
+            let parent = (path as NSString).deletingLastPathComponent
+            let profile = (parent as NSString).lastPathComponent == "Network" ? (parent as NSString).deletingLastPathComponent : parent
+            let marker = FileSystem.stat((profile as NSString).appendingPathComponent("Preferences")) != nil
+                || FileSystem.stat((profile as NSString).appendingPathComponent("prefs.js")) != nil
+            return marker ? nil : .notBrowsingData
         default:
             return nil
         }

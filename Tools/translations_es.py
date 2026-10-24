@@ -604,3 +604,32 @@ ES.update({
     "Bytes": "Bytes",
     "Date": "Fecha",
 })
+
+# Privacy.
+ES.update({
+    "%@ of %@. %@ Quit %@ first.": "%1$@ de %2$@. %3$@ Cierra %4$@ antes.",
+    "Analyze Browsing Data": "Analizar datos de navegación",
+    "Browsing Data": "Datos de navegación",
+    "Browsing history": "Historial de navegación",
+    "Cookies": "Cookies",
+    "Data websites store on your Mac (offline data, service workers and their caches). Sites may sign you out and download their data again.": "Datos que los sitios web guardan en tu Mac (datos sin conexión, service workers y sus cachés). Los sitios pueden cerrar tu sesión y volver a descargar sus datos.",
+    "Firefox keeps history and bookmarks in the same file, so Noria does not remove it. In Firefox, choose History › Clear Recent History.": "Firefox guarda el historial y los marcadores en el mismo archivo, así que Noria no lo elimina. En Firefox, elige Historial › Limpiar historial reciente.",
+    "Form history": "Historial de formularios",
+    "History, cookies and other browsing data selected in Privacy.": "Historial, cookies y otros datos de navegación seleccionados en Privacidad.",
+    "Last changed %@": "Último cambio: %@",
+    "Looking for browsing data…": "Buscando datos de navegación…",
+    "No browsing data from supported browsers was found.": "No se encontraron datos de navegación de los navegadores compatibles.",
+    "Noria shows the history, cookies, tabs and website data that Chrome, Brave, Edge, Vivaldi, Arc, Opera and Firefox keep on this Mac, and explains what removing each one means. Nothing is selected for you.": "Noria muestra el historial, las cookies, las pestañas y los datos de sitios web que Chrome, Brave, Edge, Vivaldi, Arc, Opera y Firefox guardan en esta Mac, y explica qué significa eliminar cada uno. No se selecciona nada por ti.",
+    "Not removed by Noria": "Noria no los elimina",
+    "Nothing is preselected. %@": "No hay nada preseleccionado. %@",
+    "Only history, cookies, tabs and website data are listed. Saved passwords, bookmarks, extensions and settings are never shown or removed. Close a browser before removing its data.": "Solo se listan historial, cookies, pestañas y datos de sitios web. Las contraseñas guardadas, los marcadores, las extensiones y los ajustes nunca se muestran ni se eliminan. Cierra el navegador antes de eliminar sus datos.",
+    "Open and closed tabs": "Pestañas abiertas y cerradas",
+    "Open: quit it before removing its data": "Abierto: ciérralo antes de eliminar sus datos",
+    "Safari's history and website data are protected by macOS and Noria does not modify them. In Safari, choose History › Clear History, or Settings › Privacy › Manage Website Data.": "El historial y los datos de sitios de Safari están protegidos por macOS y Noria no los modifica. En Safari, elige Historial › Borrar historial, o Ajustes › Privacidad › Gestionar datos de sitios web.",
+    "Small files websites use to remember you. Removing them signs you out of every website and resets site preferences.": "Pequeños archivos que los sitios usan para recordarte. Eliminarlas cierra tu sesión en todos los sitios y restablece sus preferencias.",
+    "Text you typed into web forms, offered again as suggestions. Saved passwords and addresses are not touched.": "Texto que escribiste en formularios web y que se vuelve a ofrecer como sugerencia. Las contraseñas y direcciones guardadas no se tocan.",
+    "The list of pages you visited and the suggestions in the address bar. Bookmarks and passwords are not touched.": "La lista de páginas que visitaste y las sugerencias de la barra de direcciones. Los marcadores y las contraseñas no se tocan.",
+    "The tabs and windows the browser restores, and recently closed tabs. Your open tabs will not be restored the next time.": "Las pestañas y ventanas que el navegador restaura, y las pestañas cerradas recientemente. La próxima vez no se restaurarán tus pestañas abiertas.",
+    "Website data": "Datos de sitios web",
+    "Your browsing data, under your control": "Tus datos de navegación, bajo tu control",
+})

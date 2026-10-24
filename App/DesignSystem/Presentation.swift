@@ -65,6 +65,7 @@ extension CleanCategory {
         case .largeFiles: return String(localized: "Large Files")
         case .appRemoval: return String(localized: "App Removal")
         case .duplicates: return String(localized: "Duplicates")
+        case .privacy: return String(localized: "Browsing Data")
         }
     }
 
@@ -81,6 +82,7 @@ extension CleanCategory {
         case .largeFiles: return String(localized: "Large files selected in Large Files.")
         case .appRemoval: return String(localized: "An app and the files it created.")
         case .duplicates: return String(localized: "Extra copies of identical files.")
+        case .privacy: return String(localized: "History, cookies and other browsing data selected in Privacy.")
         }
     }
 
@@ -97,6 +99,7 @@ extension CleanCategory {
         case .largeFiles: return "doc.richtext"
         case .appRemoval: return "xmark.app"
         case .duplicates: return "square.on.square"
+        case .privacy: return "hand.raised"
         }
     }
 
@@ -192,6 +195,8 @@ extension ItemReason {
             return String(localized: "Selected in the Space Map.")
         case .developerItem(let tool):
             return DeveloperTool.Kind(rawValue: tool).map { [$0.consequence, $0.recommendation].joined(separator: " ") } ?? ""
+        case .browserData(let browser, let kind):
+            return String(localized: "\(kind.title) of \(browser). \(kind.consequence) Quit \(browser) first.")
         }
     }
 }
@@ -463,6 +468,55 @@ extension DeveloperTool.Kind {
         case .simulatorCaches, .simulators: return "iphone"
         case .projectDependencies: return "folder.badge.gearshape"
         default: return "shippingbox"
+        }
+    }
+}
+
+extension BrowserDataKind {
+    var title: String {
+        switch self {
+        case .history: return String(localized: "Browsing history")
+        case .cookies: return String(localized: "Cookies")
+        case .sessions: return String(localized: "Open and closed tabs")
+        case .formHistory: return String(localized: "Form history")
+        case .siteData: return String(localized: "Website data")
+        }
+    }
+
+    /// What the data is and what happens if it is removed.
+    var consequence: String {
+        switch self {
+        case .history:
+            return String(localized: "The list of pages you visited and the suggestions in the address bar. Bookmarks and passwords are not touched.")
+        case .cookies:
+            return String(localized: "Small files websites use to remember you. Removing them signs you out of every website and resets site preferences.")
+        case .sessions:
+            return String(localized: "The tabs and windows the browser restores, and recently closed tabs. Your open tabs will not be restored the next time.")
+        case .formHistory:
+            return String(localized: "Text you typed into web forms, offered again as suggestions. Saved passwords and addresses are not touched.")
+        case .siteData:
+            return String(localized: "Data websites store on your Mac (offline data, service workers and their caches). Sites may sign you out and download their data again.")
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .history: return "clock"
+        case .cookies: return "person.badge.key"
+        case .sessions: return "macwindow.on.rectangle"
+        case .formHistory: return "character.cursor.ibeam"
+        case .siteData: return "externaldrive.connected.to.line.below"
+        }
+    }
+}
+
+extension PrivacyNotice.Kind {
+    var explanation: String {
+        switch self {
+        case .safariProtected:
+            return String(localized: "Safari's history and website data are protected by macOS and Noria does not modify them. In Safari, choose History › Clear History, or Settings › Privacy › Manage Website Data.")
+        case .firefoxHistoryWithBookmarks:
+            return String(localized: "Firefox keeps history and bookmarks in the same file, so Noria does not remove it. In Firefox, choose History › Clear Recent History.")
         }
     }
 }

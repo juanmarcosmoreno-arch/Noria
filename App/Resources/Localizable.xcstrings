@@ -177,6 +177,17 @@
         }
       }
     },
+    "%@ of %@. %@ Quit %@ first.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ de %2$@. %3$@ Cierra %4$@ antes."
+          }
+        }
+      }
+    },
     "%@ of attachments belong to accounts that keep mail only on this Mac (or whose type could not be confirmed). Noria leaves them alone; see the tips below.": {
       "extractionState": "manual",
       "localizations": {
@@ -942,6 +953,17 @@
         }
       }
     },
+    "Analyze Browsing Data": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizar datos de navegación"
+          }
+        }
+      }
+    },
     "Analyze Developer Data": {
       "extractionState": "manual",
       "localizations": {
@@ -1257,6 +1279,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Por debajo de %lld GB"
+          }
+        }
+      }
+    },
+    "Browsing Data": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos de navegación"
+          }
+        }
+      }
+    },
+    "Browsing history": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historial de navegación"
           }
         }
       }
@@ -1679,6 +1723,17 @@
         }
       }
     },
+    "Cookies": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cookies"
+          }
+        }
+      }
+    },
     "Copies Mail saved when you opened attachments. The attachments remain in their messages.": {
       "extractionState": "manual",
       "localizations": {
@@ -1774,6 +1829,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Datos que las apps guardan para cargar más rápido. La mayoría se regenera automáticamente."
+          }
+        }
+      }
+    },
+    "Data websites store on your Mac (offline data, service workers and their caches). Sites may sign you out and download their data again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos que los sitios web guardan en tu Mac (datos sin conexión, service workers y sus cachés). Los sitios pueden cerrar tu sesión y volver a descargar sus datos."
           }
         }
       }
@@ -2394,6 +2460,17 @@
         }
       }
     },
+    "Firefox keeps history and bookmarks in the same file, so Noria does not remove it. In Firefox, choose History › Clear Recent History.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Firefox guarda el historial y los marcadores en el mismo archivo, así que Noria no lo elimina. En Firefox, elige Historial › Limpiar historial reciente."
+          }
+        }
+      }
+    },
     "Folder Access": {
       "extractionState": "manual",
       "localizations": {
@@ -2434,6 +2511,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Para tu cuenta"
+          }
+        }
+      }
+    },
+    "Form history": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historial de formularios"
           }
         }
       }
@@ -2621,6 +2709,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Historial"
+          }
+        }
+      }
+    },
+    "History, cookies and other browsing data selected in Privacy.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historial, cookies y otros datos de navegación seleccionados en Privacidad."
           }
         }
       }
@@ -2944,6 +3043,17 @@
         }
       }
     },
+    "Last changed %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Último cambio: %@"
+          }
+        }
+      }
+    },
     "Left behind by removed apps": {
       "extractionState": "manual",
       "localizations": {
@@ -3028,6 +3138,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Revisando herramientas de desarrollo…"
+          }
+        }
+      }
+    },
+    "Looking for browsing data…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando datos de navegación…"
           }
         }
       }
@@ -3516,6 +3637,17 @@
         }
       }
     },
+    "No browsing data from supported browsers was found.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontraron datos de navegación de los navegadores compatibles."
+          }
+        }
+      }
+    },
     "No duplicates found": {
       "extractionState": "manual",
       "localizations": {
@@ -3714,6 +3846,17 @@
         }
       }
     },
+    "Noria shows the history, cookies, tabs and website data that Chrome, Brave, Edge, Vivaldi, Arc, Opera and Firefox keep on this Mac, and explains what removing each one means. Nothing is selected for you.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria muestra el historial, las cookies, las pestañas y los datos de sitios web que Chrome, Brave, Edge, Vivaldi, Arc, Opera y Firefox guardan en esta Mac, y explica qué significa eliminar cada uno. No se selecciona nada por ti."
+          }
+        }
+      }
+    },
     "Noria works entirely on this Mac. It sends no file names, paths, content or usage data anywhere.": {
       "extractionState": "manual",
       "localizations": {
@@ -3769,6 +3912,17 @@
         }
       }
     },
+    "Not removed by Noria": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria no los elimina"
+          }
+        }
+      }
+    },
     "Not reported by macOS": {
       "extractionState": "manual",
       "localizations": {
@@ -3776,6 +3930,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "macOS no lo informa"
+          }
+        }
+      }
+    },
+    "Nothing is preselected. %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay nada preseleccionado. %@"
           }
         }
       }
@@ -3912,6 +4077,17 @@
         }
       }
     },
+    "Only history, cookies, tabs and website data are listed. Saved passwords, bookmarks, extensions and settings are never shown or removed. Close a browser before removing its data.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se listan historial, cookies, pestañas y datos de sitios web. Las contraseñas guardadas, los marcadores, las extensiones y los ajustes nunca se muestran ni se eliminan. Cierra el navegador antes de eliminar sus datos."
+          }
+        }
+      }
+    },
     "Only projects untouched for 90 days are listed. Review each one.": {
       "extractionState": "manual",
       "localizations": {
@@ -3989,17 +4165,6 @@
         }
       }
     },
-    "Open Smart Clean": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abrir Limpieza inteligente"
-          }
-        }
-      }
-    },
     "Open Trash": {
       "extractionState": "manual",
       "localizations": {
@@ -4007,6 +4172,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abrir Papelera"
+          }
+        }
+      }
+    },
+    "Open and closed tabs": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pestañas abiertas y cerradas"
+          }
+        }
+      }
+    },
+    "Open: quit it before removing its data": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abierto: ciérralo antes de eliminar sus datos"
           }
         }
       }
@@ -4139,17 +4326,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Permisos"
-          }
-        }
-      }
-    },
-    "Planned for phase %lld. This module is not available yet.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Previsto para la fase %lld. Este módulo todavía no está disponible."
           }
         }
       }
@@ -4803,6 +4979,17 @@
         }
       }
     },
+    "Safari's history and website data are protected by macOS and Noria does not modify them. In Safari, choose History › Clear History, or Settings › Privacy › Manage Website Data.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El historial y los datos de sitios de Safari están protegidos por macOS y Noria no los modifica. En Safari, elige Historial › Borrar historial, o Ajustes › Privacidad › Gestionar datos de sitios web."
+          }
+        }
+      }
+    },
     "Safe": {
       "extractionState": "manual",
       "localizations": {
@@ -5221,6 +5408,17 @@
         }
       }
     },
+    "Small files websites use to remember you. Removing them signs you out of every website and resets site preferences.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pequeños archivos que los sitios usan para recordarte. Eliminarlas cierra tu sesión en todos los sitios y restablece sus preferencias."
+          }
+        }
+      }
+    },
     "Small items": {
       "extractionState": "manual",
       "localizations": {
@@ -5573,6 +5771,17 @@
         }
       }
     },
+    "Text you typed into web forms, offered again as suggestions. Saved passwords and addresses are not touched.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texto que escribiste en formularios web y que se vuelve a ofrecer como sugerencia. Las contraseñas y direcciones guardadas no se tocan."
+          }
+        }
+      }
+    },
     "The App Store edition cannot run Apple's developer tools. Run this command in Terminal:": {
       "extractionState": "manual",
       "localizations": {
@@ -5694,6 +5903,17 @@
         }
       }
     },
+    "The list of pages you visited and the suggestions in the address bar. Bookmarks and passwords are not touched.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La lista de páginas que visitaste y las sugerencias de la barra de direcciones. Los marcadores y las contraseñas no se tocan."
+          }
+        }
+      }
+    },
     "The log “%@” is unusually large (%@)": {
       "extractionState": "manual",
       "localizations": {
@@ -5723,6 +5943,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "El análisis no pudo terminar"
+          }
+        }
+      }
+    },
+    "The tabs and windows the browser restores, and recently closed tabs. Your open tabs will not be restored the next time.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las pestañas y ventanas que el navegador restaura, y las pestañas cerradas recientemente. La próxima vez no se restaurarán tus pestañas abiertas."
           }
         }
       }
@@ -5914,6 +6145,17 @@
         }
       }
     },
+    "Website data": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos de sitios web"
+          }
+        }
+      }
+    },
     "What Noria can clean safely": {
       "extractionState": "manual",
       "localizations": {
@@ -5976,17 +6218,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Por qué aparece"
-          }
-        }
-      }
-    },
-    "Xcode DerivedData, archives, device support and npm, pip, Homebrew, Yarn, CocoaPods and Go caches are already analyzed by Smart Clean.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Smart Clean ya analiza DerivedData, archivos y soporte de dispositivos de Xcode, y las cachés de npm, pip, Homebrew, Yarn, CocoaPods y Go."
           }
         }
       }
@@ -6171,6 +6402,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tu Mac se está quedando sin espacio"
+          }
+        }
+      }
+    },
+    "Your browsing data, under your control": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus datos de navegación, bajo tu control"
           }
         }
       }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0327D4C009630A4F5E10B693 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F519F7D8178FE04BD4FB2A /* RootView.swift */; };
 		054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */; };
+		07223C4E285DAFA97CCA31E4 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAF614343166308C20AA78E /* PrivacyView.swift */; };
 		0916A4FD30EBCB2F5F1C979A /* StartupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBF9B93C7424345CC9C78 /* StartupView.swift */; };
 		0E94E3EE13D5D35CF6EB4511 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
 		0F8685E3782820C46C0235E5 /* DeveloperCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D6F977972903AF71DF82 /* DeveloperCleanView.swift */; };
@@ -55,14 +56,17 @@
 		BD8B62D8C51944A6B2F4EFD1 /* FolderAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219E375D22A057EDC718EA6E /* FolderAccess.swift */; };
 		C4E1268C40C3AC45D159E1C6 /* NoriaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 70808D822A30A07C1E4E10E9 /* NoriaCore */; };
 		C5EA8AE0EB37C8AE01E36E93 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
+		CB322DBFDEE0AE2BB50B64FD /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAF614343166308C20AA78E /* PrivacyView.swift */; };
 		CCD655D0333E10BA93C5FA41 /* MailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4825C1046A9446D584F288 /* MailModel.swift */; };
 		CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
+		CD894A9E3940F3EB714F8F41 /* PrivacyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0944534AD07DD4EDED6D60F4 /* PrivacyModel.swift */; };
 		D1A139EE50389F864CC5C13E /* SpaceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CD5B72851E84127DEDA87D /* SpaceMapView.swift */; };
 		D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
 		D810CAA5F43489FE0A1A323E /* AppRemoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */; };
 		DC08FA167ABB79F32A404E19 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
 		DD79394FD4EBC0FE8A6EC336 /* MacHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58084220BF314B621D2883 /* MacHealthView.swift */; };
 		DF733962A51289E1C2076C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
+		DFA195A2A962675611345B67 /* PrivacyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0944534AD07DD4EDED6D60F4 /* PrivacyModel.swift */; };
 		DFD1BBED178112455E05359B /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
 		E106B32DF4FEA4724ECFF607 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFC08B6A4C093C24151C3C /* Theme.swift */; };
 		E182FC9D399C7D57C9D96713 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
@@ -84,6 +88,7 @@
 		02CD5B72851E84127DEDA87D /* SpaceMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapView.swift; sourceTree = "<group>"; };
 		05E34557952D0BD132007242 /* MetricsMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsMonitor.swift; sourceTree = "<group>"; };
 		08D788A86C604C3ABF09EEFE /* SawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawView.swift; sourceTree = "<group>"; };
+		0944534AD07DD4EDED6D60F4 /* PrivacyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyModel.swift; sourceTree = "<group>"; };
 		0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartScanModel.swift; sourceTree = "<group>"; };
 		17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRemoverModel.swift; sourceTree = "<group>"; };
 		2059A062DFB08E1D817227C1 /* Noria-AppStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Noria-AppStore.entitlements"; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		63A2E91F87F728D1FB813BA8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapModel.swift; sourceTree = "<group>"; };
 		7F1C8D26D6F333062950F83D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		8FAF614343166308C20AA78E /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		923281466CB24D7B1507A1CD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		9E58084220BF314B621D2883 /* MacHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHealthView.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 				5540F5378CE0C9665C16D97F /* MacHealth */,
 				9DBB394D73FE3383FFDCFFE4 /* Mail */,
 				6FEB69C6B91B88E9BDDE0F42 /* Performance */,
+				D107786E6CA716D71D00D109 /* Privacy */,
 				E675DFC7624E55095438B7CB /* Settings */,
 				1C0F3D184FDD325DBCDA718A /* SmartClean */,
 				EEFB5DC04EC9B09654440357 /* SpaceMap */,
@@ -325,6 +332,7 @@
 				BE4825C1046A9446D584F288 /* MailModel.swift */,
 				05E34557952D0BD132007242 /* MetricsMonitor.swift */,
 				E08789015A598917BB2AD517 /* NoriaApp.swift */,
+				0944534AD07DD4EDED6D60F4 /* PrivacyModel.swift */,
 				0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */,
 				64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */,
 				507FAE8359F5EC0D3EBF2688 /* WatchService.swift */,
@@ -338,6 +346,14 @@
 				5575B1B32F889F5D2886F95C /* HistoryView.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		D107786E6CA716D71D00D109 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				8FAF614343166308C20AA78E /* PrivacyView.swift */,
+			);
+			path = Privacy;
 			sourceTree = "<group>";
 		};
 		E675DFC7624E55095438B7CB /* Settings */ = {
@@ -489,6 +505,8 @@
 				D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */,
 				1322FB4B00CCF6A8729BD610 /* PerformanceView.swift in Sources */,
 				054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */,
+				CD894A9E3940F3EB714F8F41 /* PrivacyModel.swift in Sources */,
+				CB322DBFDEE0AE2BB50B64FD /* PrivacyView.swift in Sources */,
 				0327D4C009630A4F5E10B693 /* RootView.swift in Sources */,
 				A150C570AA35A2DFCD781C78 /* SawView.swift in Sources */,
 				F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */,
@@ -528,6 +546,8 @@
 				DFD1BBED178112455E05359B /* NoriaApp.swift in Sources */,
 				F6463DBCF6F652DBDF3C02C6 /* PerformanceView.swift in Sources */,
 				F05D92E8F30368795A75005D /* Presentation.swift in Sources */,
+				DFA195A2A962675611345B67 /* PrivacyModel.swift in Sources */,
+				07223C4E285DAFA97CCA31E4 /* PrivacyView.swift in Sources */,
 				8C78A6F39D2E1D8B7A9C018B /* RootView.swift in Sources */,
 				773550155A84599661F9732B /* SawView.swift in Sources */,
 				2BCF01CEE6C77A5EDC92FDD0 /* SettingsView.swift in Sources */,

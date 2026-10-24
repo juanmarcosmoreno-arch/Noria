@@ -18,6 +18,8 @@ public enum CleanCategory: String, Codable, Sendable, CaseIterable, Identifiable
     case appRemoval
     /// Not part of Smart Scan; extra copies of identical files, removed from Duplicates.
     case duplicates
+    /// Not part of Smart Scan; browsing data removed from Privacy.
+    case privacy
 
     public var id: String { rawValue }
 
@@ -97,6 +99,8 @@ public enum ItemReason: Codable, Sendable, Hashable {
     case spaceMapSelection
     /// A developer tool's data (see `DeveloperTool.Kind` raw values).
     case developerItem(tool: String)
+    /// Browsing data of a browser profile (Privacy).
+    case browserData(browser: String, kind: BrowserDataKind)
 }
 
 /// Kind of per-app data in `~/Library`.

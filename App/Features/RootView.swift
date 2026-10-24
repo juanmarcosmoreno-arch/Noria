@@ -50,8 +50,7 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
     var isAvailable: Bool {
         switch self {
         case .dashboard, .smartClean, .spaceMap, .largeFiles, .duplicates, .appRemover, .mail,
-             .startupManager, .performance, .macHealth, .developerClean, .history, .settings: return true
-        default: return false
+             .startupManager, .performance, .privacy, .macHealth, .developerClean, .history, .settings: return true
         }
     }
 
@@ -61,8 +60,8 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
         case .dashboard, .smartClean, .largeFiles, .history, .settings: return 1
         case .appRemover, .mail: return 2
         case .spaceMap, .duplicates: return 2
-        case .performance, .startupManager, .macHealth, .privacy: return 3
-        case .developerClean: return 4
+        case .performance, .startupManager, .macHealth: return 3
+        case .developerClean, .privacy: return 4
         }
     }
 }
@@ -109,35 +108,9 @@ struct RootView: View {
         case .developerClean: DeveloperCleanView()
         case .duplicates: DuplicatesView()
         case .mail: MailView()
+        case .privacy: PrivacyView()
         case .history: HistoryView()
         case .settings: SettingsView()
-        default: PlannedFeatureView(item: item)
         }
-    }
-}
-
-/// Honest placeholder for modules scheduled in later phases. No fake data.
-struct PlannedFeatureView: View {
-    var item: SidebarItem
-    @Environment(AppModel.self) private var model
-
-    var body: some View {
-        VStack(spacing: NoriaSpacing.l) {
-            Image(systemName: item.systemImage)
-                .font(.system(size: 44, weight: .light))
-                .foregroundStyle(NoriaColor.accent)
-            Text(item.title).font(NoriaFont.title)
-            Text("Planned for phase \(item.phase). This module is not available yet.")
-                .foregroundStyle(.secondary)
-            if item == .developerClean {
-                Text("Xcode DerivedData, archives, device support and npm, pip, Homebrew, Yarn, CocoaPods and Go caches are already analyzed by Smart Clean.")
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.secondary)
-                    .frame(maxWidth: 460)
-                Button("Open Smart Clean") { model.selection = .smartClean }
-                    .buttonStyle(SecondaryButtonStyle())
-            }
-        }
-        .padding(NoriaSpacing.xxl)
     }
 }
