@@ -30,7 +30,7 @@ def keys():
                 # Lowercase identifiers are SF Symbol names unless they have a translation.
                 if text in IGNORED or (NOT_UI.match(text) and text not in ES):
                     continue
-                if text.startswith('x-apple'):
+                if text.startswith('x-apple') or text.startswith('/'):
                     continue
                 # Identifiers (defaults keys, environment variables) contain no spaces but dots/underscores.
                 if ' ' not in text and re.search(r'[._]', text) and text not in ES:

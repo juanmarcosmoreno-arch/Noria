@@ -394,8 +394,14 @@ private struct RecommendationsCard: View {
     private func actionButton(for recommendation: Recommendation) -> some View {
         switch recommendation.action {
         case .reviewItems:
-            Button("Review") { model.selection = .smartClean }
-                .buttonStyle(SecondaryButtonStyle())
+            Button("Review") {
+                if case .mailAttachments = recommendation.kind {
+                    model.selection = .mail
+                } else {
+                    model.selection = .smartClean
+                }
+            }
+            .buttonStyle(SecondaryButtonStyle())
         case .emptyTrashInFinder:
             Button("Open Trash") { SystemActions.openTrash() }
                 .buttonStyle(SecondaryButtonStyle())

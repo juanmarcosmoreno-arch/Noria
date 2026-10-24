@@ -1,3 +1,4 @@
+import AppKit
 import NoriaCore
 import SwiftUI
 
@@ -10,6 +11,8 @@ struct CleanupConfirmationView: View {
 
     @State private var acknowledgedPermanent = false
     @State private var runningApps: [String] = []
+    /// Apps that must be quit before these items can be removed (e.g. Mail).
+    @State private var blockingApps: [NSRunningApplication] = []
 
     private var totalSize: Int64 { items.reduce(0) { $0 + $1.allocatedSize } }
     private var reviewCount: Int { items.filter { $0.risk == .review }.count }
@@ -26,6 +29,9 @@ struct CleanupConfirmationView: View {
             }
 
             switch method {
+            case .quarantine:
+                Label("Items will be moved to Noria's quarantine. You can restore them from History › Quarantine. They are deleted for good after the retention period; until then the space is not freed.",
+                      systemImage: "archivebox")
             case .moveToTrash:
                 Label("Items will be moved to the Trash. You can put them back from Finder. Space is freed when you empty the Trash.",
                       systemImage: "trash")
@@ -40,7 +46,20 @@ struct CleanupConfirmationView: View {
                     .foregroundStyle(NoriaColor.review)
             }
 
-            if !runningApps.isEmpty {
+            if !blockingApps.isEmpty {
+                VStack(alignment: .leading, spacing: NoriaSpacing.xs) {
+                    let names = blockingApps.compactMap(\.localizedName).formatted(.list(type: .and))
+                    Label("\(names) must be closed before cleaning its data, so nothing is lost while it is writing.",
+                          systemImage: "hand.raised.fill")
+                        .foregroundStyle(NoriaColor.danger)
+                    HStack {
+                        ForEach(blockingApps, id: \.processIdentifier) { app in
+                            let name = app.localizedName ?? ""
+                            Button("Quit \(name)") { app.terminate() }
+                        }
+                    }
+                }
+            } else if !runningApps.isEmpty {
                 let names = runningApps.formatted(.list(type: .and))
                 Label("These apps are running: \(names). Quit them before cleaning their data.",
                       systemImage: "exclamationmark.circle")
@@ -74,14 +93,30 @@ struct CleanupConfirmationView: View {
                 Spacer()
                 Button("Cancel", role: .cancel, action: onCancel)
                     .keyboardShortcut(.cancelAction)
-                Button(method == .moveToTrash ? LocalizedStringKey("Move to Trash") : LocalizedStringKey("Delete"), role: .destructive, action: onConfirm)
+                Button(confirmTitle, role: .destructive, action: onConfirm)
                     .keyboardShortcut(.defaultAction)
-                    .disabled(items.isEmpty || (method == .deletePermanently && !acknowledgedPermanent))
+                    .disabled(items.isEmpty || !blockingApps.isEmpty || (method == .deletePermanently && !acknowledgedPermanent))
             }
         }
         .padding(NoriaSpacing.l)
         .frame(width: 620, height: 560)
         .onAppear { runningApps = AppDirectory.runningApps(relatedTo: items) }
+        .task {
+            // Re-check every second so the button unlocks as soon as the app quits.
+            while !Task.isCancelled {
+                let required = Set(items.compactMap(\.requiresQuitting))
+                blockingApps = required.flatMap { NSRunningApplication.runningApplications(withBundleIdentifier: $0) }
+                try? await Task.sleep(for: .seconds(1))
+            }
+        }
+    }
+
+    private var confirmTitle: LocalizedStringKey {
+        switch method {
+        case .quarantine: return "Move to Quarantine"
+        case .moveToTrash: return "Move to Trash"
+        case .deletePermanently: return "Delete"
+        }
     }
 }
 
@@ -132,8 +167,14 @@ struct CleanupResultView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(Format.bytes(report.removedSize))
                         .font(NoriaFont.heroValue)
-                    Text(report.method == .moveToTrash ? LocalizedStringKey("moved to the Trash") : LocalizedStringKey("deleted"))
-                        .foregroundStyle(.secondary)
+                    Group {
+                        switch report.method {
+                        case .quarantine: Text("moved to the quarantine")
+                        case .moveToTrash: Text("moved to the Trash")
+                        case .deletePermanently: Text("deleted")
+                        }
+                    }
+                    .foregroundStyle(.secondary)
                 }
                 Spacer()
                 Image(systemName: report.failed.isEmpty ? "checkmark.circle.fill" : "exclamationmark.circle.fill")
@@ -150,7 +191,12 @@ struct CleanupResultView: View {
                     Text("Skipped or failed").foregroundStyle(.secondary)
                     Text(Format.count(report.failed.count))
                 }
-                if report.method == .moveToTrash {
+                if report.method == .quarantine {
+                    GridRow {
+                        Text("In quarantine").foregroundStyle(.secondary)
+                        Text(Format.bytes(report.quarantinedSize))
+                    }
+                } else if report.method == .moveToTrash {
                     GridRow {
                         Text("In the Trash").foregroundStyle(.secondary)
                         Text(Format.bytes(report.movedToTrashSize))
@@ -164,6 +210,11 @@ struct CleanupResultView: View {
             }
             .font(NoriaFont.body)
 
+            if report.method == .quarantine {
+                Text("Restore anything from History › Quarantine. Space is freed when you delete it from the quarantine or when the retention period ends.")
+                    .font(NoriaFont.caption)
+                    .foregroundStyle(.secondary)
+            }
             if report.method == .moveToTrash {
                 Text("Space is freed when you empty the Trash in Finder. Until then you can restore anything with Put Back.")
                     .font(NoriaFont.caption)

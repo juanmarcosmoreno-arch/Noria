@@ -31,7 +31,7 @@ enum AppEdition {
 @Observable
 final class FolderAccess {
     enum GrantError: Equatable {
-        case wrongFolder(selected: String)
+        case wrongFolder(selected: String, expected: String)
         case bookmarkFailed(String)
     }
 
@@ -42,11 +42,60 @@ final class FolderAccess {
     @ObservationIgnored private var accessedURL: URL?
     private let defaults: UserDefaults
     private let bookmarkKey = "noria.homeFolderBookmark.v1"
+    /// Additional folders granted by the user (e.g. /Applications for App Remover).
+    private(set) var extraGrants: Set<String> = []
+    @ObservationIgnored private var extraURLs: [String: URL] = [:]
+    static let applicationsFolder = "/Applications"
 
     init(homePath: String, defaults: UserDefaults = .standard) {
         self.homePath = FileSystem.bestEffortCanonicalPath(homePath)
         self.defaults = defaults
         restore()
+        restoreExtra(Self.applicationsFolder)
+    }
+
+    private func extraKey(_ folder: String) -> String { "noria.folderBookmark.v1." + folder }
+
+    /// Whether Noria may modify `path` (always true outside the sandbox).
+    func canModify(_ path: String) -> Bool {
+        guard AppEdition.isSandboxed else { return true }
+        if let grantedPath, path.isSameOrDescendant(of: grantedPath) { return true }
+        return extraGrants.contains { path.isSameOrDescendant(of: $0) }
+    }
+
+    private func restoreExtra(_ folder: String) {
+        guard AppEdition.isSandboxed, let data = defaults.data(forKey: extraKey(folder)) else { return }
+        var isStale = false
+        guard let url = try? URL(resolvingBookmarkData: data, options: [.withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &isStale),
+              url.startAccessingSecurityScopedResource() else { return }
+        extraURLs[folder] = url
+        extraGrants.insert(folder)
+    }
+
+    /// Asks the user to allow access to `folder` through the open panel.
+    @discardableResult
+    func requestAccess(to folder: String, message: String) -> Bool {
+        guard AppEdition.isSandboxed else { return true }
+        let panel = NSOpenPanel()
+        panel.message = message
+        panel.prompt = String(localized: "Allow Access")
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.allowsMultipleSelection = false
+        panel.directoryURL = URL(fileURLWithPath: folder, isDirectory: true)
+        guard panel.runModal() == .OK, let url = panel.url else { return false }
+        let selected = FileSystem.bestEffortCanonicalPath(url.path)
+        guard selected == FileSystem.bestEffortCanonicalPath(folder) else {
+            lastError = .wrongFolder(selected: selected, expected: FileSystem.bestEffortCanonicalPath(folder))
+            return false
+        }
+        if let data = try? url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil) {
+            defaults.set(data, forKey: extraKey(folder))
+        }
+        if url.startAccessingSecurityScopedResource() { extraURLs[folder] = url }
+        extraGrants.insert(folder)
+        lastError = nil
+        return true
     }
 
     /// `true` when scanning is blocked until the user grants access.
@@ -85,7 +134,7 @@ final class FolderAccess {
 
         let selected = FileSystem.bestEffortCanonicalPath(url.path)
         guard selected == homePath else {
-            lastError = .wrongFolder(selected: selected)
+            lastError = .wrongFolder(selected: selected, expected: homePath)
             return false
         }
         do {
@@ -101,11 +150,17 @@ final class FolderAccess {
         return true
     }
 
-    /// Forgets the grant. Scans are blocked again until access is granted.
+    /// Forgets every grant. Scans are blocked again until access is granted.
     func revoke() {
         stopAccessing()
         grantedPath = nil
         defaults.removeObject(forKey: bookmarkKey)
+        for (folder, url) in extraURLs {
+            url.stopAccessingSecurityScopedResource()
+            defaults.removeObject(forKey: extraKey(folder))
+        }
+        extraURLs = [:]
+        extraGrants = []
     }
 
     private func stopAccessing() {
@@ -115,8 +170,8 @@ final class FolderAccess {
 
     var errorMessage: String? {
         switch lastError {
-        case .wrongFolder(let selected):
-            return String(localized: "You selected “\((selected as NSString).abbreviatingWithTildeInPath)”. Please select your Home folder (\((homePath as NSString).abbreviatingWithTildeInPath)).")
+        case .wrongFolder(let selected, let expected):
+            return String(localized: "You selected “\((selected as NSString).abbreviatingWithTildeInPath)”. Please select “\((expected as NSString).abbreviatingWithTildeInPath)”.")
         case .bookmarkFailed(let message):
             return String(localized: "Access was granted for this session but could not be saved: \(message)")
         case nil:

@@ -3,7 +3,7 @@ import SwiftUI
 
 /// Sidebar destinations, in product order.
 enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
-    case dashboard, smartClean, spaceMap, largeFiles, duplicates, appRemover, startupManager
+    case dashboard, smartClean, spaceMap, largeFiles, duplicates, appRemover, mail, startupManager
     case performance, privacy, developerClean, macHealth, history, settings
 
     var id: String { rawValue }
@@ -16,6 +16,7 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
         case .largeFiles: return "Large Files"
         case .duplicates: return "Duplicates"
         case .appRemover: return "App Remover"
+        case .mail: return "Mail"
         case .startupManager: return "Startup Manager"
         case .performance: return "Performance"
         case .privacy: return "Privacy"
@@ -34,6 +35,7 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
         case .largeFiles: return "doc.on.doc"
         case .duplicates: return "square.on.square"
         case .appRemover: return "xmark.app"
+        case .mail: return "envelope"
         case .startupManager: return "power"
         case .performance: return "speedometer"
         case .privacy: return "hand.raised"
@@ -44,11 +46,20 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
         }
     }
 
-    /// Development phase in which the module ships. Phase 1 modules are functional.
+    /// Modules that are implemented; the others show a "planned" screen.
+    var isAvailable: Bool {
+        switch self {
+        case .dashboard, .smartClean, .largeFiles, .appRemover, .mail, .history, .settings: return true
+        default: return false
+        }
+    }
+
+    /// Development phase in which the module ships.
     var phase: Int {
         switch self {
         case .dashboard, .smartClean, .largeFiles, .history, .settings: return 1
-        case .spaceMap, .duplicates, .appRemover: return 2
+        case .appRemover, .mail: return 2
+        case .spaceMap, .duplicates: return 2
         case .performance, .startupManager, .macHealth, .privacy: return 3
         case .developerClean: return 4
         }
@@ -65,7 +76,7 @@ struct RootView: View {
                 ForEach(SidebarItem.allCases) { item in
                     Label(item.title, systemImage: item.systemImage)
                         .badge(item == .smartClean && model.smartScan.phase == .finished ? Text(Format.bytes(model.smartScan.selectedSize)) : nil)
-                        .opacity(item.phase == 1 ? 1 : 0.55)
+                        .opacity(item.isAvailable ? 1 : 0.55)
                         .tag(item)
                 }
             }
@@ -89,6 +100,8 @@ struct RootView: View {
         case .dashboard: DashboardView()
         case .smartClean: SmartCleanView()
         case .largeFiles: LargeFilesView()
+        case .appRemover: AppRemoverView()
+        case .mail: MailView()
         case .history: HistoryView()
         case .settings: SettingsView()
         default: PlannedFeatureView(item: item)

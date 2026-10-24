@@ -78,6 +78,61 @@
         }
       }
     },
+    "%@ freed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ liberados."
+          }
+        }
+      }
+    },
+    "%@ in attachments": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ en adjuntos"
+          }
+        }
+      }
+    },
+    "%@ items (%@) will be deleted and can no longer be restored. This frees the space.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se eliminarán %1$@ elementos (%2$@) y ya no podrán restaurarse. Esto libera el espacio."
+          }
+        }
+      }
+    },
+    "%@ items could not be restored because something already exists at their original location. Use Reveal to recover them manually.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudieron restaurar %@ elementos porque ya existe algo en su ubicación original. Usa Mostrar en Finder para recuperarlos a mano."
+          }
+        }
+      }
+    },
+    "%@ items restored to their original location.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ elementos restaurados en su ubicación original."
+          }
+        }
+      }
+    },
     "%@ items selected": {
       "extractionState": "manual",
       "localizations": {
@@ -89,6 +144,17 @@
         }
       }
     },
+    "%@ items selected · %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ elementos seleccionados · %2$@"
+          }
+        }
+      }
+    },
     "%@ items · %@": {
       "extractionState": "manual",
       "localizations": {
@@ -96,6 +162,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ elementos · %2$@"
+          }
+        }
+      }
+    },
+    "%@ leftovers of apps you no longer have": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ restos de apps que ya no tienes"
           }
         }
       }
@@ -122,6 +199,17 @@
         }
       }
     },
+    "%@ must be closed before cleaning its data, so nothing is lost while it is writing.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hay que cerrar %@ antes de limpiar sus datos, para no perder nada mientras escribe."
+          }
+        }
+      }
+    },
     "%@ of %@": {
       "extractionState": "manual",
       "localizations": {
@@ -129,6 +217,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ de %2$@"
+          }
+        }
+      }
+    },
+    "%@ of attachments belong to accounts that keep mail only on this Mac (or whose type could not be confirmed). Noria leaves them alone; see the tips below.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ de adjuntos pertenecen a cuentas que guardan el correo solo en este Mac (o cuyo tipo no se pudo confirmar). Noria no los toca; mira los consejos de abajo."
+          }
+        }
+      }
+    },
+    "%@ of this app, matched by its exact identifier. %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ de esta app, identificado por su identificador exacto. %2$@"
+          }
+        }
+      }
+    },
+    "%@ of “%@”. No installed app uses this identifier, and no other app from the same developer is installed. If you still use that app (for example from an external drive), keep it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ de «%2$@». Ninguna app instalada usa este identificador y no hay otra app del mismo desarrollador. Si todavía usas esa app (por ejemplo desde un disco externo), consérvalo."
           }
         }
       }
@@ -188,6 +309,17 @@
         }
       }
     },
+    "%@ with the same name as the app. Probably belongs to it, but the match is by name only: check before removing. %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ con el mismo nombre que la app. Probablemente le pertenece, pero la coincidencia es solo por nombre: revísalo antes de eliminarlo. %2$@"
+          }
+        }
+      }
+    },
     "%@ · %@ items": {
       "extractionState": "manual",
       "localizations": {
@@ -221,6 +353,50 @@
         }
       }
     },
+    "%lld days": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld días"
+          }
+        }
+      }
+    },
+    "1. Open Privacy & Security › Full Disk Access.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1. Abre Privacidad y seguridad › Acceso total al disco."
+          }
+        }
+      }
+    },
+    "2. Turn on Noria (use + to add it if it is not listed).": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2. Activa Noria (usa + para añadirla si no aparece)."
+          }
+        }
+      }
+    },
+    "3. Quit and reopen Noria, then analyze Mail again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3. Cierra y vuelve a abrir Noria, y analiza Mail de nuevo."
+          }
+        }
+      }
+    },
     "About": {
       "extractionState": "manual",
       "localizations": {
@@ -239,6 +415,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "El acceso se concedió para esta sesión, pero no se pudo guardar: %@"
+          }
+        }
+      }
+    },
+    "Account type not confirmed": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipo de cuenta sin confirmar"
+          }
+        }
+      }
+    },
+    "Accounts stored only on this Mac": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuentas guardadas solo en este Mac"
+          }
+        }
+      }
+    },
+    "Activity": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actividad"
           }
         }
       }
@@ -309,6 +518,17 @@
         }
       }
     },
+    "An app and the files it created.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una app y los archivos que creó."
+          }
+        }
+      }
+    },
     "Analysis complete": {
       "extractionState": "manual",
       "localizations": {
@@ -327,6 +547,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Analizar de nuevo"
+          }
+        }
+      }
+    },
+    "Analyze Mail": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizar Mail"
           }
         }
       }
@@ -364,6 +595,28 @@
         }
       }
     },
+    "App Leftovers": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restos de apps"
+          }
+        }
+      }
+    },
+    "App Removal": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desinstalación"
+          }
+        }
+      }
+    },
     "App Remover": {
       "extractionState": "manual",
       "localizations": {
@@ -375,6 +628,28 @@
         }
       }
     },
+    "App Store": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Store"
+          }
+        }
+      }
+    },
+    "App container": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contenedor de la app"
+          }
+        }
+      }
+    },
     "App containers hold data managed by other apps; reading them makes macOS ask for permission.": {
       "extractionState": "manual",
       "localizations": {
@@ -382,6 +657,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Los contenedores guardan datos administrados por otras apps; leerlos hace que macOS pida permiso."
+          }
+        }
+      }
+    },
+    "App scripts": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scripts de la app"
           }
         }
       }
@@ -408,6 +694,17 @@
         }
       }
     },
+    "Attachments of “%@”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Noria does not remove them; delete large messages from Mail instead.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adjuntos de «%@». Esta cuenta guarda el correo solo en este Mac (o no se pudo confirmar su tipo), así que pueden ser las únicas copias. Noria no los elimina; borra los mensajes grandes desde Mail."
+          }
+        }
+      }
+    },
     "Audio": {
       "extractionState": "manual",
       "localizations": {
@@ -415,6 +712,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Audio"
+          }
+        }
+      }
+    },
+    "Background launcher": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lanzador en segundo plano"
           }
         }
       }
@@ -481,6 +789,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "CPU"
+          }
+        }
+      }
+    },
+    "Cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché"
           }
         }
       }
@@ -628,6 +947,17 @@
         }
       }
     },
+    "Cleanup (moved to quarantine)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpieza (movido a la cuarentena)"
+          }
+        }
+      }
+    },
     "Cleanups this month": {
       "extractionState": "manual",
       "localizations": {
@@ -690,6 +1020,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Confirmar limpieza"
+          }
+        }
+      }
+    },
+    "Copies Mail saved when you opened attachments. The attachments remain in their messages.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copias que Mail guardó al abrir adjuntos. Los adjuntos siguen en sus mensajes."
+          }
+        }
+      }
+    },
+    "Copies of attachments Mail can download again, and Mail Downloads.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copias de adjuntos que Mail puede volver a descargar, y Descargas de Mail."
           }
         }
       }
@@ -771,6 +1123,28 @@
         }
       }
     },
+    "Delete Selected…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar seleccionados…"
+          }
+        }
+      }
+    },
+    "Delete for good?": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar definitivamente?"
+          }
+        }
+      }
+    },
     "Delete immediately": {
       "extractionState": "manual",
       "localizations": {
@@ -778,6 +1152,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eliminar inmediatamente"
+          }
+        }
+      }
+    },
+    "Deleted from quarantine": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminado de la cuarentena"
+          }
+        }
+      }
+    },
+    "Deleted on": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se elimina el"
           }
         }
       }
@@ -980,6 +1376,28 @@
         }
       }
     },
+    "Empty Quarantine…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vaciar cuarentena…"
+          }
+        }
+      }
+    },
+    "Empty Trash and Junk": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vacía la papelera y el correo no deseado"
+          }
+        }
+      }
+    },
     "Empty the Trash from Finder to free this space.": {
       "extractionState": "manual",
       "localizations": {
@@ -1101,6 +1519,17 @@
         }
       }
     },
+    "Find the biggest messages": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encuentra los mensajes más grandes"
+          }
+        }
+      }
+    },
     "Folder Access": {
       "extractionState": "manual",
       "localizations": {
@@ -1108,6 +1537,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Acceso a carpetas"
+          }
+        }
+      }
+    },
+    "For POP accounts and On My Mac mailboxes, export what you want to keep (Mailbox › Export Mailbox…) before deleting large messages.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En cuentas POP y buzones «En mi Mac», exporta lo que quieras conservar (Buzón › Exportar buzón…) antes de borrar mensajes grandes."
           }
         }
       }
@@ -1185,6 +1625,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Volver a conceder…"
+          }
+        }
+      }
+    },
+    "Group container shared by apps from the same developer. Other apps may still use it: remove it only if you are removing all of them.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contenedor compartido por apps del mismo desarrollador. Otras apps pueden seguir usándolo: elimínalo solo si vas a eliminarlas todas."
           }
         }
       }
@@ -1277,6 +1728,17 @@
         }
       }
     },
+    "In quarantine": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En cuarentena"
+          }
+        }
+      }
+    },
     "In the Trash": {
       "extractionState": "manual",
       "localizations": {
@@ -1332,6 +1794,17 @@
         }
       }
     },
+    "It may contain documents, libraries or settings created with the app.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puede contener documentos, bibliotecas o ajustes creados con la app."
+          }
+        }
+      }
+    },
     "Items already in the Trash.": {
       "extractionState": "manual",
       "localizations": {
@@ -1365,6 +1838,17 @@
         }
       }
     },
+    "Items will be moved to Noria's quarantine. You can restore them from History › Quarantine. They are deleted for good after the retention period; until then the space is not freed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los elementos se moverán a la cuarentena de Noria. Puedes restaurarlos desde Historial › Cuarentena. Se eliminan definitivamente al terminar el plazo; hasta entonces el espacio no se libera."
+          }
+        }
+      }
+    },
     "Items will be moved to the Trash. You can put them back from Finder. Space is freed when you empty the Trash.": {
       "extractionState": "manual",
       "localizations": {
@@ -1372,6 +1856,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Los elementos se moverán a la Papelera. Puedes recuperarlos desde Finder. El espacio se libera al vaciar la Papelera."
+          }
+        }
+      }
+    },
+    "Keep quarantined items for %lld days": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conservar en cuarentena durante %lld días"
+          }
+        }
+      }
+    },
+    "Kept for": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se conserva"
           }
         }
       }
@@ -1442,6 +1948,17 @@
         }
       }
     },
+    "Local copies of attachments from “%@”. The originals stay on the mail server and Mail downloads them again when you open the message. Messages are not touched. Quit Mail first.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copias locales de adjuntos de «%@». Los originales siguen en el servidor de correo y Mail los vuelve a descargar al abrir el mensaje. Los mensajes no se tocan. Cierra Mail antes."
+          }
+        }
+      }
+    },
     "Location": {
       "extractionState": "manual",
       "localizations": {
@@ -1486,6 +2003,17 @@
         }
       }
     },
+    "Looking for files created by this app…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando archivos creados por esta app…"
+          }
+        }
+      }
+    },
     "Looking for large files…": {
       "extractionState": "manual",
       "localizations": {
@@ -1515,6 +2043,94 @@
           "stringUnit": {
             "state": "translated",
             "value": "Salud del Mac"
+          }
+        }
+      }
+    },
+    "Mail": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mail"
+          }
+        }
+      }
+    },
+    "Mail Downloads": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descargas de Mail"
+          }
+        }
+      }
+    },
+    "Mail is open. It must be closed while cleaning.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mail está abierto. Debe estar cerrado durante la limpieza."
+          }
+        }
+      }
+    },
+    "Mail keeps %@ of attachment copies from %@ server accounts": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mail guarda %1$@ de copias de adjuntos de %2$@ cuentas de servidor"
+          }
+        }
+      }
+    },
+    "Mail keeps a local copy of your messages and their attachments. Noria shows where the space goes and only removes copies that can be downloaded again. Your messages are never deleted.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mail guarda una copia local de tus mensajes y sus adjuntos. Noria muestra a dónde va el espacio y solo elimina copias que se pueden volver a descargar. Tus mensajes nunca se borran."
+          }
+        }
+      }
+    },
+    "Mail uses %@ on this Mac": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mail ocupa %@ en este Mac"
+          }
+        }
+      }
+    },
+    "Mail › Settings › Accounts › choose the account › Account Information › Download Attachments: Recent or None. Do this before cleaning, otherwise Mail downloads everything again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mail › Ajustes › Cuentas › elige la cuenta › Información de la cuenta › Descargar adjuntos: Recientes o Ninguno. Hazlo antes de limpiar; si no, Mail volverá a descargarlo todo."
+          }
+        }
+      }
+    },
+    "Mailbox › Erase Deleted Items and Mailbox › Erase Junk Mail. Messages in the Trash still use space.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buzón › Borrar elementos eliminados y Buzón › Borrar correo no deseado. Los mensajes de la papelera siguen ocupando espacio."
           }
         }
       }
@@ -1607,6 +2223,39 @@
         }
       }
     },
+    "Move to Noria quarantine (recommended)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mover a la cuarentena de Noria (recomendado)"
+          }
+        }
+      }
+    },
+    "Move to Quarantine": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mover a la cuarentena"
+          }
+        }
+      }
+    },
+    "Move to Quarantine…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mover a la cuarentena…"
+          }
+        }
+      }
+    },
     "Move to Trash": {
       "extractionState": "manual",
       "localizations": {
@@ -1640,24 +2289,13 @@
         }
       }
     },
-    "Moved to the Trash or deleted by Noria": {
+    "Moved to quarantine or Trash, or deleted by Noria": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Movido a la Papelera o eliminado por Noria"
-          }
-        }
-      }
-    },
-    "Moving to the Trash lets you restore items with Finder’s Put Back. Space is freed when the Trash is emptied.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mover a la Papelera te permite recuperar elementos con «Devolver» en Finder. El espacio se libera al vaciar la Papelera."
+            "value": "Movido a la cuarentena o la Papelera, o eliminado por Noria"
           }
         }
       }
@@ -1750,6 +2388,17 @@
         }
       }
     },
+    "Noria needs Full Disk Access to read Mail": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria necesita Acceso total al disco para leer Mail"
+          }
+        }
+      }
+    },
     "Noria needs access to your Home folder to analyze caches, logs, developer data, downloads and large files. Click Allow Access without selecting anything else. Nothing is changed without your confirmation.": {
       "extractionState": "manual",
       "localizations": {
@@ -1794,6 +2443,17 @@
         }
       }
     },
+    "Not freed until deleted": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se libera hasta eliminarlo"
+          }
+        }
+      }
+    },
     "Not granted": {
       "extractionState": "manual",
       "localizations": {
@@ -1812,6 +2472,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "No existe"
+          }
+        }
+      }
+    },
+    "Nothing to clean: there are no Mail Downloads or downloadable attachment copies.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada que limpiar: no hay Descargas de Mail ni copias de adjuntos descargables."
           }
         }
       }
@@ -1915,6 +2586,17 @@
         }
       }
     },
+    "Original location": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ubicación original"
+          }
+        }
+      }
+    },
     "Other": {
       "extractionState": "manual",
       "localizations": {
@@ -1922,6 +2604,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Otro"
+          }
+        }
+      }
+    },
+    "Other apps from the same developer may use it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otras apps del mismo desarrollador pueden usarlo."
           }
         }
       }
@@ -2003,6 +2696,17 @@
         }
       }
     },
+    "Preferences": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferencias"
+          }
+        }
+      }
+    },
     "Privacy": {
       "extractionState": "manual",
       "localizations": {
@@ -2069,6 +2773,72 @@
         }
       }
     },
+    "Quarantine": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuarentena"
+          }
+        }
+      }
+    },
+    "Quarantine is empty": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La cuarentena está vacía"
+          }
+        }
+      }
+    },
+    "Quarantine keeps cleaned items inside Noria so you can restore them from History; they are deleted for good after the chosen number of days. Moving to the Trash lets you use Finder’s Put Back. In both cases space is freed only when the items are finally deleted.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La cuarentena guarda lo que limpias dentro de Noria para que puedas restaurarlo desde Historial; se elimina definitivamente tras los días elegidos. Mover a la Papelera te permite usar «Devolver» en Finder. En ambos casos el espacio solo se libera cuando los elementos se eliminan del todo."
+          }
+        }
+      }
+    },
+    "Quarantined": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En cuarentena desde"
+          }
+        }
+      }
+    },
+    "Quit %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar %@"
+          }
+        }
+      }
+    },
+    "Quit App": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar app"
+          }
+        }
+      }
+    },
     "REVIEW": {
       "extractionState": "manual",
       "localizations": {
@@ -2113,6 +2883,28 @@
         }
       }
     },
+    "Reduce Mail's size from Mail itself": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reduce el tamaño de Mail desde el propio Mail"
+          }
+        }
+      }
+    },
+    "Refresh": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar"
+          }
+        }
+      }
+    },
     "Relaunch Noria to apply the new language.": {
       "extractionState": "manual",
       "localizations": {
@@ -2120,6 +2912,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Reinicia Noria para aplicar el nuevo idioma."
+          }
+        }
+      }
+    },
+    "Remove App…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar app…"
+          }
+        }
+      }
+    },
+    "Remove Selected Files…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar archivos seleccionados…"
+          }
+        }
+      }
+    },
+    "Remove apps completely": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina apps por completo"
           }
         }
       }
@@ -2164,6 +2989,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eliminado este mes"
+          }
+        }
+      }
+    },
+    "Restore": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar"
+          }
+        }
+      }
+    },
+    "Restore anything from History › Quarantine. Space is freed when you delete it from the quarantine or when the retention period ends.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaura lo que quieras desde Historial › Cuarentena. El espacio se libera al eliminarlo de la cuarentena o al terminar el plazo."
+          }
+        }
+      }
+    },
+    "Restored from quarantine": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurado de la cuarentena"
+          }
+        }
+      }
+    },
+    "Restoring puts items back exactly where they were. Nothing is overwritten.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar devuelve los elementos exactamente a donde estaban. No se sobrescribe nada."
           }
         }
       }
@@ -2278,6 +3147,17 @@
         }
       }
     },
+    "Saved window state": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado de ventanas"
+          }
+        }
+      }
+    },
     "Scan": {
       "extractionState": "manual",
       "localizations": {
@@ -2318,6 +3198,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aquí se registran los análisis y las limpiezas. El registro se guarda solo en este Mac."
+          }
+        }
+      }
+    },
+    "Scripts you added for this app are removed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se eliminan los scripts que añadiste para esta app."
+          }
+        }
+      }
+    },
+    "Search apps": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar apps"
           }
         }
       }
@@ -2366,6 +3268,28 @@
         }
       }
     },
+    "Select a mailbox, then View › Sort By › Size. Deleting a message from an IMAP or iCloud account also deletes it from the server.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecciona un buzón y elige Visualización › Ordenar por › Tamaño. Borrar un mensaje de una cuenta IMAP o iCloud también lo borra del servidor."
+          }
+        }
+      }
+    },
+    "Select an app to see everything it installed: support files, caches, preferences and more. You choose what to remove; files shared with other apps are never preselected.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecciona una app para ver todo lo que instaló: archivos de soporte, cachés, preferencias y más. Tú eliges qué eliminar; lo compartido con otras apps nunca se preselecciona."
+          }
+        }
+      }
+    },
     "Select an item to see why Noria lists it.": {
       "extractionState": "manual",
       "localizations": {
@@ -2388,6 +3312,17 @@
         }
       }
     },
+    "Selected items will be moved to Noria's quarantine; you can restore them from History. Space is freed when they are deleted from the quarantine.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los elementos seleccionados se moverán a la cuarentena de Noria; puedes restaurarlos desde Historial. El espacio se libera cuando se eliminan de la cuarentena."
+          }
+        }
+      }
+    },
     "Selected items will be moved to the Trash. Space is freed when the Trash is emptied.": {
       "extractionState": "manual",
       "localizations": {
@@ -2399,6 +3334,17 @@
         }
       }
     },
+    "Server account (IMAP/Exchange)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuenta de servidor (IMAP/Exchange)"
+          }
+        }
+      }
+    },
     "Settings": {
       "extractionState": "manual",
       "localizations": {
@@ -2406,6 +3352,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Configuración"
+          }
+        }
+      }
+    },
+    "Settings and support files of uninstalled apps. Review them in case you plan to reinstall an app.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes y archivos de soporte de apps desinstaladas. Revísalos por si piensas reinstalar alguna."
+          }
+        }
+      }
+    },
+    "Settings, support files and caches of apps you no longer have.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes, archivos de soporte y cachés de apps que ya no tienes."
+          }
+        }
+      }
+    },
+    "Shared group container": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contenedor de grupo compartido"
           }
         }
       }
@@ -2509,6 +3488,17 @@
         }
       }
     },
+    "Space by account": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Espacio por cuenta"
+          }
+        }
+      }
+    },
     "Space is freed when you empty the Trash in Finder. Until then you can restore anything with Put Back.": {
       "extractionState": "manual",
       "localizations": {
@@ -2575,6 +3565,17 @@
         }
       }
     },
+    "Stop downloading every attachment": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deja de descargar todos los adjuntos"
+          }
+        }
+      }
+    },
     "Stopped before finishing. Remaining items were not touched.": {
       "extractionState": "manual",
       "localizations": {
@@ -2582,6 +3583,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Se detuvo antes de terminar. Los elementos restantes no se tocaron."
+          }
+        }
+      }
+    },
+    "Stops a helper the app started at login.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detiene un ayudante que la app iniciaba al arrancar sesión."
+          }
+        }
+      }
+    },
+    "Stored on this Mac (POP / On My Mac)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardada en este Mac (POP / En mi Mac)"
+          }
+        }
+      }
+    },
+    "Support files": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archivos de soporte"
           }
         }
       }
@@ -2663,6 +3697,61 @@
         }
       }
     },
+    "The app and the selected files will be removed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se eliminarán la app y los archivos seleccionados."
+          }
+        }
+      }
+    },
+    "The app recreates it if needed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La app lo vuelve a crear si lo necesita."
+          }
+        }
+      }
+    },
+    "The app stays installed; only the selected files are removed (useful to reset it).": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La app sigue instalada; solo se eliminan los archivos seleccionados (útil para restablecerla)."
+          }
+        }
+      }
+    },
+    "The app's settings return to their defaults.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los ajustes de la app vuelven a sus valores por defecto."
+          }
+        }
+      }
+    },
+    "The application itself. Quit it first. If it came from the App Store you can download it again at any time.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La aplicación en sí. Ciérrala antes. Si vino de la App Store, puedes volver a descargarla cuando quieras."
+          }
+        }
+      }
+    },
     "The cache folder “%@” takes %@.": {
       "extractionState": "manual",
       "localizations": {
@@ -2685,6 +3774,17 @@
         }
       }
     },
+    "The originals stay on the server and Mail downloads them again when needed. Set Mail to download only recent attachments first.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los originales siguen en el servidor y Mail los vuelve a descargar cuando hacen falta. Configura antes Mail para descargar solo los adjuntos recientes."
+          }
+        }
+      }
+    },
     "The scan could not finish": {
       "extractionState": "manual",
       "localizations": {
@@ -2692,6 +3792,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "El análisis no pudo terminar"
+          }
+        }
+      }
+    },
+    "Then deleted automatically": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Después se elimina automáticamente"
           }
         }
       }
@@ -2718,6 +3829,17 @@
         }
       }
     },
+    "This app is open. Quit it before removing it or its files.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta app está abierta. Ciérrala antes de eliminarla o eliminar sus archivos."
+          }
+        }
+      }
+    },
     "This deletes Noria's local log. Files are not affected.": {
       "extractionState": "manual",
       "localizations": {
@@ -2725,6 +3847,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Esto elimina el registro local de Noria. Los archivos no se ven afectados."
+          }
+        }
+      }
+    },
+    "To remove apps, Noria needs permission to modify the Applications folder. Click Allow Access.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para eliminar apps, Noria necesita permiso para modificar la carpeta Aplicaciones. Pulsa Permitir acceso."
           }
         }
       }
@@ -2773,6 +3906,17 @@
         }
       }
     },
+    "Version %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión %@"
+          }
+        }
+      }
+    },
     "Video": {
       "extractionState": "manual",
       "localizations": {
@@ -2784,6 +3928,50 @@
         }
       }
     },
+    "View": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vista"
+          }
+        }
+      }
+    },
+    "Web data": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos web"
+          }
+        }
+      }
+    },
+    "What Noria can clean safely": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que Noria puede limpiar con seguridad"
+          }
+        }
+      }
+    },
+    "When Noria cleans something, it is kept here first so you can restore it. Choose the method and the number of days in Settings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuando Noria limpia algo, primero lo guarda aquí para que puedas restaurarlo. Elige el método y los días en Configuración."
+          }
+        }
+      }
+    },
     "When cleaning": {
       "extractionState": "manual",
       "localizations": {
@@ -2791,6 +3979,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Al limpiar"
+          }
+        }
+      }
+    },
+    "Why is Mail so big?": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por qué Mail ocupa tanto?"
           }
         }
       }
@@ -2861,13 +4060,13 @@
         }
       }
     },
-    "You selected “%@”. Please select your Home folder (%@).": {
+    "You selected “%@”. Please select “%@”.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Seleccionaste «%1$@». Selecciona tu carpeta de inicio (%2$@)."
+            "value": "Seleccionaste «%1$@». Selecciona «%2$@»."
           }
         }
       }
@@ -2894,6 +4093,17 @@
         }
       }
     },
+    "macOS protects Mail's folder. To let Noria measure it:": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS protege la carpeta de Mail. Para que Noria pueda medirla:"
+          }
+        }
+      }
+    },
     "macOS protects some folders unless you grant access in Privacy & Security.": {
       "extractionState": "manual",
       "localizations": {
@@ -2912,6 +4122,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "movido a la Papelera"
+          }
+        }
+      }
+    },
+    "moved to the quarantine": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "movido a la cuarentena"
           }
         }
       }

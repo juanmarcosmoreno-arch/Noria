@@ -27,14 +27,26 @@ final class AppModel {
 
     let locations = SystemLocations.current
     let operationLog = OperationLog(fileURL: OperationLog.defaultFileURL())
+    let quarantine = QuarantineStore(root: QuarantineStore.defaultRoot())
+    private(set) var quarantineEntries: [QuarantineEntry] = []
+    private(set) var quarantineMessage: String?
     private let settingsStore: any SettingsStore
 
     // Feature models need a reference back to the app model, so they are created
     // at the end of init; the accessors expose them as non-optional.
     @ObservationIgnored private var smartScanStorage: SmartScanModel?
     @ObservationIgnored private var largeFilesStorage: LargeFilesModel?
+    @ObservationIgnored private var appRemoverStorage: AppRemoverModel?
+    @ObservationIgnored private var mailStorage: MailModel?
     var smartScan: SmartScanModel { smartScanStorage! }
     var largeFiles: LargeFilesModel { largeFilesStorage! }
+    var appRemover: AppRemoverModel { appRemoverStorage! }
+    var mail: MailModel { mailStorage! }
+
+    /// Launch Services knows apps anywhere on disk, not only in Applications folders.
+    static let appLookup: @Sendable (String) -> Bool = { identifier in
+        NSWorkspace.shared.urlForApplication(withBundleIdentifier: identifier) != nil
+    }
 
     init(settingsStore: any SettingsStore = UserDefaultsSettingsStore()) {
         self.settingsStore = settingsStore
@@ -42,8 +54,75 @@ final class AppModel {
         self.folderAccess = FolderAccess(homePath: SystemLocations.current.home)
         smartScanStorage = SmartScanModel(app: self)
         largeFilesStorage = LargeFilesModel(app: self)
+        appRemoverStorage = AppRemoverModel(app: self)
+        mailStorage = MailModel(app: self)
         refreshVolume()
-        Task { await loadHistory() }
+        Task {
+            await loadHistory()
+            await purgeExpiredQuarantine()
+        }
+    }
+
+    // MARK: Quarantine
+
+    var quarantineSize: Int64 { quarantineEntries.reduce(0) { $0 + $1.allocatedSize } }
+
+    func refreshQuarantine() async {
+        let store = quarantine
+        quarantineEntries = await Task.detached(priority: .utility) { store.entries() }.value
+    }
+
+    /// Deletes entries older than the retention period chosen in Settings.
+    func purgeExpiredQuarantine() async {
+        let store = quarantine
+        let days = settings.quarantineRetentionDays
+        let purged = await Task.detached(priority: .utility) { store.purgeExpired(retentionDays: days) }.value
+        if !purged.isEmpty { record(.quarantineDeletion(purged)) }
+        await refreshQuarantine()
+    }
+
+    func restore(_ entries: [QuarantineEntry]) {
+        let store = quarantine
+        Task {
+            let (restored, failures) = await Task.detached(priority: .userInitiated) { () -> ([QuarantineEntry], [OperationRecord.Failure]) in
+                var restored: [QuarantineEntry] = []
+                var failures: [OperationRecord.Failure] = []
+                for entry in entries {
+                    do {
+                        try store.restore(entry)
+                        restored.append(entry)
+                    } catch {
+                        failures.append(OperationRecord.Failure(path: entry.originalPath, message: String(describing: error)))
+                    }
+                }
+                return (restored, failures)
+            }.value
+            record(.restore(restored, failures: failures))
+            quarantineMessage = failures.isEmpty
+                ? String(localized: "\(Format.count(restored.count)) items restored to their original location.")
+                : String(localized: "\(Format.count(failures.count)) items could not be restored because something already exists at their original location. Use Reveal to recover them manually.")
+            await refreshQuarantine()
+            refreshVolume()
+        }
+    }
+
+    func deleteFromQuarantine(_ entries: [QuarantineEntry]) {
+        let store = quarantine
+        Task {
+            let deleted = await Task.detached(priority: .userInitiated) {
+                entries.filter { (try? store.delete($0)) != nil }
+            }.value
+            if !deleted.isEmpty { record(.quarantineDeletion(deleted)) }
+            let freed = Format.bytes(deleted.reduce(0) { $0 + $1.allocatedSize })
+            quarantineMessage = String(localized: "\(freed) freed.")
+            await refreshQuarantine()
+            refreshVolume()
+        }
+    }
+
+    /// Path of a quarantined item on disk, for "Reveal in Finder".
+    func quarantinePath(of entry: QuarantineEntry) -> String {
+        ((quarantine.root as NSString).appendingPathComponent(entry.id.uuidString) as NSString).appendingPathComponent(entry.storedName)
     }
 
     var safetyPolicy: SafetyPolicy {

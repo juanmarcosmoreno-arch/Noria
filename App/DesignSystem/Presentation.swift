@@ -60,7 +60,10 @@ extension CleanCategory {
         case .developerCache: return String(localized: "Developer Cache")
         case .downloads: return String(localized: "Downloads")
         case .trash: return String(localized: "Trash")
+        case .appLeftovers: return String(localized: "App Leftovers")
+        case .mail: return String(localized: "Mail")
         case .largeFiles: return String(localized: "Large Files")
+        case .appRemoval: return String(localized: "App Removal")
         }
     }
 
@@ -72,7 +75,10 @@ extension CleanCategory {
         case .developerCache: return String(localized: "Build products and package-manager caches.")
         case .downloads: return String(localized: "Old installers, archives and forgotten downloads.")
         case .trash: return String(localized: "Items already in the Trash.")
+        case .appLeftovers: return String(localized: "Settings, support files and caches of apps you no longer have.")
+        case .mail: return String(localized: "Copies of attachments Mail can download again, and Mail Downloads.")
         case .largeFiles: return String(localized: "Large files selected in Large Files.")
+        case .appRemoval: return String(localized: "An app and the files it created.")
         }
     }
 
@@ -84,7 +90,10 @@ extension CleanCategory {
         case .developerCache: return "hammer"
         case .downloads: return "arrow.down.circle"
         case .trash: return "trash"
+        case .appLeftovers: return "puzzlepiece.extension"
+        case .mail: return "envelope"
         case .largeFiles: return "doc.richtext"
+        case .appRemoval: return "xmark.app"
         }
     }
 
@@ -155,6 +164,25 @@ extension ItemReason {
             return String(localized: "Large file in your home folder.")
         case .protectedLocation:
             return String(localized: "Inside a location managed by macOS or another app. Noria does not modify it.")
+        case .appLeftover(let kind, let identifier):
+            return String(localized: "\(kind.title) of “\(identifier)”. No installed app uses this identifier, and no other app from the same developer is installed. If you still use that app (for example from an external drive), keep it.")
+        case .appData(let kind, let match):
+            switch match {
+            case .bundleIdentifier:
+                return String(localized: "\(kind.title) of this app, matched by its exact identifier. \(kind.consequence)")
+            case .appName:
+                return String(localized: "\(kind.title) with the same name as the app. Probably belongs to it, but the match is by name only: check before removing. \(kind.consequence)")
+            case .sharedGroup:
+                return String(localized: "Group container shared by apps from the same developer. Other apps may still use it: remove it only if you are removing all of them.")
+            }
+        case .applicationBundle:
+            return String(localized: "The application itself. Quit it first. If it came from the App Store you can download it again at any time.")
+        case .mailServerAttachments(let account):
+            return String(localized: "Local copies of attachments from “\(account)”. The originals stay on the mail server and Mail downloads them again when you open the message. Messages are not touched. Quit Mail first.")
+        case .mailLocalAttachments(let account):
+            return String(localized: "Attachments of “\(account)”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Noria does not remove them; delete large messages from Mail instead.")
+        case .mailDownloads:
+            return String(localized: "Copies Mail saved when you opened attachments. The attachments remain in their messages.")
         }
     }
 }
@@ -174,6 +202,10 @@ extension Recommendation {
             return String(localized: "Xcode DerivedData for \(Format.count(projects)) projects")
         case .emptyTrash:
             return String(localized: "The Trash holds \(Format.bytes(bytes)).")
+        case .appLeftovers(let count):
+            return String(localized: "\(Format.count(count)) leftovers of apps you no longer have")
+        case .mailAttachments(let accounts):
+            return String(localized: "Mail keeps \(Format.bytes(bytes)) of attachment copies from \(Format.count(accounts)) server accounts")
         }
     }
 
@@ -191,6 +223,10 @@ extension Recommendation {
             return String(localized: "Xcode rebuilds them; the next build of each project will be slower.")
         case .emptyTrash:
             return String(localized: "Empty the Trash from Finder to free this space.")
+        case .appLeftovers:
+            return String(localized: "Settings and support files of uninstalled apps. Review them in case you plan to reinstall an app.")
+        case .mailAttachments:
+            return String(localized: "The originals stay on the server and Mail downloads them again when needed. Set Mail to download only recent attachments first.")
         }
     }
 
@@ -248,10 +284,89 @@ extension ItemOutcome {
 }
 
 extension RemovalMethod {
+    /// Label of the button that starts a cleanup with this method.
+    var actionTitle: LocalizedStringKey {
+        switch self {
+        case .quarantine: return "Move to Quarantine…"
+        case .moveToTrash: return "Move to Trash…"
+        case .deletePermanently: return "Delete…"
+        }
+    }
+
+    /// One-line description of what happens to selected items.
+    var outcome: String {
+        switch self {
+        case .quarantine: return String(localized: "Selected items will be moved to Noria's quarantine; you can restore them from History. Space is freed when they are deleted from the quarantine.")
+        case .moveToTrash: return String(localized: "Selected items will be moved to the Trash. Space is freed when the Trash is emptied.")
+        case .deletePermanently: return String(localized: "Selected items will be deleted immediately.")
+        }
+    }
+
     var title: String {
         switch self {
+        case .quarantine: return String(localized: "Move to Noria quarantine (recommended)")
         case .moveToTrash: return String(localized: "Move to Trash (recommended)")
         case .deletePermanently: return String(localized: "Delete immediately")
+        }
+    }
+}
+
+extension AppDataKind {
+    var title: String {
+        switch self {
+        case .applicationSupport: return String(localized: "Support files")
+        case .cache: return String(localized: "Cache")
+        case .preferences: return String(localized: "Preferences")
+        case .container: return String(localized: "App container")
+        case .groupContainer: return String(localized: "Shared group container")
+        case .savedState: return String(localized: "Saved window state")
+        case .logs: return String(localized: "Logs")
+        case .webData: return String(localized: "Web data")
+        case .scripts: return String(localized: "App scripts")
+        case .launchAgent: return String(localized: "Background launcher")
+        }
+    }
+
+    /// What happens if it is removed.
+    var consequence: String {
+        switch self {
+        case .applicationSupport, .container:
+            return String(localized: "It may contain documents, libraries or settings created with the app.")
+        case .cache, .logs, .savedState, .webData:
+            return String(localized: "The app recreates it if needed.")
+        case .preferences:
+            return String(localized: "The app's settings return to their defaults.")
+        case .groupContainer:
+            return String(localized: "Other apps from the same developer may use it.")
+        case .scripts:
+            return String(localized: "Scripts you added for this app are removed.")
+        case .launchAgent:
+            return String(localized: "Stops a helper the app started at login.")
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .applicationSupport: return "folder"
+        case .cache: return "shippingbox"
+        case .preferences: return "slider.horizontal.3"
+        case .container: return "cube"
+        case .groupContainer: return "square.stack.3d.up"
+        case .savedState: return "macwindow"
+        case .logs: return "doc.text"
+        case .webData: return "globe"
+        case .scripts: return "applescript"
+        case .launchAgent: return "power"
+        }
+    }
+}
+
+extension MailAccountKind {
+    var title: String {
+        switch self {
+        case .server: return String(localized: "Server account (IMAP/Exchange)")
+        case .local: return String(localized: "Stored on this Mac (POP / On My Mac)")
+        case .unknown: return String(localized: "Account type not confirmed")
         }
     }
 }

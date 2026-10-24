@@ -67,7 +67,7 @@ final class SmartScanModel {
         scanTask?.cancel()
         var settings = app.settings
         settings.enabledCategories.subtract(AppEdition.unavailableCategories)
-        let engine = SmartScanEngine(locations: app.locations)
+        let engine = SmartScanEngine(locations: app.locations, appLookup: AppModel.appLookup)
         plannedCategories = CleanCategory.smartScanCategories.filter { settings.enabledCategories.contains($0) }
         phase = .scanning
         startedAt = Date()
@@ -216,7 +216,7 @@ final class CleanupController {
         guard !isRunning else { return }
         let remover: any FileRemoving
         do {
-            remover = try Removers.remover(for: app.settings.removalMethod)
+            remover = try Removers.remover(for: app.settings.removalMethod, quarantine: app.quarantine)
         } catch {
             return
         }
@@ -240,6 +240,7 @@ final class CleanupController {
                     self?.currentPath = nil
                     app.record(.cleanup(report))
                     app.refreshVolume()
+                    Task { await app.refreshQuarantine() }
                     onFinish(report)
                 }
             }

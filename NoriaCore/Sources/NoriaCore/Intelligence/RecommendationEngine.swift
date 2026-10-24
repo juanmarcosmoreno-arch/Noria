@@ -15,6 +15,10 @@ public struct Recommendation: Identifiable, Sendable, Hashable {
         case derivedData(projects: Int)
         /// The Trash holds a lot of data.
         case emptyTrash
+        /// Data of apps that are no longer installed.
+        case appLeftovers(count: Int)
+        /// Downloadable copies of Mail attachments.
+        case mailAttachments(accounts: Int)
     }
 
     public enum Confidence: String, Sendable, Hashable {
@@ -94,6 +98,24 @@ public enum RecommendationEngine {
                 if staleBytes >= minimumWorthwhileBytes {
                     result.append(Recommendation(id: "staleDownloads", kind: .staleDownloads(count: stale.count), bytes: staleBytes,
                                                  confidence: .medium, risk: .review, action: .reviewItems(stale.map(\.id))))
+                }
+            case .appLeftovers:
+                let leftovers = category.items.filter(\.isSelectable)
+                let bytes = leftovers.reduce(0) { $0 + $1.allocatedSize }
+                if bytes >= minimumWorthwhileBytes {
+                    result.append(Recommendation(id: "appLeftovers", kind: .appLeftovers(count: leftovers.count), bytes: bytes,
+                                                 confidence: .medium, risk: .review, action: .reviewItems(leftovers.map(\.id))))
+                }
+            case .mail:
+                let attachments = category.items.filter { item in
+                    if case .mailServerAttachments = item.reason { return true }
+                    return false
+                }
+                let bytes = attachments.reduce(0) { $0 + $1.allocatedSize }
+                if bytes >= minimumWorthwhileBytes {
+                    let accounts = Set(attachments.compactMap(\.group)).count
+                    result.append(Recommendation(id: "mailAttachments", kind: .mailAttachments(accounts: accounts), bytes: bytes,
+                                                 confidence: .high, risk: .review, action: .reviewItems(attachments.map(\.id))))
                 }
             case .trash:
                 if let trash = category.items.first, trash.allocatedSize >= minimumWorthwhileBytes {

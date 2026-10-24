@@ -188,7 +188,7 @@ struct LargeFilesView: View {
             Button {
                 confirming = true
             } label: {
-                Text(model.settings.removalMethod == .moveToTrash ? LocalizedStringKey("Move to Trash…") : LocalizedStringKey("Delete…"))
+                Text(model.settings.removalMethod.actionTitle)
             }
             .buttonStyle(PrimaryButtonStyle())
             .disabled(largeFiles.removableSelection.isEmpty || largeFiles.cleanup.isRunning)

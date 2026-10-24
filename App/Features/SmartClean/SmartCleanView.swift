@@ -140,9 +140,7 @@ struct SmartCleanView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text("\(Format.count(scan.selectedIDs.count)) items selected")
                     .font(NoriaFont.body.weight(.medium))
-                Text(model.settings.removalMethod == .moveToTrash
-                     ? String(localized: "Selected items will be moved to the Trash. Space is freed when the Trash is emptied.")
-                     : String(localized: "Selected items will be deleted immediately."))
+                Text(model.settings.removalMethod.outcome)
                     .font(NoriaFont.caption)
                     .foregroundStyle(.secondary)
             }

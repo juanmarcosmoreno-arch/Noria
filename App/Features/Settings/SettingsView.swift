@@ -29,6 +29,11 @@ struct SettingsView: View {
                         Text(method.title).tag(method)
                     }
                 }
+                if model.settings.removalMethod == .quarantine {
+                    Stepper(value: $model.settings.quarantineRetentionDays, in: 1...90) {
+                        Text("Keep quarantined items for \(model.settings.quarantineRetentionDays) days")
+                    }
+                }
                 Stepper(value: $model.settings.logsMinimumAgeDays, in: 1...365) {
                     Text("Logs older than \(model.settings.logsMinimumAgeDays) days")
                 }
@@ -41,7 +46,7 @@ struct SettingsView: View {
             } header: {
                 Text("Cleaning")
             } footer: {
-                Text("Moving to the Trash lets you restore items with Finder’s Put Back. Space is freed when the Trash is emptied.")
+                Text("Quarantine keeps cleaned items inside Noria so you can restore them from History; they are deleted for good after the chosen number of days. Moving to the Trash lets you use Finder’s Put Back. In both cases space is freed only when the items are finally deleted.")
             }
 
             if AppEdition.isSandboxed {
