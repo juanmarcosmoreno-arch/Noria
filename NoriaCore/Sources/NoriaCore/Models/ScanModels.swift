@@ -16,6 +16,8 @@ public enum CleanCategory: String, Codable, Sendable, CaseIterable, Identifiable
     case largeFiles
     /// Not part of Smart Scan; an installed app and its files, removed from App Remover.
     case appRemoval
+    /// Not part of Smart Scan; extra copies of identical files, removed from Duplicates.
+    case duplicates
 
     public var id: String { rawValue }
 
@@ -89,6 +91,10 @@ public enum ItemReason: Codable, Sendable, Hashable {
     case mailLocalAttachments(account: String)
     /// Copies Mail made when you opened attachments.
     case mailDownloads
+    /// An identical copy of another file (same SHA-256).
+    case duplicateCopy
+    /// An item selected in the Space Map.
+    case spaceMapSelection
 }
 
 /// Kind of per-app data in `~/Library`.

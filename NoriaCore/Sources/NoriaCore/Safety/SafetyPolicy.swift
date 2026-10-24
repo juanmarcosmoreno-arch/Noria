@@ -63,7 +63,7 @@ public struct SafetyPolicy: Sendable {
                 locations.npmCache, locations.pipCache, locations.homebrewCache,
                 locations.yarnCache, locations.cocoaPodsCache, locations.goBuildCache,
             ]
-        case .largeFiles: return [locations.home]
+        case .largeFiles, .duplicates: return [locations.home]
         case .appLeftovers: return appDataRoots
         case .appRemoval: return appDataRoots + [locations.groupContainers, locations.caches] + locations.applicationFolders
         case .mail: return [locations.mail, locations.mailDownloads]
@@ -184,7 +184,7 @@ public struct SafetyPolicy: Sendable {
             return .failure(.blocked(path: path, reason: .outsideAllowedRoots))
         }
         // Large files: never inside ~/Library (app data) in Phase 1.
-        if item.category == .largeFiles, path.isSameOrDescendant(of: locations.library) {
+        if item.category == .largeFiles || item.category == .duplicates, path.isSameOrDescendant(of: locations.library) {
             return .failure(.blocked(path: path, reason: .protectedHomeLocation))
         }
         if let violation = categorySpecificViolation(for: path, category: item.category) {
