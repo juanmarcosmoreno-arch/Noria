@@ -130,9 +130,9 @@ final class SpaceMapModel {
         selectedNodeID = nil
     }
 
-    /// Item for the cleaning engine, re-read from disk now. `nil` for grouped blocks.
+    /// Item for the cleaning engine, with the identity captured during the scan. `nil` for grouped blocks.
     func scanItem(for node: SpaceNode) -> ScanItem? {
-        guard node.kind != .smallItems, let stat = FileSystem.stat(node.path) else { return nil }
+        guard node.kind != .smallItems, let stat = node.fingerprint else { return nil }
         let policy = app.safetyPolicy
         let protected = policy.protectionReason(for: node.path, category: .largeFiles) != nil
             || node.path.isSameOrDescendant(of: app.locations.library)

@@ -21,11 +21,14 @@ public enum QuarantineError: Error, Equatable, CustomStringConvertible {
     /// Something already exists at the original location.
     case destinationExists(String)
     case missingPayload(String)
+    /// The original folder now resolves elsewhere (a symbolic link was put in its path).
+    case destinationRedirected(String)
 
     public var description: String {
         switch self {
         case .destinationExists(let path): return "Something already exists at \(path)"
         case .missingPayload(let path): return "The quarantined item is missing: \(path)"
+        case .destinationRedirected(let path): return "The original location now points elsewhere: \(path)"
         }
     }
 }
@@ -76,15 +79,15 @@ public struct QuarantineStore: Sendable {
         let entryFolder = folder(for: entry.id)
         let manager = FileManager.default
         try manager.createDirectory(atPath: entryFolder, withIntermediateDirectories: true)
+        // Metadata first: if it cannot be written (e.g. the disk is full) nothing is moved,
+        // so an item can never sit in the quarantine without being listed.
         do {
+            try Self.encoder.encode(entry).write(to: URL(fileURLWithPath: (entryFolder as NSString).appendingPathComponent("entry.json")))
             try manager.moveItem(atPath: item.path, toPath: payloadPath(for: entry))
         } catch {
             try? manager.removeItem(atPath: entryFolder)
             throw error
         }
-        // The metadata is written after the move: an entry without metadata is
-        // still listed (as "unknown origin") rather than silently lost.
-        try Self.encoder.encode(entry).write(to: URL(fileURLWithPath: (entryFolder as NSString).appendingPathComponent("entry.json")))
         return entry
     }
 
@@ -111,6 +114,11 @@ public struct QuarantineStore: Sendable {
         let payload = payloadPath(for: entry)
         guard FileSystem.stat(payload) != nil else { throw QuarantineError.missingPayload(payload) }
         guard FileSystem.stat(target) == nil else { throw QuarantineError.destinationExists(target) }
+        // The closest existing ancestor must not be (or pass through) a symbolic link,
+        // or the item would be restored somewhere else.
+        var ancestor = (target as NSString).deletingLastPathComponent
+        while FileSystem.stat(ancestor) == nil, ancestor != "/" { ancestor = (ancestor as NSString).deletingLastPathComponent }
+        guard FileSystem.canonicalPath(ancestor) == ancestor else { throw QuarantineError.destinationRedirected(target) }
         try manager.createDirectory(atPath: (target as NSString).deletingLastPathComponent, withIntermediateDirectories: true)
         try manager.moveItem(atPath: payload, toPath: target)
         try manager.removeItem(atPath: folder(for: entry.id))

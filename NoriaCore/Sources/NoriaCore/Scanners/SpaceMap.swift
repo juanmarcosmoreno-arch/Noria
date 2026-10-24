@@ -23,6 +23,8 @@ public struct SpaceNode: Identifiable, Sendable, Hashable {
     public var children: [SpaceNode]
     /// Number of entries grouped in a `smallItems` node.
     public var groupedCount: Int
+    /// Identity at scan time; the cleaning engine refuses the node if it changed since.
+    public var fingerprint: FileStat? = nil
 
     public var isContainer: Bool { kind == .directory || kind == .package }
 
@@ -141,7 +143,8 @@ public struct SpaceMapScanner: Sendable {
                     if childStat.modificationDate > newest { newest = childStat.modificationDate }
                     children.append(SpaceNode(path: entry.path, name: entry.name, kind: .file, size: childStat.allocatedSize,
                                               fileCount: 1, fileKind: FileKind.classify(entry.path),
-                                              modificationDate: childStat.modificationDate, children: [], groupedCount: 0))
+                                              modificationDate: childStat.modificationDate, children: [], groupedCount: 0,
+                                              fingerprint: childStat))
                 case .symlink, .other:
                     total += childStat.allocatedSize
                 }
@@ -177,7 +180,7 @@ public struct SpaceMapScanner: Sendable {
         let kind: SpaceNode.Kind = isPackage ? .package : .directory
         return SpaceNode(path: path, name: name, kind: kind, size: total, fileCount: fileCount,
                          fileKind: isPackage ? FileKind.classify(path) : .other,
-                         modificationDate: newest, children: kept, groupedCount: 0)
+                         modificationDate: newest, children: kept, groupedCount: 0, fingerprint: stat)
     }
 }
 

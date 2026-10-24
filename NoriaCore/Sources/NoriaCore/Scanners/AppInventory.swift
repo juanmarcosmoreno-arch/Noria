@@ -179,7 +179,7 @@ public enum AppFilesFinder {
                 let candidate = location.identifierPart(of: entry.name).lowercased()
                 let match: AppFileMatch
                 if location.kind == .groupContainer {
-                    guard lowered.hasSuffix("." + identifier) || lowered == "group." + identifier || lowered.contains(identifier) else { continue }
+                    guard lowered.hasSuffix("." + identifier) || lowered.contains("." + identifier + ".") else { continue }
                     match = .sharedGroup
                 } else if candidate == identifier || candidate.hasPrefix(identifier + ".") {
                     match = .bundleIdentifier

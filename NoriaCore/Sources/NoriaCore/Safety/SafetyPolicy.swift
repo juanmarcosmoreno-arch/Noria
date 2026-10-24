@@ -20,6 +20,10 @@ public enum SafetyViolation: String, Codable, Sendable, Equatable {
     case notApplicationBundle
     /// Privacy may only remove the browsing-data files it knows (never passwords or bookmarks).
     case notBrowsingData
+    /// The folder contains a protected location or an app-managed library (Photos, Music…).
+    case containsProtectedData
+    /// Developer locations other than the known caches (snippets, simulators…).
+    case notDeveloperCache
 }
 
 /// Central, deliberately conservative rules about what Noria may touch.
@@ -65,8 +69,10 @@ public struct SafetyPolicy: Sendable {
             let home = locations.home as NSString
             return [
                 locations.derivedData, locations.xcodeArchives,
+                // Device support (<Platform> DeviceSupport/<version>) and Xcode Previews;
+                // narrowed further in `categorySpecificViolation`.
                 home.appendingPathComponent("Library/Developer/Xcode"),
-                home.appendingPathComponent("Library/Developer/CoreSimulator/Caches"),
+                // Only CoreSimulator/Caches; simulators themselves go through simctl.
                 home.appendingPathComponent("Library/Developer/CoreSimulator"),
                 home.appendingPathComponent(".npm"), locations.caches,
                 home.appendingPathComponent("Library/pnpm"), home.appendingPathComponent(".bun/install"),
@@ -125,6 +131,11 @@ public struct SafetyPolicy: Sendable {
             if protected.contains(where: { path.isSameOrDescendant(of: $0) }) {
                 return .protectedHomeLocation
             }
+            // Removing a folder that holds a protected location (e.g. ~/Pictures with the
+            // Photos library, ~/Music, ~/Library) would remove that location too.
+            if (locations.protectedHomeLocations + [locations.library]).contains(where: { $0.isStrictDescendant(of: path) }) {
+                return .containsProtectedData
+            }
             // ~/Library itself and ~/Library/<anything> are only removable through
             // categories whose allowed roots point there explicitly.
         }
@@ -148,7 +159,8 @@ public struct SafetyPolicy: Sendable {
         let name = (path as NSString).lastPathComponent
         switch category {
         case .appLeftovers, .appRemoval:
-            if name.lowercased().hasPrefix("com.apple.") || name.hasPrefix(".GlobalPreferences") {
+            // Also group containers such as group.com.apple.notes or <TEAM>.com.apple.*.
+            if name.lowercased().contains("com.apple.") || name.hasPrefix(".GlobalPreferences") {
                 return .appleItem
             }
             if locations.applicationFolders.contains(where: { path.isStrictDescendant(of: $0) }) {
@@ -162,7 +174,23 @@ public struct SafetyPolicy: Sendable {
             if path.isStrictDescendant(of: locations.mailDownloads) { return nil }
             // Inside ~/Library/Mail only attachment folders (or files in them) may go.
             let components = path.dropFirst(locations.mail.count).split(separator: "/")
+            // V*/Mailboxes is "On My Mac": stored only on this Mac.
+            if components.count > 1, components[1] == "Mailboxes" { return .notMailAttachment }
             return components.contains("Attachments") ? nil : .notMailAttachment
+        case .developerCache:
+            let xcode = (locations.home as NSString).appendingPathComponent("Library/Developer/Xcode")
+            let simulator = (locations.home as NSString).appendingPathComponent("Library/Developer/CoreSimulator")
+            if path.isStrictDescendant(of: simulator) {
+                return path.isSameOrDescendant(of: (simulator as NSString).appendingPathComponent("Caches")) ? nil : .notDeveloperCache
+            }
+            if path.isStrictDescendant(of: xcode), !path.isStrictDescendant(of: locations.derivedData),
+               !path.isStrictDescendant(of: locations.xcodeArchives) {
+                let components = path.dropFirst(xcode.count).split(separator: "/")
+                let isDeviceSupport = components.count >= 2 && components[0].hasSuffix("DeviceSupport")
+                let isPreviews = components.count >= 2 && components[0] == "UserData" && components[1] == "Previews"
+                return isDeviceSupport || isPreviews ? nil : .notDeveloperCache
+            }
+            return nil
         case .privacy:
             // Only known browsing-data names, directly in a profile folder (or its Network folder).
             guard PrivacyScanner.removableNames.contains(name) else { return .notBrowsingData }
@@ -174,6 +202,18 @@ public struct SafetyPolicy: Sendable {
         default:
             return nil
         }
+    }
+
+    /// Whether a Photos, Music or other managed library lies anywhere inside `path`.
+    /// Does not follow symbolic links; unreadable folders count as "may contain".
+    static func containsManagedLibrary(_ path: String) -> Bool {
+        guard let entries = try? FileSystem.directoryEntries(path) else { return true }
+        for entry in entries {
+            guard let stat = FileSystem.stat(entry.path), stat.type == .directory else { continue }
+            if managedLibraryExtensions.contains((entry.name as NSString).pathExtension.lowercased()) { return true }
+            if containsManagedLibrary(entry.path) { return true }
+        }
+        return false
     }
 
     /// Reads `CFBundleIdentifier` from an app bundle's Info.plist.
@@ -191,7 +231,8 @@ public struct SafetyPolicy: Sendable {
         let path = item.path
         if item.risk == .protected { return .failure(.blocked(path: path, reason: .protectedRisk)) }
         if item.action != .remove { return .failure(.blocked(path: path, reason: .informationalOnly)) }
-        guard path.hasPrefix("/"), !path.contains("/../"), !path.hasSuffix("/..") else {
+        let components = path.split(separator: "/", omittingEmptySubsequences: false).dropFirst()
+        guard path.hasPrefix("/"), path.count > 1, !components.contains(where: { $0.isEmpty || $0 == "." || $0 == ".." }) else {
             return .failure(.blocked(path: path, reason: .notCanonical))
         }
         if isExcluded(path) { return .failure(.blocked(path: path, reason: .userExclusion)) }
@@ -208,6 +249,11 @@ public struct SafetyPolicy: Sendable {
         }
         if let violation = categorySpecificViolation(for: path, category: item.category) {
             return .failure(.blocked(path: path, reason: violation))
+        }
+        // Folders chosen in the user's own files must not hold an app-managed library.
+        if item.category == .largeFiles || item.category == .duplicates,
+           FileSystem.stat(path)?.type == .directory, Self.containsManagedLibrary(path) {
+            return .failure(.blocked(path: path, reason: .containsProtectedData))
         }
 
         // The parent directory must still resolve to the same place: a symlink swapped

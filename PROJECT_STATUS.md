@@ -112,7 +112,13 @@ development container is Linux, so the SwiftUI target is compiled in CI
       stapling, signed + notarized DMG, Gatekeeper check (`Tools/release_direct.sh`;
       not yet run on a Mac)
 - [ ] Performance profiling on large homes (≥1M files), memory benchmarks
-- [ ] Security review of the removal path
+- [x] Security review of the removal path. Fixed: folders that contain the Photos/Music
+      library or another protected location can no longer be removed (Space Map); the
+      quarantine writes its metadata before moving; restore refuses a destination redirected
+      by a symbolic link; Space Map uses the identity captured at scan time; developer
+      roots narrowed to the known caches; "On My Mac" attachments and Apple group
+      containers refused by the policy itself; non-canonical paths (`/./`, `//`, trailing
+      `/`) refused; group containers matched on identifier boundaries
 - [ ] Update mechanism for the direct edition (opt-in)
 - [ ] App Store listing (screenshots, description, privacy labels) and review
 - [ ] Tighten the app target to Swift 6 language mode
