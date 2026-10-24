@@ -12,6 +12,17 @@
         }
       }
     },
+    "%@ are waiting in the quarantine. That space is freed when you empty it or when the retention period ends.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hay %@ esperando en la cuarentena. Ese espacio se libera al vaciarla o cuando termina el plazo."
+          }
+        }
+      }
+    },
     "%@ available": {
       "extractionState": "manual",
       "localizations": {
@@ -56,17 +67,6 @@
         }
       }
     },
-    "%@ files examined": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ archivos examinados"
-          }
-        }
-      }
-    },
     "%@ files · %@": {
       "extractionState": "manual",
       "localizations": {
@@ -100,17 +100,6 @@
         }
       }
     },
-    "%@ groups · %@ in extra copies": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ grupos · %2$@ en copias de más"
-          }
-        }
-      }
-    },
     "%@ in attachments": {
       "extractionState": "manual",
       "localizations": {
@@ -140,72 +129,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Se eliminarán %1$@ elementos (%2$@) y ya no podrán restaurarse. Esto libera el espacio."
-          }
-        }
-      }
-    },
-    "%@ items could not be restored because something already exists at their original location. Use Reveal to recover them manually.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se pudieron restaurar %@ elementos porque ya existe algo en su ubicación original. Usa Mostrar en Finder para recuperarlos a mano."
-          }
-        }
-      }
-    },
-    "%@ items restored to their original location.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ elementos restaurados en su ubicación original."
-          }
-        }
-      }
-    },
-    "%@ items selected": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ elementos seleccionados"
-          }
-        }
-      }
-    },
-    "%@ items selected · %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ elementos seleccionados · %2$@"
-          }
-        }
-      }
-    },
-    "%@ items · %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ elementos · %2$@"
-          }
-        }
-      }
-    },
-    "%@ leftovers of apps you no longer have": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ restos de apps que ya no tienes"
           }
         }
       }
@@ -331,17 +254,6 @@
         }
       }
     },
-    "%@ selected items are marked REVIEW. Make sure you no longer need them.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ elementos seleccionados están marcados como REVISAR. Asegúrate de que ya no los necesitas."
-          }
-        }
-      }
-    },
     "%@ skipped": {
       "extractionState": "manual",
       "localizations": {
@@ -441,6 +353,375 @@
         }
       }
     },
+    "%lld files examined": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld file examined"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld files examined"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld archivo examinado"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld archivos examinados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld groups of identical files": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld group of identical files"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld groups of identical files"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld grupo de archivos idénticos"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld grupos de archivos idénticos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elemento"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elementos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items could not be restored because something already exists at their original location. Use Reveal to recover them manually.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item could not be restored because something already exists at its original location. Use Reveal to recover it manually."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items could not be restored because something already exists at their original location. Use Reveal to recover them manually."
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "No se pudo restaurar %lld elemento porque ya existe algo en su ubicación original. Usa Mostrar en Finder para recuperarlo a mano."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "No se pudieron restaurar %lld elementos porque ya existe algo en su ubicación original. Usa Mostrar en Finder para recuperarlos a mano."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items found": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items found"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elemento encontrado"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elementos encontrados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items restored to their original location.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item restored to its original location."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items restored to their original location."
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elemento restaurado en su ubicación original."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elementos restaurados en su ubicación original."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items selected": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item selected"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items selected"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elemento seleccionado"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elementos seleccionados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld leftovers of apps you no longer have": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld leftover of an app you no longer have"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld leftovers of apps you no longer have"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld resto de una app que ya no tienes"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld restos de apps que ya no tienes"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld selected items are marked REVIEW. Make sure you no longer need them.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld selected item is marked REVIEW. Make sure you no longer need it."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld selected items are marked REVIEW. Make sure you no longer need them."
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elemento seleccionado está marcado como REVISAR. Asegúrate de que ya no lo necesitas."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elementos seleccionados están marcados como REVISAR. Asegúrate de que ya no los necesitas."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "1. Open Privacy & Security › Full Disk Access.": {
       "extractionState": "manual",
       "localizations": {
@@ -470,6 +751,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "3. Cierra y vuelve a abrir Noria, y analiza Mail de nuevo."
+          }
+        }
+      }
+    },
+    "A log this size usually means the app that writes it is reporting the same error again and again. Removing it frees space; if it grows back, check that app.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un registro de este tamaño suele indicar que la app que lo escribe repite el mismo error una y otra vez. Eliminarlo libera espacio; si vuelve a crecer, revisa esa app."
           }
         }
       }
@@ -1002,6 +1294,17 @@
         }
       }
     },
+    "Bytes": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bytes"
+          }
+        }
+      }
+    },
     "CPU": {
       "extractionState": "manual",
       "localizations": {
@@ -1185,6 +1488,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Limpia lo que dejan Xcode y los gestores de paquetes"
+          }
+        }
+      }
+    },
+    "Cleaned per month": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpiado por mes"
           }
         }
       }
@@ -1460,6 +1774,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Datos que las apps guardan para cargar más rápido. La mayoría se regenera automáticamente."
+          }
+        }
+      }
+    },
+    "Date": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fecha"
           }
         }
       }
@@ -2124,17 +2449,6 @@
         }
       }
     },
-    "Found %@ items in %@.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se encontraron %1$@ elementos en %2$@."
-          }
-        }
-      }
-    },
     "Found a %@ installer downloaded %@ ago: %@": {
       "extractionState": "manual",
       "localizations": {
@@ -2153,6 +2467,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Espacio libre"
+          }
+        }
+      }
+    },
+    "Free space at each analysis": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Espacio libre en cada análisis"
           }
         }
       }
@@ -2993,6 +3318,17 @@
         }
       }
     },
+    "Memory pressure is %@. See which apps use the most memory in Performance.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión de memoria es %@. Mira en Rendimiento qué apps usan más memoria."
+          }
+        }
+      }
+    },
     "Model": {
       "extractionState": "manual",
       "localizations": {
@@ -3011,6 +3347,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Modificado"
+          }
+        }
+      }
+    },
+    "Month": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mes"
           }
         }
       }
@@ -3609,6 +3956,17 @@
         }
       }
     },
+    "Open Performance": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Rendimiento"
+          }
+        }
+      }
+    },
     "Open Privacy Settings…": {
       "extractionState": "manual",
       "localizations": {
@@ -3616,6 +3974,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abrir ajustes de privacidad…"
+          }
+        }
+      }
+    },
+    "Open Quarantine": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir cuarentena"
           }
         }
       }
@@ -4342,6 +4711,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Riesgo: %@"
+          }
+        }
+      }
+    },
+    "Run Smart Scan on different days to see how your free space evolves.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejecuta el análisis en días distintos para ver cómo evoluciona tu espacio libre."
           }
         }
       }
@@ -5314,6 +5694,17 @@
         }
       }
     },
+    "The log “%@” is unusually large (%@)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El registro «%1$@» es inusualmente grande (%2$@)"
+          }
+        }
+      }
+    },
     "The originals stay on the server and Mail downloads them again when needed. Set Mail to download only recent attachments first.": {
       "extractionState": "manual",
       "localizations": {
@@ -5589,17 +5980,6 @@
         }
       }
     },
-    "Xcode DerivedData for %@ projects": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DerivedData de Xcode de %@ proyectos"
-          }
-        }
-      }
-    },
     "Xcode DerivedData, archives, device support and npm, pip, Homebrew, Yarn, CocoaPods and Go caches are already analyzed by Smart Clean.": {
       "extractionState": "manual",
       "localizations": {
@@ -5640,6 +6020,58 @@
           "stringUnit": {
             "state": "translated",
             "value": "Datos de compilación de Xcode (DerivedData)"
+          }
+        }
+      }
+    },
+    "Xcode build data for %lld projects": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Xcode build data for %lld project"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Xcode build data for %lld projects"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Datos de compilación de Xcode de %lld proyecto"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Datos de compilación de Xcode de %lld proyectos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Xcode build data for %lld projects, %lld not built in the last 30 days": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos de compilación de Xcode de %1$lld proyectos; %2$lld sin compilar en los últimos 30 días"
           }
         }
       }
@@ -5739,6 +6171,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tu Mac se está quedando sin espacio"
+          }
+        }
+      }
+    },
+    "Your disk is %@ full. macOS needs free space for updates, virtual memory and temporary files; keep at least 10–15%% free.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu disco está lleno al %@. macOS necesita espacio libre para actualizaciones, memoria virtual y archivos temporales; mantén al menos un 10–15%% libre."
           }
         }
       }

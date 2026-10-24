@@ -36,10 +36,13 @@ public struct OperationRecord: Codable, Sendable, Identifiable, Equatable {
     public var measuredFreedBytes: Int64?
     public var failures: [Failure]
     public var wasCancelled: Bool
+    /// Free space on the startup volume when the record was made (scans only).
+    public var volumeAvailableBytes: Int64?
 
     public init(id: UUID = UUID(), date: Date, kind: Kind, duration: TimeInterval, recoverableBytes: Int64? = nil, itemsFound: Int? = nil,
                 method: RemovalMethod? = nil, removedPaths: [String] = [], removedBytes: Int64? = nil,
-                measuredFreedBytes: Int64? = nil, failures: [Failure] = [], wasCancelled: Bool = false) {
+                measuredFreedBytes: Int64? = nil, failures: [Failure] = [], wasCancelled: Bool = false,
+                volumeAvailableBytes: Int64? = nil) {
         self.id = id
         self.date = date
         self.kind = kind
@@ -52,11 +55,13 @@ public struct OperationRecord: Codable, Sendable, Identifiable, Equatable {
         self.measuredFreedBytes = measuredFreedBytes
         self.failures = failures
         self.wasCancelled = wasCancelled
+        self.volumeAvailableBytes = volumeAvailableBytes
     }
 
-    public static func scan(_ report: ScanReport) -> OperationRecord {
+    public static func scan(_ report: ScanReport, volumeAvailableBytes: Int64? = nil) -> OperationRecord {
         OperationRecord(date: report.finishedAt, kind: .smartScan, duration: report.finishedAt.timeIntervalSince(report.startedAt),
-                        recoverableBytes: report.recoverableSize, itemsFound: report.allItems.count)
+                        recoverableBytes: report.recoverableSize, itemsFound: report.allItems.count,
+                        volumeAvailableBytes: volumeAvailableBytes)
     }
 
     public static func largeFileScan(_ report: LargeFileReport) -> OperationRecord {

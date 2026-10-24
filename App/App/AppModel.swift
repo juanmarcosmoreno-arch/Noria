@@ -111,8 +111,8 @@ final class AppModel {
             }.value
             record(.restore(restored, failures: failures))
             quarantineMessage = failures.isEmpty
-                ? String(localized: "\(Format.count(restored.count)) items restored to their original location.")
-                : String(localized: "\(Format.count(failures.count)) items could not be restored because something already exists at their original location. Use Reveal to recover them manually.")
+                ? String(localized: "\(restored.count) items restored to their original location.")
+                : String(localized: "\(failures.count) items could not be restored because something already exists at their original location. Use Reveal to recover them manually.")
             await refreshQuarantine()
             refreshVolume()
         }

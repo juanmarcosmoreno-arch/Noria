@@ -64,7 +64,7 @@ struct SmartCleanView: View {
                 .frame(width: 150, height: 150)
             if scan.isScanning {
                 Text("Analyzing your Mac…").font(NoriaFont.title)
-                Text("\(Format.count(scan.filesVisited)) files examined").foregroundStyle(.secondary)
+                Text("\(scan.filesVisited) files examined").foregroundStyle(.secondary)
                 Button("Cancel") { scan.cancel() }.buttonStyle(SecondaryButtonStyle())
             } else {
                 Text("No analysis yet").font(NoriaFont.title)
@@ -138,7 +138,7 @@ struct SmartCleanView: View {
     private var bottomBar: some View {
         HStack(spacing: NoriaSpacing.m) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(Format.count(scan.selectedIDs.count)) items selected")
+                Text("\(scan.selectedIDs.count) items selected")
                     .font(NoriaFont.body.weight(.medium))
                 Text(model.settings.removalMethod.outcome)
                     .font(NoriaFont.caption)

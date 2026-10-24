@@ -1,3 +1,4 @@
+import Charts
 import NoriaCore
 import SwiftUI
 
@@ -70,6 +71,12 @@ struct HistoryView: View {
                 }
             }
             .padding(NoriaSpacing.l)
+
+            if !model.history.isEmpty {
+                HistoryCharts(records: model.history)
+                    .padding(.horizontal, NoriaSpacing.l)
+                    .padding(.bottom, NoriaSpacing.m)
+            }
 
             if model.history.isEmpty {
                 EmptyStateView(title: "No history yet",
@@ -257,6 +264,91 @@ private struct HistoryRow: View {
                 text += " · " + String(localized: "\(Format.count(record.failures.count)) skipped")
             }
             return text
+        }
+    }
+}
+
+/// Evolution charts built from the local operation log.
+private struct HistoryCharts: View {
+    var records: [OperationRecord]
+
+    private struct Point: Identifiable {
+        var date: Date
+        var bytes: Int64
+        var id: Date { date }
+    }
+
+    /// Bytes removed by Noria per month, last 6 months.
+    private var monthly: [Point] {
+        let calendar = Calendar.current
+        var totals: [Date: Int64] = [:]
+        for record in records where record.kind == .cleanup {
+            guard let month = calendar.dateInterval(of: .month, for: record.date)?.start else { continue }
+            totals[month, default: 0] += record.removedBytes ?? 0
+        }
+        let start = calendar.date(byAdding: .month, value: -5, to: calendar.dateInterval(of: .month, for: Date())?.start ?? Date()) ?? Date()
+        return (0..<6).compactMap { offset in
+            calendar.date(byAdding: .month, value: offset, to: start).map { Point(date: $0, bytes: totals[$0] ?? 0) }
+        }
+    }
+
+    /// Free space measured at each Smart Scan.
+    private var freeSpace: [Point] {
+        records.filter { $0.kind == .smartScan }
+            .compactMap { record in record.volumeAvailableBytes.map { Point(date: record.date, bytes: $0) } }
+            .sorted { $0.date < $1.date }
+    }
+
+    var body: some View {
+        HStack(alignment: .top, spacing: NoriaSpacing.l) {
+            Card {
+                VStack(alignment: .leading, spacing: NoriaSpacing.s) {
+                    CardHeader(title: "Cleaned per month", systemImage: "chart.bar")
+                    Chart(monthly) { point in
+                        BarMark(x: .value("Month", point.date, unit: .month), y: .value("Bytes", Double(point.bytes)))
+                            .foregroundStyle(NoriaColor.woodGradient)
+                            .cornerRadius(4)
+                    }
+                    .chartYAxis { bytesAxis }
+                    .chartXAxis {
+                        AxisMarks(values: .stride(by: .month)) { _ in
+                            AxisValueLabel(format: .dateTime.month(.abbreviated))
+                        }
+                    }
+                    .frame(height: 140)
+                }
+            }
+            Card {
+                VStack(alignment: .leading, spacing: NoriaSpacing.s) {
+                    CardHeader(title: "Free space at each analysis", systemImage: "chart.line.uptrend.xyaxis")
+                    if freeSpace.count < 2 {
+                        Text("Run Smart Scan on different days to see how your free space evolves.")
+                            .font(NoriaFont.caption)
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, minHeight: 140, alignment: .center)
+                    } else {
+                        Chart(freeSpace) { point in
+                            LineMark(x: .value("Date", point.date), y: .value("Bytes", Double(point.bytes)))
+                                .foregroundStyle(NoriaColor.wood)
+                            PointMark(x: .value("Date", point.date), y: .value("Bytes", Double(point.bytes)))
+                                .foregroundStyle(NoriaColor.woodDark)
+                        }
+                        .chartYAxis { bytesAxis }
+                        .frame(height: 140)
+                    }
+                }
+            }
+        }
+    }
+
+    private var bytesAxis: some AxisContent {
+        AxisMarks { value in
+            AxisGridLine()
+            AxisValueLabel {
+                if let bytes = value.as(Double.self) {
+                    Text(verbatim: Format.bytes(Int64(bytes)))
+                }
+            }
         }
     }
 }

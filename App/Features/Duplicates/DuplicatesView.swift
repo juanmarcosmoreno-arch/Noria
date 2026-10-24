@@ -75,7 +75,7 @@ struct DuplicatesView: View {
         if duplicates.stage == "hashing" {
             return String(localized: "Comparing contents: \(Format.count(duplicates.hashed)) of \(Format.count(duplicates.candidates)) candidates")
         }
-        return String(localized: "\(Format.count(duplicates.filesVisited)) files examined")
+        return String(localized: "\(duplicates.filesVisited) files examined")
     }
 
     @ViewBuilder
@@ -132,8 +132,11 @@ struct DuplicatesView: View {
     private var bottomBar: some View {
         HStack(spacing: NoriaSpacing.m) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(Format.count(duplicates.groups.count)) groups · \(Format.bytes(duplicates.reclaimableSize)) in extra copies")
-                    .font(NoriaFont.body.weight(.medium))
+                HStack(spacing: 4) {
+                    Text("\(duplicates.groups.count) groups of identical files")
+                    Text(verbatim: "· " + Format.bytes(duplicates.reclaimableSize))
+                }
+                .font(NoriaFont.body.weight(.medium))
                 Text(duplicates.selectionNotice ?? String(localized: "Automatic selection keeps the oldest copy, preferring copies outside Downloads."))
                     .font(NoriaFont.caption)
                     .foregroundStyle(duplicates.selectionNotice == nil ? Color.secondary : NoriaColor.review)

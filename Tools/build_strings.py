@@ -8,10 +8,10 @@ Exits with an error listing any string that has no translation.
 """
 import glob, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from translations_es import ES
+from translations_es import ES, PLURALS
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
-INT_INTERPOLATIONS = re.compile(r'(Days|\.phase|GB)$')
+INT_INTERPOLATIONS = re.compile(r'(Days|\.phase|GB|\.count|Count|filesVisited|^count|^projects|^stale)$')
 NOT_UI = re.compile(r'^[a-z0-9.\-]+$')  # SF Symbols, identifiers
 IGNORED = {'', ' ', '  ', ' · ', '—', 'MB', 'r', 'macOS'}
 
@@ -46,14 +46,24 @@ def keys():
 
 def main():
     found = keys()
-    missing = sorted(k for k in found if k not in ES)
+    missing = sorted(k for k in found if k not in ES and k not in PLURALS)
     if missing:
         print('Missing Spanish translations:', file=sys.stderr)
         for key in missing:
             print('  ' + json.dumps(key, ensure_ascii=False), file=sys.stderr)
         sys.exit(1)
     strings = {}
+    def plural(forms):
+        return {'variations': {'plural': {form: {'stringUnit': {'state': 'translated', 'value': value}}
+                                          for form, value in forms.items()}}}
     for key in sorted(found):
+        if key in PLURALS:
+            # Plural-aware entry: English source forms and Spanish forms.
+            strings[key] = {
+                'extractionState': 'manual',
+                'localizations': {language: plural(forms) for language, forms in PLURALS[key].items()},
+            }
+            continue
         strings[key] = {
             'extractionState': 'manual',
             'localizations': {

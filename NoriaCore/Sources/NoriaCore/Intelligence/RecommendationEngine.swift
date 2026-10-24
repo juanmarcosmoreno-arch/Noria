@@ -11,8 +11,10 @@ public struct Recommendation: Identifiable, Sendable, Hashable {
         case largeCache(name: String)
         /// Large, old files in Downloads.
         case staleDownloads(count: Int)
-        /// Xcode DerivedData.
-        case derivedData(projects: Int)
+        /// Xcode DerivedData; `stale` projects were not built for 30 days.
+        case derivedData(projects: Int, stale: Int)
+        /// A single log file far bigger than normal: the app writing it may be misbehaving.
+        case largeLog(name: String)
         /// The Trash holds a lot of data.
         case emptyTrash
         /// Data of apps that are no longer installed.
@@ -50,6 +52,7 @@ public enum RecommendationEngine {
     public static let largeCacheThreshold: Int64 = 1_000_000_000
     public static let largeInstallerThreshold: Int64 = 200_000_000
     public static let minimumWorthwhileBytes: Int64 = 50_000_000
+    public static let largeLogThreshold: Int64 = 500_000_000
 
     public static func recommendations(for report: ScanReport) -> [Recommendation] {
         var result: [Recommendation] = []
@@ -61,7 +64,9 @@ public enum RecommendationEngine {
                 let derived = safe.filter { $0.reason == .xcodeDerivedData }
                 let derivedBytes = derived.reduce(0) { $0 + $1.allocatedSize }
                 if derivedBytes >= minimumWorthwhileBytes {
-                    result.append(Recommendation(id: "derivedData", kind: .derivedData(projects: derived.count), bytes: derivedBytes,
+                    let cutoff = report.finishedAt.addingTimeInterval(-30 * 86_400)
+                    let stale = derived.filter { ($0.modificationDate ?? .distantPast) < cutoff }.count
+                    result.append(Recommendation(id: "derivedData", kind: .derivedData(projects: derived.count, stale: stale), bytes: derivedBytes,
                                                  confidence: .high, risk: .safe, action: .reviewItems(derived.map(\.id))))
                 }
                 let others = safe.filter { $0.reason != .xcodeDerivedData }
@@ -98,6 +103,11 @@ public enum RecommendationEngine {
                 if staleBytes >= minimumWorthwhileBytes {
                     result.append(Recommendation(id: "staleDownloads", kind: .staleDownloads(count: stale.count), bytes: staleBytes,
                                                  confidence: .medium, risk: .review, action: .reviewItems(stale.map(\.id))))
+                }
+            case .logs:
+                for item in category.items where item.allocatedSize >= largeLogThreshold && item.fileCount == 1 {
+                    result.append(Recommendation(id: "log-\(item.path)", kind: .largeLog(name: item.name), bytes: item.allocatedSize,
+                                                 confidence: .medium, risk: item.risk, action: .reviewItems([item.id])))
                 }
             case .appLeftovers:
                 let leftovers = category.items.filter(\.isSelectable)

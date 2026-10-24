@@ -182,6 +182,10 @@ import Testing
         ])
         let recs = RecommendationEngine.recommendations(for: report)
         #expect(recs.count == 3)
+        let logs = ScanReport(startedAt: Date(), finishedAt: Date(), categories: [
+            CategoryResult(category: .logs, items: [item("huge.log", .logs, .safe, .oldLog(days: 10), 900_000_000)]),
+        ])
+        #expect(RecommendationEngine.recommendations(for: logs).contains { $0.kind == .largeLog(name: "huge.log") })
         #expect(recs.first?.kind == .oldInstaller(name: "Xcode.xip", days: 270))
         #expect(recs.map(\.score) == recs.map(\.score).sorted(by: >))
     }

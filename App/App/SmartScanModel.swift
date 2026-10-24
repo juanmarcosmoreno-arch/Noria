@@ -123,7 +123,7 @@ final class SmartScanModel {
             selectedIDs = Set(report.allItems.filter { $0.isSelectable && $0.risk == .safe }.map(\.id))
             phase = .finished
             resolveAppNames(for: report.allItems)
-            app.record(.scan(report))
+            app.record(.scan(report, volumeAvailableBytes: app.volume?.availableForImportantUsage))
         }
     }
 

@@ -117,8 +117,11 @@ struct DeveloperCleanView: View {
     private var bottomBar: some View {
         HStack(spacing: NoriaSpacing.m) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(Format.count(developer.selectedItems.count)) items selected · \(Format.bytes(developer.selectedSize))")
-                    .font(NoriaFont.body.weight(.medium))
+                HStack(spacing: 4) {
+                    Text("\(developer.selectedItems.count) items selected")
+                    Text(verbatim: "· " + Format.bytes(developer.selectedSize))
+                }
+                .font(NoriaFont.body.weight(.medium))
                 Text("Rebuildable caches are preselected. Archives, device support and project dependencies need your choice.")
                     .font(NoriaFont.caption).foregroundStyle(.secondary)
             }

@@ -167,11 +167,11 @@ struct LargeFilesView: View {
     private var bottomBar: some View {
         HStack(spacing: NoriaSpacing.m) {
             if let report = largeFiles.lastReport {
-                let count = Format.count(report.files.count)
+                let filesText = Format.count(report.files.count)
                 let total = Format.bytes(report.files.reduce(0) { $0 + $1.allocatedSize })
                 let examined = Format.count(report.filesVisited)
                 let duration = Format.duration(report.duration)
-                Text("\(count) files · \(total) · \(examined) examined in \(duration)")
+                Text("\(filesText) files · \(total) · \(examined) examined in \(duration)")
                     .font(NoriaFont.caption)
                     .foregroundStyle(.secondary)
                 if report.inaccessibleCount > 0 {

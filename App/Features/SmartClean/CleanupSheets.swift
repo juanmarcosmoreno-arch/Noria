@@ -23,8 +23,11 @@ struct CleanupConfirmationView: View {
                 SawMark().frame(width: 40, height: 40)
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Confirm cleanup").font(NoriaFont.title)
-                    Text("\(Format.count(items.count)) items · \(Format.bytes(totalSize))")
-                        .foregroundStyle(.secondary)
+                    HStack(spacing: 4) {
+                        Text("\(items.count) items")
+                        Text(verbatim: "· " + Format.bytes(totalSize))
+                    }
+                    .foregroundStyle(.secondary)
                 }
             }
 
@@ -41,7 +44,7 @@ struct CleanupConfirmationView: View {
             }
 
             if reviewCount > 0 {
-                Label("\(Format.count(reviewCount)) selected items are marked REVIEW. Make sure you no longer need them.",
+                Label("\(reviewCount) selected items are marked REVIEW. Make sure you no longer need them.",
                       systemImage: "eye")
                     .foregroundStyle(NoriaColor.review)
             }

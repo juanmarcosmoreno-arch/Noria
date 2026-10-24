@@ -207,12 +207,16 @@ extension Recommendation {
             return String(localized: "The cache folder “\(name)” takes \(Format.bytes(bytes)).")
         case .staleDownloads(let count):
             return String(localized: "Downloads holds \(Format.count(count)) large items not modified for over a year.")
-        case .derivedData(let projects):
-            return String(localized: "Xcode DerivedData for \(Format.count(projects)) projects")
+        case .derivedData(let projects, let stale):
+            return stale > 0
+                ? String(localized: "Xcode build data for \(projects) projects, \(stale) not built in the last 30 days")
+                : String(localized: "Xcode build data for \(projects) projects")
+        case .largeLog(let name):
+            return String(localized: "The log “\(name)” is unusually large (\(Format.bytes(bytes)))")
         case .emptyTrash:
             return String(localized: "The Trash holds \(Format.bytes(bytes)).")
         case .appLeftovers(let count):
-            return String(localized: "\(Format.count(count)) leftovers of apps you no longer have")
+            return String(localized: "\(count) leftovers of apps you no longer have")
         case .mailAttachments(let accounts):
             return String(localized: "Mail keeps \(Format.bytes(bytes)) of attachment copies from \(Format.count(accounts)) server accounts")
         }
@@ -230,6 +234,8 @@ extension Recommendation {
             return String(localized: "Review them and keep what you still need.")
         case .derivedData:
             return String(localized: "Xcode rebuilds them; the next build of each project will be slower.")
+        case .largeLog:
+            return String(localized: "A log this size usually means the app that writes it is reporting the same error again and again. Removing it frees space; if it grows back, check that app.")
         case .emptyTrash:
             return String(localized: "Empty the Trash from Finder to free this space.")
         case .appLeftovers:

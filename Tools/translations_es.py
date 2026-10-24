@@ -556,3 +556,51 @@ ES = {
 "pnpm store": "Almacén de pnpm",
 "xcrun simctl delete unavailable": "xcrun simctl delete unavailable",
 }
+
+# Strings with a count: English and Spanish plural forms ("one" / "other").
+PLURALS = {
+    "%lld items selected": {"en": {"one": "%lld item selected", "other": "%lld items selected"},
+                            "es": {"one": "%lld elemento seleccionado", "other": "%lld elementos seleccionados"}},
+    "%lld files examined": {"en": {"one": "%lld file examined", "other": "%lld files examined"},
+                            "es": {"one": "%lld archivo examinado", "other": "%lld archivos examinados"}},
+    "%lld items found": {"en": {"one": "%lld item found", "other": "%lld items found"},
+                         "es": {"one": "%lld elemento encontrado", "other": "%lld elementos encontrados"}},
+    "%lld items": {"en": {"one": "%lld item", "other": "%lld items"},
+                   "es": {"one": "%lld elemento", "other": "%lld elementos"}},
+    "%lld selected items are marked REVIEW. Make sure you no longer need them.": {
+        "en": {"one": "%lld selected item is marked REVIEW. Make sure you no longer need it.",
+               "other": "%lld selected items are marked REVIEW. Make sure you no longer need them."},
+        "es": {"one": "%lld elemento seleccionado está marcado como REVISAR. Asegúrate de que ya no lo necesitas.",
+               "other": "%lld elementos seleccionados están marcados como REVISAR. Asegúrate de que ya no los necesitas."}},
+    "%lld groups of identical files": {"en": {"one": "%lld group of identical files", "other": "%lld groups of identical files"},
+                                       "es": {"one": "%lld grupo de archivos idénticos", "other": "%lld grupos de archivos idénticos"}},
+    "%lld items restored to their original location.": {
+        "en": {"one": "%lld item restored to its original location.", "other": "%lld items restored to their original location."},
+        "es": {"one": "%lld elemento restaurado en su ubicación original.", "other": "%lld elementos restaurados en su ubicación original."}},
+    "%lld items could not be restored because something already exists at their original location. Use Reveal to recover them manually.": {
+        "en": {"one": "%lld item could not be restored because something already exists at its original location. Use Reveal to recover it manually.",
+               "other": "%lld items could not be restored because something already exists at their original location. Use Reveal to recover them manually."},
+        "es": {"one": "No se pudo restaurar %lld elemento porque ya existe algo en su ubicación original. Usa Mostrar en Finder para recuperarlo a mano.",
+               "other": "No se pudieron restaurar %lld elementos porque ya existe algo en su ubicación original. Usa Mostrar en Finder para recuperarlos a mano."}},
+    "%lld leftovers of apps you no longer have": {"en": {"one": "%lld leftover of an app you no longer have", "other": "%lld leftovers of apps you no longer have"},
+                                                  "es": {"one": "%lld resto de una app que ya no tienes", "other": "%lld restos de apps que ya no tienes"}},
+    "Xcode build data for %lld projects": {"en": {"one": "Xcode build data for %lld project", "other": "Xcode build data for %lld projects"},
+                                           "es": {"one": "Datos de compilación de Xcode de %lld proyecto", "other": "Datos de compilación de Xcode de %lld proyectos"}},
+}
+
+ES.update({
+    "Xcode build data for %lld projects, %lld not built in the last 30 days": "Datos de compilación de Xcode de %1$lld proyectos; %2$lld sin compilar en los últimos 30 días",
+    "The log “%@” is unusually large (%@)": "El registro «%1$@» es inusualmente grande (%2$@)",
+    "A log this size usually means the app that writes it is reporting the same error again and again. Removing it frees space; if it grows back, check that app.": "Un registro de este tamaño suele indicar que la app que lo escribe repite el mismo error una y otra vez. Eliminarlo libera espacio; si vuelve a crecer, revisa esa app.",
+    "Your disk is %@ full. macOS needs free space for updates, virtual memory and temporary files; keep at least 10–15%% free.": "Tu disco está lleno al %@. macOS necesita espacio libre para actualizaciones, memoria virtual y archivos temporales; mantén al menos un 10–15%% libre.",
+    "%@ are waiting in the quarantine. That space is freed when you empty it or when the retention period ends.": "Hay %@ esperando en la cuarentena. Ese espacio se libera al vaciarla o cuando termina el plazo.",
+    "Memory pressure is %@. See which apps use the most memory in Performance.": "La presión de memoria es %@. Mira en Rendimiento qué apps usan más memoria.",
+    "Open Quarantine": "Abrir cuarentena",
+    "Open Performance": "Abrir Rendimiento",
+    "Cleaned per month": "Limpiado por mes",
+    "Free space at each analysis": "Espacio libre en cada análisis",
+    "Run Smart Scan on different days to see how your free space evolves.": "Ejecuta el análisis en días distintos para ver cómo evoluciona tu espacio libre.",
+    "Month": "Mes",
+    "Bytes": "Bytes",
+    "Date": "Fecha",
+})

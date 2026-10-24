@@ -8,6 +8,7 @@ struct DashboardView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: NoriaSpacing.l) {
                 HeroCard()
+                SystemInsightsCard()
                 if model.smartScan.phase != .idle {
                     AnalysisCard()
                 }
@@ -75,8 +76,11 @@ private struct HeroCard: View {
                 Text("Analysis complete").font(NoriaFont.title)
                 if let report = scan.report {
                     let duration = Format.duration(report.finishedAt.timeIntervalSince(report.startedAt))
-                    Text("Found \(Format.count(report.allItems.count)) items in \(duration).")
-                        .foregroundStyle(.secondary)
+                    HStack(spacing: 4) {
+                        Text("\(report.allItems.count) items found")
+                        Text(verbatim: "· " + duration)
+                    }
+                    .foregroundStyle(.secondary)
                 }
             case .cancelled:
                 Text("Scan cancelled").font(NoriaFont.title)
@@ -351,6 +355,70 @@ private struct DeviceCard: View {
             Text(title).font(NoriaFont.body).foregroundStyle(.secondary)
             Spacer(minLength: NoriaSpacing.s)
             Text(value).font(NoriaFont.body).textSelection(.enabled).lineLimit(1)
+        }
+    }
+}
+
+// MARK: - System insights
+
+/// Recommendations that do not need a scan: they come from live, measured values.
+private struct SystemInsightsCard: View {
+    @Environment(AppModel.self) private var model
+
+    private struct Insight: Identifiable {
+        var id: String
+        var icon: String
+        var color: Color
+        var text: String
+        var action: LocalizedStringKey?
+        var destination: SidebarItem?
+    }
+
+    private var insights: [Insight] {
+        var result: [Insight] = []
+        if let volume = model.volume, volume.usedFraction > 0.9 || volume.availableForImportantUsage < 20_000_000_000 {
+            result.append(Insight(id: "disk", icon: "exclamationmark.triangle.fill", color: NoriaColor.review,
+                                  text: String(localized: "Your disk is \(Format.percent(volume.usedFraction)) full. macOS needs free space for updates, virtual memory and temporary files; keep at least 10–15% free."),
+                                  action: "Analyze My Mac", destination: .dashboard))
+        }
+        if model.quarantineSize >= 1_000_000_000 {
+            result.append(Insight(id: "quarantine", icon: "archivebox", color: NoriaColor.accent,
+                                  text: String(localized: "\(Format.bytes(model.quarantineSize)) are waiting in the quarantine. That space is freed when you empty it or when the retention period ends."),
+                                  action: "Open Quarantine", destination: .history))
+        }
+        if let pressure = model.metrics.memory?.pressure, pressure != .normal {
+            result.append(Insight(id: "memory", icon: "memorychip", color: NoriaColor.review,
+                                  text: String(localized: "Memory pressure is \(pressure.title.lowercased()). See which apps use the most memory in Performance."),
+                                  action: "Open Performance", destination: .performance))
+        }
+        return result
+    }
+
+    var body: some View {
+        let insights = self.insights
+        if !insights.isEmpty {
+            Card {
+                VStack(alignment: .leading, spacing: NoriaSpacing.s) {
+                    ForEach(insights) { insight in
+                        HStack(alignment: .top, spacing: NoriaSpacing.s) {
+                            Image(systemName: insight.icon).foregroundStyle(insight.color).frame(width: 20)
+                            Text(insight.text).fixedSize(horizontal: false, vertical: true)
+                            Spacer()
+                            if let action = insight.action, let destination = insight.destination {
+                                Button(action) {
+                                    if insight.id == "disk" {
+                                        model.smartScan.start()
+                                    } else {
+                                        model.selection = destination
+                                    }
+                                }
+                                .buttonStyle(SecondaryButtonStyle())
+                            }
+                        }
+                    }
+                }
+            }
+            .task { await model.refreshQuarantine() }
         }
     }
 }

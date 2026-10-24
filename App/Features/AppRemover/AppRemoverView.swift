@@ -82,8 +82,11 @@ struct AppRemoverView: View {
     private var bottomBar: some View {
         HStack(spacing: NoriaSpacing.m) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(Format.count(remover.selectedItemIDs.count)) items selected · \(Format.bytes(remover.selectedSize))")
-                    .font(NoriaFont.body.weight(.medium))
+                HStack(spacing: 4) {
+                    Text("\(remover.selectedItemIDs.count) items selected")
+                    Text(verbatim: "· " + Format.bytes(remover.selectedSize))
+                }
+                .font(NoriaFont.body.weight(.medium))
                 Text(remover.includesAppBundle
                      ? String(localized: "The app and the selected files will be removed.")
                      : String(localized: "The app stays installed; only the selected files are removed (useful to reset it)."))
