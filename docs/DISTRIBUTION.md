@@ -1,9 +1,9 @@
 # Distribution: Developer ID (direct) vs Mac App Store
 
 Noria is built so both editions share NoriaCore and all of the SwiftUI code.
-Both targets exist in `project.yml`: **Noria** (direct, `com.juanmarcos.noria.direct`)
-and **Noria App Store** (sandboxed, `com.juanmarcos.noria`, compiled with
-`NORIA_APP_STORE`). TestFlight steps: [TESTFLIGHT.md](TESTFLIGHT.md).
+Both targets exist in `project.yml`: **Noria** (default scheme; sandboxed,
+`com.juanmarcos.noria`, compiled with `NORIA_APP_STORE`) and **Noria Direct**
+(`com.juanmarcos.noria.direct`). TestFlight steps: [TESTFLIGHT.md](TESTFLIGHT.md).
 
 ## Direct distribution (signed + notarized DMG) — primary edition
 

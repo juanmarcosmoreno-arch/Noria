@@ -52,8 +52,8 @@ open Noria.xcodeproj        # select a scheme, then Run (⌘R)
 
 | Scheme | Edition | Bundle ID |
 |---|---|---|
-| **Noria** | Direct distribution (Developer ID), not sandboxed | `com.juanmarcos.noria.direct` |
-| **Noria App Store** | Mac App Store / TestFlight, App Sandbox | `com.juanmarcos.noria` |
+| **Noria** (default) | Mac App Store / TestFlight, App Sandbox | `com.juanmarcos.noria` |
+| **Noria Direct** | Direct distribution (Developer ID), not sandboxed | `com.juanmarcos.noria.direct` |
 
 Uploading to TestFlight: see [docs/TESTFLIGHT.md](docs/TESTFLIGHT.md).
 

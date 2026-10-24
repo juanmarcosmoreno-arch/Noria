@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4077D5F17731773896A9DCC0"
-               BuildableName = "Noria App Store.app"
-               BlueprintName = "Noria App Store"
+               BlueprintIdentifier = "4E987E756711E72D861C2D9A"
+               BuildableName = "Noria Direct.app"
+               BlueprintName = "Noria Direct"
                ReferencedContainer = "container:Noria.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4077D5F17731773896A9DCC0"
-            BuildableName = "Noria App Store.app"
-            BlueprintName = "Noria App Store"
+            BlueprintIdentifier = "4E987E756711E72D861C2D9A"
+            BuildableName = "Noria Direct.app"
+            BlueprintName = "Noria Direct"
             ReferencedContainer = "container:Noria.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4077D5F17731773896A9DCC0"
-            BuildableName = "Noria App Store.app"
-            BlueprintName = "Noria App Store"
+            BlueprintIdentifier = "4E987E756711E72D861C2D9A"
+            BuildableName = "Noria Direct.app"
+            BlueprintName = "Noria Direct"
             ReferencedContainer = "container:Noria.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4077D5F17731773896A9DCC0"
-            BuildableName = "Noria App Store.app"
-            BlueprintName = "Noria App Store"
+            BlueprintIdentifier = "4E987E756711E72D861C2D9A"
+            BuildableName = "Noria Direct.app"
+            BlueprintName = "Noria Direct"
             ReferencedContainer = "container:Noria.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

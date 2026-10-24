@@ -53,8 +53,8 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [x] Rule-based recommendations ranked by safety-weighted size
 - [x] Tests: file system, walker, safety policy, every rule, engines, cleaning,
       cancellation, persistence, recommendations
-- [x] Two editions from the same code: **Noria** (direct, `com.juanmarcos.noria.direct`)
-      and **Noria App Store** (App Sandbox, `com.juanmarcos.noria`) with one-time home
+- [x] Two editions from the same code: **Noria** (default scheme, App Sandbox,
+      `com.juanmarcos.noria`) and **Noria Direct** (`com.juanmarcos.noria.direct`) with one-time home
       folder grant + security-scoped bookmark, Settings → Folder Access, export
       compliance key; TestFlight guide in `docs/TESTFLIGHT.md`
 - [x] CI: both editions build on macOS; core tests on macOS and Linux

@@ -7,45 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02B759D1106E507F505EEA41 /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
 		0327D4C009630A4F5E10B693 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F519F7D8178FE04BD4FB2A /* RootView.swift */; };
 		054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */; };
-		06E806D3DAF492FDD81407B8 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F519F7D8178FE04BD4FB2A /* RootView.swift */; };
+		0E94E3EE13D5D35CF6EB4511 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
 		108E41262B50AA1CA67183CD /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFC08B6A4C093C24151C3C /* Theme.swift */; };
 		1BBF3F54B857811710723B3E /* SmartCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310CF756010621257CCEE40 /* SmartCleanView.swift */; };
 		1D53A35B0993119145320000 /* LargeFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */; };
 		1DE3CF19534DAF7CFA65BE34 /* FolderAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219E375D22A057EDC718EA6E /* FolderAccess.swift */; };
+		2BCF01CEE6C77A5EDC92FDD0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC446685B6E8E16F0C58FEDC /* SettingsView.swift */; };
+		385CCEF65E85ACDC74236BA0 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
+		4884EB285236064C34A023B7 /* NoriaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7D2192E841C5168D3C41D035 /* NoriaCore */; };
 		4E4C5095ADA90A8E648FBE7B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C8D26D6F333062950F83D /* DashboardView.swift */; };
-		5AB8745E317253059680859F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFC08B6A4C093C24151C3C /* Theme.swift */; };
+		5CE7BF3AE68399EB503AA020 /* SmartCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310CF756010621257CCEE40 /* SmartCleanView.swift */; };
 		5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
 		6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
-		7184BFA77CF15E7AD8E8255F /* MetricsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E34557952D0BD132007242 /* MetricsMonitor.swift */; };
-		71B66AAC80BD489B5EE01543 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
-		73D843546258016EFC4A3606 /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
+		7721703B39C107A2321B19A0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
+		773550155A84599661F9732B /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
 		7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
-		858D3A0315F90DF3BF5FBE5E /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
-		8DD93F56942DE48074F3C046 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC446685B6E8E16F0C58FEDC /* SettingsView.swift */; };
+		89FA57703AEDB995AEC7AE1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
+		8B85DA61B03A27013FFAE538 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
+		8C78A6F39D2E1D8B7A9C018B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F519F7D8178FE04BD4FB2A /* RootView.swift */; };
 		9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
-		9B076606E25E86A96642D8B2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
+		9AE699C8F0229AD97C66E92D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
 		A150C570AA35A2DFCD781C78 /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
-		A743C68882B445A339A9D770 /* LargeFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */; };
-		AA5002084696A34C155B9739 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C8D26D6F333062950F83D /* DashboardView.swift */; };
-		AA51D83367D2700FF4164EAE /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
-		AA7C481356D79E1FD4BF0C1D /* NoriaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1019EB39B973B9BBD1AD0032 /* NoriaCore */; };
-		AF6247EE4C618FA213537A51 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */; };
-		B1ABC28D10CED36895A13B5D /* FolderAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219E375D22A057EDC718EA6E /* FolderAccess.swift */; };
-		BA96EABC7066F1799201D0E9 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
+		BD8B62D8C51944A6B2F4EFD1 /* FolderAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219E375D22A057EDC718EA6E /* FolderAccess.swift */; };
 		C4E1268C40C3AC45D159E1C6 /* NoriaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 70808D822A30A07C1E4E10E9 /* NoriaCore */; };
 		C5EA8AE0EB37C8AE01E36E93 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
-		C7F411D78FE6007D849E06E9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
-		C92E8EA4007A0EA96038C6C0 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
 		CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
-		D01AD612144E4B72636C5028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
 		D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
-		D931D6F74694B85132E1FE41 /* SmartCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310CF756010621257CCEE40 /* SmartCleanView.swift */; };
+		DC08FA167ABB79F32A404E19 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
 		DF733962A51289E1C2076C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
+		DFD1BBED178112455E05359B /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
+		E106B32DF4FEA4724ECFF607 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFC08B6A4C093C24151C3C /* Theme.swift */; };
 		E182FC9D399C7D57C9D96713 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
+		E6464BC6031D70C5F3EA24CA /* MetricsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E34557952D0BD132007242 /* MetricsMonitor.swift */; };
+		E89F9F8F9D717F3735F9E0E9 /* LargeFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */; };
+		EEB7CA705E1E51740A983F6E /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
 		EEBB61801683E3604248222E /* MetricsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E34557952D0BD132007242 /* MetricsMonitor.swift */; };
+		F05D92E8F30368795A75005D /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */; };
+		F2D6BDE2AACE2F0391B9FD00 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C8D26D6F333062950F83D /* DashboardView.swift */; };
 		F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC446685B6E8E16F0C58FEDC /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,10 +71,10 @@
 		A8C74679380FC9A9678686F5 /* Noria.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noria.entitlements; sourceTree = "<group>"; };
 		B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B40415B7172881B6F9AAF6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C0E5FC2D2DBA24BFD5B186A5 /* Noria App Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noria App Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesView.swift; sourceTree = "<group>"; };
 		CC446685B6E8E16F0C58FEDC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E08789015A598917BB2AD517 /* NoriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoriaApp.swift; sourceTree = "<group>"; };
+		E360B8D3161D9EFB4970BF59 /* Noria Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noria Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +86,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		984E4B54AA5FAC4855B44C89 /* Frameworks */ = {
+		FE1C308102C0DFB49590F053 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA7C481356D79E1FD4BF0C1D /* NoriaCore in Frameworks */,
+				4884EB285236064C34A023B7 /* NoriaCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +151,7 @@
 		1D29FA9964F34AC82605F1B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0E5FC2D2DBA24BFD5B186A5 /* Noria App Store.app */,
+				E360B8D3161D9EFB4970BF59 /* Noria Direct.app */,
 				4FF3B92EFF0676CF311074CC /* Noria.app */,
 			);
 			name = Products;
@@ -227,24 +227,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4077D5F17731773896A9DCC0 /* Noria App Store */ = {
+		4E987E756711E72D861C2D9A /* Noria Direct */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6789209A36EB928EC49F6820 /* Build configuration list for PBXNativeTarget "Noria App Store" */;
+			buildConfigurationList = FC075363A97F30FB37064655 /* Build configuration list for PBXNativeTarget "Noria Direct" */;
 			buildPhases = (
-				C45BA5392F98BF5C1023504A /* Sources */,
-				8A924DBF9D85A35C21D9F1D8 /* Resources */,
-				984E4B54AA5FAC4855B44C89 /* Frameworks */,
+				76AA61BA6BDC1A7CA47CF56E /* Sources */,
+				95A00F7C7FC00267A6841099 /* Resources */,
+				FE1C308102C0DFB49590F053 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Noria App Store";
+			name = "Noria Direct";
 			packageProductDependencies = (
-				1019EB39B973B9BBD1AD0032 /* NoriaCore */,
+				7D2192E841C5168D3C41D035 /* NoriaCore */,
 			);
-			productName = "Noria App Store";
-			productReference = C0E5FC2D2DBA24BFD5B186A5 /* Noria App Store.app */;
+			productName = "Noria Direct";
+			productReference = E360B8D3161D9EFB4970BF59 /* Noria Direct.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED178DB5A42D6915BC5BBDD5 /* Noria */ = {
@@ -276,7 +276,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					4077D5F17731773896A9DCC0 = {
+					4E987E756711E72D861C2D9A = {
 						DevelopmentTeam = 62395T6WLG;
 						ProvisioningStyle = Automatic;
 					};
@@ -305,7 +305,7 @@
 			projectRoot = "";
 			targets = (
 				ED178DB5A42D6915BC5BBDD5 /* Noria */,
-				4077D5F17731773896A9DCC0 /* Noria App Store */,
+				4E987E756711E72D861C2D9A /* Noria Direct */,
 			);
 		};
 /* End PBXProject section */
@@ -320,12 +320,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8A924DBF9D85A35C21D9F1D8 /* Resources */ = {
+		95A00F7C7FC00267A6841099 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D01AD612144E4B72636C5028 /* Assets.xcassets in Resources */,
-				C7F411D78FE6007D849E06E9 /* Localizable.xcstrings in Resources */,
+				89FA57703AEDB995AEC7AE1B /* Assets.xcassets in Resources */,
+				7721703B39C107A2321B19A0 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,27 +356,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C45BA5392F98BF5C1023504A /* Sources */ = {
+		76AA61BA6BDC1A7CA47CF56E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92E8EA4007A0EA96038C6C0 /* AppModel.swift in Sources */,
-				BA96EABC7066F1799201D0E9 /* CleanupSheets.swift in Sources */,
-				858D3A0315F90DF3BF5FBE5E /* Components.swift in Sources */,
-				AA5002084696A34C155B9739 /* DashboardView.swift in Sources */,
-				B1ABC28D10CED36895A13B5D /* FolderAccess.swift in Sources */,
-				9B076606E25E86A96642D8B2 /* HistoryView.swift in Sources */,
-				AA51D83367D2700FF4164EAE /* LargeFilesModel.swift in Sources */,
-				A743C68882B445A339A9D770 /* LargeFilesView.swift in Sources */,
-				7184BFA77CF15E7AD8E8255F /* MetricsMonitor.swift in Sources */,
-				73D843546258016EFC4A3606 /* NoriaApp.swift in Sources */,
-				AF6247EE4C618FA213537A51 /* Presentation.swift in Sources */,
-				06E806D3DAF492FDD81407B8 /* RootView.swift in Sources */,
-				02B759D1106E507F505EEA41 /* SawView.swift in Sources */,
-				8DD93F56942DE48074F3C046 /* SettingsView.swift in Sources */,
-				D931D6F74694B85132E1FE41 /* SmartCleanView.swift in Sources */,
-				71B66AAC80BD489B5EE01543 /* SmartScanModel.swift in Sources */,
-				5AB8745E317253059680859F /* Theme.swift in Sources */,
+				385CCEF65E85ACDC74236BA0 /* AppModel.swift in Sources */,
+				0E94E3EE13D5D35CF6EB4511 /* CleanupSheets.swift in Sources */,
+				EEB7CA705E1E51740A983F6E /* Components.swift in Sources */,
+				F2D6BDE2AACE2F0391B9FD00 /* DashboardView.swift in Sources */,
+				BD8B62D8C51944A6B2F4EFD1 /* FolderAccess.swift in Sources */,
+				9AE699C8F0229AD97C66E92D /* HistoryView.swift in Sources */,
+				DC08FA167ABB79F32A404E19 /* LargeFilesModel.swift in Sources */,
+				E89F9F8F9D717F3735F9E0E9 /* LargeFilesView.swift in Sources */,
+				E6464BC6031D70C5F3EA24CA /* MetricsMonitor.swift in Sources */,
+				DFD1BBED178112455E05359B /* NoriaApp.swift in Sources */,
+				F05D92E8F30368795A75005D /* Presentation.swift in Sources */,
+				8C78A6F39D2E1D8B7A9C018B /* RootView.swift in Sources */,
+				773550155A84599661F9732B /* SawView.swift in Sources */,
+				2BCF01CEE6C77A5EDC92FDD0 /* SettingsView.swift in Sources */,
+				5CE7BF3AE68399EB503AA020 /* SmartCleanView.swift in Sources */,
+				8B85DA61B03A27013FFAE538 /* SmartScanModel.swift in Sources */,
+				E106B32DF4FEA4724ECFF607 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,16 +444,15 @@
 			};
 			name = Release;
 		};
-		24D0E941CC72CE683F1E57FC /* Debug */ = {
+		53548A55BF5C517486FECFBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "App/Resources/Noria-AppStore.entitlements";
+				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 62395T6WLG;
-				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -470,12 +469,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria.direct;
 				PRODUCT_NAME = Noria;
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) NORIA_APP_STORE";
 			};
-			name = Debug;
+			name = Release;
 		};
 		5832E31CB8670183FE689F1D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -550,10 +548,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "App/Resources/Noria-AppStore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 62395T6WLG;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -570,44 +569,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria.direct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria;
 				PRODUCT_NAME = Noria;
 				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) NORIA_APP_STORE";
 			};
 			name = Release;
 		};
 		BAEEDE590D423F111863998B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 62395T6WLG;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = App/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Noria;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
-				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Juan Marcos Moreno";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
-				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria.direct;
-				PRODUCT_NAME = Noria;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		CF881BCD61CE328DAE91E1A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -638,20 +607,42 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) NORIA_APP_STORE";
 			};
-			name = Release;
+			name = Debug;
+		};
+		BFB8E0D76575EF58E3631272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Resources/Noria.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 62395T6WLG;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Noria;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Juan Marcos Moreno";
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria.direct;
+				PRODUCT_NAME = Noria;
+				SDKROOT = macosx;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6789209A36EB928EC49F6820 /* Build configuration list for PBXNativeTarget "Noria App Store" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24D0E941CC72CE683F1E57FC /* Debug */,
-				CF881BCD61CE328DAE91E1A5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		A9A9F89DD82C85C9AA7893D8 /* Build configuration list for PBXNativeTarget "Noria" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -670,6 +661,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		FC075363A97F30FB37064655 /* Build configuration list for PBXNativeTarget "Noria Direct" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB8E0D76575EF58E3631272 /* Debug */,
+				53548A55BF5C517486FECFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
@@ -680,11 +680,11 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1019EB39B973B9BBD1AD0032 /* NoriaCore */ = {
+		70808D822A30A07C1E4E10E9 /* NoriaCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NoriaCore;
 		};
-		70808D822A30A07C1E4E10E9 /* NoriaCore */ = {
+		7D2192E841C5168D3C41D035 /* NoriaCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NoriaCore;
 		};

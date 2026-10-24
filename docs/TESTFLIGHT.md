@@ -1,9 +1,10 @@
 # Subir Noria a TestFlight (macOS)
 
-Esta guía usa el target **Noria App Store** (bundle ID `com.juanmarcos.noria`,
-equipo `62395T6WLG`), que funciona dentro del App Sandbox como exige la Mac App
-Store. El target **Noria** (`com.juanmarcos.noria.direct`) es la edición de
-distribución directa y **no** se puede subir a App Store Connect.
+Esta guía usa el esquema **Noria** (el que Xcode muestra por defecto; bundle ID
+`com.juanmarcos.noria`, equipo `62395T6WLG`), que funciona dentro del App
+Sandbox como exige la Mac App Store. El esquema **Noria Direct**
+(`com.juanmarcos.noria.direct`) es la edición de distribución directa y **no** se
+puede subir a App Store Connect.
 
 ## 1. Una sola vez: registrar la app
 
@@ -24,11 +25,11 @@ distribución directa y **no** se puede subir a App Store Connect.
 
 1. Abre `Noria.xcodeproj` en Xcode.
 2. Sube el número de build: en `project.yml`, `CURRENT_PROJECT_VERSION` (1, 2, 3…)
-   y ejecuta `xcodegen generate`; o directamente en Xcode → target *Noria App
-   Store* → *General* → *Build*. **Cada subida necesita un número nuevo.**
+   y ejecuta `xcodegen generate`; o directamente en Xcode → target *Noria* →
+   *General* → *Build*. **Cada subida necesita un número nuevo.**
    La versión visible es `MARKETING_VERSION` (ahora 0.1.0).
-3. Arriba, elige el esquema **Noria App Store** y el destino **Any Mac (Apple
-   Silicon, Intel)**.
+3. Arriba, comprueba que el esquema sea **Noria** (no "Noria Direct") y elige el
+   destino **Any Mac (Apple Silicon, Intel)**.
 4. Menú **Product → Archive**. Al terminar se abre el *Organizer*.
 5. Selecciona el archivo → **Distribute App** → **App Store Connect** → **Upload**
    (o *TestFlight & App Store*). Deja *Automatically manage signing*: Xcode crea
@@ -62,7 +63,7 @@ distribución directa y **no** se puede subir a App Store Connect.
 
 ## Diferencias de la edición App Store
 
-| | Directa (`Noria`) | App Store (`Noria App Store`) |
+| | Directa (`Noria Direct`) | App Store (`Noria`) |
 |---|---|---|
 | Sandbox | No | Sí (obligatorio) |
 | Acceso a archivos | Normal (con avisos de privacidad de macOS) | Solo la carpeta de inicio que el usuario permite |

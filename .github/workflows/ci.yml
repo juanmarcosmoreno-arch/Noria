@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Noria.app (direct edition)
         run: |
-          xcodebuild -project Noria.xcodeproj -scheme Noria -configuration Debug \
+          xcodebuild -project Noria.xcodeproj -scheme "Noria Direct" -configuration Debug \
             -destination 'platform=macOS' -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO build > build.log 2>&1 || true
           grep -E "error:|warning:|BUILD" build.log || true
@@ -40,7 +40,7 @@ jobs:
 
       - name: Build Noria.app (App Store edition, sandboxed)
         run: |
-          xcodebuild -project Noria.xcodeproj -scheme "Noria App Store" -configuration Release \
+          xcodebuild -project Noria.xcodeproj -scheme Noria -configuration Release \
             -destination 'generic/platform=macOS' -derivedDataPath build-appstore \
             CODE_SIGNING_ALLOWED=NO build > build-appstore.log 2>&1 || true
           grep -E "error:|warning:|BUILD" build-appstore.log || true

@@ -3,8 +3,8 @@
 # Noria.xcodeproj is committed so the project opens without XcodeGen installed.
 #
 # Two editions share all sources:
-#   Noria            — direct distribution (Developer ID): not sandboxed.
-#   Noria App Store  — Mac App Store / TestFlight: App Sandbox + home-folder grant.
+#   Noria         — Mac App Store / TestFlight: App Sandbox + home-folder grant (default scheme).
+#   Noria Direct  — direct distribution (Developer ID): not sandboxed.
 name: Noria
 options:
   bundleIdPrefix: com.juanmarcos
@@ -58,16 +58,16 @@ targets:
     templates: [NoriaApp]
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.juanmarcos.noria.direct
-        CODE_SIGN_ENTITLEMENTS: App/Resources/Noria.entitlements
-  Noria App Store:
-    templates: [NoriaApp]
-    settings:
-      base:
         PRODUCT_BUNDLE_IDENTIFIER: com.juanmarcos.noria
         CODE_SIGN_ENTITLEMENTS: App/Resources/Noria-AppStore.entitlements
         ENABLE_APP_SANDBOX: YES
         SWIFT_ACTIVE_COMPILATION_CONDITIONS: $(inherited) NORIA_APP_STORE
+  Noria Direct:
+    templates: [NoriaApp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.juanmarcos.noria.direct
+        CODE_SIGN_ENTITLEMENTS: App/Resources/Noria.entitlements
 schemes:
   Noria:
     build:
@@ -81,10 +81,10 @@ schemes:
         - package: NoriaCore/NoriaCoreTests
     archive:
       config: Release
-  Noria App Store:
+  Noria Direct:
     build:
       targets:
-        Noria App Store: all
+        Noria Direct: all
     run:
       config: Debug
     archive:
