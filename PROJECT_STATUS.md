@@ -1,17 +1,17 @@
 # Noria — Project status
 
-_Last updated: 2026-10-24 · Current phase: **2** (version 0.2.0, build 2)_
+_Last updated: 2026-10-24 · Current phase: **4 complete → 5** (version 0.2.0, build 2)_
 
 ## Verification
 
 | Check | Where | Result |
 |---|---|---|
-| NoriaCore build + 65 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
-| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | ✅ 66/66 (incl. live CPU/memory test) |
-| `Noria.app` direct (Debug) + App Store edition (Release, sandboxed), unsigned | GitHub Actions `macos-15` | ✅ both BUILD SUCCEEDED, no Swift warnings |
+| NoriaCore build + 82 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
+| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | see CI (83 incl. live CPU/memory test) |
+| `Noria.app` direct (Debug) + App Store edition (Release, sandboxed), unsigned | GitHub Actions `macos-15` | see CI |
 | String catalog complete (en + es) and in sync | `Tools/build_strings.py` + CI | ✅ |
 | Xcode project in sync with `project.yml` (XcodeGen 2.46.0) | CI | ✅ |
-| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | ✅ 65/65 |
+| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | see CI |
 
 **Not yet verified by a human on a real Mac:** interactive behaviour of the UI
 (layout, animation smoothness, TCC prompts, Trash/Put Back round-trip). The
@@ -49,7 +49,7 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [x] Operation log (JSON Lines) + History screen; clear history
 - [x] Settings persisted in `UserDefaults`: language, removal method, age thresholds,
       categories, exclusions, Large Files container skipping
-- [x] Localization: String Catalog, English + Spanish (379 strings)
+- [x] Localization: String Catalog, English + Spanish
 - [x] Rule-based recommendations ranked by safety-weighted size
 - [x] Tests: file system, walker, safety policy, every rule, engines, cleaning,
       cancellation, persistence, recommendations
@@ -59,43 +59,56 @@ development container is Linux, so the SwiftUI target is compiled in CI
       compliance key; TestFlight guide in `docs/TESTFLIGHT.md`
 - [x] CI: both editions build on macOS; core tests on macOS and Linux
 
+## Implemented (Phase 2)
+
+- [x] Noria-managed quarantine (default method): original path, date, size; restore
+      without overwriting; delete; automatic deletion after N days; History › Quarantine
+- [x] App Remover: app bundle + related ~/Library files by exact bundle identifier
+      (reliable) or app name (REVIEW); shared group containers never preselected; reset
+      mode (keep the app); blocks while the app runs
+- [x] App Leftovers (Smart Scan), conservative (same-developer and Launch Services checks)
+- [x] Mail: space per account; Mail Downloads (SAFE) and attachment copies of server
+      accounts (REVIEW); POP / On My Mac / unknown accounts PROTECTED; messages untouched
+- [x] Space Map: squarified treemap with nested level, breadcrumbs, zoom, colors by
+      kind, hover/selection details, Finder actions, removal through quarantine
+- [x] Duplicates: size → head/tail digest → full SHA-256 (CryptoKit, portable fallback
+      verified with official vectors); hard links, ~/Library, bundles and managed
+      libraries skipped; one copy always kept (UI + engine-level check)
+
+## Implemented (Phase 3)
+
+- [x] Performance: CPU, memory (pressure, swap), disk read/write charts; top processes
+      by CPU/memory (libproc); polite quit for apps; measured-only insights
+- [x] Startup Manager: launchd agents/daemons by scope, orphaned items (missing
+      program) first, removal of user agents only, link to Login Items settings
+- [x] Mac Health: device, uptime, battery (capacity vs design, cycles, condition,
+      charge, temperature), storage device and SMART status only when reported
+- [x] Noria Watch: optional menu bar extra and opt-in notifications (low space, fast
+      space drop, sustained CPU) with cooldowns; one light check per minute
+
+## Implemented (Phase 4)
+
+- [x] Developer Clean: DerivedData per project, archives (name/version), device support
+      per OS, simulators via `xcrun simctl delete unavailable` (direct edition), Xcode
+      previews, SwiftPM, npm, Yarn, pnpm, Bun, pip, Homebrew, CocoaPods, Go, Gradle,
+      Maven, Cargo, dependencies of projects untouched for 90 days (REVIEW)
+- [x] Intelligence: more rules (large logs, stale DerivedData, leftovers, Mail
+      attachments) and live insights on the Dashboard (disk almost full, quarantine,
+      memory pressure)
+- [x] History charts (cleaned per month, free space at each analysis)
+- [x] Plural-aware English/Spanish strings (553 strings)
+
 ## Pending
 
-### Phase 2 (in progress)
-- [x] Noria-managed quarantine (default method): original path, date, size; restore
-      without overwriting; delete; automatic deletion after N days (Settings);
-      History › Quarantine; results separate quarantined / trashed / deleted space
-- [x] App Remover: installed apps (icon, version, size, App Store badge); app bundle +
-      related files in ~/Library by exact bundle identifier (reliable) or app name
-      (REVIEW); shared group containers never preselected; keep the app to reset it;
-      blocks while the app runs; /Applications grant in the App Store edition
-- [x] App Leftovers (Smart Scan): data of uninstalled apps, REVIEW only, skipped when
-      another app of the same developer is installed or Launch Services finds the app
-- [x] Mail: space per account (messages vs attachments); Mail Downloads (SAFE) and
-      attachment copies of server accounts (REVIEW) cleanable; POP / On My Mac /
-      unknown accounts PROTECTED; messages never touched; Mail must be quit;
-      Full Disk Access guidance and Mail's own options to reduce its size
-- [ ] Space Map (treemap, zoom, breadcrumbs)
-- [ ] Duplicates (size → partial hash → SHA-256)
-
-### Phase 3
-- [ ] Performance monitor (history graphs, disk activity, top processes; CPU/memory/
-      pressure/swap readings already exist in NoriaCore `SystemMetrics`)
-- [ ] Startup Manager (`SMAppService` status for own items, Login Items settings link)
-- [ ] Mac Health (battery via IOKit `AppleSmartBattery`, storage info where exposed)
-- [ ] Noria Watch menu bar extra + configurable notifications
-- [ ] Privacy module (scope to be defined; only public mechanisms)
-
-### Phase 4
-- [ ] Developer Clean screen (simulators via `xcrun simctl`, official CLI cleanups)
-- [ ] Richer intelligence rules; optional local model hook
-- [ ] History charts (Swift Charts) and statistics; SQLite/SwiftData store
-- [ ] Plural-aware strings and full localization review
+### Privacy module
+- [ ] Scope to be defined. Browser data lives in protected app containers; anything
+      here must use the browsers' own mechanisms. Shown as "planned".
 
 ### Phase 5
 - [ ] Performance profiling on large homes (≥1M files), memory benchmarks
-- [ ] Security review, signing, notarization, DMG, update mechanism
+- [ ] Security review, signing, notarization, DMG, update mechanism (direct edition)
 - [ ] App Store listing (screenshots, description, privacy labels) and review
+- [ ] Tighten the app target to Swift 6 language mode
 
 ## Known issues / limitations
 
@@ -112,6 +125,15 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - **Removing apps from /Applications** may require macOS *App Management* permission
   (Privacy & Security) or an administrator password for apps installed by an installer
   package; Noria reports the failure and the item stays in place.
+- **Processes:** macOS only lets Noria read details of processes it may inspect
+  (normally the user's own); the rest are not shown. In the App Store edition the list
+  may be shorter.
+- **Startup items:** macOS lets each app enable or disable only its own login items, so
+  Noria shows launchd items it can read and links to Login Items settings.
+- **Simulators** are removed only with Apple's `xcrun simctl`, which the sandboxed App
+  Store edition cannot run (it shows the command to copy instead).
+- **Battery and storage keys** come from IOKit and differ across Mac models; anything
+  missing is shown as "Not reported by macOS".
 - Reading other apps' containers can trigger the macOS "access data from other apps"
   prompt during the App Leftovers scan and in App Remover.
 - App Store edition: Temporary Files is unavailable (sandbox); scanning requires the

@@ -9,29 +9,26 @@ removes anything without your review and confirmation. Everything runs locally.
 > Status: **Phase 1 (MVP)** — see [PROJECT_STATUS.md](PROJECT_STATUS.md) for
 > exactly what is implemented, what is pending and known limitations.
 
-## What works today (Phase 1)
+## What works today
 
-- **Dashboard** — real storage metrics for the startup volume (capacity, used,
-  available incl. purgeable), live CPU and memory usage, memory pressure and swap,
-  device info, and the *Analyze My Mac* Smart Scan
-  with live counters (current category, files examined, size found, elapsed time)
-  and category-level progress. No invented percentages.
-- **Smart Clean** — analyzes User Cache, Logs, Temporary Files, Developer Cache
-  (Xcode DerivedData/Archives/Device Support, npm, pip, Homebrew, Yarn, CocoaPods,
-  Go), Downloads (old installers/archives) and Trash (size only). Each item shows
-  name, path, size, date, category, associated app, risk (SAFE / REVIEW /
-  PROTECTED) and an explanation. Selection, filters, inspector, confirmation sheet,
-  cleanup with progress/stop, and a result summary that separates *moved to Trash*
-  from *freed*.
-- **Large Files** — scan any folder with 100 MB / 500 MB / 1 GB / custom
-  thresholds, sortable table (size, date, type, location), type filter, Finder
-  reveal/open, details inspector, move to Trash with confirmation.
-- **History** — local operation log (scans, cleanups, removed paths, failures).
-- **Settings** — language (System/English/Español), removal method, age
-  thresholds, categories, exclusions, permissions guidance, clear history.
-- **Safety** — every removal is re-validated right before acting (allowed roots,
-  protected locations, exclusions, symlink swaps, file changed since scan).
-  Default removal is *Move to Trash* (recoverable with Finder's Put Back).
+| Module | What it does |
+|---|---|
+| **Dashboard** | Real storage, CPU and memory; *Analyze My Mac*; recommendations and live insights |
+| **Smart Clean** | Caches, logs, temporary files, app leftovers, Mail, developer caches, old downloads, Trash size — each item with risk (SAFE / REVIEW / PROTECTED) and an explanation |
+| **Space Map** | Treemap of any folder, zoom and breadcrumbs |
+| **Large Files** | Files over 100 MB / 500 MB / 1 GB / custom, sortable |
+| **Duplicates** | Byte-identical files (SHA-256); one copy always kept |
+| **App Remover** | Apps and every file they created, exclusive vs shared |
+| **Mail** | Where Mail's space goes; safe cleaning of downloadable attachment copies |
+| **Startup Manager** | Background items, orphaned launchers of removed apps |
+| **Performance** | CPU, memory pressure, swap, disk activity, top processes |
+| **Developer Clean** | Xcode, simulators, package managers, inactive projects' dependencies |
+| **Mac Health** | Battery capacity, cycles and condition; storage device |
+| **History** | Quarantine (restore / delete) and activity with charts |
+| **Noria Watch** | Optional menu bar extra and notifications |
+
+Safety: nothing is removed without review and confirmation; every item is re-checked
+right before acting; by default items go to Noria's **quarantine** and can be restored.
 
 ## Requirements
 
