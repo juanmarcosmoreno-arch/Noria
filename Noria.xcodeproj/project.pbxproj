@@ -16,22 +16,29 @@
 		1D53A35B0993119145320000 /* LargeFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */; };
 		1DE3CF19534DAF7CFA65BE34 /* FolderAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219E375D22A057EDC718EA6E /* FolderAccess.swift */; };
 		2BCF01CEE6C77A5EDC92FDD0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC446685B6E8E16F0C58FEDC /* SettingsView.swift */; };
+		347CE4168FCE8E3AEC8ADC10 /* SpaceMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */; };
 		385CCEF65E85ACDC74236BA0 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
 		4884EB285236064C34A023B7 /* NoriaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7D2192E841C5168D3C41D035 /* NoriaCore */; };
 		4E4C5095ADA90A8E648FBE7B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C8D26D6F333062950F83D /* DashboardView.swift */; };
 		5CE7BF3AE68399EB503AA020 /* SmartCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310CF756010621257CCEE40 /* SmartCleanView.swift */; };
+		5E994E5BDB138D607101B9FA /* DuplicatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */; };
 		5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
+		60ECF16DFC82848E865D60E8 /* DuplicatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */; };
+		61AAA211C5DA9F8B9397EB54 /* SpaceMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */; };
 		6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
+		771F13B562BF1CD63C1B73B8 /* DuplicatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */; };
 		7721703B39C107A2321B19A0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
 		773550155A84599661F9732B /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
 		7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
 		7F82497102AE115ADA4F32F9 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768BA69FEC9D54A7183AEF7 /* MailView.swift */; };
+		82030EA534C059F7F18226CC /* DuplicatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */; };
 		89FA57703AEDB995AEC7AE1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
 		8B85DA61B03A27013FFAE538 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
 		8C78A6F39D2E1D8B7A9C018B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F519F7D8178FE04BD4FB2A /* RootView.swift */; };
 		9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
 		9AE699C8F0229AD97C66E92D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
 		A150C570AA35A2DFCD781C78 /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
+		A5A9EE0EE08B4DE5BD11AB8B /* SpaceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CD5B72851E84127DEDA87D /* SpaceMapView.swift */; };
 		AA090CA5C3BB49F75F55311B /* AppRemoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */; };
 		B935451F12EBBCFEC2A8C9B3 /* AppRemoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD404FB0B4ED1E0E95355C52 /* AppRemoverView.swift */; };
 		BD8B62D8C51944A6B2F4EFD1 /* FolderAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219E375D22A057EDC718EA6E /* FolderAccess.swift */; };
@@ -39,6 +46,7 @@
 		C5EA8AE0EB37C8AE01E36E93 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5050913571E6B5FDD0752F /* AppModel.swift */; };
 		CCD655D0333E10BA93C5FA41 /* MailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4825C1046A9446D584F288 /* MailModel.swift */; };
 		CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
+		D1A139EE50389F864CC5C13E /* SpaceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CD5B72851E84127DEDA87D /* SpaceMapView.swift */; };
 		D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
 		D810CAA5F43489FE0A1A323E /* AppRemoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */; };
 		DC08FA167ABB79F32A404E19 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
@@ -59,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesModel.swift; sourceTree = "<group>"; };
+		02CD5B72851E84127DEDA87D /* SpaceMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapView.swift; sourceTree = "<group>"; };
 		05E34557952D0BD132007242 /* MetricsMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsMonitor.swift; sourceTree = "<group>"; };
 		08D788A86C604C3ABF09EEFE /* SawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawView.swift; sourceTree = "<group>"; };
 		0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartScanModel.swift; sourceTree = "<group>"; };
@@ -67,11 +76,13 @@
 		212DBF1884492581CBB42A88 /* NoriaCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NoriaCore; path = NoriaCore; sourceTree = SOURCE_ROOT; };
 		219E375D22A057EDC718EA6E /* FolderAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAccess.swift; sourceTree = "<group>"; };
 		3D5050913571E6B5FDD0752F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatesModel.swift; sourceTree = "<group>"; };
 		410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupSheets.swift; sourceTree = "<group>"; };
 		4FF3B92EFF0676CF311074CC /* Noria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5310CF756010621257CCEE40 /* SmartCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCleanView.swift; sourceTree = "<group>"; };
 		5575B1B32F889F5D2886F95C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		63A2E91F87F728D1FB813BA8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapModel.swift; sourceTree = "<group>"; };
 		7F1C8D26D6F333062950F83D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		923281466CB24D7B1507A1CD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
@@ -87,6 +98,7 @@
 		CD404FB0B4ED1E0E95355C52 /* AppRemoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRemoverView.swift; sourceTree = "<group>"; };
 		E08789015A598917BB2AD517 /* NoriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoriaApp.swift; sourceTree = "<group>"; };
 		E360B8D3161D9EFB4970BF59 /* Noria Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noria Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,11 +126,13 @@
 			children = (
 				6E4582F48CAB32A9655C6093 /* AppRemover */,
 				29C0A622156271B020E74CFF /* Dashboard */,
+				688F74FA72D5F408FAE5471B /* Duplicates */,
 				C9FD98BD3BC1F2F6C717F032 /* History */,
 				643B402AA0BB7E89EFCCA02E /* LargeFiles */,
 				9DBB394D73FE3383FFDCFFE4 /* Mail */,
 				E675DFC7624E55095438B7CB /* Settings */,
 				1C0F3D184FDD325DBCDA718A /* SmartClean */,
+				EEFB5DC04EC9B09654440357 /* SpaceMap */,
 				A2F519F7D8178FE04BD4FB2A /* RootView.swift */,
 			);
 			path = Features;
@@ -187,6 +201,14 @@
 			path = LargeFiles;
 			sourceTree = "<group>";
 		};
+		688F74FA72D5F408FAE5471B /* Duplicates */ = {
+			isa = PBXGroup;
+			children = (
+				EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */,
+			);
+			path = Duplicates;
+			sourceTree = "<group>";
+		};
 		6E4582F48CAB32A9655C6093 /* AppRemover */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,12 +252,14 @@
 			children = (
 				3D5050913571E6B5FDD0752F /* AppModel.swift */,
 				17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */,
+				3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */,
 				219E375D22A057EDC718EA6E /* FolderAccess.swift */,
 				01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */,
 				BE4825C1046A9446D584F288 /* MailModel.swift */,
 				05E34557952D0BD132007242 /* MetricsMonitor.swift */,
 				E08789015A598917BB2AD517 /* NoriaApp.swift */,
 				0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */,
+				64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -254,6 +278,14 @@
 				CC446685B6E8E16F0C58FEDC /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		EEFB5DC04EC9B09654440357 /* SpaceMap */ = {
+			isa = PBXGroup;
+			children = (
+				02CD5B72851E84127DEDA87D /* SpaceMapView.swift */,
+			);
+			path = SpaceMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +406,8 @@
 				CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */,
 				6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */,
 				4E4C5095ADA90A8E648FBE7B /* DashboardView.swift in Sources */,
+				771F13B562BF1CD63C1B73B8 /* DuplicatesModel.swift in Sources */,
+				60ECF16DFC82848E865D60E8 /* DuplicatesView.swift in Sources */,
 				1DE3CF19534DAF7CFA65BE34 /* FolderAccess.swift in Sources */,
 				9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */,
 				7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */,
@@ -388,6 +422,8 @@
 				F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */,
 				1BBF3F54B857811710723B3E /* SmartCleanView.swift in Sources */,
 				5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */,
+				61AAA211C5DA9F8B9397EB54 /* SpaceMapModel.swift in Sources */,
+				A5A9EE0EE08B4DE5BD11AB8B /* SpaceMapView.swift in Sources */,
 				108E41262B50AA1CA67183CD /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +438,8 @@
 				0E94E3EE13D5D35CF6EB4511 /* CleanupSheets.swift in Sources */,
 				EEB7CA705E1E51740A983F6E /* Components.swift in Sources */,
 				F2D6BDE2AACE2F0391B9FD00 /* DashboardView.swift in Sources */,
+				5E994E5BDB138D607101B9FA /* DuplicatesModel.swift in Sources */,
+				82030EA534C059F7F18226CC /* DuplicatesView.swift in Sources */,
 				BD8B62D8C51944A6B2F4EFD1 /* FolderAccess.swift in Sources */,
 				9AE699C8F0229AD97C66E92D /* HistoryView.swift in Sources */,
 				DC08FA167ABB79F32A404E19 /* LargeFilesModel.swift in Sources */,
@@ -416,6 +454,8 @@
 				2BCF01CEE6C77A5EDC92FDD0 /* SettingsView.swift in Sources */,
 				5CE7BF3AE68399EB503AA020 /* SmartCleanView.swift in Sources */,
 				8B85DA61B03A27013FFAE538 /* SmartScanModel.swift in Sources */,
+				347CE4168FCE8E3AEC8ADC10 /* SpaceMapModel.swift in Sources */,
+				D1A139EE50389F864CC5C13E /* SpaceMapView.swift in Sources */,
 				E106B32DF4FEA4724ECFF607 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

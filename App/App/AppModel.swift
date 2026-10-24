@@ -38,10 +38,14 @@ final class AppModel {
     @ObservationIgnored private var largeFilesStorage: LargeFilesModel?
     @ObservationIgnored private var appRemoverStorage: AppRemoverModel?
     @ObservationIgnored private var mailStorage: MailModel?
+    @ObservationIgnored private var spaceMapStorage: SpaceMapModel?
+    @ObservationIgnored private var duplicatesStorage: DuplicatesModel?
     var smartScan: SmartScanModel { smartScanStorage! }
     var largeFiles: LargeFilesModel { largeFilesStorage! }
     var appRemover: AppRemoverModel { appRemoverStorage! }
     var mail: MailModel { mailStorage! }
+    var spaceMap: SpaceMapModel { spaceMapStorage! }
+    var duplicates: DuplicatesModel { duplicatesStorage! }
 
     /// Launch Services knows apps anywhere on disk, not only in Applications folders.
     static let appLookup: @Sendable (String) -> Bool = { identifier in
@@ -56,6 +60,8 @@ final class AppModel {
         largeFilesStorage = LargeFilesModel(app: self)
         appRemoverStorage = AppRemoverModel(app: self)
         mailStorage = MailModel(app: self)
+        spaceMapStorage = SpaceMapModel(app: self)
+        duplicatesStorage = DuplicatesModel(app: self)
         refreshVolume()
         Task {
             await loadHistory()

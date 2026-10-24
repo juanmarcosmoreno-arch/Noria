@@ -64,6 +64,7 @@ extension CleanCategory {
         case .mail: return String(localized: "Mail")
         case .largeFiles: return String(localized: "Large Files")
         case .appRemoval: return String(localized: "App Removal")
+        case .duplicates: return String(localized: "Duplicates")
         }
     }
 
@@ -79,6 +80,7 @@ extension CleanCategory {
         case .mail: return String(localized: "Copies of attachments Mail can download again, and Mail Downloads.")
         case .largeFiles: return String(localized: "Large files selected in Large Files.")
         case .appRemoval: return String(localized: "An app and the files it created.")
+        case .duplicates: return String(localized: "Extra copies of identical files.")
         }
     }
 
@@ -94,6 +96,7 @@ extension CleanCategory {
         case .mail: return "envelope"
         case .largeFiles: return "doc.richtext"
         case .appRemoval: return "xmark.app"
+        case .duplicates: return "square.on.square"
         }
     }
 
@@ -183,6 +186,10 @@ extension ItemReason {
             return String(localized: "Attachments of “\(account)”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Noria does not remove them; delete large messages from Mail instead.")
         case .mailDownloads:
             return String(localized: "Copies Mail saved when you opened attachments. The attachments remain in their messages.")
+        case .duplicateCopy:
+            return String(localized: "An identical copy of another file (same content, verified with SHA-256). At least one copy is always kept.")
+        case .spaceMapSelection:
+            return String(localized: "Selected in the Space Map.")
         }
     }
 }
@@ -367,6 +374,25 @@ extension MailAccountKind {
         case .server: return String(localized: "Server account (IMAP/Exchange)")
         case .local: return String(localized: "Stored on this Mac (POP / On My Mac)")
         case .unknown: return String(localized: "Account type not confirmed")
+        }
+    }
+}
+
+extension FileKind {
+    /// Treemap color for files of this kind.
+    var mapColor: Color {
+        switch self {
+        case .video: return Color(hex: 0xC2410C)
+        case .image: return Color(hex: 0xE38B2C)
+        case .audio: return Color(hex: 0xB45309)
+        case .archive: return Color(hex: 0x8C5A2B)
+        case .diskImage: return Color(hex: 0x57534E)
+        case .installer: return Color(hex: 0x78716C)
+        case .application: return Color(hex: 0x4B6E8A)
+        case .document: return Color(hex: 0x5F7A3A)
+        case .backup: return Color(hex: 0x7C2D12)
+        case .library: return Color(hex: 0xA16207)
+        case .other: return Color(hex: 0x9A938A)
         }
     }
 }

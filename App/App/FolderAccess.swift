@@ -56,6 +56,25 @@ final class FolderAccess {
 
     private func extraKey(_ folder: String) -> String { "noria.folderBookmark.v1." + folder }
 
+    /// Folders picked in an open panel during this session (readable in the sandbox).
+    private(set) var sessionGrants: Set<String> = []
+
+    func noteSessionGrant(_ path: String) {
+        sessionGrants.insert(FileSystem.bestEffortCanonicalPath(path))
+    }
+
+    /// Whether Noria can read `path` right now (always true outside the sandbox).
+    func canRead(_ path: String) -> Bool {
+        canModify(path) || sessionGrants.contains { path.isSameOrDescendant(of: $0) }
+    }
+
+    /// Makes `path` readable, asking for the home folder grant when needed.
+    func ensureReadable(_ path: String) -> Bool {
+        if canRead(path) { return true }
+        if path.isSameOrDescendant(of: homePath) { requestHomeAccess() }
+        return canRead(path)
+    }
+
     /// Whether Noria may modify `path` (always true outside the sandbox).
     func canModify(_ path: String) -> Bool {
         guard AppEdition.isSandboxed else { return true }

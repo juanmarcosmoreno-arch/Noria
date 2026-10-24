@@ -34,6 +34,17 @@
         }
       }
     },
+    "%@ copies × %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ copias × %2$@"
+          }
+        }
+      }
+    },
     "%@ cores": {
       "extractionState": "manual",
       "localizations": {
@@ -85,6 +96,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ liberados."
+          }
+        }
+      }
+    },
+    "%@ groups · %@ in extra copies": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ grupos · %2$@ en copias de más"
           }
         }
       }
@@ -309,6 +331,17 @@
         }
       }
     },
+    "%@ small files and folders grouped together. Open the folder in Finder to see them.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ archivos y carpetas pequeños agrupados. Abre la carpeta en Finder para verlos."
+          }
+        }
+      }
+    },
     "%@ with the same name as the app. Probably belongs to it, but the match is by name only: check before removing. %@": {
       "extractionState": "manual",
       "localizations": {
@@ -316,6 +349,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ con el mismo nombre que la app. Probablemente le pertenece, pero la coincidencia es solo por nombre: revísalo antes de eliminarlo. %2$@"
+          }
+        }
+      }
+    },
+    "%@ · %@ files": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@ archivos"
           }
         }
       }
@@ -529,6 +573,17 @@
         }
       }
     },
+    "An identical copy of another file (same content, verified with SHA-256). At least one copy is always kept.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia idéntica de otro archivo (mismo contenido, verificado con SHA-256). Siempre se conserva al menos una copia."
+          }
+        }
+      }
+    },
     "Analysis complete": {
       "extractionState": "manual",
       "localizations": {
@@ -694,6 +749,17 @@
         }
       }
     },
+    "At least one copy of every file is always kept.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siempre se conserva al menos una copia de cada archivo."
+          }
+        }
+      }
+    },
     "Attachments of “%@”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Noria does not remove them; delete large messages from Mail instead.": {
       "extractionState": "manual",
       "localizations": {
@@ -712,6 +778,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Audio"
+          }
+        }
+      }
+    },
+    "Automatic selection keeps the oldest copy, preferring copies outside Downloads.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La selección automática conserva la copia más antigua, preferentemente fuera de Descargas."
           }
         }
       }
@@ -998,6 +1075,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "¿Borrar el historial?"
+          }
+        }
+      }
+    },
+    "Comparing contents: %@ of %@ candidates": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparando contenido: %1$@ de %2$@ candidatos"
           }
         }
       }
@@ -1409,6 +1497,17 @@
         }
       }
     },
+    "Enclosing folder": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carpeta superior"
+          }
+        }
+      }
+    },
     "Exclude": {
       "extractionState": "manual",
       "localizations": {
@@ -1438,6 +1537,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Exclusiones"
+          }
+        }
+      }
+    },
+    "Extra copies of identical files.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copias de más de archivos idénticos."
           }
         }
       }
@@ -1497,6 +1607,17 @@
         }
       }
     },
+    "Find Duplicates": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar duplicados"
+          }
+        }
+      }
+    },
     "Find Large Files": {
       "extractionState": "manual",
       "localizations": {
@@ -1504,6 +1625,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Buscar archivos grandes"
+          }
+        }
+      }
+    },
+    "Find identical files": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encuentra archivos idénticos"
           }
         }
       }
@@ -1937,6 +2069,17 @@
         }
       }
     },
+    "Larger than %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Más de %@"
+          }
+        }
+      }
+    },
     "Library / Bundle": {
       "extractionState": "manual",
       "localizations": {
@@ -2146,6 +2289,28 @@
         }
       }
     },
+    "Managed by macOS or another app; Noria does not remove it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo gestiona macOS u otra app; Noria no lo elimina."
+          }
+        }
+      }
+    },
+    "Map This Folder": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mapear esta carpeta"
+          }
+        }
+      }
+    },
     "Matched a verified rule: the content is rebuilt automatically or is disposable.": {
       "extractionState": "manual",
       "localizations": {
@@ -2164,6 +2329,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Coincide con reglas verificadas. Se regenera automáticamente cuando hace falta."
+          }
+        }
+      }
+    },
+    "Measuring folders…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Midiendo carpetas…"
           }
         }
       }
@@ -2322,6 +2498,17 @@
         }
       }
     },
+    "No duplicates found": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontraron duplicados"
+          }
+        }
+      }
+    },
     "No exclusions": {
       "extractionState": "manual",
       "localizations": {
@@ -2366,6 +2553,17 @@
         }
       }
     },
+    "No identical files above the chosen size in this folder.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay archivos idénticos por encima del tamaño elegido en esta carpeta."
+          }
+        }
+      }
+    },
     "No large files found": {
       "extractionState": "manual",
       "localizations": {
@@ -2377,6 +2575,17 @@
         }
       }
     },
+    "Noria compares file contents, not names. You decide which copies to remove, and one copy of each file is always kept.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria compara el contenido, no los nombres. Tú decides qué copias eliminar y siempre se conserva una de cada archivo."
+          }
+        }
+      }
+    },
     "Noria does not have permission to read this location.": {
       "extractionState": "manual",
       "localizations": {
@@ -2384,6 +2593,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Noria no tiene permiso para leer esta ubicación."
+          }
+        }
+      }
+    },
+    "Noria measures every folder and draws a map where each block is proportional to its size. Click to select, double-click to go inside. Nothing is changed while scanning.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria mide cada carpeta y dibuja un mapa donde cada bloque es proporcional a su tamaño. Haz clic para seleccionar y doble clic para entrar. Durante el análisis no se modifica nada."
           }
         }
       }
@@ -2516,6 +2736,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Elementos antiguos en tu carpeta temporal."
+          }
+        }
+      }
+    },
+    "Only files with byte-for-byte identical content are listed (same size and SHA-256). Names do not matter. Photos and other app libraries, apps and ~/Library are not searched.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se muestran archivos con contenido idéntico byte a byte (mismo tamaño y SHA-256). Los nombres no importan. No se buscan en Fotos ni otras bibliotecas de apps, apps ni ~/Library."
           }
         }
       }
@@ -2916,6 +3147,17 @@
         }
       }
     },
+    "Remove %@…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar %@…"
+          }
+        }
+      }
+    },
     "Remove App…": {
       "extractionState": "manual",
       "localizations": {
@@ -3169,6 +3411,17 @@
         }
       }
     },
+    "Scan Again": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizar de nuevo"
+          }
+        }
+      }
+    },
     "Scan cancelled": {
       "extractionState": "manual",
       "localizations": {
@@ -3224,6 +3477,17 @@
         }
       }
     },
+    "See what fills your disk": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mira qué llena tu disco"
+          }
+        }
+      }
+    },
     "Select %@": {
       "extractionState": "manual",
       "localizations": {
@@ -3242,6 +3506,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Seleccionar todo"
+          }
+        }
+      }
+    },
+    "Select Extra Copies": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleccionar copias de más"
           }
         }
       }
@@ -3297,6 +3572,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Selecciona un elemento para ver por qué Noria lo muestra."
+          }
+        }
+      }
+    },
+    "Selected in the Space Map.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleccionado en el mapa de almacenamiento."
           }
         }
       }
@@ -3444,6 +3730,28 @@
         }
       }
     },
+    "Small items": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elementos pequeños"
+          }
+        }
+      }
+    },
+    "Small items (%@)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elementos pequeños (%@)"
+          }
+        }
+      }
+    },
     "Smart Clean": {
       "extractionState": "manual",
       "localizations": {
@@ -3506,6 +3814,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "El espacio se libera al vaciar la Papelera en Finder. Hasta entonces puedes recuperar cualquier elemento con «Devolver»."
+          }
+        }
+      }
+    },
+    "Space map of %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mapa de almacenamiento de %@"
           }
         }
       }
@@ -3605,6 +3924,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Guardada en este Mac (POP / En mi Mac)"
+          }
+        }
+      }
+    },
+    "Suggested to keep": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se sugiere conservar"
           }
         }
       }
