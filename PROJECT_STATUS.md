@@ -1,17 +1,17 @@
 # Noria — Project status
 
-_Last updated: 2026-10-23 · Current phase: **1 (MVP)**_
+_Last updated: 2026-10-24 · Current phase: **2** (version 0.2.0, build 2)_
 
 ## Verification
 
 | Check | Where | Result |
 |---|---|---|
-| NoriaCore build + 49 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
-| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | ✅ 50/50 (incl. live CPU/memory test) |
+| NoriaCore build + 65 tests (Swift 6.2.1, Linux) | dev container | ✅ passing |
+| NoriaCore tests on macOS (Xcode toolchain) | GitHub Actions `macos-15` | ✅ 66/66 (incl. live CPU/memory test) |
 | `Noria.app` direct (Debug) + App Store edition (Release, sandboxed), unsigned | GitHub Actions `macos-15` | ✅ both BUILD SUCCEEDED, no Swift warnings |
 | String catalog complete (en + es) and in sync | `Tools/build_strings.py` + CI | ✅ |
 | Xcode project in sync with `project.yml` (XcodeGen 2.46.0) | CI | ✅ |
-| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | ✅ 49/49 |
+| NoriaCore tests on Linux (Swift 6.1) | GitHub Actions | ✅ 65/65 |
 
 **Not yet verified by a human on a real Mac:** interactive behaviour of the UI
 (layout, animation smoothness, TCC prompts, Trash/Put Back round-trip). The
@@ -49,7 +49,7 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [x] Operation log (JSON Lines) + History screen; clear history
 - [x] Settings persisted in `UserDefaults`: language, removal method, age thresholds,
       categories, exclusions, Large Files container skipping
-- [x] Localization: String Catalog, English + Spanish (268 strings)
+- [x] Localization: String Catalog, English + Spanish (379 strings)
 - [x] Rule-based recommendations ranked by safety-weighted size
 - [x] Tests: file system, walker, safety policy, every rule, engines, cleaning,
       cancellation, persistence, recommendations
@@ -61,12 +61,22 @@ development container is Linux, so the SwiftUI target is compiled in CI
 
 ## Pending
 
-### Phase 2
+### Phase 2 (in progress)
+- [x] Noria-managed quarantine (default method): original path, date, size; restore
+      without overwriting; delete; automatic deletion after N days (Settings);
+      History › Quarantine; results separate quarantined / trashed / deleted space
+- [x] App Remover: installed apps (icon, version, size, App Store badge); app bundle +
+      related files in ~/Library by exact bundle identifier (reliable) or app name
+      (REVIEW); shared group containers never preselected; keep the app to reset it;
+      blocks while the app runs; /Applications grant in the App Store edition
+- [x] App Leftovers (Smart Scan): data of uninstalled apps, REVIEW only, skipped when
+      another app of the same developer is installed or Launch Services finds the app
+- [x] Mail: space per account (messages vs attachments); Mail Downloads (SAFE) and
+      attachment copies of server accounts (REVIEW) cleanable; POP / On My Mac /
+      unknown accounts PROTECTED; messages never touched; Mail must be quit;
+      Full Disk Access guidance and Mail's own options to reduce its size
 - [ ] Space Map (treemap, zoom, breadcrumbs)
 - [ ] Duplicates (size → partial hash → SHA-256)
-- [ ] App Remover (inventory, related files, shared vs exclusive)
-- [ ] Noria-managed quarantine with restore and retention policy
-- [ ] Application Leftovers category (needs the app inventory from App Remover)
 
 ### Phase 3
 - [ ] Performance monitor (history graphs, disk activity, top processes; CPU/memory/
@@ -92,6 +102,18 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - **Moving to Trash does not free space** until the Trash is emptied; the UI says
   so. Emptying the Trash is left to Finder (Phase 1).
 - **Trash size needs Full Disk Access**; without it the category shows a lock.
+- **Quarantine does not free space** until items are deleted from it (manually or after
+  the retention period). It lives in Noria's Application Support folder (inside the
+  container in the App Store edition), on the same volume as the user's files.
+- **Mail account types** come from the macOS accounts database (read-only, needs Full
+  Disk Access). If an account folder cannot be matched to a known server account type,
+  its attachments stay PROTECTED. Matching of `~/Library/Mail/V*/<id>` folders to
+  account identifiers has been tested only with synthetic data so far.
+- **Removing apps from /Applications** may require macOS *App Management* permission
+  (Privacy & Security) or an administrator password for apps installed by an installer
+  package; Noria reports the failure and the item stays in place.
+- Reading other apps' containers can trigger the macOS "access data from other apps"
+  prompt during the App Leftovers scan and in App Remover.
 - App Store edition: Temporary Files is unavailable (sandbox); scanning requires the
   one-time home folder grant. Not yet uploaded to App Store Connect.
 - **Inode reuse:** if a scanned *folder* is deleted and a new folder is created at
