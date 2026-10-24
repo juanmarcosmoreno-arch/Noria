@@ -86,7 +86,7 @@ final class DuplicatesModel {
                         self.hashed = hashed
                     case .finished(let report):
                         self.report = report
-                        groups = report.groups
+                        groups = report.groups.sorted { $0.reclaimableSize > $1.reclaimableSize }
                         phase = .finished
                     }
                 }

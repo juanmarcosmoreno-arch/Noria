@@ -118,8 +118,10 @@ public enum RecommendationEngine {
                 }
             case .mail:
                 let attachments = category.items.filter { item in
-                    if case .mailServerAttachments = item.reason { return true }
-                    return false
+                    switch item.reason {
+                    case .mailServerAttachments, .mailConfirmedServerAttachments: return true
+                    default: return false
+                    }
                 }
                 let bytes = attachments.reduce(0) { $0 + $1.allocatedSize }
                 if bytes >= minimumWorthwhileBytes {

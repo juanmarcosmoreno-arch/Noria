@@ -22,10 +22,18 @@ final class PrivacyModel {
         self.app = app
     }
 
-    var browsers: [Browser] { report?.browsers ?? [] }
+    /// Browsers with the most data first.
+    var browsers: [Browser] {
+        (report?.browsers ?? []).sorted { size(of: $0) > size(of: $1) }
+    }
 
+    /// Largest entries first.
     func entries(for browser: Browser) -> [BrowserDataEntry] {
-        (report?.entries ?? []).filter { $0.browser == browser }
+        (report?.entries ?? []).filter { $0.browser == browser }.sorted { $0.size > $1.size }
+    }
+
+    func size(of browser: Browser) -> Int64 {
+        (report?.entries ?? []).filter { $0.browser == browser }.reduce(0) { $0 + $1.size }
     }
 
     var selectedItems: [ScanItem] {

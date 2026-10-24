@@ -14,6 +14,19 @@ final class AppRemoverModel {
     private(set) var isLoadingApps = false
     var searchText = ""
 
+    enum SortOrder: String, CaseIterable, Identifiable {
+        case size, name
+        var id: String { rawValue }
+        var title: String {
+            switch self {
+            case .size: return String(localized: "Largest First")
+            case .name: return String(localized: "Name")
+            }
+        }
+    }
+
+    var sortOrder: SortOrder = .size
+
     var selectedAppID: InstalledApp.ID? {
         didSet { if selectedAppID != oldValue { loadRelatedFiles() } }
     }
@@ -30,8 +43,15 @@ final class AppRemoverModel {
 
     var visibleApps: [InstalledApp] {
         let query = searchText.trimmingCharacters(in: .whitespaces)
-        guard !query.isEmpty else { return apps }
-        return apps.filter { $0.name.localizedCaseInsensitiveContains(query) || ($0.bundleIdentifier ?? "").localizedCaseInsensitiveContains(query) }
+        let matching = query.isEmpty ? apps
+            : apps.filter { $0.name.localizedCaseInsensitiveContains(query) || ($0.bundleIdentifier ?? "").localizedCaseInsensitiveContains(query) }
+        switch sortOrder {
+        case .name:
+            return matching.sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
+        case .size:
+            // Apps still being measured go last.
+            return matching.sorted { (sizes[$0.path] ?? -1) > (sizes[$1.path] ?? -1) }
+        }
     }
 
     var selectedApp: InstalledApp? { apps.first { $0.id == selectedAppID } }
@@ -82,7 +102,7 @@ final class AppRemoverModel {
                 (try? AppFilesFinder.relatedItems(for: selected, context: context)) ?? []
             }.value
             guard !Task.isCancelled, selectedAppID == selected.id else { return }
-            relatedItems = items
+            relatedItems = items.sorted { $0.allocatedSize > $1.allocatedSize }
             // Only reliable, disposable matches start selected; REVIEW items need a choice.
             selectedItemIDs = Set(items.filter { $0.isSelectable && $0.risk == .safe }.map(\.id))
             isLoadingFiles = false

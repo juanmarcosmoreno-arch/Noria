@@ -91,6 +91,8 @@ public enum ItemReason: Codable, Sendable, Hashable {
     case mailServerAttachments(account: String)
     /// Attachments stored only on this Mac (POP or local mailboxes, or unknown account type).
     case mailLocalAttachments(account: String)
+    /// Attachments of an account the user confirmed keeps its mail on a server.
+    case mailConfirmedServerAttachments(account: String)
     /// Copies Mail made when you opened attachments.
     case mailDownloads
     /// An identical copy of another file (same SHA-256).

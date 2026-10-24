@@ -17,10 +17,40 @@ public enum MailAccountKind: String, Sendable {
 public struct MailAccountInfo: Sendable, Equatable {
     public var kind: MailAccountKind
     public var displayName: String?
+    /// The type was not reported by macOS; the user confirmed it is a server account.
+    public var confirmedByUser: Bool
 
-    public init(kind: MailAccountKind, displayName: String? = nil) {
+    public init(kind: MailAccountKind, displayName: String? = nil, confirmedByUser: Bool = false) {
         self.kind = kind
         self.displayName = displayName
+        self.confirmedByUser = confirmedByUser
+    }
+}
+
+/// Adds what the folder itself shows and what the user confirmed to another resolver.
+/// Only accounts whose type is `unknown` can change; POP and On My Mac never do.
+public struct MailAccountClassifier: Sendable {
+    public var base: any MailAccountResolving
+    public var confirmedServerAccounts: Set<String>
+
+    public init(base: any MailAccountResolving, confirmedServerAccounts: Set<String>) {
+        self.base = base
+        self.confirmedServerAccounts = Set(confirmedServerAccounts.map { $0.uppercased() })
+    }
+
+    public func account(for identifier: String, folder: String) -> MailAccountInfo {
+        var info = base.account(for: identifier)
+        guard info.kind == .unknown else { return info }
+        let mailboxes = MailRule.mailboxNames(in: folder)
+        // Gmail's "[Gmail]" folder only exists for IMAP accounts.
+        if mailboxes.contains(where: { $0 == "[Gmail]" || $0 == "[Google Mail]" }) {
+            info.kind = .server
+            info.displayName = info.displayName ?? "Gmail"
+        } else if confirmedServerAccounts.contains(identifier.uppercased()) {
+            info.kind = .server
+            info.confirmedByUser = true
+        }
+        return info
     }
 }
 
@@ -103,6 +133,9 @@ public struct MailAccountUsage: Sendable, Identifiable, Equatable {
     public var identifier: String
     public var displayName: String
     public var kind: MailAccountKind
+    public var confirmedByUser: Bool
+    /// Top-level mailbox names, to help the user recognise the account.
+    public var mailboxes: [String]
     /// Everything stored for the account (messages, attachments, indexes).
     public var totalSize: Int64
     /// Of which: local copies of attachments.
@@ -138,6 +171,8 @@ public struct MailRule: CleaningRule {
         var output = RuleOutput()
         let locations = context.locations
         var found = false
+        let classifier = MailAccountClassifier(base: context.mailAccounts,
+                                               confirmedServerAccounts: context.settings.confirmedServerMailAccounts)
 
         // Mail Downloads.
         if FileSystem.stat(locations.mailDownloads)?.type == .directory {
@@ -178,15 +213,17 @@ public struct MailRule: CleaningRule {
                 try checkCancellation()
                 let info: MailAccountInfo = account.name == Self.localMailboxesFolder
                     ? MailAccountInfo(kind: .local, displayName: "On My Mac")
-                    : context.mailAccounts.account(for: account.name)
-                let label = info.displayName ?? account.name
+                    : classifier.account(for: account.name, folder: account.path)
+                let label = info.displayName ?? Self.fallbackName(for: account.name)
                 for (path, stat) in try attachmentFolders(in: account.path, output: &output) {
                     try checkCancellation()
                     let removable = info.kind == .server
                     if var item = try context.makeItem(
                         path: path, stat: stat, category: category,
                         risk: removable ? .review : .protected,
-                        reason: removable ? .mailServerAttachments(account: label) : .mailLocalAttachments(account: label),
+                        reason: !removable ? .mailLocalAttachments(account: label)
+                            : info.confirmedByUser ? .mailConfirmedServerAttachments(account: label)
+                            : .mailServerAttachments(account: label),
                         action: removable ? .remove : .informational,
                         ownerName: "Mail", result: &output
                     ) {
@@ -214,13 +251,15 @@ public struct MailRule: CleaningRule {
             return MailUsageReport(accounts: [], mailDownloadsSize: downloads, mailFolderReadable: false)
         }
         var accounts: [MailAccountUsage] = []
+        let classifier = MailAccountClassifier(base: context.mailAccounts,
+                                               confirmedServerAccounts: context.settings.confirmedServerMailAccounts)
         for version in versions where isMailVersionFolder(version.name) {
             guard let entries = try? FileSystem.directoryEntries(version.path) else { continue }
             for account in entries where account.name != "MailData" && FileSystem.stat(account.path)?.type == .directory {
                 if Task.isCancelled { throw NoriaError.cancelled }
                 let info: MailAccountInfo = account.name == localMailboxesFolder
                     ? MailAccountInfo(kind: .local, displayName: "On My Mac")
-                    : context.mailAccounts.account(for: account.name)
+                    : classifier.account(for: account.name, folder: account.path)
                 let tracker = InodeTracker()
                 var attachments: Int64 = 0
                 var total: Int64 = 0
@@ -232,12 +271,27 @@ public struct MailRule: CleaningRule {
                 }
                 total = summary.allocatedSize
                 accounts.append(MailAccountUsage(path: account.path, identifier: account.name,
-                                                 displayName: info.displayName ?? account.name, kind: info.kind,
+                                                 displayName: info.displayName ?? fallbackName(for: account.name), kind: info.kind,
+                                                 confirmedByUser: info.confirmedByUser,
+                                                 mailboxes: mailboxNames(in: account.path),
                                                  totalSize: total, attachmentsSize: min(attachments, total)))
             }
         }
         return MailUsageReport(accounts: accounts.sorted { $0.totalSize > $1.totalSize },
                                mailDownloadsSize: downloads, mailFolderReadable: true)
+    }
+
+    /// "Account 1A2B3C4D" for an account folder macOS gave no name for.
+    static func fallbackName(for identifier: String) -> String {
+        "Account " + identifier.prefix(8).uppercased()
+    }
+
+    /// Names of the top-level mailboxes of an account folder ("INBOX", "[Gmail]"…).
+    public static func mailboxNames(in accountFolder: String) -> [String] {
+        ((try? FileSystem.directoryEntries(accountFolder)) ?? [])
+            .filter { $0.name.hasSuffix(".mbox") }
+            .map { String($0.name.dropLast(5)) }
+            .sorted { $0.localizedStandardCompare($1) == .orderedAscending }
     }
 
     static func isMailVersionFolder(_ name: String) -> Bool {

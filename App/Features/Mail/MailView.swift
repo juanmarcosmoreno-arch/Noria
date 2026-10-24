@@ -19,8 +19,9 @@ struct MailView: View {
                         FullDiskAccessCard()
                     } else {
                         AccountsCard(usage: usage)
-                        CleanableCard(confirming: $confirming)
                     }
+                    // Mail Downloads can be readable even when ~/Library/Mail is not.
+                    CleanableCard(confirming: $confirming)
                 }
                 GuidanceCard()
             }
@@ -97,6 +98,8 @@ private struct FullDiskAccessCard: View {
 
 private struct AccountsCard: View {
     var usage: MailUsageReport
+    @Environment(AppModel.self) private var model
+    @State private var accountToConfirm: MailAccountUsage?
 
     var body: some View {
         Card {
@@ -107,7 +110,12 @@ private struct AccountsCard: View {
                         HStack {
                             VStack(alignment: .leading, spacing: 1) {
                                 Text(account.displayName).font(NoriaFont.body.weight(.medium))
-                                Text(account.kind.title).font(NoriaFont.caption).foregroundStyle(.secondary)
+                                Text(account.confirmedByUser ? String(localized: "On a server (confirmed by you)") : account.kind.title)
+                                    .font(NoriaFont.caption).foregroundStyle(.secondary)
+                                if !account.mailboxes.isEmpty {
+                                    Text("Mailboxes: \(Self.mailboxList(account))")
+                                        .font(NoriaFont.caption).foregroundStyle(.tertiary).lineLimit(1)
+                                }
                             }
                             Spacer()
                             VStack(alignment: .trailing, spacing: 1) {
@@ -117,6 +125,19 @@ private struct AccountsCard: View {
                             }
                         }
                         CapacityBar(fraction: usage.totalSize > 0 ? Double(account.totalSize) / Double(usage.totalSize) : 0, height: 6)
+                        if account.kind == .unknown, account.attachmentsSize > 0 {
+                            HStack(spacing: NoriaSpacing.s) {
+                                Text("Noria could not confirm where this account keeps its mail, so its attachments are protected.")
+                                    .font(NoriaFont.caption).foregroundStyle(.secondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                Spacer()
+                                Button("It's on a server…") { accountToConfirm = account }
+                                    .buttonStyle(SecondaryButtonStyle())
+                            }
+                        } else if account.confirmedByUser {
+                            Button("Undo: protect its attachments again") { setConfirmed(account, false) }
+                                .buttonStyle(.link).font(NoriaFont.caption)
+                        }
                     }
                 }
                 if usage.mailDownloadsSize > 0 {
@@ -128,6 +149,28 @@ private struct AccountsCard: View {
                 }
             }
         }
+        .confirmationDialog("Does this account keep your mail on a server?",
+                            isPresented: Binding(get: { accountToConfirm != nil }, set: { if !$0 { accountToConfirm = nil } }),
+                            presenting: accountToConfirm) { account in
+            Button("Yes, it's iCloud, Gmail, IMAP or Exchange") { setConfirmed(account, true) }
+            Button("Cancel", role: .cancel) {}
+        } message: { account in
+            Text("Confirm only if “\(account.displayName)” is an iCloud, Gmail, Outlook, Yahoo, IMAP or Exchange account: Mail then downloads attachments again when you open a message. If it is a POP account, the attachments on this Mac may be the only copy; keep them protected. You can check in Mail › Settings › Accounts › Server Settings.")
+        }
+    }
+
+    static func mailboxList(_ account: MailAccountUsage) -> String {
+        account.mailboxes.prefix(6).joined(separator: ", ")
+    }
+
+    private func setConfirmed(_ account: MailAccountUsage, _ confirmed: Bool) {
+        let identifier = account.identifier.uppercased()
+        if confirmed {
+            model.settings.confirmedServerMailAccounts.insert(identifier)
+        } else {
+            model.settings.confirmedServerMailAccounts.remove(identifier)
+        }
+        model.mail.analyze()
     }
 }
 

@@ -34,6 +34,7 @@ final class DeveloperModel {
     /// Tool kinds present in the report, in a fixed, meaningful order.
     var presentKinds: [DeveloperTool.Kind] {
         DeveloperTool.Kind.allCases.filter { !(report?.items(for: $0).isEmpty ?? true) }
+            .sorted { (report?.size(for: $0) ?? 0) > (report?.size(for: $1) ?? 0) }
     }
 
     func scan() {
@@ -44,7 +45,8 @@ final class DeveloperModel {
         Task {
             let result = await Task.detached(priority: .userInitiated) { Result { try scanner.scan() } }.value
             switch result {
-            case .success(let report):
+            case .success(var report):
+                report.items.sort { $0.size > $1.size }
                 self.report = report
                 // Rebuildable caches start selected; anything that costs work to recreate does not.
                 selectedPaths = Set(report.items.filter { $0.risk == .safe && !$0.requiresOfficialCommand }.map(\.path))

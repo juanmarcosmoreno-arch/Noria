@@ -199,10 +199,34 @@ extension Sandbox {
         #expect(server.name == "INBOX")
         #expect(server.requiresQuitting == "com.apple.mail")
         #expect(byGroup["old@pop.example"]?.first?.risk == .protected)
-        #expect(byGroup["UNKNOWN-ID"]?.first?.risk == .protected, "unknown account type is never removable")
+        #expect(byGroup["Account UNKNOWN-"]?.first?.risk == .protected, "unknown account type is not removable unless confirmed")
         #expect(byGroup["On My Mac"]?.first?.isSelectable == false)
         #expect(byGroup["Mail Downloads"]?.first?.risk == .safe)
         #expect(!output.items.contains { $0.path.contains("/Messages") }, "messages are never listed")
+    }
+
+    @Test func userConfirmedAndGmailAccountsBecomeRemovable() throws {
+        let box = try Sandbox()
+        try mailTree(box)
+        try box.file("Library/Mail/V10/GMAIL-ID/[Gmail].mbox/Info.plist", bytes: 10)
+        try box.file("Library/Mail/V10/GMAIL-ID/INBOX.mbox/X1/Data/Attachments/1/a.pdf", bytes: 4096)
+        let resolver = StaticMailAccountResolver(["POP-ID": MailAccountInfo(kind: .local, displayName: "old@pop.example")])
+        var settings = NoriaSettings()
+        // The user may only confirm unknown accounts: POP stays protected even if "confirmed".
+        settings.confirmedServerMailAccounts = ["unknown-id", "POP-ID"]
+        let output = try MailRule().scan(ScanContext(locations: box.locations, settings: settings, mailAccounts: resolver))
+        let byGroup = Dictionary(grouping: output.items, by: { $0.group ?? "" })
+
+        let confirmed = try #require(byGroup["Account UNKNOWN-"]?.first)
+        #expect(confirmed.isSelectable && confirmed.risk == .review)
+        #expect(confirmed.reason == .mailConfirmedServerAttachments(account: "Account UNKNOWN-"))
+        #expect(byGroup["old@pop.example"]?.first?.isSelectable == false)
+        #expect(byGroup["On My Mac"]?.first?.isSelectable == false)
+        #expect(byGroup["Gmail"]?.first?.reason == .mailServerAttachments(account: "Gmail"), "[Gmail] folder means IMAP")
+
+        let usage = try MailRule.usage(ScanContext(locations: box.locations, settings: settings, mailAccounts: resolver))
+        #expect(usage.accounts.first { $0.identifier == "UNKNOWN-ID" }?.confirmedByUser == true)
+        #expect(usage.accounts.first { $0.identifier == "GMAIL-ID" }?.mailboxes == ["[Gmail]", "INBOX"])
     }
 
     @Test func policyKeepsMessagesOutOfReach() throws {

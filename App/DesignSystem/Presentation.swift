@@ -187,6 +187,8 @@ extension ItemReason {
             return String(localized: "Local copies of attachments from “\(account)”. The originals stay on the mail server and Mail downloads them again when you open the message. Messages are not touched. Quit Mail first.")
         case .mailLocalAttachments(let account):
             return String(localized: "Attachments of “\(account)”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Noria does not remove them; delete large messages from Mail instead.")
+        case .mailConfirmedServerAttachments(let account):
+            return String(localized: "Local copies of attachments from “\(account)”, which you confirmed keeps its mail on a server. Mail downloads them again when you open the message. Messages are not touched. Quit Mail first.")
         case .mailDownloads:
             return String(localized: "Copies Mail saved when you opened attachments. The attachments remain in their messages.")
         case .duplicateCopy:

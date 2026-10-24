@@ -13,9 +13,16 @@ struct AppRemoverView: View {
         @Bindable var remover = remover
         HStack(spacing: 0) {
             VStack(spacing: 0) {
-                TextField("Search apps", text: $remover.searchText)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(NoriaSpacing.s)
+                HStack(spacing: NoriaSpacing.xs) {
+                    TextField("Search apps", text: $remover.searchText)
+                        .textFieldStyle(.roundedBorder)
+                    Picker("Sort", selection: $remover.sortOrder) {
+                        ForEach(AppRemoverModel.SortOrder.allCases) { Text($0.title).tag($0) }
+                    }
+                    .labelsHidden()
+                    .fixedSize()
+                }
+                .padding(NoriaSpacing.s)
                 List(remover.visibleApps, selection: $remover.selectedAppID) { installed in
                     AppRow(installed: installed, size: remover.sizes[installed.path])
                         .tag(installed.id)

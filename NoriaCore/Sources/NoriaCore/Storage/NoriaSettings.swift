@@ -42,6 +42,9 @@ public struct NoriaSettings: Codable, Sendable, Equatable {
     public var notifySpaceDrop = false
     public var spaceDropThresholdGB = 10
     public var notifyHighCPU = false
+    /// Mail account folders (uppercased identifiers) whose type macOS did not report and
+    /// that the user confirmed keep their mail on a server.
+    public var confirmedServerMailAccounts: Set<String> = []
 
     public init() {}
 
@@ -69,6 +72,7 @@ public struct NoriaSettings: Codable, Sendable, Equatable {
         notifySpaceDrop = try container.decodeIfPresent(Bool.self, forKey: .notifySpaceDrop) ?? defaults.notifySpaceDrop
         spaceDropThresholdGB = try container.decodeIfPresent(Int.self, forKey: .spaceDropThresholdGB) ?? defaults.spaceDropThresholdGB
         notifyHighCPU = try container.decodeIfPresent(Bool.self, forKey: .notifyHighCPU) ?? defaults.notifyHighCPU
+        confirmedServerMailAccounts = try container.decodeIfPresent(Set<String>.self, forKey: .confirmedServerMailAccounts) ?? defaults.confirmedServerMailAccounts
     }
 }
 

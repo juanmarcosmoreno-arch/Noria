@@ -13,7 +13,7 @@ from translations_es import ES, PLURALS
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 INT_INTERPOLATIONS = re.compile(r'(Days|\.phase|GB|\.count|Count|filesVisited|^count|^projects|^stale)$')
 NOT_UI = re.compile(r'^[a-z0-9.\-]+$')  # SF Symbols, identifiers
-IGNORED = {'', ' ', '  ', ' · ', '—', 'MB', 'r', 'macOS'}
+IGNORED = {'', ' ', '  ', ' · ', ', ', '—', 'MB', 'r', 'macOS'}
 
 def keys():
     found = set()

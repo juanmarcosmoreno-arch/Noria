@@ -84,7 +84,8 @@ struct SmartCleanView: View {
     private var content: some View {
         VStack(spacing: 0) {
             List(selection: $focusedID) {
-                ForEach(CleanCategory.smartScanCategories) { category in
+                // Biggest categories first; items inside each are already sorted by size.
+                ForEach(CleanCategory.smartScanCategories.sorted { (scan.results[$0]?.totalSize ?? 0) > (scan.results[$1]?.totalSize ?? 0) }) { category in
                     let items = scan.items(in: category).filter { filter.includes($0.risk) }
                     if let result = scan.results[category], !(items.isEmpty && result.inaccessibleCount == 0) {
                         Section {

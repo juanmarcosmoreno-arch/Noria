@@ -633,3 +633,22 @@ ES.update({
     "Website data": "Datos de sitios web",
     "Your browsing data, under your control": "Tus datos de navegación, bajo tu control",
 })
+
+# Mail: accounts confirmed by the user.
+ES.update({
+    "Confirm only if “%@” is an iCloud, Gmail, Outlook, Yahoo, IMAP or Exchange account: Mail then downloads attachments again when you open a message. If it is a POP account, the attachments on this Mac may be the only copy; keep them protected. You can check in Mail › Settings › Accounts › Server Settings.": "Confirma solo si “%@” es una cuenta de iCloud, Gmail, Outlook, Yahoo, IMAP o Exchange: en ese caso Mail vuelve a descargar los adjuntos cuando abres el mensaje. Si es una cuenta POP, los adjuntos de esta Mac pueden ser la única copia; mantenlos protegidos. Puedes comprobarlo en Mail › Ajustes › Cuentas › Configuración del servidor.",
+    "Does this account keep your mail on a server?": "¿Esta cuenta guarda tu correo en un servidor?",
+    "It's on a server…": "Está en un servidor…",
+    "Local copies of attachments from “%@”, which you confirmed keeps its mail on a server. Mail downloads them again when you open the message. Messages are not touched. Quit Mail first.": "Copias locales de adjuntos de “%@”, que confirmaste que guarda su correo en un servidor. Mail los vuelve a descargar cuando abres el mensaje. Los mensajes no se tocan. Cierra Mail antes.",
+    "Mailboxes: %@": "Buzones: %@",
+    "Noria could not confirm where this account keeps its mail, so its attachments are protected.": "Noria no pudo confirmar dónde guarda esta cuenta su correo, así que sus adjuntos están protegidos.",
+    "On a server (confirmed by you)": "En un servidor (confirmado por ti)",
+    "Undo: protect its attachments again": "Deshacer: volver a proteger sus adjuntos",
+    "Yes, it's iCloud, Gmail, IMAP or Exchange": "Sí, es iCloud, Gmail, IMAP o Exchange",
+})
+
+# Sorting.
+ES.update({
+    "Largest First": "Más grandes primero",
+    "Sort": "Ordenar",
+})
