@@ -31,8 +31,9 @@ import Testing
         let box = try Sandbox()
         try box.file("Library/Caches/com.example/a", bytes: 10)
         let policy = SafetyPolicy(locations: box.locations)
-        for path in [box.path("Library/Caches/."), box.path("Library/Caches//com.example"), box.path("Library/Caches/com.example/"),
-                     box.path("Library/Caches/com.example/../com.example")] {
+        // Built by concatenation: NSString path APIs would normalize these on macOS.
+        let caches = box.path("Library/Caches")
+        for path in [caches + "/.", caches + "//com.example", caches + "/com.example/", caches + "/com.example/../com.example"] {
             #expect(blockReason(policy, item(path, .userCache)) == .notCanonical, "\(path)")
         }
         #expect(blockReason(policy, item(box.path("Library/Caches/com.example"), .userCache)) == nil)
