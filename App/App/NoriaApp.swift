@@ -22,9 +22,15 @@ struct NoriaApp: App {
                 .frame(width: 620, height: 560)
         }
 
-        // Noria Watch (optional, off by default).
+        // Noria Watch (optional, off by default). The setter only writes real changes:
+        // SwiftUI calls it while updating the scene, and every write to the observed
+        // settings invalidates the scene again, which looped forever at launch.
         MenuBarExtra(isInserted: Binding(get: { model.settings.showsMenuBarExtra },
-                                         set: { model.settings.showsMenuBarExtra = $0 })) {
+                                         set: { newValue in
+                                             if model.settings.showsMenuBarExtra != newValue {
+                                                 model.settings.showsMenuBarExtra = newValue
+                                             }
+                                         })) {
             WatchMenuView()
                 .environment(model)
         } label: {
@@ -34,9 +40,9 @@ struct NoriaApp: App {
     }
 }
 
-/// The Scan menu. Kept in its own types: building these buttons inline in the
-/// scene's `.commands` closure made the Swift runtime recurse while resolving
-/// their opaque types and crash at launch on some macOS versions.
+/// The Scan menu. Kept in its own types, and it reads no observed state: the main
+/// menu is rebuilt whenever what it reads changes. Both actions check the scan
+/// state themselves (starting while scanning or stopping while idle does nothing).
 struct ScanCommands: Commands {
     var model: AppModel
 
@@ -57,10 +63,8 @@ private struct ScanMenuItems: View {
             model.smartScan.start()
         }
         .keyboardShortcut("r", modifiers: [.command])
-        .disabled(model.smartScan.isScanning)
 
         Button("Stop Scan") { model.smartScan.cancel() }
             .keyboardShortcut(".", modifiers: [.command])
-            .disabled(!model.smartScan.isScanning)
     }
 }

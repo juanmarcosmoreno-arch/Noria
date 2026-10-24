@@ -13,6 +13,8 @@ public struct DeviceInfo: Sendable, Equatable {
     public var physicalMemory: UInt64
     public var processorCount: Int
     public var osVersion: String
+    /// Local host name. Read with `gethostname`: `ProcessInfo.hostName` may do a
+    /// reverse DNS lookup and block for a long time on some networks.
     public var hostName: String
 
     public static func current() -> DeviceInfo {
@@ -31,8 +33,14 @@ public struct DeviceInfo: Sendable, Equatable {
             physicalMemory: process.physicalMemory,
             processorCount: process.processorCount,
             osVersion: process.operatingSystemVersionString,
-            hostName: process.hostName
+            hostName: localHostName()
         )
+    }
+
+    static func localHostName() -> String {
+        var buffer = [CChar](repeating: 0, count: 256)
+        guard gethostname(&buffer, buffer.count - 1) == 0 else { return "" }
+        return String(decoding: buffer.prefix { $0 != 0 }.map { UInt8(bitPattern: $0) }, as: UTF8.self)
     }
 
     static func sysctlString(_ name: String) -> String? {
