@@ -650,6 +650,17 @@
         }
       }
     },
+    "Analyze Developer Data": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizar datos de desarrollo"
+          }
+        }
+      }
+    },
     "Analyze Mail": {
       "extractionState": "manual",
       "localizations": {
@@ -782,6 +793,17 @@
         }
       }
     },
+    "Apple's command removes only simulators whose runtime is no longer installed, together with the apps and data inside them.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El comando de Apple elimina solo los simuladores cuyo runtime ya no está instalado, junto con las apps y los datos que contienen."
+          }
+        }
+      }
+    },
     "Apple's internal SSDs do not publish detailed wear data to apps. Noria shows SMART status only when macOS reports it; Disk Utility › First Aid checks the file system.": {
       "extractionState": "manual",
       "localizations": {
@@ -811,6 +833,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Archivo comprimido"
+          }
+        }
+      }
+    },
+    "Archives are needed to symbolicate crash reports and to re-export a build. They cannot be recreated for old versions.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los archivos sirven para simbolizar informes de fallos y volver a exportar una compilación. No se pueden recrear para versiones antiguas."
+          }
+        }
+      }
+    },
+    "Artifacts are downloaded again, but locally installed artifacts (mvn install) are lost.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los artefactos se vuelven a descargar, pero se pierden los instalados localmente (mvn install)."
           }
         }
       }
@@ -936,6 +980,17 @@
         }
       }
     },
+    "Bun cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de Bun"
+          }
+        }
+      }
+    },
     "Bundle measured as a whole; its contents are not listed separately.": {
       "extractionState": "manual",
       "localizations": {
@@ -1024,6 +1079,17 @@
         }
       }
     },
+    "Cargo registry": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registro de Cargo"
+          }
+        }
+      }
+    },
     "Category": {
       "extractionState": "manual",
       "localizations": {
@@ -1108,6 +1174,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Limpiar %@…"
+          }
+        }
+      }
+    },
+    "Clean up after Xcode and package managers": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpia lo que dejan Xcode y los gestores de paquetes"
           }
         }
       }
@@ -1211,6 +1288,17 @@
         }
       }
     },
+    "CocoaPods cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de CocoaPods"
+          }
+        }
+      }
+    },
     "Comparing contents: %@ of %@ candidates": {
       "extractionState": "manual",
       "localizations": {
@@ -1295,6 +1383,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copias de adjuntos que Mail puede volver a descargar, y Descargas de Mail."
+          }
+        }
+      }
+    },
+    "Copy": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar"
           }
         }
       }
@@ -1398,6 +1497,17 @@
         }
       }
     },
+    "Delete Unavailable Simulators…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar simuladores no disponibles…"
+          }
+        }
+      }
+    },
     "Delete for good?": {
       "extractionState": "manual",
       "localizations": {
@@ -1416,6 +1526,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eliminar inmediatamente"
+          }
+        }
+      }
+    },
+    "Delete only simulators whose runtime is no longer installed, with Apple's command.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina solo los simuladores cuyo runtime ya no está instalado, con el comando de Apple."
+          }
+        }
+      }
+    },
+    "Delete unavailable simulators?": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar simuladores no disponibles?"
           }
         }
       }
@@ -1449,6 +1581,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eliminar…"
+          }
+        }
+      }
+    },
+    "Dependencies of inactive projects": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dependencias de proyectos inactivos"
           }
         }
       }
@@ -1537,6 +1680,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dispositivo"
+          }
+        }
+      }
+    },
+    "Device support files": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archivos de soporte de dispositivos"
           }
         }
       }
@@ -2058,6 +2212,28 @@
         }
       }
     },
+    "Go build cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de compilación de Go"
+          }
+        }
+      }
+    },
+    "Gradle caches": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cachés de Gradle"
+          }
+        }
+      }
+    },
     "Grant Again…": {
       "extractionState": "manual",
       "localizations": {
@@ -2131,6 +2307,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Carpeta de inicio"
+          }
+        }
+      }
+    },
+    "Homebrew downloads": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descargas de Homebrew"
           }
         }
       }
@@ -2344,6 +2531,17 @@
         }
       }
     },
+    "Keep the archives of versions you published; remove old test builds.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conserva los archivos de las versiones publicadas; elimina las compilaciones de prueba antiguas."
+          }
+        }
+      }
+    },
     "Kept for": {
       "extractionState": "manual",
       "localizations": {
@@ -2494,6 +2692,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Registros con más de %lld días"
+          }
+        }
+      }
+    },
+    "Looking at developer tools…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisando herramientas de desarrollo…"
           }
         }
       }
@@ -2681,6 +2890,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Coincide con reglas verificadas. Se regenera automáticamente cuando hace falta."
+          }
+        }
+      }
+    },
+    "Maven repository": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repositorio de Maven"
           }
         }
       }
@@ -3092,6 +3312,17 @@
         }
       }
     },
+    "Noria looks at Xcode build data, archives, device support, simulators, package-manager caches and the dependencies of projects you have not touched in months. Each item explains what happens if you remove it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria revisa los datos de compilación de Xcode, archivos, soporte de dispositivos, simuladores, cachés de gestores de paquetes y las dependencias de proyectos que no tocas desde hace meses. Cada elemento explica qué pasa si lo eliminas."
+          }
+        }
+      }
+    },
     "Noria measures every folder and draws a map where each block is proportional to its size. Click to select, double-click to go inside. Nothing is changed while scanning.": {
       "extractionState": "manual",
       "localizations": {
@@ -3257,6 +3488,17 @@
         }
       }
     },
+    "Official command:": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comando oficial:"
+          }
+        }
+      }
+    },
     "Old activity logs and diagnostic reports.": {
       "extractionState": "manual",
       "localizations": {
@@ -3319,6 +3561,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Solo se muestran archivos con contenido idéntico byte a byte (mismo tamaño y SHA-256). Los nombres no importan. No se buscan en Fotos ni otras bibliotecas de apps, apps ni ~/Library."
+          }
+        }
+      }
+    },
+    "Only projects untouched for 90 days are listed. Review each one.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se muestran proyectos sin cambios desde hace 90 días. Revisa cada uno."
           }
         }
       }
@@ -3484,6 +3737,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "PROTEGIDO"
+          }
+        }
+      }
+    },
+    "Packages are downloaded or rebuilt again when needed; the next install or build is slower.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los paquetes se vuelven a descargar o compilar cuando hacen falta; la próxima instalación o compilación es más lenta."
           }
         }
       }
@@ -3719,6 +3983,28 @@
         }
       }
     },
+    "Rebuildable caches are preselected. Archives, device support and project dependencies need your choice.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las cachés regenerables vienen seleccionadas. Los archivos, el soporte de dispositivos y las dependencias de proyectos los eliges tú."
+          }
+        }
+      }
+    },
+    "Rebuilt automatically": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se regenera solo"
+          }
+        }
+      }
+    },
     "Recommendations": {
       "extractionState": "manual",
       "localizations": {
@@ -3752,6 +4038,17 @@
         }
       }
     },
+    "Recreated automatically the next time you use them.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se recrean automáticamente la próxima vez que los uses."
+          }
+        }
+      }
+    },
     "Reduce Mail's size from Mail itself": {
       "extractionState": "manual",
       "localizations": {
@@ -3770,6 +4067,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Actualizar"
+          }
+        }
+      }
+    },
+    "Reinstall them with the project's package manager (for example npm install or pod install) when you work on it again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reinstálalas con el gestor de paquetes del proyecto (por ejemplo npm install o pod install) cuando vuelvas a trabajar en él."
           }
         }
       }
@@ -3840,6 +4148,17 @@
         }
       }
     },
+    "Remove versions for devices you no longer use.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina las versiones de dispositivos que ya no usas."
+          }
+        }
+      }
+    },
     "Removed": {
       "extractionState": "manual",
       "localizations": {
@@ -3880,6 +4199,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eliminar…"
+          }
+        }
+      }
+    },
+    "Removing a simulator deletes the apps and data installed in it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar un simulador borra las apps y los datos instalados en él."
           }
         }
       }
@@ -3972,6 +4302,17 @@
         }
       }
     },
+    "Review before cleaning.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revísalo antes de limpiar."
+          }
+        }
+      }
+    },
     "Review them and keep what you still need.": {
       "extractionState": "manual",
       "localizations": {
@@ -4027,6 +4368,17 @@
         }
       }
     },
+    "Run xcrun simctl delete unavailable": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejecutar xcrun simctl delete unavailable"
+          }
+        }
+      }
+    },
     "Running since": {
       "extractionState": "manual",
       "localizations": {
@@ -4078,6 +4430,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Seguros"
+          }
+        }
+      }
+    },
+    "Safe to clean; quit the related tool first.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se puede limpiar con seguridad; cierra antes la herramienta asociada."
           }
         }
       }
@@ -4412,6 +4775,28 @@
         }
       }
     },
+    "Simulator caches": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cachés del simulador"
+          }
+        }
+      }
+    },
+    "Simulators": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simuladores"
+          }
+        }
+      }
+    },
     "Size": {
       "extractionState": "manual",
       "localizations": {
@@ -4720,6 +5105,28 @@
         }
       }
     },
+    "Swift Package Manager cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de Swift Package Manager"
+          }
+        }
+      }
+    },
+    "SwiftUI previews": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Previsualizaciones de SwiftUI"
+          }
+        }
+      }
+    },
     "System": {
       "extractionState": "manual",
       "localizations": {
@@ -4782,6 +5189,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Temporales con más de %lld días"
+          }
+        }
+      }
+    },
+    "The App Store edition cannot run Apple's developer tools. Run this command in Terminal:": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La edición de la App Store no puede ejecutar las herramientas de desarrollo de Apple. Ejecuta este comando en Terminal:"
           }
         }
       }
@@ -5204,6 +5622,28 @@
         }
       }
     },
+    "Xcode archives": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archivos de Xcode"
+          }
+        }
+      }
+    },
+    "Xcode build data (DerivedData)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos de compilación de Xcode (DerivedData)"
+          }
+        }
+      }
+    },
     "Xcode build products. Xcode rebuilds them; the next build will take longer. Quit Xcode first.": {
       "extractionState": "manual",
       "localizations": {
@@ -5215,6 +5655,28 @@
         }
       }
     },
+    "Xcode copies these symbols again the next time you connect a device with that OS version.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode vuelve a copiar estos símbolos la próxima vez que conectes un dispositivo con esa versión del sistema."
+          }
+        }
+      }
+    },
+    "Xcode rebuilds it; the next build of each project takes longer.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode lo regenera; la próxima compilación de cada proyecto tardará más."
+          }
+        }
+      }
+    },
     "Xcode rebuilds them; the next build of each project will be slower.": {
       "extractionState": "manual",
       "localizations": {
@@ -5222,6 +5684,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Xcode los regenera; la próxima compilación de cada proyecto será más lenta."
+          }
+        }
+      }
+    },
+    "Yarn cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de Yarn"
           }
         }
       }
@@ -5369,6 +5842,17 @@
         }
       }
     },
+    "npm cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de npm"
+          }
+        }
+      }
+    },
     "of %@": {
       "extractionState": "manual",
       "localizations": {
@@ -5376,6 +5860,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "de %@"
+          }
+        }
+      }
+    },
+    "pip cache": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de pip"
+          }
+        }
+      }
+    },
+    "pnpm store": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Almacén de pnpm"
           }
         }
       }
@@ -5409,6 +5915,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "utilizado"
+          }
+        }
+      }
+    },
+    "xcrun simctl delete unavailable": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "xcrun simctl delete unavailable"
           }
         }
       }

@@ -11,6 +11,7 @@
 		054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */; };
 		0916A4FD30EBCB2F5F1C979A /* StartupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBF9B93C7424345CC9C78 /* StartupView.swift */; };
 		0E94E3EE13D5D35CF6EB4511 /* CleanupSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */; };
+		0F8685E3782820C46C0235E5 /* DeveloperCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D6F977972903AF71DF82 /* DeveloperCleanView.swift */; };
 		108E41262B50AA1CA67183CD /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFC08B6A4C093C24151C3C /* Theme.swift */; };
 		1322FB4B00CCF6A8729BD610 /* PerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FE12582DFA12D281779CF /* PerformanceView.swift */; };
 		1B2CA2E33A28448F9B9E02C0 /* StartupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBBF9B93C7424345CC9C78 /* StartupView.swift */; };
@@ -31,10 +32,12 @@
 		5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
 		60ECF16DFC82848E865D60E8 /* DuplicatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */; };
 		61AAA211C5DA9F8B9397EB54 /* SpaceMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */; };
+		667968D4E682AD06AB6B43E0 /* DeveloperCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D6F977972903AF71DF82 /* DeveloperCleanView.swift */; };
 		6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
 		771F13B562BF1CD63C1B73B8 /* DuplicatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */; };
 		7721703B39C107A2321B19A0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
 		773550155A84599661F9732B /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
+		7A06B69D787B99670D26FFD0 /* DeveloperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FE1C16F9C3255253D093E /* DeveloperModel.swift */; };
 		7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
 		7F82497102AE115ADA4F32F9 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768BA69FEC9D54A7183AEF7 /* MailView.swift */; };
 		82030EA534C059F7F18226CC /* DuplicatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */; };
@@ -63,6 +66,7 @@
 		DFD1BBED178112455E05359B /* NoriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08789015A598917BB2AD517 /* NoriaApp.swift */; };
 		E106B32DF4FEA4724ECFF607 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFC08B6A4C093C24151C3C /* Theme.swift */; };
 		E182FC9D399C7D57C9D96713 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
+		E1863E798CAF50C1E12A3A84 /* DeveloperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FE1C16F9C3255253D093E /* DeveloperModel.swift */; };
 		E4453B2779B4FC6C9BF6CE6B /* MailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4825C1046A9446D584F288 /* MailModel.swift */; };
 		E6464BC6031D70C5F3EA24CA /* MetricsMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E34557952D0BD132007242 /* MetricsMonitor.swift */; };
 		E89F9F8F9D717F3735F9E0E9 /* LargeFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52178139E95E3FE8A9D3B85 /* LargeFilesView.swift */; };
@@ -86,6 +90,7 @@
 		212DBF1884492581CBB42A88 /* NoriaCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NoriaCore; path = NoriaCore; sourceTree = SOURCE_ROOT; };
 		219E375D22A057EDC718EA6E /* FolderAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAccess.swift; sourceTree = "<group>"; };
 		24280017437DD11396BC2785 /* WatchMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMenuView.swift; sourceTree = "<group>"; };
+		24B5D6F977972903AF71DF82 /* DeveloperCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCleanView.swift; sourceTree = "<group>"; };
 		3D5050913571E6B5FDD0752F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatesModel.swift; sourceTree = "<group>"; };
 		410CB89DC32B7BE957B31CC5 /* CleanupSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupSheets.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		CD404FB0B4ED1E0E95355C52 /* AppRemoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRemoverView.swift; sourceTree = "<group>"; };
 		E08789015A598917BB2AD517 /* NoriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoriaApp.swift; sourceTree = "<group>"; };
 		E360B8D3161D9EFB4970BF59 /* Noria Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noria Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43FE1C16F9C3255253D093E /* DeveloperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperModel.swift; sourceTree = "<group>"; };
 		EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +147,7 @@
 			children = (
 				6E4582F48CAB32A9655C6093 /* AppRemover */,
 				29C0A622156271B020E74CFF /* Dashboard */,
+				955C31C72E3D16594F458DB7 /* DeveloperClean */,
 				688F74FA72D5F408FAE5471B /* Duplicates */,
 				C9FD98BD3BC1F2F6C717F032 /* History */,
 				643B402AA0BB7E89EFCCA02E /* LargeFiles */,
@@ -279,6 +286,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		955C31C72E3D16594F458DB7 /* DeveloperClean */ = {
+			isa = PBXGroup;
+			children = (
+				24B5D6F977972903AF71DF82 /* DeveloperCleanView.swift */,
+			);
+			path = DeveloperClean;
+			sourceTree = "<group>";
+		};
 		9DBB394D73FE3383FFDCFFE4 /* Mail */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +318,7 @@
 			children = (
 				3D5050913571E6B5FDD0752F /* AppModel.swift */,
 				17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */,
+				E43FE1C16F9C3255253D093E /* DeveloperModel.swift */,
 				3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */,
 				219E375D22A057EDC718EA6E /* FolderAccess.swift */,
 				01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */,
@@ -458,6 +474,8 @@
 				CD5FB7A590543A1997598101 /* CleanupSheets.swift in Sources */,
 				6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */,
 				4E4C5095ADA90A8E648FBE7B /* DashboardView.swift in Sources */,
+				0F8685E3782820C46C0235E5 /* DeveloperCleanView.swift in Sources */,
+				7A06B69D787B99670D26FFD0 /* DeveloperModel.swift in Sources */,
 				771F13B562BF1CD63C1B73B8 /* DuplicatesModel.swift in Sources */,
 				60ECF16DFC82848E865D60E8 /* DuplicatesView.swift in Sources */,
 				1DE3CF19534DAF7CFA65BE34 /* FolderAccess.swift in Sources */,
@@ -495,6 +513,8 @@
 				0E94E3EE13D5D35CF6EB4511 /* CleanupSheets.swift in Sources */,
 				EEB7CA705E1E51740A983F6E /* Components.swift in Sources */,
 				F2D6BDE2AACE2F0391B9FD00 /* DashboardView.swift in Sources */,
+				667968D4E682AD06AB6B43E0 /* DeveloperCleanView.swift in Sources */,
+				E1863E798CAF50C1E12A3A84 /* DeveloperModel.swift in Sources */,
 				5E994E5BDB138D607101B9FA /* DuplicatesModel.swift in Sources */,
 				82030EA534C059F7F18226CC /* DuplicatesView.swift in Sources */,
 				BD8B62D8C51944A6B2F4EFD1 /* FolderAccess.swift in Sources */,

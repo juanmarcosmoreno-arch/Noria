@@ -95,6 +95,8 @@ public enum ItemReason: Codable, Sendable, Hashable {
     case duplicateCopy
     /// An item selected in the Space Map.
     case spaceMapSelection
+    /// A developer tool's data (see `DeveloperTool.Kind` raw values).
+    case developerItem(tool: String)
 }
 
 /// Kind of per-app data in `~/Library`.

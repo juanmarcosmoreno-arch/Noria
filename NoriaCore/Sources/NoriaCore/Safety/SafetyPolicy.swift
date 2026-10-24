@@ -58,10 +58,18 @@ public struct SafetyPolicy: Sendable {
         case .downloads: return [locations.downloads]
         case .trash: return [] // Phase 1: Trash is informational only.
         case .developerCache:
+            // Parents of the developer caches: a whole cache folder (e.g. ~/.npm/_cacache)
+            // must lie strictly inside an allowed root to be removable.
+            let home = locations.home as NSString
             return [
-                locations.derivedData, locations.xcodeArchives, locations.iOSDeviceSupport,
-                locations.npmCache, locations.pipCache, locations.homebrewCache,
-                locations.yarnCache, locations.cocoaPodsCache, locations.goBuildCache,
+                locations.derivedData, locations.xcodeArchives,
+                home.appendingPathComponent("Library/Developer/Xcode"),
+                home.appendingPathComponent("Library/Developer/CoreSimulator/Caches"),
+                home.appendingPathComponent("Library/Developer/CoreSimulator"),
+                home.appendingPathComponent(".npm"), locations.caches,
+                home.appendingPathComponent("Library/pnpm"), home.appendingPathComponent(".bun/install"),
+                home.appendingPathComponent(".gradle"), home.appendingPathComponent(".m2"),
+                home.appendingPathComponent(".cargo"),
             ]
         case .largeFiles, .duplicates: return [locations.home]
         case .appLeftovers: return appDataRoots

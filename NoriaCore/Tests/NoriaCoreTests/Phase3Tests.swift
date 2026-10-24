@@ -102,4 +102,64 @@ import Testing
         }
         #expect(WatchConfiguration(settings: NoriaSettings()).isEmpty, "notifications are off by default")
     }
+
+    @Test func wholeDeveloperCachesAreRemovable() async throws {
+        let box = try Sandbox()
+        let npm = try box.file(".npm/_cacache/index-v5/aa", bytes: 5_000)
+        let pip = try box.file("Library/Caches/pip/http/x", bytes: 5_000)
+        let events = try await collect(SmartScanEngine(locations: box.locations, appRegistry: .empty).scan(settings: NoriaSettings()))
+        guard case .finished(let report) = events.last else { return }
+        let items = report.allItems.filter { $0.category == .developerCache }
+        #expect(items.count == 2)
+        let policy = SafetyPolicy(locations: box.locations)
+        for item in items {
+            #expect(throws: Never.self) { try policy.validateForRemoval(item).get() }
+        }
+        _ = (npm, pip)
+    }
+
+    @Test func developerScannerNamesAndClassifiesItems() throws {
+        let box = try Sandbox()
+        // DerivedData with the project path recorded by Xcode.
+        try box.file("Library/Developer/Xcode/DerivedData/MyApp-abcdef/Build/x.o", bytes: 40_000)
+        let info = try PropertyListSerialization.data(fromPropertyList: ["WorkspacePath": "/Users/me/Dev/MyApp.xcodeproj"], format: .xml, options: 0)
+        try info.write(to: URL(fileURLWithPath: box.path("Library/Developer/Xcode/DerivedData/MyApp-abcdef/info.plist")))
+        // An archive with its Info.plist.
+        try box.file("Library/Developer/Xcode/Archives/2026-01-02/MyApp 2.xcarchive/Products/a", bytes: 20_000)
+        let archiveInfo = try PropertyListSerialization.data(fromPropertyList: ["Name": "MyApp", "ApplicationProperties": ["CFBundleShortVersionString": "2.1"]], format: .xml, options: 0)
+        try archiveInfo.write(to: URL(fileURLWithPath: box.path("Library/Developer/Xcode/Archives/2026-01-02/MyApp 2.xcarchive/Info.plist")))
+        try box.file("Library/Developer/Xcode/watchOS DeviceSupport/10.2 (21S364)/Symbols/x", bytes: 20_000)
+        // A simulator device.
+        try box.file("Library/Developer/CoreSimulator/Devices/ABC/data/x", bytes: 20_000)
+        let device = try PropertyListSerialization.data(fromPropertyList: ["name": "iPhone 15", "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-17-2"], format: .xml, options: 0)
+        try device.write(to: URL(fileURLWithPath: box.path("Library/Developer/CoreSimulator/Devices/ABC/device.plist")))
+        try box.file(".gradle/caches/modules/x.jar", bytes: 20_000)
+        // A stale project with node_modules, and an active one.
+        try box.file("Developer/old-site/package.json", bytes: 100, ageDays: 200)
+        try box.file("Developer/old-site/node_modules/lib/index.js", bytes: 30_000, ageDays: 200)
+        try box.setAge(box.path("Developer/old-site/node_modules"), days: 200)
+        try box.file("Developer/new-site/package.json", bytes: 100)
+        try box.file("Developer/new-site/node_modules/lib/index.js", bytes: 30_000)
+        // A folder called node_modules without a manifest is not touched.
+        try box.file("Developer/notes/node_modules/readme.txt", bytes: 30_000, ageDays: 200)
+
+        let report = try DeveloperScanner(locations: box.locations).scan()
+        let derived = try #require(report.items(for: .xcodeDerivedData).first)
+        #expect(derived.title == "MyApp" && derived.risk == .safe)
+        let archive = try #require(report.items(for: .xcodeArchives).first)
+        #expect(archive.title == "MyApp" && archive.subtitle == "2.1" && archive.risk == .review)
+        #expect(report.items(for: .xcodeDeviceSupport).first?.subtitle == "watchOS")
+        let simulator = try #require(report.items(for: .simulators).first)
+        #expect(simulator.title == "iPhone 15" && simulator.subtitle == "iOS 17 2")
+        #expect(simulator.asScanItem() == nil, "simulators are removed with xcrun simctl only")
+        #expect(report.items(for: .gradle).count == 1)
+        let projects = report.items(for: .projectDependencies)
+        #expect(projects.map(\.title) == ["old-site"])
+        #expect(projects.first?.asScanItem()?.category == .largeFiles)
+
+        let policy = SafetyPolicy(locations: box.locations)
+        for item in report.items.compactMap({ $0.asScanItem() }) {
+            #expect(throws: Never.self, "\(item.path)") { try policy.validateForRemoval(item).get() }
+        }
+    }
 }

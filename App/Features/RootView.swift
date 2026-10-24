@@ -50,7 +50,7 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
     var isAvailable: Bool {
         switch self {
         case .dashboard, .smartClean, .spaceMap, .largeFiles, .duplicates, .appRemover, .mail,
-             .startupManager, .performance, .macHealth, .history, .settings: return true
+             .startupManager, .performance, .macHealth, .developerClean, .history, .settings: return true
         default: return false
         }
     }
@@ -106,6 +106,7 @@ struct RootView: View {
         case .performance: PerformanceView()
         case .startupManager: StartupView()
         case .macHealth: MacHealthView()
+        case .developerClean: DeveloperCleanView()
         case .duplicates: DuplicatesView()
         case .mail: MailView()
         case .history: HistoryView()

@@ -190,6 +190,8 @@ extension ItemReason {
             return String(localized: "An identical copy of another file (same content, verified with SHA-256). At least one copy is always kept.")
         case .spaceMapSelection:
             return String(localized: "Selected in the Space Map.")
+        case .developerItem(let tool):
+            return DeveloperTool.Kind(rawValue: tool).map { [$0.consequence, $0.recommendation].joined(separator: " ") } ?? ""
         }
     }
 }
@@ -393,6 +395,68 @@ extension FileKind {
         case .backup: return Color(hex: 0x7C2D12)
         case .library: return Color(hex: 0xA16207)
         case .other: return Color(hex: 0x9A938A)
+        }
+    }
+}
+
+extension DeveloperTool.Kind {
+    var title: String {
+        switch self {
+        case .xcodeDerivedData: return String(localized: "Xcode build data (DerivedData)")
+        case .xcodeArchives: return String(localized: "Xcode archives")
+        case .xcodeDeviceSupport: return String(localized: "Device support files")
+        case .xcodePreviews: return String(localized: "SwiftUI previews")
+        case .simulatorCaches: return String(localized: "Simulator caches")
+        case .simulators: return String(localized: "Simulators")
+        case .swiftPM: return String(localized: "Swift Package Manager cache")
+        case .npm: return String(localized: "npm cache")
+        case .yarn: return String(localized: "Yarn cache")
+        case .pnpm: return String(localized: "pnpm store")
+        case .bun: return String(localized: "Bun cache")
+        case .pip: return String(localized: "pip cache")
+        case .homebrew: return String(localized: "Homebrew downloads")
+        case .cocoaPods: return String(localized: "CocoaPods cache")
+        case .go: return String(localized: "Go build cache")
+        case .gradle: return String(localized: "Gradle caches")
+        case .maven: return String(localized: "Maven repository")
+        case .cargo: return String(localized: "Cargo registry")
+        case .projectDependencies: return String(localized: "Dependencies of inactive projects")
+        }
+    }
+
+    /// What happens if it is removed.
+    var consequence: String {
+        switch self {
+        case .xcodeDerivedData: return String(localized: "Xcode rebuilds it; the next build of each project takes longer.")
+        case .xcodeArchives: return String(localized: "Archives are needed to symbolicate crash reports and to re-export a build. They cannot be recreated for old versions.")
+        case .xcodeDeviceSupport: return String(localized: "Xcode copies these symbols again the next time you connect a device with that OS version.")
+        case .xcodePreviews, .simulatorCaches: return String(localized: "Recreated automatically the next time you use them.")
+        case .simulators: return String(localized: "Removing a simulator deletes the apps and data installed in it.")
+        case .swiftPM, .npm, .yarn, .pnpm, .bun, .pip, .homebrew, .cocoaPods, .go, .gradle, .cargo:
+            return String(localized: "Packages are downloaded or rebuilt again when needed; the next install or build is slower.")
+        case .maven: return String(localized: "Artifacts are downloaded again, but locally installed artifacts (mvn install) are lost.")
+        case .projectDependencies: return String(localized: "Reinstall them with the project's package manager (for example npm install or pod install) when you work on it again.")
+        }
+    }
+
+    var recommendation: String {
+        switch self {
+        case .xcodeDerivedData, .xcodePreviews, .simulatorCaches, .swiftPM, .npm, .yarn, .pnpm, .bun, .pip, .homebrew, .cocoaPods, .go, .gradle, .cargo:
+            return String(localized: "Safe to clean; quit the related tool first.")
+        case .xcodeArchives: return String(localized: "Keep the archives of versions you published; remove old test builds.")
+        case .xcodeDeviceSupport: return String(localized: "Remove versions for devices you no longer use.")
+        case .simulators: return String(localized: "Delete only simulators whose runtime is no longer installed, with Apple's command.")
+        case .maven: return String(localized: "Review before cleaning.")
+        case .projectDependencies: return String(localized: "Only projects untouched for 90 days are listed. Review each one.")
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .xcodeDerivedData, .xcodeArchives, .xcodeDeviceSupport, .xcodePreviews: return "hammer"
+        case .simulatorCaches, .simulators: return "iphone"
+        case .projectDependencies: return "folder.badge.gearshape"
+        default: return "shippingbox"
         }
     }
 }

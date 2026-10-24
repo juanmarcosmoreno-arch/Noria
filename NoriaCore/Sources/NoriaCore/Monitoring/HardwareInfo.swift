@@ -125,6 +125,14 @@ public struct StorageDeviceInfo: Sendable, Equatable {
     /// "Verified", "Failing"… as published by the storage driver, or `nil`.
     public var smartStatus: String?
 
+    public init(model: String? = nil, isSolidState: Bool? = nil, isInternal: Bool? = nil, protocolName: String? = nil, smartStatus: String? = nil) {
+        self.model = model
+        self.isSolidState = isSolidState
+        self.isInternal = isInternal
+        self.protocolName = protocolName
+        self.smartStatus = smartStatus
+    }
+
     public static func forStartupDisk() -> StorageDeviceInfo {
         #if canImport(IOKit)
         var info = StorageDeviceInfo()
