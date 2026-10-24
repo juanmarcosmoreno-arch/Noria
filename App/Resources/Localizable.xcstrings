@@ -122,6 +122,17 @@
         }
       }
     },
+    "%@ is using %@ of a core. If you did not expect that, check whether it is stuck.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ está usando el %2$@ de un núcleo. Si no lo esperabas, comprueba si se ha quedado bloqueado."
+          }
+        }
+      }
+    },
     "%@ items (%@) will be deleted and can no longer be restored. This frees the space.": {
       "extractionState": "manual",
       "localizations": {
@@ -254,6 +265,17 @@
         }
       }
     },
+    "%@ of swap in use: macOS is moving memory to the disk, which is slower.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ de swap en uso: macOS está pasando memoria al disco, que es más lento."
+          }
+        }
+      }
+    },
     "%@ of this app, matched by its exact identifier. %@": {
       "extractionState": "manual",
       "localizations": {
@@ -338,6 +360,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ archivos y carpetas pequeños agrupados. Abre la carpeta en Finder para verlos."
+          }
+        }
+      }
+    },
+    "%@ were used in the last hour; %@ remain. A download, backup or app may be writing a lot.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se ocuparon %1$@ en la última hora; quedan %2$@. Puede que una descarga, una copia de seguridad o una app esté escribiendo mucho."
           }
         }
       }
@@ -562,6 +595,17 @@
         }
       }
     },
+    "Always running": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siempre en ejecución"
+          }
+        }
+      }
+    },
     "An app and the files it created.": {
       "extractionState": "manual",
       "localizations": {
@@ -727,6 +771,28 @@
         }
       }
     },
+    "Apple considers a battery consumed when it reaches about 80% of its original capacity. macOS shows its own recommendation in System Settings › Battery.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple considera que una batería está consumida cuando llega a cerca del 80% de su capacidad original. macOS muestra su propia recomendación en Configuración del sistema › Batería."
+          }
+        }
+      }
+    },
+    "Apple's internal SSDs do not publish detailed wear data to apps. Noria shows SMART status only when macOS reports it; Disk Utility › First Aid checks the file system.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los SSD internos de Apple no publican datos detallados de desgaste para las apps. Noria muestra el estado SMART solo cuando macOS lo informa; Utilidad de Discos › Primera ayuda revisa el sistema de archivos."
+          }
+        }
+      }
+    },
     "Application": {
       "extractionState": "manual",
       "localizations": {
@@ -815,6 +881,17 @@
         }
       }
     },
+    "Battery": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batería"
+          }
+        }
+      }
+    },
     "Battery health and per-process activity arrive with Mac Health and Performance (phase 3).": {
       "extractionState": "manual",
       "localizations": {
@@ -833,6 +910,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Antes de actuar, Noria vuelve a comprobar cada elemento: se omite todo lo que haya cambiado desde el análisis, esté protegido o excluido."
+          }
+        }
+      }
+    },
+    "Below %lld GB": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por debajo de %lld GB"
           }
         }
       }
@@ -866,6 +954,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "CPU"
+          }
+        }
+      }
+    },
+    "CPU usage averaged %@ for %@ minutes. Open Performance in Noria to see which app is responsible.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El uso de CPU promedió %1$@ durante %2$@ minutos. Abre Rendimiento en Noria para ver qué app es la responsable."
           }
         }
       }
@@ -932,6 +1031,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Categoría"
+          }
+        }
+      }
+    },
+    "Charge": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carga"
+          }
+        }
+      }
+    },
+    "Charge cycles": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciclos de carga"
+          }
+        }
+      }
+    },
+    "Charging": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cargando"
           }
         }
       }
@@ -1101,6 +1233,17 @@
         }
       }
     },
+    "Condition": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado"
+          }
+        }
+      }
+    },
     "Confirm cleanup": {
       "extractionState": "manual",
       "localizations": {
@@ -1108,6 +1251,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Confirmar limpieza"
+          }
+        }
+      }
+    },
+    "Connected to power": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado a la corriente"
+          }
+        }
+      }
+    },
+    "Connection": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conexión"
           }
         }
       }
@@ -1141,6 +1306,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copiar ruta"
+          }
+        }
+      }
+    },
+    "Cores": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Núcleos"
           }
         }
       }
@@ -1299,6 +1475,17 @@
         }
       }
     },
+    "Design capacity": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capacidad de diseño"
+          }
+        }
+      }
+    },
     "Details": {
       "extractionState": "manual",
       "localizations": {
@@ -1343,6 +1530,28 @@
         }
       }
     },
+    "Device": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dispositivo"
+          }
+        }
+      }
+    },
+    "Disabled": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desactivado"
+          }
+        }
+      }
+    },
     "Disk Image": {
       "extractionState": "manual",
       "localizations": {
@@ -1350,6 +1559,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Imagen de disco"
+          }
+        }
+      }
+    },
+    "Disk reads": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lecturas de disco"
+          }
+        }
+      }
+    },
+    "Disk writes": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrituras de disco"
           }
         }
       }
@@ -1563,6 +1794,28 @@
         }
       }
     },
+    "Fair": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aceptable"
+          }
+        }
+      }
+    },
+    "File system": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema de archivos"
+          }
+        }
+      }
+    },
     "Files": {
       "extractionState": "manual",
       "localizations": {
@@ -1684,6 +1937,28 @@
         }
       }
     },
+    "For all users": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para todos los usuarios"
+          }
+        }
+      }
+    },
+    "For your account": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para tu cuenta"
+          }
+        }
+      }
+    },
     "Found": {
       "extractionState": "manual",
       "localizations": {
@@ -1717,6 +1992,17 @@
         }
       }
     },
+    "Free space": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Espacio libre"
+          }
+        }
+      }
+    },
     "Free space change (measured)": {
       "extractionState": "manual",
       "localizations": {
@@ -1728,6 +2014,17 @@
         }
       }
     },
+    "Free space dropped quickly": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El espacio libre bajó rápidamente"
+          }
+        }
+      }
+    },
     "Full Disk Access": {
       "extractionState": "manual",
       "localizations": {
@@ -1735,6 +2032,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Acceso total al disco"
+          }
+        }
+      }
+    },
+    "Full-charge capacity": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capacidad a carga completa"
           }
         }
       }
@@ -1768,6 +2076,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Contenedor compartido por apps del mismo desarrollador. Otras apps pueden seguir usándolo: elimínalo solo si vas a eliminarlas todas."
+          }
+        }
+      }
+    },
+    "Hard disk": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disco duro"
+          }
+        }
+      }
+    },
+    "Health (SMART)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salud (SMART)"
           }
         }
       }
@@ -1992,6 +2322,17 @@
         }
       }
     },
+    "Its program no longer exists, so it does nothing but fail at every login. It is safe to remove.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Su programa ya no existe, así que solo falla en cada inicio de sesión. Se puede eliminar con seguridad."
+          }
+        }
+      }
+    },
     "Keep quarantined items for %lld days": {
       "extractionState": "manual",
       "localizations": {
@@ -2076,6 +2417,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Más de %@"
+          }
+        }
+      }
+    },
+    "Left behind by removed apps": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dejados por apps eliminadas"
           }
         }
       }
@@ -2333,6 +2685,17 @@
         }
       }
     },
+    "Maximum capacity": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capacidad máxima"
+          }
+        }
+      }
+    },
     "Measuring folders…": {
       "extractionState": "manual",
       "localizations": {
@@ -2340,6 +2703,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Midiendo carpetas…"
+          }
+        }
+      }
+    },
+    "Measuring…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Midiendo…"
           }
         }
       }
@@ -2377,6 +2751,28 @@
         }
       }
     },
+    "Memory pressure is %@. %@ is using %@. Quitting apps you are not using helps; restarting the Mac also clears swap.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión de memoria es %1$@. %2$@ está usando %3$@. Cerrar las apps que no usas ayuda; reiniciar el Mac también vacía el swap."
+          }
+        }
+      }
+    },
+    "Memory pressure is %@. Quitting apps you are not using helps.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión de memoria es %@. Cerrar las apps que no usas ayuda."
+          }
+        }
+      }
+    },
     "Model": {
       "extractionState": "manual",
       "localizations": {
@@ -2395,6 +2791,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Modificado"
+          }
+        }
+      }
+    },
+    "More than %lld GB in an hour": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Más de %lld GB en una hora"
+          }
+        }
+      }
+    },
+    "Most CPU": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Más CPU"
+          }
+        }
+      }
+    },
+    "Most memory": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Más memoria"
           }
         }
       }
@@ -2487,6 +2916,17 @@
         }
       }
     },
+    "No": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No"
+          }
+        }
+      }
+    },
     "No analysis yet": {
       "extractionState": "manual",
       "localizations": {
@@ -2494,6 +2934,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todavía no hay análisis"
+          }
+        }
+      }
+    },
+    "No background items found": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontraron elementos en segundo plano"
           }
         }
       }
@@ -2575,6 +3026,28 @@
         }
       }
     },
+    "Noria Watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria Watch"
+          }
+        }
+      }
+    },
+    "Noria Watch checks free space, CPU and memory pressure once a minute while it is enabled. It never scans or removes files in the background. Notifications are rare: each one waits hours before repeating.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria Watch revisa el espacio libre, la CPU y la presión de memoria una vez por minuto mientras está activado. Nunca analiza ni elimina archivos en segundo plano. Los avisos son poco frecuentes: cada uno espera horas antes de repetirse."
+          }
+        }
+      }
+    },
     "Noria compares file contents, not names. You decide which copies to remove, and one copy of each file is always kept.": {
       "extractionState": "manual",
       "localizations": {
@@ -2593,6 +3066,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Noria no tiene permiso para leer esta ubicación."
+          }
+        }
+      }
+    },
+    "Noria found no login agents or services it can read.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria no encontró agentes de inicio ni servicios que pueda leer."
+          }
+        }
+      }
+    },
+    "Noria lists the processes macOS lets it read (%@ right now). CPU is per core, like Activity Monitor: 200%% means two cores fully busy.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noria muestra los procesos que macOS le permite leer (%@ ahora mismo). La CPU es por núcleo, como en el Monitor de Actividad: 200%% significa dos núcleos totalmente ocupados."
           }
         }
       }
@@ -2696,6 +3191,17 @@
         }
       }
     },
+    "Not reported by macOS": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS no lo informa"
+          }
+        }
+      }
+    },
     "Nothing to clean: there are no Mail Downloads or downloadable attachment copies.": {
       "extractionState": "manual",
       "localizations": {
@@ -2703,6 +3209,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nada que limpiar: no hay Descargas de Mail ni copias de adjuntos descargables."
+          }
+        }
+      }
+    },
+    "Notify when free space drops quickly": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avisar si el espacio libre baja rápidamente"
+          }
+        }
+      }
+    },
+    "Notify when free space is low": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avisar si queda poco espacio libre"
+          }
+        }
+      }
+    },
+    "Notify when the CPU stays very busy for 5 minutes": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avisar si la CPU está muy ocupada durante 5 minutos"
+          }
+        }
+      }
+    },
+    "Occasional": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ocasional"
           }
         }
       }
@@ -2740,6 +3290,28 @@
         }
       }
     },
+    "On battery": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con batería"
+          }
+        }
+      }
+    },
+    "Only %@ available. Open Noria to see what you can safely clean.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo quedan %@ disponibles. Abre Noria para ver qué puedes limpiar con seguridad."
+          }
+        }
+      }
+    },
     "Only files with byte-for-byte identical content are listed (same size and SHA-256). Names do not matter. Photos and other app libraries, apps and ~/Library are not searched.": {
       "extractionState": "manual",
       "localizations": {
@@ -2758,6 +3330,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abrir"
+          }
+        }
+      }
+    },
+    "Open Login Items Settings…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir ajustes de Ítems de inicio…"
+          }
+        }
+      }
+    },
+    "Open Noria": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Noria"
           }
         }
       }
@@ -2927,6 +3521,17 @@
         }
       }
     },
+    "Power": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alimentación"
+          }
+        }
+      }
+    },
     "Preferences": {
       "extractionState": "manual",
       "localizations": {
@@ -3048,6 +3653,17 @@
         }
       }
     },
+    "Quit": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        }
+      }
+    },
     "Quit %@": {
       "extractionState": "manual",
       "localizations": {
@@ -3066,6 +3682,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cerrar app"
+          }
+        }
+      }
+    },
+    "Quit Noria": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salir de Noria"
+          }
+        }
+      }
+    },
+    "Quit this app?": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Cerrar esta app?"
           }
         }
       }
@@ -3235,6 +3873,28 @@
         }
       }
     },
+    "Remove…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar…"
+          }
+        }
+      }
+    },
+    "Restarts if it quits": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se reinicia si se cierra"
+          }
+        }
+      }
+    },
     "Restore": {
       "extractionState": "manual",
       "localizations": {
@@ -3363,6 +4023,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ejecuta un análisis para calcularlo"
+          }
+        }
+      }
+    },
+    "Running since": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encendido desde"
+          }
+        }
+      }
+    },
+    "Runs at login": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se ejecuta al iniciar sesión"
+          }
+        }
+      }
+    },
+    "Runs when needed": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se ejecuta cuando hace falta"
           }
         }
       }
@@ -3631,6 +4324,17 @@
         }
       }
     },
+    "Service recommended": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se recomienda revisión"
+          }
+        }
+      }
+    },
     "Settings": {
       "extractionState": "manual",
       "localizations": {
@@ -3664,6 +4368,17 @@
         }
       }
     },
+    "Settings…": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configuración…"
+          }
+        }
+      }
+    },
     "Shared group container": {
       "extractionState": "manual",
       "localizations": {
@@ -3671,6 +4386,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Contenedor de grupo compartido"
+          }
+        }
+      }
+    },
+    "Show Noria Watch in the menu bar": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar Noria Watch en la barra de menús"
           }
         }
       }
@@ -3785,6 +4511,17 @@
         }
       }
     },
+    "Solid state (SSD)": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado sólido (SSD)"
+          }
+        }
+      }
+    },
     "Space Map": {
       "extractionState": "manual",
       "localizations": {
@@ -3836,6 +4573,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Espacio ocupado por la Papelera. Vacíala desde Finder para liberarlo."
+          }
+        }
+      }
+    },
+    "Starts automatically": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arranca automáticamente"
           }
         }
       }
@@ -3917,6 +4665,17 @@
         }
       }
     },
+    "Storage": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Almacenamiento"
+          }
+        }
+      }
+    },
     "Stored on this Mac (POP / On My Mac)": {
       "extractionState": "manual",
       "localizations": {
@@ -3968,6 +4727,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sistema"
+          }
+        }
+      }
+    },
+    "System services": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Servicios del sistema"
+          }
+        }
+      }
+    },
+    "Temperature": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatura"
           }
         }
       }
@@ -4034,6 +4815,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Se eliminarán la app y los archivos seleccionados."
+          }
+        }
+      }
+    },
+    "The app is asked to quit normally, so it can save your work.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se le pide a la app que se cierre normalmente, para que pueda guardar tu trabajo."
           }
         }
       }
@@ -4159,6 +4951,17 @@
         }
       }
     },
+    "This Mac has no battery.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este Mac no tiene batería."
+          }
+        }
+      }
+    },
     "This app is open. Quit it before removing it or its files.": {
       "extractionState": "manual",
       "localizations": {
@@ -4177,6 +4980,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Esto elimina el registro local de Noria. Los archivos no se ven afectados."
+          }
+        }
+      }
+    },
+    "Time": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiempo"
           }
         }
       }
@@ -4221,6 +5035,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Caché de usuario"
+          }
+        }
+      }
+    },
+    "Value": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valor"
           }
         }
       }
@@ -4287,6 +5112,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lo que Noria puede limpiar con seguridad"
+          }
+        }
+      }
+    },
+    "What Noria sees": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que ve Noria"
           }
         }
       }
@@ -4390,6 +5226,17 @@
         }
       }
     },
+    "Yes": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sí"
+          }
+        }
+      }
+    },
     "You selected “%@”. Please select “%@”.": {
       "extractionState": "manual",
       "localizations": {
@@ -4397,6 +5244,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Seleccionaste «%1$@». Selecciona «%2$@»."
+          }
+        }
+      }
+    },
+    "Your Mac has been very busy": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu Mac ha estado muy ocupado"
+          }
+        }
+      }
+    },
+    "Your Mac is running out of space": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu Mac se está quedando sin espacio"
           }
         }
       }
@@ -4412,6 +5281,28 @@
         }
       }
     },
+    "check battery": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "check battery"
+          }
+        }
+      }
+    },
+    "compared with when it was new": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "comparada con cuando era nueva"
+          }
+        }
+      }
+    },
     "deleted": {
       "extractionState": "manual",
       "localizations": {
@@ -4419,6 +5310,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "eliminado"
+          }
+        }
+      }
+    },
+    "macOS only lets each app turn its own login items on or off. Noria shows the background jobs it can read and points out the ones left behind by apps you removed. To turn items off, use Login Items in System Settings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS solo permite que cada app active o desactive sus propios ítems de inicio. Noria muestra las tareas en segundo plano que puede leer y señala las que dejaron apps eliminadas. Para desactivar ítems, usa Ítems de inicio en Configuración del sistema."
           }
         }
       }
@@ -4474,6 +5376,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "de %@"
+          }
+        }
+      }
+    },
+    "pressure: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "presión: %@"
+          }
+        }
+      }
+    },
+    "swap: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "swap: %@"
           }
         }
       }

@@ -49,7 +49,8 @@ enum SidebarItem: String, CaseIterable, Identifiable, Hashable {
     /// Modules that are implemented; the others show a "planned" screen.
     var isAvailable: Bool {
         switch self {
-        case .dashboard, .smartClean, .spaceMap, .largeFiles, .duplicates, .appRemover, .mail, .history, .settings: return true
+        case .dashboard, .smartClean, .spaceMap, .largeFiles, .duplicates, .appRemover, .mail,
+             .startupManager, .performance, .macHealth, .history, .settings: return true
         default: return false
         }
     }
@@ -102,6 +103,9 @@ struct RootView: View {
         case .largeFiles: LargeFilesView()
         case .appRemover: AppRemoverView()
         case .spaceMap: SpaceMapView()
+        case .performance: PerformanceView()
+        case .startupManager: StartupView()
+        case .macHealth: MacHealthView()
         case .duplicates: DuplicatesView()
         case .mail: MailView()
         case .history: HistoryView()

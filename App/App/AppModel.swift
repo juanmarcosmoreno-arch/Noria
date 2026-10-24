@@ -14,6 +14,7 @@ final class AppModel {
             guard settings != oldValue else { return }
             settingsStore.save(settings)
             if settings.language != oldValue.language { LanguageManager.apply(settings.language) }
+            watch.configure(settings)
         }
     }
 
@@ -21,6 +22,7 @@ final class AppModel {
     private(set) var volumeError: String?
     let device = DeviceInfo.current()
     let metrics = MetricsMonitor()
+    let watch = WatchService()
     let folderAccess: FolderAccess
     private(set) var history: [OperationRecord] = []
     private(set) var historyError: String?
@@ -63,6 +65,7 @@ final class AppModel {
         spaceMapStorage = SpaceMapModel(app: self)
         duplicatesStorage = DuplicatesModel(app: self)
         refreshVolume()
+        watch.configure(settings)
         Task {
             await loadHistory()
             await purgeExpiredQuarantine()

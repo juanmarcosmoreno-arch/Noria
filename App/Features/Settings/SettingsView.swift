@@ -98,6 +98,30 @@ struct SettingsView: View {
             }
 
             Section {
+                Toggle("Show Noria Watch in the menu bar", isOn: $model.settings.showsMenuBarExtra)
+                Toggle("Notify when free space is low", isOn: $model.settings.notifyLowSpace)
+                if model.settings.notifyLowSpace {
+                    Stepper(value: $model.settings.lowSpaceThresholdGB, in: 1...500) {
+                        Text("Below \(model.settings.lowSpaceThresholdGB) GB")
+                    }
+                }
+                Toggle("Notify when free space drops quickly", isOn: $model.settings.notifySpaceDrop)
+                if model.settings.notifySpaceDrop {
+                    Stepper(value: $model.settings.spaceDropThresholdGB, in: 1...500) {
+                        Text("More than \(model.settings.spaceDropThresholdGB) GB in an hour")
+                    }
+                }
+                Toggle("Notify when the CPU stays very busy for 5 minutes", isOn: $model.settings.notifyHighCPU)
+            } header: {
+                Text("Noria Watch")
+            } footer: {
+                Text("Noria Watch checks free space, CPU and memory pressure once a minute while it is enabled. It never scans or removes files in the background. Notifications are rare: each one waits hours before repeating.")
+            }
+            .onChange(of: model.settings.notifyLowSpace || model.settings.notifySpaceDrop || model.settings.notifyHighCPU) { _, enabled in
+                if enabled { model.watch.requestNotificationPermission() }
+            }
+
+            Section {
                 Toggle("Skip app containers (~/Library/Containers)", isOn: $model.settings.largeFilesSkipsAppContainers)
             } header: {
                 Text("Large Files")

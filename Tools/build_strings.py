@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from translations_es import ES
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
-INT_INTERPOLATIONS = re.compile(r'(Days|\.phase)$')
+INT_INTERPOLATIONS = re.compile(r'(Days|\.phase|GB)$')
 NOT_UI = re.compile(r'^[a-z0-9.\-]+$')  # SF Symbols, identifiers
 IGNORED = {'', ' ', '  ', ' · ', '—', 'MB', 'r', 'macOS'}
 
@@ -37,6 +37,9 @@ def keys():
                     continue
                 def spec(m):
                     return '%lld' if INT_INTERPOLATIONS.search(m.group(1)) else '%@'
+                if '\\(' in text:
+                    # Swift escapes literal % in interpolated keys.
+                    text = text.replace('%', '%%')
                 key = re.sub(r'\\\(((?:[^()]|\([^()]*\))*)\)', spec, text).replace('\\"', '"')
                 found.add(key)
     return found

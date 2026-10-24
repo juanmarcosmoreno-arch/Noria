@@ -34,6 +34,14 @@ public struct NoriaSettings: Codable, Sendable, Equatable {
     public var largeFileThreshold: Int64 = 500 * 1_000_000
     public var largeFilesSkipsAppContainers = true
     public var language: AppLanguage = .system
+    /// Noria Watch: show the menu bar extra.
+    public var showsMenuBarExtra = false
+    /// Noria Watch notifications (all off by default).
+    public var notifyLowSpace = false
+    public var lowSpaceThresholdGB = 15
+    public var notifySpaceDrop = false
+    public var spaceDropThresholdGB = 10
+    public var notifyHighCPU = false
 
     public init() {}
 
@@ -55,6 +63,12 @@ public struct NoriaSettings: Codable, Sendable, Equatable {
         largeFilesSkipsAppContainers = try container.decodeIfPresent(Bool.self, forKey: .largeFilesSkipsAppContainers) ?? defaults.largeFilesSkipsAppContainers
         quarantineRetentionDays = try container.decodeIfPresent(Int.self, forKey: .quarantineRetentionDays) ?? defaults.quarantineRetentionDays
         language = try container.decodeIfPresent(AppLanguage.self, forKey: .language) ?? defaults.language
+        showsMenuBarExtra = try container.decodeIfPresent(Bool.self, forKey: .showsMenuBarExtra) ?? defaults.showsMenuBarExtra
+        notifyLowSpace = try container.decodeIfPresent(Bool.self, forKey: .notifyLowSpace) ?? defaults.notifyLowSpace
+        lowSpaceThresholdGB = try container.decodeIfPresent(Int.self, forKey: .lowSpaceThresholdGB) ?? defaults.lowSpaceThresholdGB
+        notifySpaceDrop = try container.decodeIfPresent(Bool.self, forKey: .notifySpaceDrop) ?? defaults.notifySpaceDrop
+        spaceDropThresholdGB = try container.decodeIfPresent(Int.self, forKey: .spaceDropThresholdGB) ?? defaults.spaceDropThresholdGB
+        notifyHighCPU = try container.decodeIfPresent(Bool.self, forKey: .notifyHighCPU) ?? defaults.notifyHighCPU
     }
 }
 
