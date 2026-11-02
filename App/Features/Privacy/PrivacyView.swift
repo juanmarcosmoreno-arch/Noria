@@ -95,7 +95,7 @@ struct PrivacyView: View {
             .listStyle(.inset)
         } else if privacy.phase == .scanning {
             VStack(spacing: NoriaSpacing.m) {
-                WheelView(isSpinning: true).frame(width: 110, height: 110)
+                SawView(isSpinning: true).frame(width: 110, height: 110)
                 Text("Looking for browsing data…").font(NoriaFont.sectionTitle)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

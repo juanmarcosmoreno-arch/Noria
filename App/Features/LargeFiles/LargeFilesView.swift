@@ -147,7 +147,7 @@ struct LargeFilesView: View {
         switch largeFiles.phase {
         case .scanning:
             VStack(spacing: NoriaSpacing.m) {
-                WheelView(isSpinning: true).frame(width: 110, height: 110)
+                SawView(isSpinning: true).frame(width: 110, height: 110)
                 Text("Looking for large files…").font(NoriaFont.sectionTitle)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

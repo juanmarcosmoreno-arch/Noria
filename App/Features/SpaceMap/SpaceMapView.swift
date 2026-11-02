@@ -81,7 +81,7 @@ struct SpaceMapView: View {
             }
         } else if map.isScanning {
             VStack(spacing: NoriaSpacing.m) {
-                WheelView(isSpinning: true).frame(width: 110, height: 110)
+                SawView(isSpinning: true).frame(width: 110, height: 110)
                 Text("Measuring folders…").font(NoriaFont.sectionTitle)
                 Text((map.currentFolder as NSString).abbreviatingWithTildeInPath)
                     .font(NoriaFont.caption).foregroundStyle(.secondary).lineLimit(1).truncationMode(.middle)
@@ -236,11 +236,11 @@ private struct TreemapView: View {
     static func color(for node: SpaceNode, level: Int) -> Color {
         switch node.kind {
         case .directory:
-            return level == 0 ? NoriaColor.deep.opacity(0.85) : NoriaColor.accent.opacity(0.75)
+            return level == 0 ? NoriaColor.woodDark.opacity(0.85) : NoriaColor.wood.opacity(0.75)
         case .package, .file:
             return node.fileKind.mapColor.opacity(level == 0 ? 1 : 0.85)
         case .smallItems:
-            return NoriaColor.slate.opacity(level == 0 ? 0.55 : 0.4)
+            return NoriaColor.steelMid.opacity(level == 0 ? 0.55 : 0.4)
         }
     }
 }

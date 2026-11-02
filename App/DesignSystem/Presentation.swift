@@ -103,23 +103,8 @@ extension CleanCategory {
         }
     }
 
-    /// Each category has its own icon color, like the system's own settings panes.
-    var tint: Color {
-        switch self {
-        case .userCache: return Color(light: 0x8E5BD9, dark: 0xB08CF0)
-        case .logs: return Color(light: 0xD9822B, dark: 0xF2A65A)
-        case .temporaryFiles: return Color(light: 0xE0533F, dark: 0xFF7A66)
-        case .developerCache: return Color(light: 0x5B5FD9, dark: 0x8C8FF5)
-        case .downloads: return Color(light: 0x1689DB, dark: 0x3AA8F0)
-        case .trash: return Color(light: 0x6B7380, dark: 0x9AA2AD)
-        case .appLeftovers: return Color(light: 0x13A3A3, dark: 0x3CCFCF)
-        case .mail: return Color(light: 0x2E7FE0, dark: 0x5AA2F5)
-        case .largeFiles: return Color(light: 0x2E9E5B, dark: 0x4CC28A)
-        case .appRemoval: return Color(light: 0xD94B7A, dark: 0xF27AA0)
-        case .duplicates: return Color(light: 0x2BA88A, dark: 0x4FD1AE)
-        case .privacy: return Color(light: 0x7A5AF0, dark: 0x9E86FF)
-        }
-    }
+    /// Category icons share the brand's wood accent, as in the brand board.
+    var tint: Color { NoriaColor.accent }
 }
 
 extension RiskLevel {

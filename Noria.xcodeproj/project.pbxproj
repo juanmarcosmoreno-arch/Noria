@@ -37,20 +37,20 @@
 		6E4C7904FB82D78D29FEF2D9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2E91F87F728D1FB813BA8 /* Components.swift */; };
 		771F13B562BF1CD63C1B73B8 /* DuplicatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3708ECAFE329F96C463E9 /* DuplicatesModel.swift */; };
 		7721703B39C107A2321B19A0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 923281466CB24D7B1507A1CD /* Localizable.xcstrings */; };
+		773550155A84599661F9732B /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
 		7A06B69D787B99670D26FFD0 /* DeveloperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FE1C16F9C3255253D093E /* DeveloperModel.swift */; };
 		7F153E69559C38B5232769B3 /* LargeFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */; };
 		7F82497102AE115ADA4F32F9 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768BA69FEC9D54A7183AEF7 /* MailView.swift */; };
 		82030EA534C059F7F18226CC /* DuplicatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A9435482D7243E80F3BD2 /* DuplicatesView.swift */; };
 		886C2A23A130EF6AE2FE9CD4 /* MacHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58084220BF314B621D2883 /* MacHealthView.swift */; };
-		89C6BC249877581119F0C23C /* NoriaMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15794596BBA746C1CFDB36 /* NoriaMark.swift */; };
 		89FA57703AEDB995AEC7AE1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30A8FBB7B98B89F9A9C0F0D /* Assets.xcassets */; };
 		8B85DA61B03A27013FFAE538 /* SmartScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */; };
 		8C78A6F39D2E1D8B7A9C018B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F519F7D8178FE04BD4FB2A /* RootView.swift */; };
 		9062207DD71BC31FEDAA0662 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
 		9AE699C8F0229AD97C66E92D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575B1B32F889F5D2886F95C /* HistoryView.swift */; };
+		A150C570AA35A2DFCD781C78 /* SawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D788A86C604C3ABF09EEFE /* SawView.swift */; };
 		A5A9EE0EE08B4DE5BD11AB8B /* SpaceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CD5B72851E84127DEDA87D /* SpaceMapView.swift */; };
 		AA090CA5C3BB49F75F55311B /* AppRemoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */; };
-		AB2AD789C49F29710F8D58D1 /* NoriaMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15794596BBA746C1CFDB36 /* NoriaMark.swift */; };
 		AF98AEB4D10860348121B4FF /* WatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507FAE8359F5EC0D3EBF2688 /* WatchService.swift */; };
 		B935451F12EBBCFEC2A8C9B3 /* AppRemoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD404FB0B4ED1E0E95355C52 /* AppRemoverView.swift */; };
 		BD8B62D8C51944A6B2F4EFD1 /* FolderAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219E375D22A057EDC718EA6E /* FolderAccess.swift */; };
@@ -87,6 +87,7 @@
 		01DB2CFA8248A32CD320746F /* LargeFilesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesModel.swift; sourceTree = "<group>"; };
 		02CD5B72851E84127DEDA87D /* SpaceMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapView.swift; sourceTree = "<group>"; };
 		05E34557952D0BD132007242 /* MetricsMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsMonitor.swift; sourceTree = "<group>"; };
+		08D788A86C604C3ABF09EEFE /* SawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawView.swift; sourceTree = "<group>"; };
 		0944534AD07DD4EDED6D60F4 /* PrivacyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyModel.swift; sourceTree = "<group>"; };
 		0AFEA3873F2C380B2C9F042E /* SmartScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartScanModel.swift; sourceTree = "<group>"; };
 		17E125CEA09B8AB4DA338842 /* AppRemoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRemoverModel.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		5D6FE12582DFA12D281779CF /* PerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceView.swift; sourceTree = "<group>"; };
 		63A2E91F87F728D1FB813BA8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		64D3ACD78D3411E92BA46F10 /* SpaceMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapModel.swift; sourceTree = "<group>"; };
-		6E15794596BBA746C1CFDB36 /* NoriaMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoriaMark.swift; sourceTree = "<group>"; };
 		7F1C8D26D6F333062950F83D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		8FAF614343166308C20AA78E /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		923281466CB24D7B1507A1CD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -313,8 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				63A2E91F87F728D1FB813BA8 /* Components.swift */,
-				6E15794596BBA746C1CFDB36 /* NoriaMark.swift */,
 				9C7B5FB7F528C1F1CB73F490 /* Presentation.swift */,
+				08D788A86C604C3ABF09EEFE /* SawView.swift */,
 				A6BFC08B6A4C093C24151C3C /* Theme.swift */,
 			);
 			path = DesignSystem;
@@ -503,12 +503,12 @@
 				1B7CF60F274A3404A90939B0 /* MailView.swift in Sources */,
 				EEBB61801683E3604248222E /* MetricsMonitor.swift in Sources */,
 				D7015CAE9C95B68DD4D08079 /* NoriaApp.swift in Sources */,
-				89C6BC249877581119F0C23C /* NoriaMark.swift in Sources */,
 				1322FB4B00CCF6A8729BD610 /* PerformanceView.swift in Sources */,
 				054BD96404EC1C940F6389A1 /* Presentation.swift in Sources */,
 				CD894A9E3940F3EB714F8F41 /* PrivacyModel.swift in Sources */,
 				CB322DBFDEE0AE2BB50B64FD /* PrivacyView.swift in Sources */,
 				0327D4C009630A4F5E10B693 /* RootView.swift in Sources */,
+				A150C570AA35A2DFCD781C78 /* SawView.swift in Sources */,
 				F57CB73ED57DC5A8A9E10399 /* SettingsView.swift in Sources */,
 				1BBF3F54B857811710723B3E /* SmartCleanView.swift in Sources */,
 				5EBA629C65D0FD783321C9E7 /* SmartScanModel.swift in Sources */,
@@ -544,12 +544,12 @@
 				7F82497102AE115ADA4F32F9 /* MailView.swift in Sources */,
 				E6464BC6031D70C5F3EA24CA /* MetricsMonitor.swift in Sources */,
 				DFD1BBED178112455E05359B /* NoriaApp.swift in Sources */,
-				AB2AD789C49F29710F8D58D1 /* NoriaMark.swift in Sources */,
 				F6463DBCF6F652DBDF3C02C6 /* PerformanceView.swift in Sources */,
 				F05D92E8F30368795A75005D /* Presentation.swift in Sources */,
 				DFA195A2A962675611345B67 /* PrivacyModel.swift in Sources */,
 				07223C4E285DAFA97CCA31E4 /* PrivacyView.swift in Sources */,
 				8C78A6F39D2E1D8B7A9C018B /* RootView.swift in Sources */,
+				773550155A84599661F9732B /* SawView.swift in Sources */,
 				2BCF01CEE6C77A5EDC92FDD0 /* SettingsView.swift in Sources */,
 				5CE7BF3AE68399EB503AA020 /* SmartCleanView.swift in Sources */,
 				8B85DA61B03A27013FFAE538 /* SmartScanModel.swift in Sources */,
@@ -599,7 +599,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -691,7 +691,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

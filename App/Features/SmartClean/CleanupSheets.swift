@@ -20,7 +20,7 @@ struct CleanupConfirmationView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: NoriaSpacing.m) {
             HStack(spacing: NoriaSpacing.m) {
-                NoriaMark().frame(width: 40, height: 40)
+                SawMark().frame(width: 40, height: 40)
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Confirm cleanup").font(NoriaFont.title)
                     HStack(spacing: 4) {
@@ -135,7 +135,7 @@ struct CleanupProgressView: View {
                 running
             case .finished:
                 if let report = controller.report {
-                    CleanupResultView(report: report, breakdown: controller.breakdown(of: report), onDone: onDone)
+                    CleanupResultView(report: report, onDone: onDone)
                 }
             }
         }
@@ -146,7 +146,7 @@ struct CleanupProgressView: View {
 
     @ViewBuilder
     private var running: some View {
-        WheelView(isSpinning: true).frame(width: 90, height: 90)
+        SawView(isSpinning: true).frame(width: 90, height: 90)
         Text("Cleaning…").font(NoriaFont.title)
         if case .running(let done, let total) = controller.state {
             ProgressView(value: Double(done), total: Double(max(total, 1)))
@@ -162,14 +162,11 @@ struct CleanupProgressView: View {
 
 struct CleanupResultView: View {
     var report: CleanupReport
-    var breakdown: [(category: CleanCategory, bytes: Int64)] = []
     var onDone: () -> Void
-    @Environment(AppModel.self) private var model
 
     var body: some View {
         VStack(alignment: .leading, spacing: NoriaSpacing.m) {
-            NoriaLogo(size: 24)
-            HStack(alignment: .center) {
+            HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(Format.bytes(report.removedSize))
                         .font(NoriaFont.heroValue)
@@ -177,49 +174,44 @@ struct CleanupResultView: View {
                         switch report.method {
                         case .quarantine: Text("moved to the quarantine")
                         case .moveToTrash: Text("moved to the Trash")
-                        case .deletePermanently: Text("of space freed")
+                        case .deletePermanently: Text("deleted")
                         }
                     }
                     .foregroundStyle(.secondary)
                 }
                 Spacer()
-                let ok = report.failed.isEmpty
-                Image(systemName: ok ? "checkmark" : "exclamationmark")
-                    .font(.system(size: 22, weight: .bold))
-                    .foregroundStyle(ok ? NoriaColor.safe : NoriaColor.review)
-                    .frame(width: 48, height: 48)
-                    .background((ok ? NoriaColor.safe : NoriaColor.review).opacity(0.15), in: Circle())
+                Image(systemName: report.failed.isEmpty ? "checkmark.circle.fill" : "exclamationmark.circle.fill")
+                    .font(.system(size: 36))
+                    .foregroundStyle(report.failed.isEmpty ? NoriaColor.safe : NoriaColor.review)
             }
 
-            if !breakdown.isEmpty {
-                VStack(spacing: 0) {
-                    ForEach(Array(breakdown.enumerated()), id: \.element.category) { index, entry in
-                        if index > 0 { Divider().padding(.leading, 38) }
-                        HStack(spacing: NoriaSpacing.s) {
-                            CategoryIcon(category: entry.category, size: 26)
-                            Text(entry.category.title)
-                            Spacer()
-                            Text(Format.bytes(entry.bytes)).monospacedDigit()
-                        }
-                        .font(NoriaFont.body)
-                        .padding(.vertical, 6)
+            Grid(alignment: .leading, horizontalSpacing: NoriaSpacing.l, verticalSpacing: NoriaSpacing.xs) {
+                GridRow {
+                    Text("Items removed").foregroundStyle(.secondary)
+                    Text(Format.count(report.removed.count))
+                }
+                GridRow {
+                    Text("Skipped or failed").foregroundStyle(.secondary)
+                    Text(Format.count(report.failed.count))
+                }
+                if report.method == .quarantine {
+                    GridRow {
+                        Text("In quarantine").foregroundStyle(.secondary)
+                        Text(Format.bytes(report.quarantinedSize))
+                    }
+                } else if report.method == .moveToTrash {
+                    GridRow {
+                        Text("In the Trash").foregroundStyle(.secondary)
+                        Text(Format.bytes(report.movedToTrashSize))
+                    }
+                } else if let freed = report.measuredFreedSize {
+                    GridRow {
+                        Text("Free space change (measured)").foregroundStyle(.secondary)
+                        Text(Format.bytes(freed))
                     }
                 }
             }
-
-            HStack(spacing: 4) {
-                Text("\(report.removed.count) items removed")
-                if !report.failed.isEmpty {
-                    Text(verbatim: "·")
-                    Text("\(report.failed.count) skipped or failed")
-                }
-                if report.method == .deletePermanently, let freed = report.measuredFreedSize {
-                    Text(verbatim: "·")
-                    Text("free space change (measured): \(Format.bytes(freed))")
-                }
-            }
-            .font(NoriaFont.caption)
-            .foregroundStyle(.secondary)
+            .font(NoriaFont.body)
 
             if report.method == .quarantine {
                 Text("Restore anything from History › Quarantine. Space is freed when you delete it from the quarantine or when the retention period ends.")
@@ -254,22 +246,15 @@ struct CleanupResultView: View {
                 }
             }
 
-            VStack(spacing: NoriaSpacing.xs) {
-                Button(action: onDone) {
-                    Text("Done").frame(maxWidth: .infinity)
+            HStack {
+                if report.method == .moveToTrash && !report.removed.isEmpty {
+                    Button("Open Trash") { SystemActions.openTrash() }
+                        .buttonStyle(SecondaryButtonStyle())
                 }
-                .buttonStyle(PrimaryButtonStyle(prominent: true))
-                .keyboardShortcut(.defaultAction)
-                HStack(spacing: NoriaSpacing.l) {
-                    if report.method == .moveToTrash && !report.removed.isEmpty {
-                        Button("Open Trash") { SystemActions.openTrash() }
-                    }
-                    Button("View Details") {
-                        model.selection = .history
-                        onDone()
-                    }
-                }
-                .buttonStyle(.link)
+                Spacer()
+                Button("Done", action: onDone)
+                    .buttonStyle(PrimaryButtonStyle())
+                    .keyboardShortcut(.defaultAction)
             }
         }
     }

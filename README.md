@@ -105,19 +105,18 @@ any user-facing string lacks a translation. CI checks the catalog is up to date.
 
 ## Brand: logo, icon and colors
 
-Noria is a water wheel: five curved blades turning around a hub, with water
-flowing underneath. "Make space."
+Noria's identity is carpentry: a circular saw blade cutting a wood shaving.
 
-- **Mark** — drawn in code (`App/DesignSystem/NoriaMark.swift`, `NoriaMarkGeometry`)
-  so the wheel can turn during analysis while the water stays still; it slows
-  down when the scan ends and is static with Reduce Motion. Gaps are transparent,
-  so it works on light and dark backgrounds.
-- **App icon and menu bar icon** — drawn from the same geometry by
-  `Tools/make_app_icon.py` (light tile on the macOS icon grid; black template image
-  for the menu bar). Run it after changing the geometry.
-- **Palette** (`App/DesignSystem/Theme.swift`) — deep `#0A5FA8`, ocean `#1689DB`
-  (accent), sky `#2EB4EE`, foam `#8FDCF7`, mist `#E8F6FD`, ink `#1A1F26`; each
-  cleaning category has its own icon color. Brand board: `Design/noria-brand-board.webp`.
+- **App icon** — built from the brand artwork in `Design/noria-icon-source.webp`
+  by `Tools/make_app_icon.py` (crops the tile, applies the macOS icon grid and a
+  transparent background, writes every size). To update it, replace the source
+  image and run the script.
+- **In-app mark** — the saw is drawn in code (`App/DesignSystem/SawView.swift`) so
+  the blade can spin during analysis while the shaving stays still; it winds
+  down when the scan ends and is static with Reduce Motion.
+- **Palette** (`App/DesignSystem/Theme.swift`) — wood `#D67B2D`, light orange
+  `#F5A462`, beige `#F7F4EE`, graphite `#1F2328`, steel `#C0C4C9`/`#6B6F76`,
+  dark background `#1A1A1A`. The brand board is in `Design/noria-brand-board.webp`.
 
 ## Privacy
 

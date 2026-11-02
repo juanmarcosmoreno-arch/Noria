@@ -23,12 +23,10 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - [x] Xcode project (XcodeGen spec + committed project), macOS 14 deployment target
 - [x] Modular architecture: `NoriaCore` package (engine) + SwiftUI app target
 - [x] Design system: color tokens (light/dark), spacing, radii, typography, components
-- [x] Water-wheel identity: blue palette, per-category icon colors; mark drawn in code
-      (`NoriaMark`) — the wheel turns during analysis and slows down after, Reduce
-      Motion support, timeline paused when idle; app and menu bar icons drawn from the
-      same geometry (`Tools/make_app_icon.py`); determinate ring / indeterminate arc;
-      dashboard with the analysis ring and per-category status list, cleanup result
-      card with per-category breakdown, menu bar quick actions
+- [x] Carpentry identity: wood/beige/steel palette; app icon from the brand artwork
+      (`Tools/make_app_icon.py`); saw mark drawn in code — blade spins up during
+      analysis and winds down after, Reduce Motion support, timeline paused when idle;
+      determinate ring (category progress) / indeterminate arc
 - [x] Main window: `NavigationSplitView`, 13 sidebar sections in the specified order;
       unbuilt modules show an honest "planned for phase N" screen
 - [x] Dashboard (layout from the brand board): real volume capacity/used/available/
@@ -168,8 +166,8 @@ development container is Linux, so the SwiftUI target is compiled in CI
 - Language change requires relaunching Noria (macOS reads `AppleLanguages` at launch).
 - Associated-app names are resolved only for reverse-DNS cache folder names.
 - Spanish copy uses neutral Spanish (tú). Can be switched to rioplatense if preferred.
-- The mark is a vector interpretation of the brand board, not the raster artwork
-  itself; small differences in shading are expected.
+- The in-app saw is a vector re-drawing of the brand artwork, not the raster
+  artwork itself; small differences in shading are expected.
 
 ## Technical decisions
 

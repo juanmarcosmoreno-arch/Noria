@@ -652,19 +652,3 @@ ES.update({
     "Largest First": "Más grandes primero",
     "Sort": "Ordenar",
 })
-
-# Redesign (water wheel): dashboard, results, menu bar.
-ES.update({
-    "Free Up Space": "Liberar espacio",
-    "Looking for unnecessary files, caches and more.": "Buscando archivos innecesarios, caché y más.",
-    "Quick Analysis": "Análisis rápido",
-    "View Details": "Ver detalles",
-    "free space change (measured): %@": "cambio de espacio libre (medido): %@",
-    "of space freed": "de espacio liberado",
-})
-PLURALS.update({
-    "%lld items removed": {"en": {"one": "%lld item removed", "other": "%lld items removed"},
-                           "es": {"one": "%lld elemento eliminado", "other": "%lld elementos eliminados"}},
-    "%lld skipped or failed": {"en": {"one": "%lld skipped or failed", "other": "%lld skipped or failed"},
-                               "es": {"one": "%lld omitido o con error", "other": "%lld omitidos o con error"}},
-})

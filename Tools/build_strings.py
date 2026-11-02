@@ -24,7 +24,7 @@ def keys():
                 continue
             for match in literal.finditer(line):
                 before = line[:match.start()]
-                if re.search(r'(systemName:|systemImage:|verbatim:|forKey:|forInfoDictionaryKey:|string:|Image\()\s*$', before):
+                if re.search(r'(systemName:|systemImage:|verbatim:|forKey:|forInfoDictionaryKey:|string:)\s*$', before):
                     continue
                 text = match.group(1)
                 # Lowercase identifiers are SF Symbol names unless they have a translation.

@@ -122,10 +122,10 @@ private struct ChartCard: View {
                 }
                 Chart(points) { point in
                     AreaMark(x: .value("Time", point.date), y: .value("Value", point.value))
-                        .foregroundStyle(LinearGradient(colors: [NoriaColor.accent.opacity(0.35), NoriaColor.accent.opacity(0.02)],
+                        .foregroundStyle(LinearGradient(colors: [NoriaColor.wood.opacity(0.35), NoriaColor.wood.opacity(0.02)],
                                                         startPoint: .top, endPoint: .bottom))
                     LineMark(x: .value("Time", point.date), y: .value("Value", point.value))
-                        .foregroundStyle(NoriaColor.accent)
+                        .foregroundStyle(NoriaColor.wood)
                 }
                 .chartYScale(domain: 0...(maximum ?? max(points.map(\.value).max() ?? 1, 1)))
                 .chartXAxis(.hidden)

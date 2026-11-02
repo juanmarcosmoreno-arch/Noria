@@ -34,7 +34,7 @@ struct NoriaApp: App {
             WatchMenuView()
                 .environment(model)
         } label: {
-            Image("MenuBarIcon")
+            Image(systemName: "gauge.with.dots.needle.33percent")
         }
         .menuBarExtraStyle(.window)
     }
