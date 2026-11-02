@@ -8,10 +8,10 @@ struct DashboardView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: NoriaSpacing.l) {
                 HeroCard()
-                SystemInsightsCard()
                 if model.smartScan.phase != .idle {
-                    AnalysisCard()
+                    OverviewCard()
                 }
+                SystemInsightsCard()
                 if !model.smartScan.recommendations.isEmpty {
                     RecommendationsCard()
                 }
@@ -40,19 +40,29 @@ private struct HeroCard: View {
     var body: some View {
         Card(padding: NoriaSpacing.xl) {
             HStack(alignment: .center, spacing: NoriaSpacing.xl) {
-                SawProgressView(isActive: scan.isScanning, progress: scan.categoryProgress,
-                                lineWidth: 7, showsRing: scan.isScanning)
-                    .frame(width: 280, height: 280)
-
-                VStack(alignment: .leading, spacing: NoriaSpacing.m) {
+                VStack(spacing: NoriaSpacing.m) {
+                    WheelProgressView(isActive: scan.isScanning, progress: scan.categoryProgress,
+                                      lineWidth: 7, showsRing: scan.phase != .idle)
+                        .frame(width: 210, height: 210)
                     header
-                    StorageSummary()
-                    HStack(spacing: NoriaSpacing.s) {
-                        RecoverableTile()
-                        CPUTile()
-                        MemoryTile()
-                    }
                     actions
+                }
+                .frame(width: 340)
+                .multilineTextAlignment(.center)
+
+                Group {
+                    if scan.phase == .idle {
+                        VStack(alignment: .leading, spacing: NoriaSpacing.m) {
+                            StorageSummary()
+                            HStack(spacing: NoriaSpacing.s) {
+                                RecoverableTile()
+                                CPUTile()
+                                MemoryTile()
+                            }
+                        }
+                    } else {
+                        CategoryStatusList()
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -61,17 +71,20 @@ private struct HeroCard: View {
 
     @ViewBuilder
     private var header: some View {
-        VStack(alignment: .leading, spacing: NoriaSpacing.xxs) {
+        VStack(spacing: NoriaSpacing.xxs) {
             switch scan.phase {
             case .idle:
                 Text("Make space. Run better.").font(NoriaFont.title)
                 Text("Analyze, clean and free up space safely.").foregroundStyle(.secondary)
             case .scanning:
                 Text("Analyzing your Mac…").font(NoriaFont.title)
-                if let category = scan.currentCategory {
-                    Label(category.title, systemImage: category.systemImage)
-                        .foregroundStyle(NoriaColor.accent)
+                Text("Looking for unnecessary files, caches and more.").foregroundStyle(.secondary)
+                HStack(spacing: 4) {
+                    Text("\(scan.filesVisited) files examined")
+                    Text(verbatim: "· " + Format.bytes(scan.bytesFound))
                 }
+                .font(NoriaFont.caption.monospacedDigit())
+                .foregroundStyle(.tertiary)
             case .finished:
                 Text("Analysis complete").font(NoriaFont.title)
                 if let report = scan.report {
@@ -91,27 +104,18 @@ private struct HeroCard: View {
                 Text(message).foregroundStyle(.secondary).textSelection(.enabled)
             }
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 
     @ViewBuilder
     private var actions: some View {
         switch scan.phase {
         case .scanning:
-            HStack(spacing: NoriaSpacing.l) {
-                MetricView(title: "Files examined", value: Format.count(scan.filesVisited))
-                MetricView(title: "Found", value: Format.bytes(scan.bytesFound))
-                if let start = scan.startedAt {
-                    TimelineView(.periodic(from: start, by: 1)) { context in
-                        MetricView(title: "Elapsed", value: Format.duration(context.date.timeIntervalSince(start)))
-                    }
-                }
-                Spacer()
-                Button("Cancel") { scan.cancel() }
-                    .buttonStyle(SecondaryButtonStyle())
-                    .keyboardShortcut(.cancelAction)
-            }
+            Button("Cancel") { scan.cancel() }
+                .buttonStyle(SecondaryButtonStyle())
+                .keyboardShortcut(.cancelAction)
         case .finished:
-            HStack(spacing: NoriaSpacing.s) {
+            VStack(spacing: NoriaSpacing.xs) {
                 Button {
                     model.selection = .smartClean
                 } label: {
@@ -119,10 +123,10 @@ private struct HeroCard: View {
                 }
                 .buttonStyle(PrimaryButtonStyle(prominent: true))
                 Button("Analyze Again") { scan.start() }
-                    .buttonStyle(SecondaryButtonStyle())
+                    .buttonStyle(.link)
             }
         case .idle, .cancelled, .failed:
-            VStack(alignment: .leading, spacing: NoriaSpacing.xs) {
+            VStack(spacing: NoriaSpacing.xs) {
                 Button {
                     scan.start()
                 } label: {
@@ -132,6 +136,82 @@ private struct HeroCard: View {
                 .keyboardShortcut(.defaultAction)
                 FolderAccessNote()
             }
+        }
+    }
+}
+
+/// Storage and live metrics, shown under the hero once an analysis has started.
+private struct OverviewCard: View {
+    var body: some View {
+        Card {
+            HStack(alignment: .top, spacing: NoriaSpacing.m) {
+                StorageSummary()
+                    .frame(maxWidth: .infinity)
+                RecoverableTile()
+                CPUTile()
+                MemoryTile()
+            }
+        }
+    }
+}
+
+/// Every Smart Scan category with its icon, the space found and its status.
+private struct CategoryStatusList: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        let scan = model.smartScan
+        VStack(spacing: 0) {
+            ForEach(Array(scan.plannedCategories.enumerated()), id: \.element) { index, category in
+                if index > 0 { Divider().padding(.leading, 48) }
+                HStack(spacing: NoriaSpacing.s) {
+                    CategoryIcon(category: category, size: 28)
+                    Text(category.title).font(NoriaFont.body)
+                    Spacer()
+                    trailing(for: category, scan: scan)
+                }
+                .padding(.vertical, 7)
+                .padding(.horizontal, NoriaSpacing.s)
+                .background(scan.currentCategory == category ? NoriaColor.accent.opacity(0.08) : .clear,
+                            in: RoundedRectangle(cornerRadius: NoriaRadius.small, style: .continuous))
+                .accessibilityElement(children: .combine)
+            }
+            if scan.phase == .finished, let report = scan.report {
+                Divider()
+                HStack {
+                    Text("Recoverable").font(NoriaFont.body.weight(.semibold))
+                    Spacer()
+                    Text(Format.bytes(report.recoverableSize))
+                        .font(NoriaFont.body.weight(.semibold).monospacedDigit())
+                        .foregroundStyle(NoriaColor.accent)
+                }
+                .padding(.horizontal, NoriaSpacing.s)
+                .padding(.top, NoriaSpacing.s)
+            }
+        }
+        .padding(NoriaSpacing.xs)
+        .background(NoriaColor.subtleFill.opacity(0.5), in: RoundedRectangle(cornerRadius: NoriaRadius.card - 4, style: .continuous))
+    }
+
+    @ViewBuilder
+    private func trailing(for category: CleanCategory, scan: SmartScanModel) -> some View {
+        if let result = scan.results[category] {
+            if !result.locationExists {
+                Text("Not present").font(NoriaFont.caption).foregroundStyle(.tertiary)
+            } else if result.items.isEmpty && result.inaccessibleCount > 0 {
+                Image(systemName: "lock.fill").foregroundStyle(.secondary)
+                    .help(Text("Noria does not have permission to read this location."))
+            } else {
+                HStack(spacing: NoriaSpacing.s) {
+                    Text(Format.bytes(category == .trash ? result.totalSize : result.items.filter(\.isSelectable).reduce(0) { $0 + $1.allocatedSize }))
+                        .font(NoriaFont.body.monospacedDigit())
+                    Image(systemName: "checkmark.circle.fill").foregroundStyle(NoriaColor.accent)
+                }
+            }
+        } else if scan.currentCategory == category {
+            ProgressView().controlSize(.small)
+        } else {
+            Image(systemName: "ellipsis").foregroundStyle(.tertiary)
         }
     }
 }
@@ -163,7 +243,7 @@ private struct StorageSummary: View {
         HStack(alignment: .center, spacing: NoriaSpacing.m) {
             Image(systemName: "internaldrive.fill")
                 .font(.system(size: 30))
-                .foregroundStyle(NoriaColor.steelMid)
+                .foregroundStyle(NoriaColor.slate)
             if let volume = model.volume {
                 VStack(alignment: .leading, spacing: NoriaSpacing.xs) {
                     HStack(alignment: .firstTextBaseline) {
@@ -258,65 +338,6 @@ private struct MemoryTile: View {
     }
 }
 
-// MARK: - Analysis
-
-/// Per-category status of the current or last Smart Scan.
-private struct AnalysisCard: View {
-    @Environment(AppModel.self) private var model
-
-    var body: some View {
-        let scan = model.smartScan
-        Card {
-            VStack(alignment: .leading, spacing: NoriaSpacing.s) {
-                CardHeader(title: "Smart Clean", systemImage: "sparkles") {
-                    if scan.phase == .finished, let report = scan.report {
-                        Text("\(Format.bytes(report.recoverableSize)) recoverable")
-                            .font(NoriaFont.body.weight(.semibold))
-                            .foregroundStyle(NoriaColor.accent)
-                    }
-                }
-                LazyVGrid(columns: [GridItem(.flexible(), spacing: NoriaSpacing.l), GridItem(.flexible())], spacing: 2) {
-                    ForEach(scan.plannedCategories) { category in
-                        HStack(spacing: NoriaSpacing.s) {
-                            CategoryIcon(category: category, size: 26)
-                            Text(category.title).font(NoriaFont.body)
-                            Spacer()
-                            trailing(for: category, scan: scan)
-                        }
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, NoriaSpacing.xs)
-                        .background(scan.currentCategory == category ? NoriaColor.subtleFill : .clear,
-                                    in: RoundedRectangle(cornerRadius: NoriaRadius.small))
-                        .accessibilityElement(children: .combine)
-                    }
-                }
-            }
-        }
-    }
-
-    @ViewBuilder
-    private func trailing(for category: CleanCategory, scan: SmartScanModel) -> some View {
-        if let result = scan.results[category] {
-            if !result.locationExists {
-                Text("Not present").font(NoriaFont.caption).foregroundStyle(.tertiary)
-            } else if result.items.isEmpty && result.inaccessibleCount > 0 {
-                Image(systemName: "lock.fill").foregroundStyle(.secondary)
-                    .help(Text("Noria does not have permission to read this location."))
-            } else {
-                HStack(spacing: 6) {
-                    Text(Format.bytes(category == .trash ? result.totalSize : result.items.filter(\.isSelectable).reduce(0) { $0 + $1.allocatedSize }))
-                        .font(NoriaFont.body.monospacedDigit())
-                    Image(systemName: "checkmark.circle.fill").foregroundStyle(NoriaColor.safe)
-                }
-            }
-        } else if scan.currentCategory == category {
-            ProgressView().controlSize(.small)
-        } else {
-            Image(systemName: "circle").foregroundStyle(.tertiary)
-        }
-    }
-}
-
 // MARK: - Device
 
 private struct DeviceCard: View {
@@ -342,10 +363,6 @@ private struct DeviceCard: View {
                         row("Swap used", memory?.swapUsed.map { Format.memory($0) } ?? "—")
                     }
                 }
-                Text("Battery health and per-process activity arrive with Mac Health and Performance (phase 3).")
-                    .font(NoriaFont.caption)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
             }
         }
     }

@@ -81,7 +81,7 @@ struct RootView: View {
                 }
             }
             .safeAreaInset(edge: .top) {
-                NoriaLogo()
+                NoriaLogo(size: 30)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, NoriaSpacing.m)
                     .padding(.vertical, NoriaSpacing.s)

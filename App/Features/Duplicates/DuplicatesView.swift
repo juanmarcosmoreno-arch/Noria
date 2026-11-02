@@ -111,7 +111,7 @@ struct DuplicatesView: View {
             switch duplicates.phase {
             case .scanning:
                 VStack(spacing: NoriaSpacing.m) {
-                    SawView(isSpinning: true).frame(width: 110, height: 110)
+                    WheelView(isSpinning: true).frame(width: 110, height: 110)
                     Text(progressText).font(NoriaFont.sectionTitle)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

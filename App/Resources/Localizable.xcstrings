@@ -232,17 +232,6 @@
         }
       }
     },
-    "%@ recoverable": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ recuperables"
-          }
-        }
-      }
-    },
     "%@ recoverable · %@ items": {
       "extractionState": "manual",
       "localizations": {
@@ -569,6 +558,47 @@
         }
       }
     },
+    "%lld items removed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item removed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items removed"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elemento eliminado"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld elementos eliminados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld items restored to their original location.": {
       "extractionState": "manual",
       "localizations": {
@@ -726,6 +756,47 @@
                 "stringUnit": {
                   "state": "translated",
                   "value": "%lld elementos seleccionados están marcados como REVISAR. Asegúrate de que ya no los necesitas."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld skipped or failed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld skipped or failed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld skipped or failed"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld omitido o con error"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld omitidos o con error"
                 }
               }
             }
@@ -1246,17 +1317,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Batería"
-          }
-        }
-      }
-    },
-    "Battery health and per-process activity arrive with Mac Health and Performance (phase 3).": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La salud de la batería y la actividad por proceso llegarán con Salud del Mac y Rendimiento (fase 3)."
           }
         }
       }
@@ -2240,17 +2300,6 @@
         }
       }
     },
-    "Elapsed": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tiempo"
-          }
-        }
-      }
-    },
     "Elevated": {
       "extractionState": "manual",
       "localizations": {
@@ -2390,17 +2439,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Archivos"
-          }
-        }
-      }
-    },
-    "Files examined": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Archivos examinados"
           }
         }
       }
@@ -2548,17 +2586,6 @@
         }
       }
     },
-    "Found": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Encontrado"
-          }
-        }
-      }
-    },
     "Found a %@ installer downloaded %@ ago: %@": {
       "extractionState": "manual",
       "localizations": {
@@ -2566,6 +2593,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Encontramos un instalador de %1$@ descargado hace %2$@: %3$@"
+          }
+        }
+      }
+    },
+    "Free Up Space": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Liberar espacio"
           }
         }
       }
@@ -2588,17 +2626,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Espacio libre en cada análisis"
-          }
-        }
-      }
-    },
-    "Free space change (measured)": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cambio de espacio libre (medido)"
           }
         }
       }
@@ -2834,17 +2861,6 @@
         }
       }
     },
-    "In the Trash": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En la Papelera"
-          }
-        }
-      }
-    },
     "Inside a location managed by macOS or another app. Noria does not modify it.": {
       "extractionState": "manual",
       "localizations": {
@@ -2918,17 +2934,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Elementos que ya están en la Papelera."
-          }
-        }
-      }
-    },
-    "Items removed": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elementos eliminados"
           }
         }
       }
@@ -3226,6 +3231,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Buscando archivos grandes…"
+          }
+        }
+      }
+    },
+    "Looking for unnecessary files, caches and more.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando archivos innecesarios, caché y más."
           }
         }
       }
@@ -4550,6 +4566,17 @@
         }
       }
     },
+    "Quick Analysis": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Análisis rápido"
+          }
+        }
+      }
+    },
     "Quit": {
       "extractionState": "manual",
       "localizations": {
@@ -4656,6 +4683,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Operaciones registradas"
+          }
+        }
+      }
+    },
+    "Recoverable": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recuperable"
           }
         }
       }
@@ -6244,6 +6282,17 @@
         }
       }
     },
+    "View Details": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver detalles"
+          }
+        }
+      }
+    },
     "Web data": {
       "extractionState": "manual",
       "localizations": {
@@ -6582,13 +6631,13 @@
         }
       }
     },
-    "deleted": {
+    "free space change (measured): %@": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "eliminado"
+            "value": "cambio de espacio libre (medido): %@"
           }
         }
       }
@@ -6666,6 +6715,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "de %@"
+          }
+        }
+      }
+    },
+    "of space freed": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "de espacio liberado"
           }
         }
       }

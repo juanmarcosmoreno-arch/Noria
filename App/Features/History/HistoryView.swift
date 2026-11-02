@@ -306,7 +306,7 @@ private struct HistoryCharts: View {
                     CardHeader(title: "Cleaned per month", systemImage: "chart.bar")
                     Chart(monthly) { point in
                         BarMark(x: .value("Month", point.date, unit: .month), y: .value("Bytes", Double(point.bytes)))
-                            .foregroundStyle(NoriaColor.woodGradient)
+                            .foregroundStyle(NoriaColor.accentGradient)
                             .cornerRadius(4)
                     }
                     .chartYAxis { bytesAxis }
@@ -329,9 +329,9 @@ private struct HistoryCharts: View {
                     } else {
                         Chart(freeSpace) { point in
                             LineMark(x: .value("Date", point.date), y: .value("Bytes", Double(point.bytes)))
-                                .foregroundStyle(NoriaColor.wood)
+                                .foregroundStyle(NoriaColor.accent)
                             PointMark(x: .value("Date", point.date), y: .value("Bytes", Double(point.bytes)))
-                                .foregroundStyle(NoriaColor.woodDark)
+                                .foregroundStyle(NoriaColor.deep)
                         }
                         .chartYAxis { bytesAxis }
                         .frame(height: 140)

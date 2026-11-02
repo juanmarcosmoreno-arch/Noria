@@ -53,8 +53,8 @@ struct PrimaryButtonStyle: ButtonStyle {
             .padding(.horizontal, NoriaSpacing.l)
             .padding(.vertical, prominent ? NoriaSpacing.m : NoriaSpacing.s - 2)
             .frame(maxWidth: prominent ? .infinity : nil)
-            .background(shape.fill(NoriaColor.woodGradient))
-            .shadow(color: NoriaColor.wood.opacity(prominent ? 0.3 : 0), radius: 8, y: 3)
+            .background(shape.fill(NoriaColor.accentGradient))
+            .shadow(color: NoriaColor.accent.opacity(prominent ? 0.3 : 0), radius: 8, y: 3)
             .opacity(isEnabled ? (configuration.isPressed ? 0.85 : 1) : 0.45)
             .scaleEffect(configuration.isPressed ? 0.99 : 1)
             .contentShape(shape)
@@ -119,7 +119,7 @@ struct CapacityBar: View {
             ZStack(alignment: .leading) {
                 Capsule().fill(NoriaColor.subtleFill)
                 Capsule()
-                    .fill(LinearGradient(colors: [NoriaColor.woodLight, NoriaColor.wood], startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(colors: [NoriaColor.sky, NoriaColor.accent], startPoint: .leading, endPoint: .trailing))
                     .frame(width: max(height, proxy.size.width * min(1, max(0, fraction))))
             }
         }

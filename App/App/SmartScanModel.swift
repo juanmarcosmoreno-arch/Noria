@@ -198,6 +198,8 @@ final class CleanupController {
     private(set) var state: State = .idle
     private(set) var report: CleanupReport?
     private(set) var currentPath: String?
+    /// Category of every item of the current run, for the per-category result.
+    private var itemCategories: [UUID: CleanCategory] = [:]
     private var task: Task<Void, Never>?
     private var cancellation = CleanupCancellation()
 
@@ -223,6 +225,7 @@ final class CleanupController {
         let engine = CleaningEngine(policy: app.safetyPolicy, remover: remover)
         state = .running(done: 0, total: items.count)
         report = nil
+        itemCategories = Dictionary(items.map { ($0.id, $0.category) }, uniquingKeysWith: { first, _ in first })
         let cancellation = CleanupCancellation()
         self.cancellation = cancellation
         task = Task { [weak self] in
@@ -245,6 +248,16 @@ final class CleanupController {
                 }
             }
         }
+    }
+
+    /// Space removed per category in `report`, largest first.
+    func breakdown(of report: CleanupReport) -> [(category: CleanCategory, bytes: Int64)] {
+        var totals: [CleanCategory: Int64] = [:]
+        for outcome in report.removed {
+            guard let category = itemCategories[outcome.itemID] else { continue }
+            totals[category, default: 0] += outcome.allocatedSize
+        }
+        return totals.map { (category: $0.key, bytes: $0.value) }.sorted { $0.bytes > $1.bytes }
     }
 
     /// Stops after the item currently being processed; the report still arrives.
