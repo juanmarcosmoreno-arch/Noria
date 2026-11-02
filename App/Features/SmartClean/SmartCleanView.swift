@@ -313,7 +313,7 @@ struct ItemInspector: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         } else {
-            Text("Select an item to see why Noria lists it.")
+            Text("Select an item to see why Viruta lists it.")
                 .font(NoriaFont.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

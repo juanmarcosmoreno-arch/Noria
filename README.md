@@ -1,8 +1,8 @@
-# noria
+# viruta
 
 **Make space. Run better.**
 
-Noria is a native macOS cleaner and optimizer written in Swift and SwiftUI. It
+Viruta (formerly Noria) is a native macOS cleaner and optimizer written in Swift and SwiftUI. It
 finds space you can recover, explains why each item is listed, and never
 removes anything without your review and confirmation. Everything runs locally.
 
@@ -104,6 +104,10 @@ translation). After changing UI text, add the Spanish entry to
 any user-facing string lacks a translation. CI checks the catalog is up to date.
 
 ## Brand: logo, icon and colors
+
+The app is called **Viruta** (the wood shaving a saw throws off). Code, the Xcode
+project, schemes and data folders keep the original name *Noria* so nothing
+breaks and existing quarantine/history data stays where it is.
 
 Noria's identity is carpentry: a circular saw blade cutting a wood shaving.
 

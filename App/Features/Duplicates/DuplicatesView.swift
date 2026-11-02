@@ -123,7 +123,7 @@ struct DuplicatesView: View {
                 EmptyStateView(title: "The scan could not finish", message: "\(message)", systemImage: "exclamationmark.triangle")
             case .idle, .cancelled:
                 EmptyStateView(title: "Find identical files",
-                               message: "Noria compares file contents, not names. You decide which copies to remove, and one copy of each file is always kept.",
+                               message: "Viruta compares file contents, not names. You decide which copies to remove, and one copy of each file is always kept.",
                                systemImage: "square.on.square")
             }
         }

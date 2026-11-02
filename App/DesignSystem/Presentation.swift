@@ -120,7 +120,7 @@ extension RiskLevel {
         switch self {
         case .safe: return String(localized: "Matched a verified rule: the content is rebuilt automatically or is disposable.")
         case .review: return String(localized: "Probably not needed, but only you can decide. Check it before cleaning.")
-        case .protected: return String(localized: "Noria never removes this. It is shown for transparency only.")
+        case .protected: return String(localized: "Viruta never removes this. It is shown for transparency only.")
         }
     }
 
@@ -142,7 +142,7 @@ extension ItemReason {
         case .thirdPartyCache:
             return String(localized: "Cache folder of a third-party app. Usually rebuilt automatically, but the app may need to download data again. Quit the app before cleaning.")
         case .systemCache:
-            return String(localized: "Cache managed by macOS or an Apple app. Noria does not touch it.")
+            return String(localized: "Cache managed by macOS or an Apple app. Viruta does not touch it.")
         case .oldLog(let days):
             return String(localized: "Log not modified for \(Format.age(days: days)). Apps write new logs as needed.")
         case .oldTemporary(let days):
@@ -169,7 +169,7 @@ extension ItemReason {
         case .largeFile:
             return String(localized: "Large file in your home folder.")
         case .protectedLocation:
-            return String(localized: "Inside a location managed by macOS or another app. Noria does not modify it.")
+            return String(localized: "Inside a location managed by macOS or another app. Viruta does not modify it.")
         case .appLeftover(let kind, let identifier):
             return String(localized: "\(kind.title) of “\(identifier)”. No installed app uses this identifier, and no other app from the same developer is installed. If you still use that app (for example from an external drive), keep it.")
         case .appData(let kind, let match):
@@ -186,7 +186,7 @@ extension ItemReason {
         case .mailServerAttachments(let account):
             return String(localized: "Local copies of attachments from “\(account)”. The originals stay on the mail server and Mail downloads them again when you open the message. Messages are not touched. Quit Mail first.")
         case .mailLocalAttachments(let account):
-            return String(localized: "Attachments of “\(account)”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Noria does not remove them; delete large messages from Mail instead.")
+            return String(localized: "Attachments of “\(account)”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Viruta does not remove them; delete large messages from Mail instead.")
         case .mailConfirmedServerAttachments(let account):
             return String(localized: "Local copies of attachments from “\(account)”, which you confirmed keeps its mail on a server. Mail downloads them again when you open the message. Messages are not touched. Quit Mail first.")
         case .mailDownloads:
@@ -318,7 +318,7 @@ extension RemovalMethod {
     /// One-line description of what happens to selected items.
     var outcome: String {
         switch self {
-        case .quarantine: return String(localized: "Selected items will be moved to Noria's quarantine; you can restore them from History. Space is freed when they are deleted from the quarantine.")
+        case .quarantine: return String(localized: "Selected items will be moved to Viruta's quarantine; you can restore them from History. Space is freed when they are deleted from the quarantine.")
         case .moveToTrash: return String(localized: "Selected items will be moved to the Trash. Space is freed when the Trash is emptied.")
         case .deletePermanently: return String(localized: "Selected items will be deleted immediately.")
         }
@@ -326,7 +326,7 @@ extension RemovalMethod {
 
     var title: String {
         switch self {
-        case .quarantine: return String(localized: "Move to Noria quarantine (recommended)")
+        case .quarantine: return String(localized: "Move to Viruta quarantine (recommended)")
         case .moveToTrash: return String(localized: "Move to Trash (recommended)")
         case .deletePermanently: return String(localized: "Delete immediately")
         }
@@ -516,9 +516,9 @@ extension PrivacyNotice.Kind {
     var explanation: String {
         switch self {
         case .safariProtected:
-            return String(localized: "Safari's history and website data are protected by macOS and Noria does not modify them. In Safari, choose History › Clear History, or Settings › Privacy › Manage Website Data.")
+            return String(localized: "Safari's history and website data are protected by macOS and Viruta does not modify them. In Safari, choose History › Clear History, or Settings › Privacy › Manage Website Data.")
         case .firefoxHistoryWithBookmarks:
-            return String(localized: "Firefox keeps history and bookmarks in the same file, so Noria does not remove it. In Firefox, choose History › Clear Recent History.")
+            return String(localized: "Firefox keeps history and bookmarks in the same file, so Viruta does not remove it. In Firefox, choose History › Clear Recent History.")
         }
     }
 }

@@ -8,7 +8,7 @@ struct NoriaApp: App {
 
     var body: some Scene {
         // A single main window: reopening it from the menu bar brings it to the front.
-        Window(Text(verbatim: "Noria"), id: Self.mainWindowID) {
+        Window(Text(verbatim: "Viruta"), id: Self.mainWindowID) {
             RootView()
                 .environment(model)
                 .frame(minWidth: 980, minHeight: 640)

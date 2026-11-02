@@ -33,7 +33,7 @@ struct CleanupConfirmationView: View {
 
             switch method {
             case .quarantine:
-                Label("Items will be moved to Noria's quarantine. You can restore them from History › Quarantine. They are deleted for good after the retention period; until then the space is not freed.",
+                Label("Items will be moved to Viruta's quarantine. You can restore them from History › Quarantine. They are deleted for good after the retention period; until then the space is not freed.",
                       systemImage: "archivebox")
             case .moveToTrash:
                 Label("Items will be moved to the Trash. You can put them back from Finder. Space is freed when you empty the Trash.",
@@ -84,7 +84,7 @@ struct CleanupConfirmationView: View {
             .listStyle(.bordered)
             .frame(minHeight: 180)
 
-            Text("Before acting, Noria re-checks every item: anything that changed since the scan, is protected, or is excluded is skipped.")
+            Text("Before acting, Viruta re-checks every item: anything that changed since the scan, is protected, or is excluded is skipped.")
                 .font(NoriaFont.caption)
                 .foregroundStyle(.secondary)
 

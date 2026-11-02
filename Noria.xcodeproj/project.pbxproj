@@ -599,7 +599,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -639,20 +639,20 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Noria;
+				INFOPLIST_KEY_CFBundleDisplayName = Viruta;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
-				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Viruta measures large files on the Desktop when you scan your home folder.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Viruta measures large files in Documents when you scan your home folder.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Viruta looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Juan Marcos Moreno";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
-				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria.direct;
-				PRODUCT_NAME = Noria;
+				PRODUCT_NAME = Viruta;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -691,7 +691,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -739,20 +739,20 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Noria;
+				INFOPLIST_KEY_CFBundleDisplayName = Viruta;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
-				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Viruta measures large files on the Desktop when you scan your home folder.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Viruta measures large files in Documents when you scan your home folder.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Viruta looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Juan Marcos Moreno";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
-				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria;
-				PRODUCT_NAME = Noria;
+				PRODUCT_NAME = Viruta;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) NORIA_APP_STORE";
 			};
@@ -772,20 +772,20 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Noria;
+				INFOPLIST_KEY_CFBundleDisplayName = Viruta;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
-				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Viruta measures large files on the Desktop when you scan your home folder.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Viruta measures large files in Documents when you scan your home folder.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Viruta looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Juan Marcos Moreno";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
-				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria;
-				PRODUCT_NAME = Noria;
+				PRODUCT_NAME = Viruta;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) NORIA_APP_STORE";
 			};
@@ -804,20 +804,20 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Noria;
+				INFOPLIST_KEY_CFBundleDisplayName = Viruta;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Noria measures large files on the Desktop when you scan your home folder.";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Noria measures large files in Documents when you scan your home folder.";
-				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Noria looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
+				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Viruta measures large files on the Desktop when you scan your home folder.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Viruta measures large files in Documents when you scan your home folder.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Viruta looks for old installers and archives in Downloads. Nothing is removed without your confirmation.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Juan Marcos Moreno";
-				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Noria measures large files on the volume you choose.";
-				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Noria measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
+				INFOPLIST_KEY_NSRemovableVolumesUsageDescription = "Viruta measures large files on the volume you choose.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanmarcos.noria.direct;
-				PRODUCT_NAME = Noria;
+				PRODUCT_NAME = Viruta;
 				SDKROOT = macosx;
 			};
 			name = Debug;

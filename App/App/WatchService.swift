@@ -72,13 +72,13 @@ final class WatchService {
         switch alert {
         case .lowSpace(let available):
             content.title = String(localized: "Your Mac is running out of space")
-            content.body = String(localized: "Only \(Format.bytes(available)) available. Open Noria to see what you can safely clean.")
+            content.body = String(localized: "Only \(Format.bytes(available)) available. Open Viruta to see what you can safely clean.")
         case .spaceDropped(let amount, let available):
             content.title = String(localized: "Free space dropped quickly")
             content.body = String(localized: "\(Format.bytes(amount)) were used in the last hour; \(Format.bytes(available)) remain. A download, backup or app may be writing a lot.")
         case .sustainedHighCPU(let average, let minutes):
             content.title = String(localized: "Your Mac has been very busy")
-            content.body = String(localized: "CPU usage averaged \(Format.percent(average)) for \(Format.count(minutes)) minutes. Open Performance in Noria to see which app is responsible.")
+            content.body = String(localized: "CPU usage averaged \(Format.percent(average)) for \(Format.count(minutes)) minutes. Open Performance in Viruta to see which app is responsible.")
         }
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)

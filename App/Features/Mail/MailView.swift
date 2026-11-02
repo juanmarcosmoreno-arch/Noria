@@ -56,7 +56,7 @@ struct MailView: View {
                     } else {
                         Text("Why is Mail so big?").font(NoriaFont.title)
                     }
-                    Text("Mail keeps a local copy of your messages and their attachments. Noria shows where the space goes and only removes copies that can be downloaded again. Your messages are never deleted.")
+                    Text("Mail keeps a local copy of your messages and their attachments. Viruta shows where the space goes and only removes copies that can be downloaded again. Your messages are never deleted.")
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -81,12 +81,12 @@ private struct FullDiskAccessCard: View {
     var body: some View {
         Card {
             VStack(alignment: .leading, spacing: NoriaSpacing.s) {
-                CardHeader(title: "Noria needs Full Disk Access to read Mail", systemImage: "lock.shield")
-                Text("macOS protects Mail's folder. To let Noria measure it:")
+                CardHeader(title: "Viruta needs Full Disk Access to read Mail", systemImage: "lock.shield")
+                Text("macOS protects Mail's folder. To let Viruta measure it:")
                 VStack(alignment: .leading, spacing: 4) {
                     Text("1. Open Privacy & Security › Full Disk Access.")
-                    Text("2. Turn on Noria (use + to add it if it is not listed).")
-                    Text("3. Quit and reopen Noria, then analyze Mail again.")
+                    Text("2. Turn on Viruta (use + to add it if it is not listed).")
+                    Text("3. Quit and reopen Viruta, then analyze Mail again.")
                 }
                 .foregroundStyle(.secondary)
                 Button("Open Privacy Settings…") { SystemActions.openFullDiskAccessSettings() }
@@ -127,7 +127,7 @@ private struct AccountsCard: View {
                         CapacityBar(fraction: usage.totalSize > 0 ? Double(account.totalSize) / Double(usage.totalSize) : 0, height: 6)
                         if account.kind == .unknown, account.attachmentsSize > 0 {
                             HStack(spacing: NoriaSpacing.s) {
-                                Text("Noria could not confirm where this account keeps its mail, so its attachments are protected.")
+                                Text("Viruta could not confirm where this account keeps its mail, so its attachments are protected.")
                                     .font(NoriaFont.caption).foregroundStyle(.secondary)
                                     .fixedSize(horizontal: false, vertical: true)
                                 Spacer()
@@ -182,7 +182,7 @@ private struct CleanableCard: View {
         let mail = model.mail
         Card {
             VStack(alignment: .leading, spacing: NoriaSpacing.m) {
-                CardHeader(title: "What Noria can clean safely", systemImage: "checkmark.shield") {
+                CardHeader(title: "What Viruta can clean safely", systemImage: "checkmark.shield") {
                     if !mail.removableItems.isEmpty {
                         Button(mail.selectedIDs.count == mail.removableItems.count ? LocalizedStringKey("Deselect All") : LocalizedStringKey("Select All")) {
                             mail.selectAllRemovable(mail.selectedIDs.count != mail.removableItems.count)
@@ -199,7 +199,7 @@ private struct CleanableCard: View {
                     }
                 }
                 if mail.protectedSize > 0 {
-                    Label("\(Format.bytes(mail.protectedSize)) of attachments belong to accounts that keep mail only on this Mac (or whose type could not be confirmed). Noria leaves them alone; see the tips below.",
+                    Label("\(Format.bytes(mail.protectedSize)) of attachments belong to accounts that keep mail only on this Mac (or whose type could not be confirmed). Viruta leaves them alone; see the tips below.",
                           systemImage: "lock")
                         .font(NoriaFont.caption)
                         .foregroundStyle(.secondary)

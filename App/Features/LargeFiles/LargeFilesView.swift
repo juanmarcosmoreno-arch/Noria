@@ -101,7 +101,7 @@ struct LargeFilesView: View {
                     Text(file.name).lineLimit(1)
                     if file.risk == .protected {
                         Image(systemName: "lock.fill").font(.caption).foregroundStyle(.secondary)
-                            .help(Text("Inside a location managed by macOS or another app. Noria does not modify it."))
+                            .help(Text("Inside a location managed by macOS or another app. Viruta does not modify it."))
                     }
                 }
             }

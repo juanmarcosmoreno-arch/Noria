@@ -79,7 +79,7 @@ struct DeveloperCleanView: View {
         } else {
             VStack(spacing: NoriaSpacing.l) {
                 EmptyStateView(title: "Clean up after Xcode and package managers",
-                               message: "Noria looks at Xcode build data, archives, device support, simulators, package-manager caches and the dependencies of projects you have not touched in months. Each item explains what happens if you remove it.",
+                               message: "Viruta looks at Xcode build data, archives, device support, simulators, package-manager caches and the dependencies of projects you have not touched in months. Each item explains what happens if you remove it.",
                                systemImage: "hammer")
                 Button {
                     developer.scan()

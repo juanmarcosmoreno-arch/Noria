@@ -103,7 +103,7 @@ struct MacHealthView: View {
                     (String(localized: "File system"), model.volume?.formatDescription ?? notReported),
                     (String(localized: "Health (SMART)"), storage.smartStatus ?? notReported),
                 ])
-                Text("Apple's internal SSDs do not publish detailed wear data to apps. Noria shows SMART status only when macOS reports it; Disk Utility › First Aid checks the file system.")
+                Text("Apple's internal SSDs do not publish detailed wear data to apps. Viruta shows SMART status only when macOS reports it; Disk Utility › First Aid checks the file system.")
                     .font(NoriaFont.caption)
                     .foregroundStyle(.secondary)
             }

@@ -36,7 +36,7 @@ struct PerformanceView: View {
                     ProcessCard(title: "Most CPU", processes: metrics.topByCPU, showsCPU: true) { processToQuit = $0 }
                     ProcessCard(title: "Most memory", processes: metrics.topByMemory, showsCPU: false) { processToQuit = $0 }
                 }
-                Text("Noria lists the processes macOS lets it read (\(Format.count(metrics.visibleProcessCount)) right now). CPU is per core, like Activity Monitor: 200% means two cores fully busy.")
+                Text("Viruta lists the processes macOS lets it read (\(Format.count(metrics.visibleProcessCount)) right now). CPU is per core, like Activity Monitor: 200% means two cores fully busy.")
                     .font(NoriaFont.caption)
                     .foregroundStyle(.secondary)
             }
@@ -72,7 +72,7 @@ struct PerformanceView: View {
         if !messages.isEmpty {
             Card {
                 VStack(alignment: .leading, spacing: NoriaSpacing.s) {
-                    CardHeader(title: "What Noria sees", systemImage: "lightbulb")
+                    CardHeader(title: "What Viruta sees", systemImage: "lightbulb")
                     ForEach(messages, id: \.self) { message in
                         Label(message, systemImage: "info.circle")
                             .font(NoriaFont.body)

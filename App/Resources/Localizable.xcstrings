@@ -188,13 +188,13 @@
         }
       }
     },
-    "%@ of attachments belong to accounts that keep mail only on this Mac (or whose type could not be confirmed). Noria leaves them alone; see the tips below.": {
+    "%@ of attachments belong to accounts that keep mail only on this Mac (or whose type could not be confirmed). Viruta leaves them alone; see the tips below.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ de adjuntos pertenecen a cuentas que guardan el correo solo en este Mac (o cuyo tipo no se pudo confirmar). Noria no los toca; mira los consejos de abajo."
+            "value": "%@ de adjuntos pertenecen a cuentas que guardan el correo solo en este Mac (o cuyo tipo no se pudo confirmar). Viruta no los toca; mira los consejos de abajo."
           }
         }
       }
@@ -744,24 +744,24 @@
         }
       }
     },
-    "2. Turn on Noria (use + to add it if it is not listed).": {
+    "2. Turn on Viruta (use + to add it if it is not listed).": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "2. Activa Noria (usa + para añadirla si no aparece)."
+            "value": "2. Activa Viruta (usa + para añadirla si no aparece)."
           }
         }
       }
     },
-    "3. Quit and reopen Noria, then analyze Mail again.": {
+    "3. Quit and reopen Viruta, then analyze Mail again.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "3. Cierra y vuelve a abrir Noria, y analiza Mail de nuevo."
+            "value": "3. Cierra y vuelve a abrir Viruta, y analiza Mail de nuevo."
           }
         }
       }
@@ -1118,13 +1118,13 @@
         }
       }
     },
-    "Apple's internal SSDs do not publish detailed wear data to apps. Noria shows SMART status only when macOS reports it; Disk Utility › First Aid checks the file system.": {
+    "Apple's internal SSDs do not publish detailed wear data to apps. Viruta shows SMART status only when macOS reports it; Disk Utility › First Aid checks the file system.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Los SSD internos de Apple no publican datos detallados de desgaste para las apps. Noria muestra el estado SMART solo cuando macOS lo informa; Utilidad de Discos › Primera ayuda revisa el sistema de archivos."
+            "value": "Los SSD internos de Apple no publican datos detallados de desgaste para las apps. Viruta muestra el estado SMART solo cuando macOS lo informa; Utilidad de Discos › Primera ayuda revisa el sistema de archivos."
           }
         }
       }
@@ -1184,13 +1184,13 @@
         }
       }
     },
-    "Attachments of “%@”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Noria does not remove them; delete large messages from Mail instead.": {
+    "Attachments of “%@”. This account keeps mail only on this Mac (or its type could not be confirmed), so these may be the only copies. Viruta does not remove them; delete large messages from Mail instead.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adjuntos de «%@». Esta cuenta guarda el correo solo en este Mac (o no se pudo confirmar su tipo), así que pueden ser las únicas copias. Noria no los elimina; borra los mensajes grandes desde Mail."
+            "value": "Adjuntos de «%@». Esta cuenta guarda el correo solo en este Mac (o no se pudo confirmar su tipo), así que pueden ser las únicas copias. Viruta no los elimina; borra los mensajes grandes desde Mail."
           }
         }
       }
@@ -1261,13 +1261,13 @@
         }
       }
     },
-    "Before acting, Noria re-checks every item: anything that changed since the scan, is protected, or is excluded is skipped.": {
+    "Before acting, Viruta re-checks every item: anything that changed since the scan, is protected, or is excluded is skipped.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Antes de actuar, Noria vuelve a comprobar cada elemento: se omite todo lo que haya cambiado desde el análisis, esté protegido o excluido."
+            "value": "Antes de actuar, Viruta vuelve a comprobar cada elemento: se omite todo lo que haya cambiado desde el análisis, esté protegido o excluido."
           }
         }
       }
@@ -1360,13 +1360,13 @@
         }
       }
     },
-    "CPU usage averaged %@ for %@ minutes. Open Performance in Noria to see which app is responsible.": {
+    "CPU usage averaged %@ for %@ minutes. Open Performance in Viruta to see which app is responsible.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "El uso de CPU promedió %1$@ durante %2$@ minutos. Abre Rendimiento en Noria para ver qué app es la responsable."
+            "value": "El uso de CPU promedió %1$@ durante %2$@ minutos. Abre Rendimiento en Viruta para ver qué app es la responsable."
           }
         }
       }
@@ -1393,13 +1393,13 @@
         }
       }
     },
-    "Cache managed by macOS or an Apple app. Noria does not touch it.": {
+    "Cache managed by macOS or an Apple app. Viruta does not touch it.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Caché administrada por macOS o una app de Apple. Noria no la toca."
+            "value": "Caché administrada por macOS o una app de Apple. Viruta no la toca."
           }
         }
       }
@@ -2482,13 +2482,13 @@
         }
       }
     },
-    "Firefox keeps history and bookmarks in the same file, so Noria does not remove it. In Firefox, choose History › Clear Recent History.": {
+    "Firefox keeps history and bookmarks in the same file, so Viruta does not remove it. In Firefox, choose History › Clear Recent History.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Firefox guarda el historial y los marcadores en el mismo archivo, así que Noria no lo elimina. En Firefox, elige Historial › Limpiar historial reciente."
+            "value": "Firefox guarda el historial y los marcadores en el mismo archivo, así que Viruta no lo elimina. En Firefox, elige Historial › Limpiar historial reciente."
           }
         }
       }
@@ -2845,13 +2845,13 @@
         }
       }
     },
-    "Inside a location managed by macOS or another app. Noria does not modify it.": {
+    "Inside a location managed by macOS or another app. Viruta does not modify it.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Está en una ubicación administrada por macOS u otra app. Noria no la modifica."
+            "value": "Está en una ubicación administrada por macOS u otra app. Viruta no la modifica."
           }
         }
       }
@@ -2944,13 +2944,13 @@
         }
       }
     },
-    "Items will be moved to Noria's quarantine. You can restore them from History › Quarantine. They are deleted for good after the retention period; until then the space is not freed.": {
+    "Items will be moved to Viruta's quarantine. You can restore them from History › Quarantine. They are deleted for good after the retention period; until then the space is not freed.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Los elementos se moverán a la cuarentena de Noria. Puedes restaurarlos desde Historial › Cuarentena. Se eliminan definitivamente al terminar el plazo; hasta entonces el espacio no se libera."
+            "value": "Los elementos se moverán a la cuarentena de Viruta. Puedes restaurarlos desde Historial › Cuarentena. Se eliminan definitivamente al terminar el plazo; hasta entonces el espacio no se libera."
           }
         }
       }
@@ -3296,13 +3296,13 @@
         }
       }
     },
-    "Mail keeps a local copy of your messages and their attachments. Noria shows where the space goes and only removes copies that can be downloaded again. Your messages are never deleted.": {
+    "Mail keeps a local copy of your messages and their attachments. Viruta shows where the space goes and only removes copies that can be downloaded again. Your messages are never deleted.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mail guarda una copia local de tus mensajes y sus adjuntos. Noria muestra a dónde va el espacio y solo elimina copias que se pueden volver a descargar. Tus mensajes nunca se borran."
+            "value": "Mail guarda una copia local de tus mensajes y sus adjuntos. Viruta muestra a dónde va el espacio y solo elimina copias que se pueden volver a descargar. Tus mensajes nunca se borran."
           }
         }
       }
@@ -3362,13 +3362,13 @@
         }
       }
     },
-    "Managed by macOS or another app; Noria does not remove it.": {
+    "Managed by macOS or another app; Viruta does not remove it.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lo gestiona macOS u otra app; Noria no lo elimina."
+            "value": "Lo gestiona macOS u otra app; Viruta no lo elimina."
           }
         }
       }
@@ -3582,17 +3582,6 @@
         }
       }
     },
-    "Move to Noria quarantine (recommended)": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mover a la cuarentena de Noria (recomendado)"
-          }
-        }
-      }
-    },
     "Move to Quarantine": {
       "extractionState": "manual",
       "localizations": {
@@ -3648,13 +3637,24 @@
         }
       }
     },
-    "Moved to quarantine or Trash, or deleted by Noria": {
+    "Move to Viruta quarantine (recommended)": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Movido a la cuarentena o la Papelera, o eliminado por Noria"
+            "value": "Mover a la cuarentena de Viruta (recomendado)"
+          }
+        }
+      }
+    },
+    "Moved to quarantine or Trash, or deleted by Viruta": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Movido a la cuarentena o la Papelera, o eliminado por Viruta"
           }
         }
       }
@@ -3791,160 +3791,6 @@
         }
       }
     },
-    "Noria Watch": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria Watch"
-          }
-        }
-      }
-    },
-    "Noria Watch checks free space, CPU and memory pressure once a minute while it is enabled. It never scans or removes files in the background. Notifications are rare: each one waits hours before repeating.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria Watch revisa el espacio libre, la CPU y la presión de memoria una vez por minuto mientras está activado. Nunca analiza ni elimina archivos en segundo plano. Los avisos son poco frecuentes: cada uno espera horas antes de repetirse."
-          }
-        }
-      }
-    },
-    "Noria compares file contents, not names. You decide which copies to remove, and one copy of each file is always kept.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria compara el contenido, no los nombres. Tú decides qué copias eliminar y siempre se conserva una de cada archivo."
-          }
-        }
-      }
-    },
-    "Noria could not confirm where this account keeps its mail, so its attachments are protected.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria no pudo confirmar dónde guarda esta cuenta su correo, así que sus adjuntos están protegidos."
-          }
-        }
-      }
-    },
-    "Noria does not have permission to read this location.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria no tiene permiso para leer esta ubicación."
-          }
-        }
-      }
-    },
-    "Noria found no login agents or services it can read.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria no encontró agentes de inicio ni servicios que pueda leer."
-          }
-        }
-      }
-    },
-    "Noria lists the processes macOS lets it read (%@ right now). CPU is per core, like Activity Monitor: 200%% means two cores fully busy.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria muestra los procesos que macOS le permite leer (%@ ahora mismo). La CPU es por núcleo, como en el Monitor de Actividad: 200%% significa dos núcleos totalmente ocupados."
-          }
-        }
-      }
-    },
-    "Noria looks at Xcode build data, archives, device support, simulators, package-manager caches and the dependencies of projects you have not touched in months. Each item explains what happens if you remove it.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria revisa los datos de compilación de Xcode, archivos, soporte de dispositivos, simuladores, cachés de gestores de paquetes y las dependencias de proyectos que no tocas desde hace meses. Cada elemento explica qué pasa si lo eliminas."
-          }
-        }
-      }
-    },
-    "Noria measures every folder and draws a map where each block is proportional to its size. Click to select, double-click to go inside. Nothing is changed while scanning.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria mide cada carpeta y dibuja un mapa donde cada bloque es proporcional a su tamaño. Haz clic para seleccionar y doble clic para entrar. Durante el análisis no se modifica nada."
-          }
-        }
-      }
-    },
-    "Noria needs Full Disk Access to read Mail": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria necesita Acceso total al disco para leer Mail"
-          }
-        }
-      }
-    },
-    "Noria needs access to your Home folder to analyze caches, logs, developer data, downloads and large files. Click Allow Access without selecting anything else. Nothing is changed without your confirmation.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria necesita acceso a tu carpeta de inicio para analizar cachés, registros, datos de desarrollo, descargas y archivos grandes. Pulsa Permitir acceso sin seleccionar nada más. No se modifica nada sin tu confirmación."
-          }
-        }
-      }
-    },
-    "Noria never removes this. It is shown for transparency only.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria nunca elimina esto. Se muestra solo por transparencia."
-          }
-        }
-      }
-    },
-    "Noria shows the history, cookies, tabs and website data that Chrome, Brave, Edge, Vivaldi, Arc, Opera and Firefox keep on this Mac, and explains what removing each one means. Nothing is selected for you.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria muestra el historial, las cookies, las pestañas y los datos de sitios web que Chrome, Brave, Edge, Vivaldi, Arc, Opera y Firefox guardan en esta Mac, y explica qué significa eliminar cada uno. No se selecciona nada por ti."
-          }
-        }
-      }
-    },
-    "Noria works entirely on this Mac. It sends no file names, paths, content or usage data anywhere.": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noria funciona por completo en este Mac. No envía nombres de archivo, rutas, contenido ni datos de uso a ningún sitio."
-          }
-        }
-      }
-    },
     "Normal": {
       "extractionState": "manual",
       "localizations": {
@@ -3989,13 +3835,13 @@
         }
       }
     },
-    "Not removed by Noria": {
+    "Not removed by Viruta": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Noria no los elimina"
+            "value": "Viruta no los elimina"
           }
         }
       }
@@ -4143,13 +3989,13 @@
         }
       }
     },
-    "Only %@ available. Open Noria to see what you can safely clean.": {
+    "Only %@ available. Open Viruta to see what you can safely clean.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Solo quedan %@ disponibles. Abre Noria para ver qué puedes limpiar con seguridad."
+            "value": "Solo quedan %@ disponibles. Abre Viruta para ver qué puedes limpiar con seguridad."
           }
         }
       }
@@ -4209,17 +4055,6 @@
         }
       }
     },
-    "Open Noria": {
-      "extractionState": "manual",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abrir Noria"
-          }
-        }
-      }
-    },
     "Open Performance": {
       "extractionState": "manual",
       "localizations": {
@@ -4264,6 +4099,17 @@
         }
       }
     },
+    "Open Viruta": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Viruta"
+          }
+        }
+      }
+    },
     "Open and closed tabs": {
       "extractionState": "manual",
       "localizations": {
@@ -4297,13 +4143,13 @@
         }
       }
     },
-    "Optional. Without it, macOS hides some locations (for example the Trash and some app logs) and Noria reports them as not readable. Noria never tries to bypass macOS privacy protections.": {
+    "Optional. Without it, macOS hides some locations (for example the Trash and some app logs) and Viruta reports them as not readable. Viruta never tries to bypass macOS privacy protections.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Opcional. Sin él, macOS oculta algunas ubicaciones (por ejemplo, la Papelera y algunos registros de apps) y Noria las indica como no legibles. Noria nunca intenta eludir las protecciones de privacidad de macOS."
+            "value": "Opcional. Sin él, macOS oculta algunas ubicaciones (por ejemplo, la Papelera y algunos registros de apps) y Viruta las indica como no legibles. Viruta nunca intenta eludir las protecciones de privacidad de macOS."
           }
         }
       }
@@ -4528,13 +4374,13 @@
         }
       }
     },
-    "Quarantine keeps cleaned items inside Noria so you can restore them from History; they are deleted for good after the chosen number of days. Moving to the Trash lets you use Finder’s Put Back. In both cases space is freed only when the items are finally deleted.": {
+    "Quarantine keeps cleaned items inside Viruta so you can restore them from History; they are deleted for good after the chosen number of days. Moving to the Trash lets you use Finder’s Put Back. In both cases space is freed only when the items are finally deleted.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "La cuarentena guarda lo que limpias dentro de Noria para que puedas restaurarlo desde Historial; se elimina definitivamente tras los días elegidos. Mover a la Papelera te permite usar «Devolver» en Finder. En ambos casos el espacio solo se libera cuando los elementos se eliminan del todo."
+            "value": "La cuarentena guarda lo que limpias dentro de Viruta para que puedas restaurarlo desde Historial; se elimina definitivamente tras los días elegidos. Mover a la Papelera te permite usar «Devolver» en Finder. En ambos casos el espacio solo se libera cuando los elementos se eliminan del todo."
           }
         }
       }
@@ -4583,13 +4429,13 @@
         }
       }
     },
-    "Quit Noria": {
+    "Quit Viruta": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Salir de Noria"
+            "value": "Salir de Viruta"
           }
         }
       }
@@ -4715,13 +4561,13 @@
         }
       }
     },
-    "Relaunch Noria to apply the new language.": {
+    "Relaunch Viruta to apply the new language.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Reinicia Noria para aplicar el nuevo idioma."
+            "value": "Reinicia Viruta para aplicar el nuevo idioma."
           }
         }
       }
@@ -5067,13 +4913,13 @@
         }
       }
     },
-    "Safari's history and website data are protected by macOS and Noria does not modify them. In Safari, choose History › Clear History, or Settings › Privacy › Manage Website Data.": {
+    "Safari's history and website data are protected by macOS and Viruta does not modify them. In Safari, choose History › Clear History, or Settings › Privacy › Manage Website Data.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "El historial y los datos de sitios de Safari están protegidos por macOS y Noria no los modifica. En Safari, elige Historial › Borrar historial, o Ajustes › Privacidad › Gestionar datos de sitios web."
+            "value": "El historial y los datos de sitios de Safari están protegidos por macOS y Viruta no los modifica. En Safari, elige Historial › Borrar historial, o Ajustes › Privacidad › Gestionar datos de sitios web."
           }
         }
       }
@@ -5276,13 +5122,13 @@
         }
       }
     },
-    "Select an item to see why Noria lists it.": {
+    "Select an item to see why Viruta lists it.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selecciona un elemento para ver por qué Noria lo muestra."
+            "value": "Selecciona un elemento para ver por qué Viruta lo muestra."
           }
         }
       }
@@ -5309,13 +5155,13 @@
         }
       }
     },
-    "Selected items will be moved to Noria's quarantine; you can restore them from History. Space is freed when they are deleted from the quarantine.": {
+    "Selected items will be moved to Viruta's quarantine; you can restore them from History. Space is freed when they are deleted from the quarantine.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Los elementos seleccionados se moverán a la cuarentena de Noria; puedes restaurarlos desde Historial. El espacio se libera cuando se eliminan de la cuarentena."
+            "value": "Los elementos seleccionados se moverán a la cuarentena de Viruta; puedes restaurarlos desde Historial. El espacio se libera cuando se eliminan de la cuarentena."
           }
         }
       }
@@ -5408,13 +5254,13 @@
         }
       }
     },
-    "Show Noria Watch in the menu bar": {
+    "Show Viruta Watch in the menu bar": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar Noria Watch en la barra de menús"
+            "value": "Mostrar Viruta Watch en la barra de menús"
           }
         }
       }
@@ -5991,13 +5837,13 @@
         }
       }
     },
-    "The first time, macOS asks you to allow access to your Home folder. Noria only reads it until you confirm a cleanup.": {
+    "The first time, macOS asks you to allow access to your Home folder. Viruta only reads it until you confirm a cleanup.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "La primera vez, macOS te pedirá permitir el acceso a tu carpeta de inicio. Noria solo la lee hasta que confirmes una limpieza."
+            "value": "La primera vez, macOS te pedirá permitir el acceso a tu carpeta de inicio. Viruta solo la lee hasta que confirmes una limpieza."
           }
         }
       }
@@ -6112,13 +5958,13 @@
         }
       }
     },
-    "This deletes Noria's local log. Files are not affected.": {
+    "This deletes Viruta's local log. Files are not affected.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Esto elimina el registro local de Noria. Los archivos no se ven afectados."
+            "value": "Esto elimina el registro local de Viruta. Los archivos no se ven afectados."
           }
         }
       }
@@ -6134,13 +5980,13 @@
         }
       }
     },
-    "To remove apps, Noria needs permission to modify the Applications folder. Click Allow Access.": {
+    "To remove apps, Viruta needs permission to modify the Applications folder. Click Allow Access.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para eliminar apps, Noria necesita permiso para modificar la carpeta Aplicaciones. Pulsa Permitir acceso."
+            "value": "Para eliminar apps, Viruta necesita permiso para modificar la carpeta Aplicaciones. Pulsa Permitir acceso."
           }
         }
       }
@@ -6244,6 +6090,160 @@
         }
       }
     },
+    "Viruta Watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta Watch"
+          }
+        }
+      }
+    },
+    "Viruta Watch checks free space, CPU and memory pressure once a minute while it is enabled. It never scans or removes files in the background. Notifications are rare: each one waits hours before repeating.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta Watch revisa el espacio libre, la CPU y la presión de memoria una vez por minuto mientras está activado. Nunca analiza ni elimina archivos en segundo plano. Los avisos son poco frecuentes: cada uno espera horas antes de repetirse."
+          }
+        }
+      }
+    },
+    "Viruta compares file contents, not names. You decide which copies to remove, and one copy of each file is always kept.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta compara el contenido, no los nombres. Tú decides qué copias eliminar y siempre se conserva una de cada archivo."
+          }
+        }
+      }
+    },
+    "Viruta could not confirm where this account keeps its mail, so its attachments are protected.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta no pudo confirmar dónde guarda esta cuenta su correo, así que sus adjuntos están protegidos."
+          }
+        }
+      }
+    },
+    "Viruta does not have permission to read this location.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta no tiene permiso para leer esta ubicación."
+          }
+        }
+      }
+    },
+    "Viruta found no login agents or services it can read.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta no encontró agentes de inicio ni servicios que pueda leer."
+          }
+        }
+      }
+    },
+    "Viruta lists the processes macOS lets it read (%@ right now). CPU is per core, like Activity Monitor: 200%% means two cores fully busy.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta muestra los procesos que macOS le permite leer (%@ ahora mismo). La CPU es por núcleo, como en el Monitor de Actividad: 200%% significa dos núcleos totalmente ocupados."
+          }
+        }
+      }
+    },
+    "Viruta looks at Xcode build data, archives, device support, simulators, package-manager caches and the dependencies of projects you have not touched in months. Each item explains what happens if you remove it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta revisa los datos de compilación de Xcode, archivos, soporte de dispositivos, simuladores, cachés de gestores de paquetes y las dependencias de proyectos que no tocas desde hace meses. Cada elemento explica qué pasa si lo eliminas."
+          }
+        }
+      }
+    },
+    "Viruta measures every folder and draws a map where each block is proportional to its size. Click to select, double-click to go inside. Nothing is changed while scanning.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta mide cada carpeta y dibuja un mapa donde cada bloque es proporcional a su tamaño. Haz clic para seleccionar y doble clic para entrar. Durante el análisis no se modifica nada."
+          }
+        }
+      }
+    },
+    "Viruta needs Full Disk Access to read Mail": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta necesita Acceso total al disco para leer Mail"
+          }
+        }
+      }
+    },
+    "Viruta needs access to your Home folder to analyze caches, logs, developer data, downloads and large files. Click Allow Access without selecting anything else. Nothing is changed without your confirmation.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta necesita acceso a tu carpeta de inicio para analizar cachés, registros, datos de desarrollo, descargas y archivos grandes. Pulsa Permitir acceso sin seleccionar nada más. No se modifica nada sin tu confirmación."
+          }
+        }
+      }
+    },
+    "Viruta never removes this. It is shown for transparency only.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta nunca elimina esto. Se muestra solo por transparencia."
+          }
+        }
+      }
+    },
+    "Viruta shows the history, cookies, tabs and website data that Chrome, Brave, Edge, Vivaldi, Arc, Opera and Firefox keep on this Mac, and explains what removing each one means. Nothing is selected for you.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta muestra el historial, las cookies, las pestañas y los datos de sitios web que Chrome, Brave, Edge, Vivaldi, Arc, Opera y Firefox guardan en esta Mac, y explica qué significa eliminar cada uno. No se selecciona nada por ti."
+          }
+        }
+      }
+    },
+    "Viruta works entirely on this Mac. It sends no file names, paths, content or usage data anywhere.": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viruta funciona por completo en este Mac. No envía nombres de archivo, rutas, contenido ni datos de uso a ningún sitio."
+          }
+        }
+      }
+    },
     "Web data": {
       "extractionState": "manual",
       "localizations": {
@@ -6266,35 +6266,35 @@
         }
       }
     },
-    "What Noria can clean safely": {
+    "What Viruta can clean safely": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lo que Noria puede limpiar con seguridad"
+            "value": "Lo que Viruta puede limpiar con seguridad"
           }
         }
       }
     },
-    "What Noria sees": {
+    "What Viruta sees": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lo que ve Noria"
+            "value": "Lo que ve Viruta"
           }
         }
       }
     },
-    "When Noria cleans something, it is kept here first so you can restore it. Choose the method and the number of days in Settings.": {
+    "When Viruta cleans something, it is kept here first so you can restore it. Choose the method and the number of days in Settings.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cuando Noria limpia algo, primero lo guarda aquí para que puedas restaurarlo. Elige el método y los días en Configuración."
+            "value": "Cuando Viruta limpia algo, primero lo guarda aquí para que puedas restaurarlo. Elige el método y los días en Configuración."
           }
         }
       }
@@ -6593,24 +6593,24 @@
         }
       }
     },
-    "macOS only lets each app turn its own login items on or off. Noria shows the background jobs it can read and points out the ones left behind by apps you removed. To turn items off, use Login Items in System Settings.": {
+    "macOS only lets each app turn its own login items on or off. Viruta shows the background jobs it can read and points out the ones left behind by apps you removed. To turn items off, use Login Items in System Settings.": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS solo permite que cada app active o desactive sus propios ítems de inicio. Noria muestra las tareas en segundo plano que puede leer y señala las que dejaron apps eliminadas. Para desactivar ítems, usa Ítems de inicio en Configuración del sistema."
+            "value": "macOS solo permite que cada app active o desactive sus propios ítems de inicio. Viruta muestra las tareas en segundo plano que puede leer y señala las que dejaron apps eliminadas. Para desactivar ítems, usa Ítems de inicio en Configuración del sistema."
           }
         }
       }
     },
-    "macOS protects Mail's folder. To let Noria measure it:": {
+    "macOS protects Mail's folder. To let Viruta measure it:": {
       "extractionState": "manual",
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS protege la carpeta de Mail. Para que Noria pueda medirla:"
+            "value": "macOS protege la carpeta de Mail. Para que Viruta pueda medirla:"
           }
         }
       }

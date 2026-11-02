@@ -147,7 +147,7 @@ struct FolderAccessNote: View {
                 .font(NoriaFont.caption)
                 .foregroundStyle(NoriaColor.review)
         } else if access.needsGrant {
-            Label("The first time, macOS asks you to allow access to your Home folder. Noria only reads it until you confirm a cleanup.",
+            Label("The first time, macOS asks you to allow access to your Home folder. Viruta only reads it until you confirm a cleanup.",
                   systemImage: "lock.shield")
                 .font(NoriaFont.caption)
                 .foregroundStyle(.secondary)
@@ -301,7 +301,7 @@ private struct AnalysisCard: View {
                 Text("Not present").font(NoriaFont.caption).foregroundStyle(.tertiary)
             } else if result.items.isEmpty && result.inaccessibleCount > 0 {
                 Image(systemName: "lock.fill").foregroundStyle(.secondary)
-                    .help(Text("Noria does not have permission to read this location."))
+                    .help(Text("Viruta does not have permission to read this location."))
             } else {
                 HStack(spacing: 6) {
                     Text(Format.bytes(category == .trash ? result.totalSize : result.items.filter(\.isSelectable).reduce(0) { $0 + $1.allocatedSize }))

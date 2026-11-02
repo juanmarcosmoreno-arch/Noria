@@ -142,7 +142,7 @@ final class FolderAccess {
     func requestHomeAccess() -> Bool {
         guard AppEdition.isSandboxed else { return true }
         let panel = NSOpenPanel()
-        panel.message = String(localized: "Noria needs access to your Home folder to analyze caches, logs, developer data, downloads and large files. Click Allow Access without selecting anything else. Nothing is changed without your confirmation.")
+        panel.message = String(localized: "Viruta needs access to your Home folder to analyze caches, logs, developer data, downloads and large files. Click Allow Access without selecting anything else. Nothing is changed without your confirmation.")
         panel.prompt = String(localized: "Allow Access")
         panel.canChooseDirectories = true
         panel.canChooseFiles = false

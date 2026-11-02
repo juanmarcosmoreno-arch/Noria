@@ -17,7 +17,7 @@ PROFILE="${NOTARY_PROFILE:-noria-notary}"
 BUILD="build/release"
 ARCHIVE="$BUILD/NoriaDirect.xcarchive"
 EXPORT="$BUILD/export"
-APP="$EXPORT/Noria.app"
+APP="$EXPORT/Viruta.app"
 
 step() { printf '\n==> %s\n' "$1"; }
 
@@ -34,7 +34,7 @@ xcodebuild -exportArchive -archivePath "$ARCHIVE" \
 
 VERSION=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$APP/Contents/Info.plist")
 BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$APP/Contents/Info.plist")
-DMG="$BUILD/Noria-$VERSION.dmg"
+DMG="$BUILD/Viruta-$VERSION.dmg"
 
 step "Verifying signature and hardened runtime"
 codesign --verify --deep --strict --verbose=2 "$APP"
@@ -42,16 +42,16 @@ codesign --display --verbose=2 "$APP" 2>&1 | grep -E 'Authority=Developer ID App
   || { echo "The app is not signed with Developer ID and the hardened runtime." >&2; exit 1; }
 
 step "Notarizing the app"
-ditto -c -k --keepParent "$APP" "$BUILD/Noria.zip"
-xcrun notarytool submit "$BUILD/Noria.zip" --keychain-profile "$PROFILE" --wait
+ditto -c -k --keepParent "$APP" "$BUILD/Viruta.zip"
+xcrun notarytool submit "$BUILD/Viruta.zip" --keychain-profile "$PROFILE" --wait
 xcrun stapler staple "$APP"
 
 step "Building the DMG"
 STAGING="$BUILD/dmg"
 mkdir -p "$STAGING"
-ditto "$APP" "$STAGING/Noria.app"
+ditto "$APP" "$STAGING/Viruta.app"
 ln -s /Applications "$STAGING/Applications"
-hdiutil create -volname "Noria" -srcfolder "$STAGING" -ov -format UDZO "$DMG" -quiet
+hdiutil create -volname "Viruta" -srcfolder "$STAGING" -ov -format UDZO "$DMG" -quiet
 
 IDENTITY=$(codesign --display --verbose=2 "$APP" 2>&1 | sed -n 's/^Authority=\(Developer ID Application.*\)$/\1/p' | head -1)
 codesign --sign "$IDENTITY" --timestamp "$DMG"

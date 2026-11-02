@@ -247,11 +247,11 @@ struct NoriaLogo: View {
     var body: some View {
         HStack(spacing: NoriaSpacing.xs) {
             SawMark().frame(width: size, height: size)
-            Text(verbatim: "noria")
+            Text(verbatim: "viruta")
                 .font(NoriaFont.wordmark)
                 .foregroundStyle(.primary)
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(verbatim: "Noria"))
+        .accessibilityLabel(Text(verbatim: "Viruta"))
     }
 }

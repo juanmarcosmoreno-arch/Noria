@@ -119,7 +119,7 @@ final class AppRemoverModel {
         let access = app.folderAccess
         for item in selectedItems where !access.canModify(item.path) {
             if item.path.isSameOrDescendant(of: FolderAccess.applicationsFolder) {
-                let message = String(localized: "To remove apps, Noria needs permission to modify the Applications folder. Click Allow Access.")
+                let message = String(localized: "To remove apps, Viruta needs permission to modify the Applications folder. Click Allow Access.")
                 guard access.requestAccess(to: FolderAccess.applicationsFolder, message: message) else { return false }
             } else if access.needsGrant {
                 guard access.requestHomeAccess() else { return false }

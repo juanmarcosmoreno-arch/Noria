@@ -17,7 +17,7 @@ struct SettingsView: View {
                 }
                 .onChange(of: model.settings.language) { languageChanged = true }
                 if languageChanged {
-                    Text("Relaunch Noria to apply the new language.")
+                    Text("Relaunch Viruta to apply the new language.")
                         .font(NoriaFont.caption)
                         .foregroundStyle(NoriaColor.review)
                 }
@@ -46,7 +46,7 @@ struct SettingsView: View {
             } header: {
                 Text("Cleaning")
             } footer: {
-                Text("Quarantine keeps cleaned items inside Noria so you can restore them from History; they are deleted for good after the chosen number of days. Moving to the Trash lets you use Finder’s Put Back. In both cases space is freed only when the items are finally deleted.")
+                Text("Quarantine keeps cleaned items inside Viruta so you can restore them from History; they are deleted for good after the chosen number of days. Moving to the Trash lets you use Finder’s Put Back. In both cases space is freed only when the items are finally deleted.")
             }
 
             if AppEdition.isSandboxed {
@@ -98,7 +98,7 @@ struct SettingsView: View {
             }
 
             Section {
-                Toggle("Show Noria Watch in the menu bar", isOn: $model.settings.showsMenuBarExtra)
+                Toggle("Show Viruta Watch in the menu bar", isOn: $model.settings.showsMenuBarExtra)
                 Toggle("Notify when free space is low", isOn: $model.settings.notifyLowSpace)
                 if model.settings.notifyLowSpace {
                     Stepper(value: $model.settings.lowSpaceThresholdGB, in: 1...500) {
@@ -113,9 +113,9 @@ struct SettingsView: View {
                 }
                 Toggle("Notify when the CPU stays very busy for 5 minutes", isOn: $model.settings.notifyHighCPU)
             } header: {
-                Text("Noria Watch")
+                Text("Viruta Watch")
             } footer: {
-                Text("Noria Watch checks free space, CPU and memory pressure once a minute while it is enabled. It never scans or removes files in the background. Notifications are rare: each one waits hours before repeating.")
+                Text("Viruta Watch checks free space, CPU and memory pressure once a minute while it is enabled. It never scans or removes files in the background. Notifications are rare: each one waits hours before repeating.")
             }
             .onChange(of: model.settings.notifyLowSpace || model.settings.notifySpaceDrop || model.settings.notifyHighCPU) { _, enabled in
                 if enabled { model.watch.requestNotificationPermission() }
@@ -162,7 +162,7 @@ struct SettingsView: View {
                 LabeledContent("Full Disk Access") {
                     Button("Open Privacy Settings…") { SystemActions.openFullDiskAccessSettings() }
                 }
-                Text("Optional. Without it, macOS hides some locations (for example the Trash and some app logs) and Noria reports them as not readable. Noria never tries to bypass macOS privacy protections.")
+                Text("Optional. Without it, macOS hides some locations (for example the Trash and some app logs) and Viruta reports them as not readable. Viruta never tries to bypass macOS privacy protections.")
                     .font(NoriaFont.caption)
                     .foregroundStyle(.secondary)
             } header: {
@@ -176,7 +176,7 @@ struct SettingsView: View {
                     }
                 }
                 Button("Clear History…", role: .destructive) { confirmingClear = true }
-                Text("Noria works entirely on this Mac. It sends no file names, paths, content or usage data anywhere.")
+                Text("Viruta works entirely on this Mac. It sends no file names, paths, content or usage data anywhere.")
                     .font(NoriaFont.caption)
                     .foregroundStyle(.secondary)
             } header: {
@@ -193,7 +193,7 @@ struct SettingsView: View {
         .confirmationDialog("Clear the history?", isPresented: $confirmingClear) {
             Button("Clear History", role: .destructive) { model.clearHistory() }
         } message: {
-            Text("This deletes Noria's local log. Files are not affected.")
+            Text("This deletes Viruta's local log. Files are not affected.")
         }
     }
 }

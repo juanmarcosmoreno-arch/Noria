@@ -47,7 +47,7 @@ struct WatchMenuView: View {
             Button {
                 show(.dashboard)
             } label: {
-                Label("Open Noria", systemImage: "macwindow")
+                Label("Open Viruta", systemImage: "macwindow")
             }
             Divider()
             HStack {
@@ -55,7 +55,7 @@ struct WatchMenuView: View {
                     Label("Settings…", systemImage: "gearshape")
                 }
                 Spacer()
-                Button("Quit Noria") { NSApp.terminate(nil) }
+                Button("Quit Viruta") { NSApp.terminate(nil) }
             }
         }
         .buttonStyle(.borderless)

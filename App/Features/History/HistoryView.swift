@@ -47,7 +47,7 @@ struct HistoryView: View {
         .confirmationDialog("Clear the history?", isPresented: $confirmingClear) {
             Button("Clear History", role: .destructive) { model.clearHistory() }
         } message: {
-            Text("This deletes Noria's local log. Files are not affected.")
+            Text("This deletes Viruta's local log. Files are not affected.")
         }
         .task {
             await model.loadHistory()
@@ -61,7 +61,7 @@ struct HistoryView: View {
                 Card {
                     MetricView(title: "Removed this month",
                                value: Format.bytes(cleanupsThisMonth.reduce(0) { $0 + ($1.removedBytes ?? 0) }),
-                               caption: String(localized: "Moved to quarantine or Trash, or deleted by Noria"))
+                               caption: String(localized: "Moved to quarantine or Trash, or deleted by Viruta"))
                 }
                 Card {
                     MetricView(title: "Cleanups this month", value: Format.count(cleanupsThisMonth.count))
@@ -124,7 +124,7 @@ private struct QuarantineView: View {
 
             if model.quarantineEntries.isEmpty {
                 EmptyStateView(title: "Quarantine is empty",
-                               message: "When Noria cleans something, it is kept here first so you can restore it. Choose the method and the number of days in Settings.",
+                               message: "When Viruta cleans something, it is kept here first so you can restore it. Choose the method and the number of days in Settings.",
                                systemImage: "archivebox")
             } else {
                 Table(model.quarantineEntries, selection: $selection) {

@@ -15,7 +15,7 @@ struct StartupView: View {
         List {
             Section {
                 VStack(alignment: .leading, spacing: NoriaSpacing.s) {
-                    Text("macOS only lets each app turn its own login items on or off. Noria shows the background jobs it can read and points out the ones left behind by apps you removed. To turn items off, use Login Items in System Settings.")
+                    Text("macOS only lets each app turn its own login items on or off. Viruta shows the background jobs it can read and points out the ones left behind by apps you removed. To turn items off, use Login Items in System Settings.")
                         .font(NoriaFont.caption)
                         .foregroundStyle(.secondary)
                     Button("Open Login Items Settings…") { Self.openLoginItemsSettings() }
@@ -32,7 +32,7 @@ struct StartupView: View {
         .overlay {
             if loaded && items.isEmpty {
                 EmptyStateView(title: "No background items found",
-                               message: "Noria found no login agents or services it can read.",
+                               message: "Viruta found no login agents or services it can read.",
                                systemImage: "power")
             }
         }

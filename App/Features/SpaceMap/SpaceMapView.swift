@@ -92,7 +92,7 @@ struct SpaceMapView: View {
             EmptyStateView(title: "The scan could not finish", message: "\(message)", systemImage: "exclamationmark.triangle")
         } else {
             EmptyStateView(title: "See what fills your disk",
-                           message: "Noria measures every folder and draws a map where each block is proportional to its size. Click to select, double-click to go inside. Nothing is changed while scanning.",
+                           message: "Viruta measures every folder and draws a map where each block is proportional to its size. Click to select, double-click to go inside. Nothing is changed while scanning.",
                            systemImage: "square.grid.3x3.square")
         }
     }
@@ -297,7 +297,7 @@ private struct SelectionDetails: View {
                 Text("\(Format.count(node.groupedCount)) small files and folders grouped together. Open the folder in Finder to see them.")
                     .font(NoriaFont.caption).foregroundStyle(.secondary)
             } else if let item, !item.isSelectable {
-                Label("Managed by macOS or another app; Noria does not remove it.", systemImage: "lock")
+                Label("Managed by macOS or another app; Viruta does not remove it.", systemImage: "lock")
                     .font(NoriaFont.caption).foregroundStyle(.secondary)
             }
             HStack {

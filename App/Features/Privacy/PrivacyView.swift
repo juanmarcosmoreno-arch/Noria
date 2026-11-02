@@ -88,7 +88,7 @@ struct PrivacyView: View {
                             }
                         }
                     } header: {
-                        Text("Not removed by Noria")
+                        Text("Not removed by Viruta")
                     }
                 }
             }
@@ -105,7 +105,7 @@ struct PrivacyView: View {
                     EmptyStateView(title: "The scan could not finish", message: "\(message)", systemImage: "exclamationmark.triangle")
                 } else {
                     EmptyStateView(title: "Your browsing data, under your control",
-                                   message: "Noria shows the history, cookies, tabs and website data that Chrome, Brave, Edge, Vivaldi, Arc, Opera and Firefox keep on this Mac, and explains what removing each one means. Nothing is selected for you.",
+                                   message: "Viruta shows the history, cookies, tabs and website data that Chrome, Brave, Edge, Vivaldi, Arc, Opera and Firefox keep on this Mac, and explains what removing each one means. Nothing is selected for you.",
                                    systemImage: "hand.raised")
                 }
                 Button {
